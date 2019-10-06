@@ -1,0 +1,205 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    {% if title %}
+        <title>Barangay 175 - {{title}}</title>
+    {% else %}
+        <title>Barangay 175 </title>
+    {% endif %}
+
+    <!-- specific css plugins -->
+    {% block cssLink %}
+        
+    {% endblock cssLink %}
+        
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'home/plugins/bootstrap/bootstrapCSS/bootstrap.css' %}" >
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'home/css/custom.css' %}">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{% static 'home/plugins/fontawesome/css/all.css' %}">
+    <script src="{% static 'home/plugins/fontawesome/js/all.js' %}" ></script>
+    
+
+</head>
+
+<body onload=display_time();>
+        <!-- main wrapper -->
+        <div class="mainWrapper">
+            <!-- Sidebar -->
+            <nav id="mainSidebar">
+                <div class="sidebar-header">
+                    <h3>BARANGAY 175</h3>
+                </div>
+                <ul class="list-unstyled components">
+                    <div class="avatar  text-center">
+                        <img alt="" src="{% static '../static/home/images/avatar_icon.png' %}">
+                    </div>
+                    <div class="info">
+                        <div class="title text-center">
+                            <a>Taylor Swift</a>
+                        </div>
+                    </div>
+                    <li class="active">
+                        <a href="#dashboard"><i class="fa fa-home"></i> DASHBOARD</a>
+                    <li>
+                        <a href="#officeSectors" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-building"></i> OFFICES</a></a>
+                        <ul class="collapse list-unstyled" id="officeSectors">
+                            <li><a href="#kpbrgy">Katarungang Pambarangay</a></li>
+                            <li><a href="#vawc">VAWC / BCPC</a></li>
+                            <li><a href="#badac">BADAC</a></li>
+                            <li><a href="#bpso">BPSO</a></li>
+                            <li><a href="#pwdsnr">PWD & SENIOR Dept.</a></li>
+                            <li><a href="#sk">Sangguniang Kabataan</a></li>
+                            <li><a href="#finasst">Financial Assistance</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#residents"><i class="fa fa-users"></i> RESIDENTS</a></li>
+                    <li><a href="#announcements"><i class="fa fa-bullhorn"></i> ANNOUNCEMENTS</a></li>
+                    <li><a href="#reports"><i class="fa fa-line-chart"></i> REPORTS</a></li>
+                </ul>
+                <!-- <div class="sidebarImgWrapper">
+                    <img src="{% static '../static/home/images/sidebarbg2.jpg' %}" class="text-center shadow">
+                </div> -->
+            </nav>
+            <!-- end of sidebar -->
+            <!-- template content -->
+            <div id="content">
+    
+                <nav id="mainNavbar" style="background-color: #fff !important;border-bottom:1px solid #C4C4C4 !important" class="navbar navbar-expand-lg sticky-top">
+                    <div class="container-fluid">
+    
+                        <button type="button" id="sidebarCollapse" class="navbar-btn">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                        <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <i class="fas fa-align-justify"></i>
+                        </button>
+    
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <span class="navbar-brand mb-0 ml-2 h1" id="timeBar"></span>
+                            <ul class="nav navbar-nav ml-auto">
+                                <li class="nav-item active">
+                                    <div class="row">
+                                        <div class="col-3 mt-2">
+                                            <!-- notification bell -->
+                                            <div class="dropdown">
+                                                    <a href="#" onclick="return false;" role="button" data-toggle="dropdown" id="dropdownMenu1" data-target="#" style="float: left" aria-expanded="true">
+                                                        <i class="fa fa-bell" style="font-size: 20px; float: left; color: black">
+                                                        </i>
+                                                    </a>
+                                                    <span class="badge badge-danger">2</span>
+                                                    <ul id="notifDropdown" class="dropdown-menu dropdown-menu-left pull-right" role="menu" aria-labelledby="dropdownMenu1">
+                                                        <li role="presentation">
+                                                            <a href="#" class="dropdown-menu-header"> Notifications</a>
+                                                        </li>
+                                                        <ul class="timeline timeline-icons timeline-sm" style="margin:10px;width:270px">
+                                                            <li>
+                                                                <p>
+                                                                    AdminB requested for a document change on Case 123
+                                                                    <span class="timeline-icon"><i class="fa fa-file-pdf-o" style="color:red"></i></span>
+                                                                    <span class="timeline-date">October 10, 22:00</span>
+                                                                </p>
+                                                            </li>
+                                                            <li>
+                                                                <p>
+                                                                    AdminF requested an update for Case 243
+                                                                    <span class="timeline-icon"><i class="fa fa-file-pdf-o"  style="color:red"></i></span>
+                                                                    <span class="timeline-date">Sept 6, 10:17</span>
+                                                                </p>
+                                                            </li>
+                                                        </ul>
+                                                    </ul>
+                                                </div>
+                                                <!-- notification bell end -->
+                                        </div>
+                                        <div class="col-9">
+                                                <div style="display:inline-block;">
+                                                        <a class="nav-link" style="font-size: 12px;margin-left: 0;padding-left: 0" id="navbarDropdown1" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">AdminA <i class="fa fa-angle-down">     </i></a>
+                                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                                                            <li><a class="dropdown-item" href="#">View Profile</a></li>
+                                                            <li><a class="dropdown-item" href="#">Messages??</a></li>
+                                                            <li><a class="dropdown-item" href="#">Signout</a></li>
+                                                        </ul>
+                                                </div>
+                                                <div style="display:inline-block;vertical-align:top;">
+                                                        <img id="imgAvatar" src="{% static '../static/home/images/avatar_icon.png' %}" width="40" height="40" class="rounded-circle">
+                                                    </div>
+
+
+
+
+                                            
+                                    </div>
+                                   
+                                </li>
+                               
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                
+                
+                    {% block content %}{% endblock content %}
+             
+            </div>
+            <!-- end of template content -->
+        </div>
+        <!-- end of main wrapper -->
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="{% static 'home/plugins/jqueryjs/jquery.js' %}"></script>
+   
+    <!-- Popper.JS -->
+    <script src="{% static 'home/plugins/popperjs/popper.js' %}"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="{%  static 'home/plugins/bootstrap/bootstrapJS/bootstrap.js' %}"></script>
+    
+    <!-- specific js plugins -->
+    {% block jsLink %}
+            
+    {% endblock jsLink %}
+
+    <!-- Custom JS -->
+    <script src="{% static 'home/js/custom.js' %}"></script>
+    <script>
+        $('#sidebarCollapse').on('click', function () {
+            $('#mainSidebar').toggleClass('active');
+            $(this).toggleClass('active');
+        });
+
+        const monthNames = ["January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+        ];
+
+        const dayNames = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+        
+
+        function display_c() {
+        var refresh = 1000; // Refresh rate in milli seconds
+        mytime = setTimeout('display_time()', refresh)
+        }
+        
+        function display_time() {
+            var x = new Date();
+            var isPM = x.getHours() >= 12;
+            var x1=monthNames[x.getMonth()] + " " + ('0'+x.getDate()).slice(-2) + ", " + x.getFullYear() + " "; 
+            x1 = x1 + dayNames[x.getUTCDay()] + " - " +  x.getHours( )+ ":" +  ('0'+x.getMinutes()).slice(-2) + (isPM ? ' PM' : ' AM');
+            document.getElementById('timeBar').innerHTML = x1;
+            display_c();
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,167 @@
+{% load staticfiles %}
+{% load widget_tweaks %}
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Welcome to Brgy 175</title>
+	<link rel="stylesheet" href="{% static 'plugins/bootstrap/bootstrapCSS/bootstrap.css' %}"/>
+	<link rel="stylesheet" href="{% static 'plugins/mdb/css/mdb.css' %}"/>
+	<!--fontawesome-->
+	<link rel="stylesheet" href="{% static 'plugins/fontawesome/css/solid.css' %}"/>
+
+	<!-- select2 -->
+	<link rel="stylesheet" href="{% static 'plugins/select2/select2.css' %}"/>
+
+	<!-- custom css -->
+	<link rel="stylesheet" href="{% static 'user_account/css/custom.css' %}">
+</head>
+
+<body>
+	<div class="container" id="container">
+	
+		<div class="form-container sign-up-container">
+			<form method="POST" class="needs-validation" novalidate>
+				{% csrf_token %}
+				<h1 class="pulse slower wow delay-4s infinite">Let’s Get Signed Up!</h1>
+				<p><b>Just enter some basic requirements to get started!</b></p>
+				<div class="input-group">
+					<input class="input-field col-sm-5 form-control" type="text" placeholder="First Name" name="fname" maxlength="20" id="validationCustom01" required>
+	
+					<input class="input-field col-sm form-control" type="text" placeholder="MI" name="mi" maxlength="2" required>
+					<input class="input-field col-sm-5 form-control" type="text" placeholder="Last Name" name="lname" maxlength="20" id="validationCustom01" required>
+				  </div>
+				<div class="input-group">
+				  <div class="input-group-prepend">
+				  </div>
+					
+					<select class="custom-select browser-default" id="inputGroupSelect01">
+						<option selected>Select sector...</option>
+						<option value="1">Super Admin</option>
+						<option value="1">Katarungang Pambarangay</option>
+						<option value="2">VAWC / BCPC</option>
+						<option value="3">BADAC</option>
+						<option value="2">BPSO</option>
+						<option value="3">PWD & SENIOR Dept.</option>
+						<option value="2">Sangguniang Kabataan</option>
+						<option value="3">Financial Assistance</option>
+					</select>
+				  <div class="invalid-feedback">Example invalid custom select feedback</div>
+				  </div>
+
+				  
+				<div class="input-group">
+					
+				
+					<!-- <input class="input-field form-control" type="text" placeholder="Username" name="username" id="validationCustom01" required> -->
+				
+					
+				
+				  </div>
+				<div class="input-group">
+					<input class="input-field form-control" type="password" placeholder="Password" name="password" id="validationCustom01" required>
+				</div>
+				<div class="input-group">
+					<input class="input-field form-control" type="password" placeholder="Repeat Password" name="passvalid" id="validationCustom01" required>
+				</div>
+				<div class="valid-feedback"> Password matched! </div>
+				<button type="submit" value="sign_up">Register!</button>
+			</form>
+		</div>
+		<div class="form-container sign-in-container">
+			<form method='POST' action="{% url 'home' %}">
+				{% csrf_token %}
+				<h1 class="pulse slower wow delay-4s infinite">Let’s login to your account!</h1>
+				<p></p>
+				<div class="input-group">
+					<!--<input class="input-field" type="text" placeholder="Username" name="username" >-->
+					
+					{% render_field form.username|append_attr:"class:input-field" type="text" placeholder="Username" name="username" %}
+				  </div>
+			  <div class="input-group">
+					<!--<input class="input-field" type="password" placeholder="Password" name="password">-->
+					{% render_field form.password|append_attr:"class:input-field" type="password" placeholder="Password" name="password" %}
+			  </div>
+				
+			  <a href="#">Forgot your password?</a>
+				<button type="submit" value="sign_in">Go!</button>
+			</form>
+		</div>
+
+		<div class="overlay-container ">
+			<div class="overlay ">
+				<div class="overlay-panel overlay-left" >
+					<img src="{% static 'user_account/images/welcome_to.png' %}" class="slideInLeft wow">
+					<img src="{% static 'user_account/images/brgy.png.' %}" class="flipInY wow slow" data-wow-delay="1s"></img> 
+					<p>Already made an account?</p>
+					<button   class="ghost" id="signIn">Sign In</button>
+				</div>
+				<div class="overlay-panel overlay-right">
+					<img src="{% static 'user_account/images/welcome_to.png.' %}" class="slideInRight wow">
+					<img src="{% static 'user_account/images/brgy.png.' %}" class="flipInY wow slow" data-wow-delay="1s"></img> 
+					<p>No account yet?</p>
+					<button class="ghost" id="signUp" >Sign Up</button>
+				</div>
+			</div>
+		</div>
+	 
+
+<footer>
+	<p>
+		Cute ni mayeers
+	</p>
+</footer>
+</body>
+    <!-- JQuery JS -->
+    <script src="{% static 'plugins/jqueryjs/jquery.js' %}"></script>  
+    
+    <!-- Popper JS -->
+    <script src="{% static 'plugins/popperjs/popper.js' %}"></script>
+
+	<!-- Bootstrap JS -->
+    <script src="{% static 'plugins/bootstrap/bootstrapJS/bootstrap.js' %}"></script>
+
+	<!-- MDB JS -->
+    <script src="{% static 'plugins/mdb/js/mdb.js' %}"></script>
+	
+	<!-- Select2 JS -->
+    <script src="{% static 'plugins/select2/select2.js' %}"></script>
+
+    <!-- Custom JS-->
+    <script src="{% static 'user_account/js/custom.js' %}"></script>
+
+    <script>
+		const signUpButton = document.getElementById('signUp');
+		const signInButton = document.getElementById('signIn');
+		const container = document.getElementById('container');
+	
+	
+		signUpButton.addEventListener('click', () => {
+			container.classList.add("right-panel-active");
+		});
+	
+		signInButton.addEventListener('click', () => {
+			container.classList.remove("right-panel-active");
+		});
+	
+	(function() {
+	'use strict';
+	window.addEventListener('load', function() {
+	// Fetch all the forms we want to apply custom Bootstrap validation styles to
+	var forms = document.getElementsByClassName('needs-validation');
+	// Loop over them and prevent submission
+	var validation = Array.prototype.filter.call(forms, function(form) {
+	form.addEventListener('submit', function(event) {
+	if (form.checkValidity() === false) {
+	event.preventDefault();
+	event.stopPropagation();
+	}
+	form.classList.add('was-validated');
+	}, false);
+	});
+	}, false);
+	})();	
+		new WOW().init();
+	</script>	
+
+</html>
