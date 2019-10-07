@@ -19,21 +19,63 @@ from django.contrib.auth import views as auth_views
 from django.urls import path, include
 from django.conf.urls.static import static
 
+from assistance import views as assistance_views
+from badac import views as badac_views
+from bpso import views as bpso_views
+from katarungan import views as katarungan_views
+from residents import views as residents_views
+from senior import views as senior_views
+from sk import views as sk_views
+from user_account import views as user_views
+from vawc import views as vawc_views
+
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', include('home.urls')),
     path('login/', include('user_account.urls')),
-	path('katarungan/', include('katarungan.urls')),
-	path('vawc/', include('vawc.urls')),
-	path('badac/', include('badac.urls')),
-	path('bpso/', include('bpso.urls')),
-	path('senior/', include('senior.urls')),
-	path('sk/', include('sk.urls')),
-	path('assistance/', include('assistance.urls')),
-	path('residents/', include('residents.urls')),
     
+    #SECTION Assistance URLs
+	path('assistance/', assistance_views.assistanceHome, name='assistanceHome'),
+    #!SECTION 
+
+    #SECTION BADAC URLs
+	path('badac/', badac_views.badacHome, name='badacHome'),
+    #!SECTION 
+
+    #SECTION BPSO URLs
+	path('bpso/', bpso_views.bpsoHome, name='bpsoHome'),
+    #!SECTION 
+
+    #SECTION Katarungan URLs
+	path('katarungan/', katarungan_views.katarunganHome, name='katarunganHome'),
+	path('katarungan/dashboard', katarungan_views.katarunganDashboard, name='katarunganDashboard'),
+    #!SECTION
+
+    #SECTION Residents URLs
+    path('residents/', residents_views.residentsHome, name='residentsHome'),
+    path('residents/add/', residents_views.residentsAdd, name='residentsAdd'),
+    path('residents/view/', residents_views.residentsView, name='residentsView'),
+    path('residents/view/scholarship/', residents_views.residentsViewScholarship, name='residentsViewScholarship'),
+    path('residents/view/cases/', residents_views.residentsViewCases, name='residentsViewCases'),
+    #!SECTION 
+
+    #SECTION Senior & PWD URLs
+    path('senior/', senior_views.seniorHome, name='seniorHome'),
+    #!SECTION 
+
+    #SECTION SK URLs
+    path('sk/', sk_views.skHome, name='skHome'),
+    #!SECTION 
+
+    #SECTION User Account URLs
+    path('user/profile', user_views.userProfile, name='userProfile'),
+    #!SECTION 
+
+    #SECTION VAWC & BCPC URLs
+    path('vawc/', vawc_views.vawcHome, name='vawcHome'),
+    #!SECTION 
 ]
 
 

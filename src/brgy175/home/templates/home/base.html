@@ -39,6 +39,7 @@
                 <div class="sidebar-header">
                     <h3>BARANGAY 175</h3>
                 </div>
+
                 <ul class="list-unstyled components">
                     <div class="avatar  text-center">
                         <img alt="" src="{% static '../static/home/images/avatar_icon.png' %}">
@@ -94,56 +95,50 @@
                                         <div class="col-3 mt-2">
                                             <!-- notification bell -->
                                             <div class="dropdown">
-                                                    <a href="#" onclick="return false;" role="button" data-toggle="dropdown" id="dropdownMenu1" data-target="#" style="float: left" aria-expanded="true">
-                                                        <i class="fa fa-bell" style="font-size: 20px; float: left; color: black">
-                                                        </i>
-                                                    </a>
-                                                    <span class="badge badge-danger">2</span>
-                                                    <ul id="notifDropdown" class="dropdown-menu dropdown-menu-left pull-right" role="menu" aria-labelledby="dropdownMenu1">
-                                                        <li role="presentation">
-                                                            <a href="#" class="dropdown-menu-header"> Notifications</a>
+                                                <a href="#" onclick="return false;" role="button" data-toggle="dropdown" id="dropdownMenu1" data-target="#" style="float: left" aria-expanded="true">
+                                                    <i class="fa fa-bell" style="font-size: 20px; float: left; color: black">
+                                                    </i>
+                                                </a>
+                                                <span class="badge badge-danger">2</span>
+                                                <ul id="notifDropdown" class="dropdown-menu dropdown-menu-left pull-right" role="menu" aria-labelledby="dropdownMenu1">
+                                                    <li role="presentation">
+                                                        <a href="#" class="dropdown-menu-header"> Notifications</a>
+                                                    </li>
+                                                    <ul class="timeline timeline-icons timeline-sm" style="margin:10px;width:270px">
+                                                        <li>
+                                                            <p>
+                                                                AdminB requested for a document change on Case 123
+                                                                <span class="timeline-icon"><i class="fa fa-file-pdf-o" style="color:red"></i></span>
+                                                                <span class="timeline-date">October 10, 22:00</span>
+                                                            </p>
                                                         </li>
-                                                        <ul class="timeline timeline-icons timeline-sm" style="margin:10px;width:270px">
-                                                            <li>
-                                                                <p>
-                                                                    AdminB requested for a document change on Case 123
-                                                                    <span class="timeline-icon"><i class="fa fa-file-pdf-o" style="color:red"></i></span>
-                                                                    <span class="timeline-date">October 10, 22:00</span>
-                                                                </p>
-                                                            </li>
-                                                            <li>
-                                                                <p>
-                                                                    AdminF requested an update for Case 243
-                                                                    <span class="timeline-icon"><i class="fa fa-file-pdf-o"  style="color:red"></i></span>
-                                                                    <span class="timeline-date">Sept 6, 10:17</span>
-                                                                </p>
-                                                            </li>
-                                                        </ul>
+                                                        <li>
+                                                            <p>
+                                                                AdminF requested an update for Case 243
+                                                                <span class="timeline-icon"><i class="fa fa-file-pdf-o"  style="color:red"></i></span>
+                                                                <span class="timeline-date">Sept 6, 10:17</span>
+                                                            </p>
+                                                        </li>
                                                     </ul>
-                                                </div>
+                                                </ul>
+                                            </div>
                                                 <!-- notification bell end -->
                                         </div>
                                         <div class="col-9">
-                                                <div style="display:inline-block;">
-                                                        <a class="nav-link" style="font-size: 12px;margin-left: 0;padding-left: 0" id="navbarDropdown1" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">AdminA <i class="fa fa-angle-down">     </i></a>
-                                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
-                                                            <li><a class="dropdown-item" href="#">View Profile</a></li>
-                                                            <li><a class="dropdown-item" href="#">Messages??</a></li>
-                                                            <li><a class="dropdown-item" href="#">Signout</a></li>
-                                                        </ul>
-                                                </div>
-                                                <div style="display:inline-block;vertical-align:top;">
-                                                        <img id="imgAvatar" src="{% static '../static/home/images/avatar_icon.png' %}" width="40" height="40" class="rounded-circle">
-                                                    </div>
-
-
-
-
-                                            
+                                            <div style="display:inline-block;">
+                                                    <a class="nav-link" style="font-size: 12px;margin-left: 0;padding-left: 0" id="navbarDropdown1" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">AdminA <i class="fa fa-angle-down">     </i></a>
+                                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                                                        <li><a class="dropdown-item" href="{% url 'userProfile' %}">View Profile</a></li>
+                                                        <li><a class="dropdown-item" href="#">Messages??</a></li>
+                                                        <li><a class="dropdown-item" href="#">Signout</a></li>
+                                                    </ul>
+                                            </div>
+                                            <div style="display:inline-block;vertical-align:top;">
+                                                    <img id="imgAvatar" src="{% static '../static/home/images/avatar_icon.png' %}" width="40" height="40" class="rounded-circle">
+                                            </div>
+                                        </div>
                                     </div>
-                                   
                                 </li>
-                               
                             </ul>
                         </div>
                     </div>
