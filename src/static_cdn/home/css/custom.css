@@ -733,7 +733,7 @@ div.dataTables_wrapper div.dataTables_paginate {
 
 
 /* ---------------------------------------------------
-  BUTTONS -default color is changed
+  BUTTONS
 ----------------------------------------------------- */
 
 .width-xs {
@@ -750,6 +750,20 @@ div.dataTables_wrapper div.dataTables_paginate {
 
 .width-lg {
     min-width: 140px;
+}
+
+.btn-brown {
+    background-color: #524747 !important;
+    border-radius: 50px !important;
+    color: #fff !important;
+    border-color: #524747 !important;
+    font-family: Reem Kufi, sans-serif !important;
+    font-size: 16px !important;
+}
+
+.btn-brown:hover {
+    background-color: #241f1f !important;
+    border-color: #241f1f !important;
 }
 
 
@@ -873,7 +887,69 @@ label {
 
 .btn {
     text-transform: uppercase;
-    color: #000 !important;
+    color: #000;
     font-family: Roboto;
     font-weight: bold;
 }
+
+
+/* ---------------------------------------------------
+ BULLET LIST
+----------------------------------------------------- */
+
+ul {
+    font-size: 13px;
+    line-height: 2em;
+    margin: 5px 0 15px;
+    padding: 0;
+}
+
+ul.round li {
+    list-style: none;
+    position: relative;
+    padding: 0 0 0 20px;
+}
+
+ul.round li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+}
+
+
+/* bullet list color */
+
+ul.violetList li::before {
+    background-color: #7819F0 !important;
+}
+
+ul.darkOrangeList li::before {
+    background-color: #FF512F;
+}
+
+ul.greenList li::before {
+    background-color: #0EF533;
+}
+
+ul.pinkList li::before {
+    background-color: #F0195A;
+}
+
+ul.orangeList li::before {
+    background-color: #F09819;
+}
+
+ul.blueList li::before {
+    background-color: #0E25F5;
+}
+
+ul.brightPinkList li::before {
+    background-color: #F50EDE;
+}
+
