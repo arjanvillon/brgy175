@@ -41,4 +41,7 @@ def register(request):
 def userProfile(request):
 	return render(request, 'user_account/profile.html', {'title': 'Profile'})
 
+def updateProfile(request):
+	return render(request, 'user_account/updateProfile.html', {'title': 'Update Profile'})
+
 

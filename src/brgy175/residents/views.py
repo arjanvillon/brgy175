@@ -9,8 +9,3 @@ def residentsAdd(request):
 def residentsView(request):
     return render(request, 'residents/residentsView.html', {'title':'Residents'})
 
-def residentsViewScholarship(request):
-    return render(request, 'residents/residentsViewScholarship.html', {'title':'Residents'})
-
-def residentsViewCases(request):
-    return render(request, 'residents/residentsViewCases.html', {'title':'Residents'})

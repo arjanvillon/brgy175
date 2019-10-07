@@ -57,8 +57,6 @@ urlpatterns = [
     path('residents/', residents_views.residentsHome, name='residentsHome'),
     path('residents/add/', residents_views.residentsAdd, name='residentsAdd'),
     path('residents/view/', residents_views.residentsView, name='residentsView'),
-    path('residents/view/scholarship/', residents_views.residentsViewScholarship, name='residentsViewScholarship'),
-    path('residents/view/cases/', residents_views.residentsViewCases, name='residentsViewCases'),
     #!SECTION 
 
     #SECTION Senior & PWD URLs
@@ -71,6 +69,7 @@ urlpatterns = [
 
     #SECTION User Account URLs
     path('user/profile', user_views.userProfile, name='userProfile'),
+    path('user/profile/update', user_views.updateProfile, name='updateProfile'),
     #!SECTION 
 
     #SECTION VAWC & BCPC URLs
