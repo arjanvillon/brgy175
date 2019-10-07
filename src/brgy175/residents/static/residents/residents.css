@@ -1,5 +1,5 @@
 /* ---------------------------------------------------
- UPLOAD PHOTO
+ SECTION UPLOAD PHOTO
 ----------------------------------------------------- */
 
 div.photoContainer {
@@ -27,7 +27,7 @@ div.photoContainer .fa-user {
 
 #upload_button input[type=file] {
     display: none;
-    cursor: pointer;
+    cursor: pointer !important;
 }
 
 div.photoContainer #upload_button .btn-secondary {
@@ -53,7 +53,7 @@ SECTION highlight colors
 
 
 /* ---------------------------------------------------
-Toggle Switch
+SECTION Toggle Switch
 ----------------------------------------------------- */
 
 .toggleAnswer {
@@ -71,4 +71,35 @@ Toggle Switch
     border-top-right-radius: 50px !important;
     border-bottom-right-radius: 50px !important;
     border-color: #F09819;
+}
+
+/* ---------------------------------------------------
+SECTION Name border
+----------------------------------------------------- */
+.name-border {
+    background-color: #524747;
+    color: #fff;
+    border-radius: 50px;
+    border-bottom-left-radius: 0px !important;
+}
+.container-tab-border {
+    background-color: #fff;
+    border-radius: 50px;
+    border: 3px solid #524747 !important;
+}
+.container-brown-tab {
+    background-color: #524747;
+    border-radius: 50px;
+    border-top-left-radius: 0px !important;
+}
+.imgResidentInv {
+    border: 1px solid #c4c4c4;
+}
+.updateImgContainer {
+    background-color:#5c5a5a;
+    color:#fff;
+}
+.updateImgContainer:hover {
+    background-color:#464444;
+    color:#fff;
 }
