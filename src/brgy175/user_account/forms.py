@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
 
 SECTORS_CHOICES= [
@@ -25,6 +25,10 @@ class UserRegisterForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ['full_name', 'middle_initial' , 'last_name', 'select_sectors','password1', 'password2']
+        fields = ['full_name', 'middle_initial' , 'last_name', 'select_sectors','username','password1', 'password2']
         
-       
+class LoginForm(AuthenticationForm):
+
+    class Meta:
+        model = User
+        fields = ['username','password']

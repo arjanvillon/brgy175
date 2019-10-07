@@ -21,21 +21,24 @@
 	<div class="container" id="container">
 	
 		<div class="form-container sign-up-container">
-			<form method="POST" class="needs-validation" novalidate>
+			<form method="POST" action="{% url 'login'%}" class="needs-validation" novalidate>
 				{% csrf_token %}
+
 				<h1 class="pulse slower wow delay-4s infinite">Let’s Get Signed Up!</h1>
 				<p><b>Just enter some basic requirements to get started!</b></p>
-				<div class="input-group">
-					<input class="input-field col-sm-5 form-control" type="text" placeholder="First Name" name="fname" maxlength="20" id="validationCustom01" required>
-	
-					<input class="input-field col-sm form-control" type="text" placeholder="MI" name="mi" maxlength="2" required>
-					<input class="input-field col-sm-5 form-control" type="text" placeholder="Last Name" name="lname" maxlength="20" id="validationCustom01" required>
+				 <div class="input-group">
+					<!--<input class="input-field col-sm-5 form-control" type="text" placeholder="First Name" name="fname" maxlength="20" id="validationCustom01" required>-->
+					{% render_field form_r.full_name|append_attr:"class:input-field col-sm-5 form-control" type="text" placeholder="First Name" name="fname" maxlength="20" id="validationCustom01" %}
+					<!--<input class="input-field col-sm form-control" type="text" placeholder="MI" name="mi" maxlength="2" required>-->
+					{% render_field form_r.middle_initial|append_attr:"class:input-field col-sm-5 form-control" type="text" placeholder="MI" name="mi" maxlength="20" id="validationCustom01" %}
+					<!--<input class="input-field col-sm-5 form-control" type="text" placeholder="Last Name" name="lname" maxlength="20" id="validationCustom01" required>-->
+					{% render_field form_r.last_name|append_attr:"class:input-field col-sm-5 form-control" type="text" placeholder="Last Name" name="lname" maxlength="20" id="validationCustom01" %}
 				  </div>
 				<div class="input-group">
 				  <div class="input-group-prepend">
 				  </div>
-					
-					<select class="custom-select browser-default" id="inputGroupSelect01">
+					{% render_field form_r.select_sectors|attr:"class:custom-select browser-default" id="inputGroupSelect01" placeholder="Select Sector" %}
+					{% comment %} <select class="custom-select browser-default" id="inputGroupSelect01">
 						<option selected>Select sector...</option>
 						<option value="1">Super Admin</option>
 						<option value="1">Katarungang Pambarangay</option>
@@ -45,46 +48,50 @@
 						<option value="3">PWD & SENIOR Dept.</option>
 						<option value="2">Sangguniang Kabataan</option>
 						<option value="3">Financial Assistance</option>
-					</select>
+					</select> {% endcomment %}
 				  <div class="invalid-feedback">Example invalid custom select feedback</div>
 				  </div>
 
 				  
 				<div class="input-group">
-					
-				
-					<!-- <input class="input-field form-control" type="text" placeholder="Username" name="username" id="validationCustom01" required> -->
-				
-					
-				
-				  </div>
-				<div class="input-group">
-					<input class="input-field form-control" type="password" placeholder="Password" name="password" id="validationCustom01" required>
+					 <!--<input class="input-field form-control" type="text" placeholder="Username" name="username" id="validationCustom01" required>-->
+					{% render_field form_r.username|attr:"class:input-field form-control" type="text" placeholder="Username" name="username" id="validationCustom01" required="required"%}
 				</div>
 				<div class="input-group">
-					<input class="input-field form-control" type="password" placeholder="Repeat Password" name="passvalid" id="validationCustom01" required>
+					<!--<input class="input-field form-control" type="password" placeholder="Password" name="password" id="validationCustom01" required>-->
+					{% render_field form_r.password1|attr:"class:input-field form-control" type="password" placeholder="Password" name="passvalid" id="validationCustom01" required="required"%}
 				</div>
-				<div class="valid-feedback"> Password matched! </div>
-				<button type="submit" value="sign_up">Register!</button>
+				<div class="input-group">
+					<!--<input class="input-field form-control" type="password" placeholder="Repeat Password" name="passvalid" id="validationCustom01" required>-->
+					{% render_field form_r.password2|attr:"class:input-field form-control" type="password" placeholder="Repeat Password" name="passvalid" id="validationCustom01" required="required"%}
+				</div>
+				<div class="valid-feedback"> Password matched! </div> 
+				
+				
+				
+				<button type="submit" name='SignUp' value="sign_up">Register!</button>
+
 			</form>
 		</div>
 		<div class="form-container sign-in-container">
-			<form method='POST' action="{% url 'home' %}">
+			<form method='POST'>
 				{% csrf_token %}
 				<h1 class="pulse slower wow delay-4s infinite">Let’s login to your account!</h1>
 				<p></p>
 				<div class="input-group">
 					<!--<input class="input-field" type="text" placeholder="Username" name="username" >-->
 					
-					{% render_field form.username|append_attr:"class:input-field" type="text" placeholder="Username" name="username" %}
-				  </div>
+					
+					{% render_field form_l.username|append_attr:"class:input-field" type="text" placeholder="Username" name="username" %} 
+				</div>
 			  <div class="input-group">
 					<!--<input class="input-field" type="password" placeholder="Password" name="password">-->
-					{% render_field form.password|append_attr:"class:input-field" type="password" placeholder="Password" name="password" %}
+					 {% render_field form_l.password|append_attr:"class:input-field" type="password" placeholder="Password" name="password" %} 
+					
 			  </div>
 				
 			  <a href="#">Forgot your password?</a>
-				<button type="submit" value="sign_in">Go!</button>
+				<button type="submit" name='SignIn' value="sign_in">Go!</button>
 			</form>
 		</div>
 

@@ -18,14 +18,13 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from django.urls import path, include
 from django.conf.urls.static import static
-from user_account import views as user_account_views
+
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', include('home.urls')),
-    path('login/', auth_views.LoginView.as_view(template_name='user_account/login.html'), name='login' ),
-    #path('register/', user_account_views.register, name='register'),
+    path('login/', include('user_account.urls')),
 	path('katarungan/', include('katarungan.urls')),
 	path('vawc/', include('vawc.urls')),
 	path('badac/', include('badac.urls')),
@@ -34,8 +33,11 @@ urlpatterns = [
 	path('sk/', include('sk.urls')),
 	path('assistance/', include('assistance.urls')),
 	path('residents/', include('residents.urls')),
+    
 ]
 
 
 if settings.DEBUG:
-    urlpatterns +=  static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+   
+
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
