@@ -35,6 +35,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', include('home.urls')),
     path('login/', include('user_account.urls')),
+    path('logout/', include('user_account.urls')),
     
     #SECTION Assistance URLs
 	path('assistance/', assistance_views.assistanceHome, name='assistanceHome'),
@@ -79,6 +80,5 @@ urlpatterns = [
 
 
 if settings.DEBUG:
-   
-
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

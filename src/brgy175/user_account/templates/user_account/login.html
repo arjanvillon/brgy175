@@ -28,16 +28,16 @@
 				<p><b>Just enter some basic requirements to get started!</b></p>
 				 <div class="input-group">
 					<!--<input class="input-field col-sm-5 form-control" type="text" placeholder="First Name" name="fname" maxlength="20" id="validationCustom01" required>-->
-					{% render_field form_r.full_name|append_attr:"class:input-field col-sm-5 form-control" type="text" placeholder="First Name" name="fname" maxlength="20" id="validationCustom01" %}
+					{% render_field form_r.first_name|append_attr:"class:input-field col-sm-5 form-control" type="text" placeholder="First Name" name="fname" maxlength="20" id="validationCustom01" %}
 					<!--<input class="input-field col-sm form-control" type="text" placeholder="MI" name="mi" maxlength="2" required>-->
-					{% render_field form_r.middle_initial|append_attr:"class:input-field col-sm-5 form-control" type="text" placeholder="MI" name="mi" maxlength="20" id="validationCustom01" %}
+					{% render_field form_r.middle_name|append_attr:"class:input-field col-sm-5 form-control" type="text" placeholder="MI" name="mi" maxlength="20" id="validationCustom01" %}
 					<!--<input class="input-field col-sm-5 form-control" type="text" placeholder="Last Name" name="lname" maxlength="20" id="validationCustom01" required>-->
 					{% render_field form_r.last_name|append_attr:"class:input-field col-sm-5 form-control" type="text" placeholder="Last Name" name="lname" maxlength="20" id="validationCustom01" %}
 				  </div>
 				<div class="input-group">
 				  <div class="input-group-prepend">
 				  </div>
-					{% render_field form_r.select_sectors|attr:"class:custom-select browser-default" id="inputGroupSelect01" placeholder="Select Sector" %}
+					{% render_field form_r.sector|attr:"class:custom-select browser-default" id="inputGroupSelect01" placeholder="Select Sector" %}
 					{% comment %} <select class="custom-select browser-default" id="inputGroupSelect01">
 						<option selected>Select sector...</option>
 						<option value="1">Super Admin</option>

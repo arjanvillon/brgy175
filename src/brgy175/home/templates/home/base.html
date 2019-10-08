@@ -46,7 +46,7 @@
                     </div>
                     <div class="info">
                         <div class="title text-center">
-                            <a>Taylor Swift</a>
+                            <a>{{ user.username }}</a>
                         </div>
                     </div>
                     <li class="active">
@@ -126,11 +126,11 @@
                                         </div>
                                         <div class="col-9">
                                             <div style="display:inline-block;">
-                                                    <a class="nav-link" style="font-size: 12px;margin-left: 0;padding-left: 0" id="navbarDropdown1" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">AdminA <i class="fa fa-angle-down">     </i></a>
+                                                    <a class="nav-link" style="font-size: 12px;margin-left: 0;padding-left: 0" id="navbarDropdown1" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ user.username }} <i class="fa fa-angle-down">     </i></a>
                                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
                                                         <li><a class="dropdown-item" href="{% url 'userProfile' %}">View Profile</a></li>
                                                         <li><a class="dropdown-item" href="#">Messages??</a></li>
-                                                        <li><a class="dropdown-item" href="#">Signout</a></li>
+                                                        <li><a class="dropdown-item" href={% url 'logout' %}>Signout</a></li>
                                                     </ul>
                                             </div>
                                             <div style="display:inline-block;vertical-align:top;">
