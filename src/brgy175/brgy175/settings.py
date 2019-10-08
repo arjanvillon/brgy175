@@ -79,6 +79,8 @@ TEMPLATES = [
     },
 ]
 
+AUTH_USER_MODEL = 'user_account.Account'
+
 WSGI_APPLICATION = 'brgy175.wsgi.application'
 
 
@@ -137,3 +139,6 @@ STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn")
 
 LOGIN_REDIRECT_URL = 'home'
 LOGIN_URL = 'login' 
+
+MEDIA_URL ='/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
