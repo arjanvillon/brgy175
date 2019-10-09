@@ -43,6 +43,7 @@
             <div class="col-9">
                 <form method="POST" action="" class="needs-validation" novalidate>
                 {% csrf_token %}
+                <!-- SECTION FULL NAME -->
                 <div class="form-group row">
                     <label class="col-sm-1 col-form-label d-flex justify-content-end ml-5">Name</label>
 
@@ -54,7 +55,73 @@
           
                     {% render_field form_res.suffix|append_attr:"class:input-field form-control col-sm-1 mr-1" type="text" placeholder="Suffix" name="lname" maxlength="2" id="resLastName" %}
                 </div>
-                
+                <!-- SECTION ADDRESS -->
+                <div class="form-group row">
+                    <label for="address" class="col-sm-1 col-form-label d-flex justify-content-end ml-5">Address</label>
+                    <div class="col-sm-9 ml-0 pl-0">
+
+                        {% render_field form_res.address|append_attr:"class:form-control ml-0" id="address" type="text" name="" placeholder="Enter address" value="" %}
+                    </div>
+                </div>
+                <!-- SECTION DATE OF BIRTH & PLACE OF BIRTH -->
+                <div class="form-group row">
+                    <label for="resBirthDate" class="col-sm-1 col-form-label d-flex justify-content-end ml-5">Birth Date</label>
+   
+                    {% render_field form_res.date_of_birth|append_attr:"class:datepicker input-field col-4 form-control mr-1" placeholder="YYYY-MM-DD" data-provide="datepicker" data-date-format="yyyy-mm-dd" name="resBirthDate"  id="resBirthDate" %}
+
+                    <label for="resBirthPlace" class="col-sm-1 col-form-label ml-4 d-flex justify-content-end ">Birth Place</label>
+            
+                    {% render_field form_res.place_of_birth|append_attr:"class:input-field col-4 form-control" type="text" placeholder="Enter Place" name="resBirthPlace" id="resBirthPlace" maxlength="20" %}
+                </div>
+                <!-- SECTION AGE, WEIGHT & HEIGHT -->
+                <div class="form-group row"> 
+                    <label for="resAge" class="col-sm-1 col-form-label d-flex justify-content-end ml-5">Age</label>
+
+                    {% render_field form_res.age|append_attr:"class:input-field col-sm-4 form-control mr-1" type="text" placeholder="Enter Age" name="resAge" id="resAge" maxlength="20" %}
+
+                    <label for="resWeightresWeight" class="col-sm-1 col-form-label d-flex justify-content-end ml-5">Weight</label>
+
+                    {% render_field form_res.weight|append_attr:"class:input-field col-sm-1 form-control mr-1" type="text" placeholder="" name="resWeight" maxlength="20" id="resWeight" %}
+
+                    <label for="resHeight" class="col-sm-1 col-form-label ml-4 d-flex justify-content-end">Height</label>
+
+                    {% render_field form_res.height|append_attr:"class:input-field col-sm-1 form-control" type="text" placeholder="" name="resHeight" id="resHeight" maxlength="20" %}
+                </div>
+                <!-- SECTION Gender & Civil Status -->
+                <div class="form-group row">
+                    <label for="resGender" class="col-sm-1 col-form-label d-flex justify-content-end ml-5">Gender</label>
+                    <div class="col-sm-4">
+
+                        {% render_field form_res.gender|append_attr:"class:form-control select2 m-0" name="resGender" id="resGender" %}
+
+                    </div>
+                    <label for="resCivilStatus" class="col-sm-1 col-form-label ml-4 d-flex justify-content-end">Civil Status</label>
+
+                    {% render_field form_res.civil_status|append_attr:"class:input-field col-sm-4 form-control" type="text" placeholder="Enter Civil Status" name="resCivilStatus" maxlength="20" id="resCivilStatus" %}
+
+                </div>
+                <!-- SECTION Contact Number & Nationality -->
+                <div class="form-group row">
+                    <label for="resContactNumber" class="col-sm-1 col-form-label d-flex justify-content-end ml-5">Contact No.</label>
+
+                    {% render_field form_res.contact_number|append_attr:"class:input-field col-sm-4 form-control mr-1" type="number" placeholder="XXXX-XXX-XXXX" name="resContactNumber" id="resContactNumber" maxlength="20" %}
+
+                    <label for="resNationality" class="col-sm-1 col-form-label ml-4 d-flex justify-content-end">Nationality</label>
+
+                    {% render_field form_res.nationality|append_attr:"class:input-field col-sm-4 form-control" type="text" placeholder="Enter Nationality" name="resNationality" id="resNationality" maxlength="20"%}
+                </div>
+                <!-- SECTION Email Address & Religion -->
+                <div class="form-group row">
+                    <label for="resEmailAddress" class="col-sm-1 col-form-label d-flex justify-content-end ml-5">Email Add</label>
+
+                    {% render_field form_res.email_address|append_attr:"class:input-field col-sm-4 form-control mr-1" type="email" placeholder="juandelacruz@gmail.com" name="resEmailAddress" id="resEmailAddress" maxlength="20"%}
+
+                    <label for="resReligion" class="col-sm-1 col-form-label ml-4 d-flex justify-content-end">Religion</label>
+
+                    {% render_field form_res.religion|append_attr:"class:input-field col-sm-4 form-control" type="text" placeholder="Enter Religion" name="resReligion" id="resReligion" maxlength="20"%}
+
+                </div> 
+            <!-- Basic info end -->
                     <!-- col-12 end -->
                     <div class="col-12 pt-5">
                         <div class="text-center ml-3 pl-5">
