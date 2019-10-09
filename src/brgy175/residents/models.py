@@ -1,6 +1,4 @@
 from django.db import models
-from user_account.models import Account
-from landing.models import IDForm, IndigencyForm, ClearanceForm, BusinessPermit, ScholarshipForm, BurialForm
 
 class Resident(models.Model):
     first_name = models.CharField(max_length=30)
@@ -20,11 +18,7 @@ class Resident(models.Model):
     email_address = models.EmailField(max_length=60, unique=True)
     religion = models.CharField(max_length=30)
 
-    idForm = models.ForeignKey(IDForm, on_delete=models.CASCADE)
-    clearanceForm = models.ForeignKey(ClearanceForm, on_delete=models.CASCADE)
-    businessPermit = models.ForeignKey(BusinessPermit, on_delete=models.CASCADE)
-    scholarshipForm = models.ForeignKey(ScholarshipForm, on_delete=models.CASCADE)
-    burialForm = models.ForeignKey(BurialForm, on_delete=models.CASCADE)
+
     # citizen_id = models.IntegerField()
     # pwd_no = models.IntegerField()
     # is_senior = models.BooleanField(default=False)
