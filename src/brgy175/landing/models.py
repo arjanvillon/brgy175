@@ -77,7 +77,6 @@ class BurialForm(models.Model):
     burial_name = models.CharField(max_length=50)
     burial_address = models.CharField(max_length=100)
     burial_relation = models.CharField(max_length=20)
-    burial_relation = models.CharField(max_length=20)
     burial_birth = models.DateField()
     burial_death = models.DateField()
     burial_interment_place = models.CharField(max_length=50)
