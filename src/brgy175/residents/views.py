@@ -18,6 +18,7 @@ def residentsAdd(request):
         'form_res': form_res
     }
 
+    messages.success(request, 'Successfully registered!')  
     return render(request, 'residents/residentsAdd.html', context)
 
 

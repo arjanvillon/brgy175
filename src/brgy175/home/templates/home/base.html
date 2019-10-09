@@ -18,6 +18,8 @@
         
     {% endblock cssLink %}
         
+
+  
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{% static 'home/plugins/bootstrap/bootstrapCSS/bootstrap.css' %}" >
 
@@ -50,20 +52,20 @@
                         </div>
                     </div>
                     <li class="active">
-                        <a href="#dashboard"><i class="fa fa-home"></i> DASHBOARD</a>
+                        <a href="{% url 'home' %}"><i class="fa fa-home"></i> DASHBOARD</a>
                     <li>
                         <a href="#officeSectors" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-building"></i> OFFICES</a></a>
                         <ul class="collapse list-unstyled" id="officeSectors">
-                            <li><a href="#kpbrgy">Katarungang Pambarangay</a></li>
-                            <li><a href="#vawc">VAWC / BCPC</a></li>
-                            <li><a href="#badac">BADAC</a></li>
-                            <li><a href="#bpso">BPSO</a></li>
-                            <li><a href="#pwdsnr">PWD & SENIOR Dept.</a></li>
-                            <li><a href="#sk">Sangguniang Kabataan</a></li>
-                            <li><a href="#finasst">Financial Assistance</a></li>
+                            <li><a href="{% url 'katarunganHome' %}">Katarungang Pambarangay</a></li>
+                            <li><a href="{% url 'vawcHome' %}">VAWC / BCPC</a></li>
+                            <li><a href="{% url 'badacHome' %}">BADAC</a></li>
+                            <li><a href="{% url 'bpsoHome' %}">BPSO</a></li>
+                            <li><a href="{% url 'seniorHome' %}">PWD & SENIOR Dept.</a></li>
+                            <li><a href="{% url 'skHome' %}">Sangguniang Kabataan</a></li>
+                            <li><a href="{% url 'assistanceHome' %}">Financial Assistance</a></li>
                         </ul>
                     </li>
-                    <li><a href="#residents"><i class="fa fa-users"></i> RESIDENTS</a></li>
+                    <li><a href="{% url 'residentsHome' %}"><i class="fa fa-users"></i> RESIDENTS</a></li>
                     <li><a href="#announcements"><i class="fa fa-bullhorn"></i> ANNOUNCEMENTS</a></li>
                     <li><a href="#reports"><i class="fa fa-line-chart"></i> REPORTS</a></li>
                 </ul>
