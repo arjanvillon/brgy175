@@ -1,6 +1,4 @@
 from django.db import models
-from user_account.models import Account
-from katarungan.models import CaseRecord
 
 class Resident(models.Model):
     first_name = models.CharField(max_length=30)
