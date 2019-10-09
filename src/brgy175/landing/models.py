@@ -1,15 +1,12 @@
 from django.db import models
-from residents.models import Resident
 
 class IDForm(models.Model):
-    resident = models.ForeignKey(Resident, on_delete=models.CASCADE)
     con_person = models.CharField(max_length=50)
     con_person_address = models.CharField(max_length=100)
     con_person_relationsip = models.CharField(max_length=20)
     con_person_mobile = models.CharField(max_length=11)
 
 class IndigencyForm(models.Model):
-    resident = models.ForeignKey(Resident, on_delete=models.CASCADE)
     ccswd = models.BooleanField(default=False)
     dswd_medical = models.BooleanField(default=False)
     in_birth_certificate = models.BooleanField(default=False)
@@ -22,7 +19,6 @@ class IndigencyForm(models.Model):
     dswd_financial = models.BooleanField(default=False)
 
 class ClearanceForm(models.Model):
-    resident = models.ForeignKey(Resident, on_delete=models.CASCADE)
     bail_bond = models.BooleanField(default=False)
     bank = models.BooleanField(default=False)
     cl_birth_certificate = models.BooleanField(default=False)
@@ -49,14 +45,12 @@ class ClearanceForm(models.Model):
     nha = models.BooleanField(default=False)
 
 class BusinessPermit(models.Model):
-    resident = models.ForeignKey(Resident, on_delete=models.CASCADE)
     barangay_permit = models.BooleanField(default=False)
     city_permit = models.BooleanField(default=False)
     business_address = models.CharField(max_length=100)
     business_name = models.CharField(max_length=50)
 
 class ScholarshipForm(models.Model):
-    resident = models.ForeignKey(Resident, on_delete=models.CASCADE)
     father_name = models.CharField(max_length=50)
     father_address = models.CharField(max_length=100)
     father_age = models.IntegerField()
@@ -73,7 +67,6 @@ class ScholarshipForm(models.Model):
     mother_salary =   models.IntegerField()
 
 class BurialForm(models.Model):
-    resident = models.ForeignKey(Resident, on_delete=models.CASCADE)
     burial_name = models.CharField(max_length=50)
     burial_address = models.CharField(max_length=100)
     burial_relation = models.CharField(max_length=20)

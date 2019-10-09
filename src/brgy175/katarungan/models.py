@@ -1,3 +1,4 @@
 from django.db import models
+from residents.models import Resident
 
-# Create your models here.
+class CaseRecord(models.Model):
