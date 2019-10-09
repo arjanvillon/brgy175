@@ -56,6 +56,7 @@ urlpatterns = [
     #SECTION Katarungan URLs
 	path('katarungan/', katarungan_views.katarunganHome, name='katarunganHome'),
 	path('katarungan/dashboard', katarungan_views.katarunganDashboard, name='katarunganDashboard'),
+	path('katarungan/add', katarungan_views.katarunganAddCase, name='katarunganAddCase'),
     #!SECTION
 
     #SECTION Residents URLs

@@ -6,3 +6,6 @@ def katarunganHome(request):
 def katarunganDashboard(request):
     return render(request, 'katarungan/katarunganDashboard.html', {'title':'Katarungang Pambarangay Dashboard'})
 
+def katarunganAddCase(request):
+    return render(request, 'katarungan/katarunganAdd.html', {'title':'Add New'})
+
