@@ -11,13 +11,13 @@ from django.contrib import messages
 def register(request):
 	if request.method == 'POST':
 		if 'SignUp' in request.POST:
-			global form_register
+			
 			form_register = UserRegisterForm(request.POST)
 			if form_register.is_valid():
 				form_register.save()
 
 		elif 'SignIn' in request.POST:
-			global form_login
+			
 			form_login = LoginForm(request.POST)
 			username = request.POST['username']
 			password = request.POST['password']
@@ -30,6 +30,10 @@ def register(request):
 				messages.error(request, 'username or password not correct')
 				return redirect('/login/')
 			
+			context = {
+				'form_l': form_login,
+				'form_r': form_register,
+			}
 	else:	
 		form_register = UserRegisterForm()
 		form_login = LoginForm()

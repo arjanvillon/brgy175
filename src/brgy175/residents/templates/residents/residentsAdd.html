@@ -1,5 +1,6 @@
 {% extends "home/base.html" %}
-{% load static %}
+{% load widget_tweaks %}
+{% load staticfiles %}
 {% block cssLink %}
     <!-- Toggle CSS -->
     <link rel="stylesheet" href="{% static 'plugins/toggle/toggle.min.css' %}">
@@ -37,58 +38,86 @@
         <!-- main row -->
         <div class="row">
             <div class="col-9">
+                <form method="POST" action="" class="needs-validation" novalidate>
+                {% csrf_token %}
                 <div class="form-group row">
                     <label class="col-sm-1 col-form-label d-flex justify-content-end ml-5">Name</label>
-                    <input class="input-field col-sm-3 form-control mr-1" type="text" placeholder="First Name" name="fname" maxlength="20" id="validationCustom01 namest" required>
-                    <input class="input-field col-sm-2 form-control mr-1" type="text" placeholder="Middle Name" name="mname" maxlength="15" required id="validationCustom02 namest" required>
-                    <input class="input-field col-sm-3 form-control mr-1" type="text" placeholder="Last Name" name="lname" maxlength="15" id="validationCustom01 namest" required>
-                    <input class="input-field col-sm-1 form-control mr-1" type="text" placeholder="Suffix" name="lname" maxlength="2" id="validationCustom01 namest" required>
+
+                    <!-- {% render_field form_res.first_name|append_attr:"class:form-control col-sm-3" placeholder="First Name" name="fname" maxlength="20" id="resFirstName" %}
+
+                    {% render_field form_res.middle_name|append_attr:"class:input-field form-control col-sm-2 mr-1" type="text" placeholder="Middle Name" name="mname" maxlength="15" id="resMiddleName" %}
+
+                    {% render_field form_res.last_name|append_attr:"class:input-field form-control col-sm-3 mr-1" type="text" placeholder="Last Name" name="lname" maxlength="15" id="resLastName" %} -->
+          
+                    {% render_field form_res.suffix|append_attr:"class:input-field form-control col-sm-1 mr-1" type="text" placeholder="Suffix" name="lname" maxlength="2" id="resLastName" %}
                 </div>
-                <div class="form-group row">
+                 <div class="form-group row">
                     <label for="address" class="col-sm-1 col-form-label d-flex justify-content-end ml-5">Address</label>
                     <div class="col-sm-9 ml-0 pl-0">
-                    <input type="email" class="form-control ml-0" id="address" name="" placeholder="Enter address" value="">
+
+                        {% render_field form_res.address|append_attr:"class:form-control ml-0" id="address" type="text" name="" placeholder="Enter address" value="" %}
+                    
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="NameChangeThis" class="col-sm-1 col-form-label d-flex justify-content-end ml-5">Birthdate</label>
-                    <input class="input-field col-4 form-control mr-1" type="text" placeholder="MM-DD-YY" name="bdate" maxlength="20" id="validationCustom01 namest" required>
+   
+                    {% render_field form_res.date_of_birth|append_attr:"class:input-field col-4 form-control mr-1" type="text" placeholder="MM-DD-YY" name="bdate" maxlength="20" id="birthdate" %}
+
                     <label for="NameChangeThis" class="col-sm-1 col-form-label ml-4 d-flex justify-content-end ">Birthplace</label>
-                    <input class="input-field col-4 form-control" type="text" placeholder="Enter Place" name="bplace" maxlength="20" id="validationCustom01 namest" required>
+            
+                    {% render_field form_res.place_of_birth|append_attr:"class:input-field col-4 form-control" type="text" placeholder="Enter Place" name="bplace" maxlength="20" %}
                 </div>
                 <div class="form-group row">
+                    <label for="NameChangeThis" class="col-sm-1 col-form-label d-flex justify-content-end ml-5">Age</label>
+
+                    {% render_field form_res.age|append_attr:"class:input-field col-sm-4 form-control mr-1" type="text" placeholder="Enter Age" name="age" maxlength="20" %}
+
                     <label for="NameChangeThis" class="col-sm-1 col-form-label d-flex justify-content-end ml-5">Weight</label>
-                    <input class="input-field col-sm-4 form-control mr-1" type="text" placeholder="Enter Weight" name="weight" maxlength="20" id="validationCustom01 namest" required>
+
+                    {% render_field form_res.weight|append_attr:"class:input-field col-sm-1 form-control mr-1" type="text" placeholder="Enter Weight" name="weight" maxlength="20" id="validationCustom01 " %}
+
                     <label for="NameChangeThis" class="col-sm-1 col-form-label ml-4 d-flex justify-content-end">Height</label>
-                    <input class="input-field col-sm-4 form-control" type="text" placeholder="Enter Height" name="height" maxlength="20" id="validationCustom01 namest" required>
+
+                    {% render_field form_res.height|append_attr:"class:input-field col-sm-1 form-control" type="text" placeholder="Enter Height" name="height" maxlength="20" %}
+
                 </div>
                 <div class="form-group row">
                     <label for="NameChangeThis" class="col-sm-1 col-form-label d-flex justify-content-end ml-5">Gender</label>
                     <div class="col-sm-4">
-                        <select class="form-control select2 m-0" id="SelectChangeThis">
-                        <option value="0">Male</option>
-                        <option value="1">Female</option>
-                        </select>
+
+                        {% render_field form_res.gender|append_attr:"class:form-control select2 m-0" id="SelectChangeThis" %}
+
                     </div>
                     <label class="col-sm-1 col-form-label ml-4 d-flex justify-content-end">Civil Status</label>
-                    <input class="input-field col-sm-4 form-control" type="text" placeholder="Enter Civil Status" name="civil" maxlength="20" id="validationCustom01 namest" required>
+
+                    {% render_field form_res.civil_status|append_attr:"class:input-field col-sm-4 form-control" type="text" placeholder="Enter Civil Status" name="civil" maxlength="20" id="" %}
+
                 </div>
                 <div class="form-group row">
                     <label for="NameChangeThis" class="col-sm-1 col-form-label d-flex justify-content-end ml-5">Contact #</label>
-                    <input class="input-field col-sm-4 form-control mr-1" type="number" placeholder="XXXX-XXX-XXXX" name="contact" maxlength="20" id="validationCustom01 namest" required>
+
+                    {% render_field form_res.contact_number|append_attr:"class:input-field col-sm-4 form-control mr-1" type="number" placeholder="XXXX-XXX-XXXX" name="contact" maxlength="20" %}
+
                     <label for="NameChangeThis" class="col-sm-1 col-form-label ml-4 d-flex justify-content-end">Nationality</label>
-                    <input class="input-field col-sm-4 form-control" type="text" placeholder="Enter Nationality" name="nationality" maxlength="20" id="validationCustom01 namest" required>
+
+                    {% render_field form_res.nationality|append_attr:"class:input-field col-sm-4 form-control" type="text" placeholder="Enter Nationality" name="nationality" maxlength="20"%}
+
                 </div>
                 <div class="form-group row">
                     <label for="NameChangeThis" class="col-sm-1 col-form-label d-flex justify-content-end ml-5">Email Add</label>
-                    <input class="input-field col-sm-4 form-control mr-1" type="email" placeholder="juandelacruz@gmail.com" name="email" maxlength="20" id="validationCustom01 namest" required>
+
+                    {% render_field form_res.email_address|append_attr:"class:input-field col-sm-4 form-control mr-1" type="email" placeholder="juandelacruz@gmail.com" name="email" maxlength="20"%}
+
                     <label for="NameChangeThis" class="col-sm-1 col-form-label ml-4 d-flex justify-content-end">Religion</label>
-                    <input class="input-field col-sm-4 form-control" type="text" placeholder="Enter Religion" name="religion" maxlength="20" id="validationCustom01 namest" required>
-                </div>
+
+                    {% render_field form_res.religion|append_attr:"class:input-field col-sm-4 form-control" type="text" placeholder="Enter Religion" name="religion" maxlength="20"%}
+
+                </div> 
             <!-- Basic info end -->
-            <h4 class="text-warning">Educational Attainment</h4>
-            <hr>
-                <div class="form-group row">
+            <!-- <h4 class="text-warning">Educational Attainment</h4> -->
+            <!-- <hr> -->
+                <!-- <div class="form-group row">
                     <label  class="col-sm-1 col-form-label d-flex justify-content-end ml-5">School</label>
                     <input class="input-field col-sm-9 form-control mr-1" type="email" placeholder="College/University" name="school" maxlength="20" id="validationCustom01 namest" required>
                 </div>
@@ -97,16 +126,20 @@
                     <input class="input-field col-sm-4 form-control mr-1" type="email" placeholder="" name="yearLevel" maxlength="20" id="validationCustom01 namest" required>
                     <label for="" class="col-sm-1 col-form-label ml-4 d-flex justify-content-end">Course</label>
                     <input class="input-field col-sm-4 form-control" type="text" placeholder="" name="course" maxlength="20" id="validationCustom01 namest" required>
-                </div>
+                </div> -->
             <!-- educational attainment end -->
             <h4 class="text-warning">Identifications</h4>
             <hr>
-                <div class="form-group row">
+                <!-- <div class="form-group row">
                     <label for="" class="col-sm-1 col-form-label d-flex justify-content-end ml-5">Citizen ID</label>
-                    <input class="input-field col-sm-4 form-control mr-1" type="email" placeholder="" name="yearLevel" maxlength="20" id="validationCustom01 namest" required>
+
+                    {% render_field form_res.citizen_id|append_attr:"class:input-field col-sm-4 form-control mr-1" type="email" placeholder="" name="yearLevel" maxlength="20" %}
+
                     <label for="" class="col-sm-1 col-form-label ml-4 d-flex justify-content-end">PWD No.</label>
-                    <input class="input-field col-sm-4 form-control" type="text" placeholder="" name="course" maxlength="20" id="validationCustom01 namest" required>
-                </div>
+
+                    {% render_field form_res.pwd_no|append_attr:"class:input-field col-sm-4 form-control" type="text" placeholder="" name="course" maxlength="20" %}
+
+                </div> -->
             </div>
             <!-- col-9 end -->
             <div class="col-2">
@@ -159,13 +192,14 @@
                     <!-- col-12 end -->
                     <div class="col-12 pt-5">
                         <div class="text-center ml-3 pl-5">
-                            <button type="button" class="btn btn-warning btn-brown" style="color: #fff">Save >></button>
+                            <button type="submit" class="btn btn-warning btn-brown" style="color: #fff">Save >></button>
                         </div>
                     </div>
                     <!-- col-12 end -->
                 </div>
             </div>
         </div>
+    </form>
         <!-- main row end -->
 
     </div>
