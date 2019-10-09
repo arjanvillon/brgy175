@@ -1,0 +1,59 @@
+{% extends "home/base.html" %}
+<!-- {% load widget_tweaks %} -->
+{% load staticfiles %}
+{% block cssLink %}
+    <!-- Datepicker CSS -->
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.css' %}">
+    
+    <!-- Toggle CSS -->
+    <link rel="stylesheet" href="{% static 'plugins/toggle/toggle.min.css' %}">
+    
+
+{% endblock cssLink %} 
+{% block content %}
+<div class="mainContainer">
+    <h1>{{title}}</h1>
+    <!-- tab -->
+    <div class="row mb-3">
+        <div class="col-7">
+            <!-- tab switch -->
+            <div class="tabWrapper">
+                <div class="tabSwitch left text-center " >
+                    <div style="display:inline" class="pillTab active" pillTab-direction="left"><a href="#viewAll">VIEW ALL</a></div>
+                    <div class="pillTab text-center" pillTab-direction="right"><a href="#addNew">ADD NEW</a></div>
+                </div>
+            </div>
+            <!-- tab switch end -->
+        </div>
+        <div class="col-3 ml-auto">
+            <!-- search box for table -->
+             <input class="form-control tableSearchBox" placeholder="Search..." />
+            <!-- search box for table end -->
+        </div>
+    </div>
+    <!-- tab end -->
+    <!-- add container -->
+    <div id="addNew">
+        <h4 class="text-warning">Basic Info</h4>
+        <hr>
+        <!-- main row -->
+        <div class="row">
+            
+        </div>    
+        <!-- main row end -->
+
+    </div>
+    <!-- add container end -->
+</div>
+<!-- main container end -->
+{% endblock content %}
+{% block jsLink %}
+    <!-- Datepicker JS -->
+    <script src="{% static 'plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.js' %}"></script>
+    
+    <!-- Toggle JS -->
+    <script src="{% static 'plugins/toggle/toggle.min.js' %}"></script>
+    
+    <!-- Custom JS -->
+    <script src="{% static 'residents/residents.js' %}"></script>
+{% endblock jsLink %}
