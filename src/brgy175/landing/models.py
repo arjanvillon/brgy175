@@ -78,3 +78,4 @@ class BurialForm(models.Model):
 
     
         
+# Create your models here.
