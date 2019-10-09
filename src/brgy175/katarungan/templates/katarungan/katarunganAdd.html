@@ -5,6 +5,9 @@
     <!-- Datepicker CSS -->
     <link rel="stylesheet" href="{% static 'plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.css' %}">
     
+    <!-- Select2 CSS -->
+    <link rel="stylesheet" href="{% static 'plugins/select2/select2.css' %}">
+    
     <!-- Toggle CSS -->
     <link rel="stylesheet" href="{% static 'plugins/toggle/toggle.min.css' %}">
     
@@ -38,7 +41,60 @@
         <hr>
         <!-- main row -->
         <div class="row">
-            
+            <div class="col-12 col-md-12">
+                <!-- ANCHOR  form -->
+                <form action="" method="POST">
+                    <div class="row">
+                        <div class="col-12 col-md-12">
+                            <!-- SECTION CASE NUMBER -->
+                        <div class="form-group row">
+                                <label for="katCaseNo" class="col-sm-2 col-form-label d-flex justify-content-start ml-5">Case No.</label>
+                                <input class="form-control col-sm-7" type="text" id="katCaseNo" name="katCaseNo">
+                            </div>
+                            <!-- SECTION NAME -->
+                            <div class="form-group row">
+                                <label for="katName" class="col-sm-2 col-form-label d-flex justify-content-start ml-5">Name</label>
+                                <!-- NOTE the user should be able to select from the list of residents -->
+                                <input class="form-control col-sm-7" type="text" id="katName" name="katName">
+                            </div>
+                            <!-- SECTION ADDRESS -->
+                            <div class="form-group row">
+                                <label for="katAddress" class="col-sm-2 col-form-label d-flex justify-content-start ml-5">Address</label>
+                                <!-- NOTE will come from the data of the resident -->
+                                <input class="form-control col-sm-7" type="text" id="katAddress" name="katAddress">
+                            </div>
+                            <!-- SECTION CASE TYPE -->
+                            <div class="form-group row">
+                                <label for="katCaseType" class="col-sm-2 col-form-label d-flex justify-content-start ml-5">Case Type</label>
+                                <input class="form-control col-sm-7" type="text" id="katCaseType" name="katCaseType">
+                            </div>
+                            <!-- SECTION COMPLAINANT NAME -->
+                            <div class="form-group row">
+                                <label for="katComplainant" class="col-sm-2 col-form-label d-flex justify-content-start ml-5">Complainant Name</label>
+                                <input class="form-control col-sm-7" type="text" id="katComplainant" name="katComplainant">
+                            </div>
+                            <!-- SECTION CASE REMARKS -->
+                            <div class="form-group row">
+                                <label for="katRemarks" class="col-sm-2 col-form-label d-flex justify-content-start ml-5">Remarks</label>
+                                <select class="form-control col-sm-7 select2" name="katRemarks" id="katRemarks">
+                                    <option value="CFA">CFA</option>
+                                    <option value="Settled">Settled</option>
+                                    <option value="Withdraw">Withdraw</option>
+                                </select>
+                            </div>
+                            <!-- SECTION Save Button -->
+                            <div class="row">
+                                <div class="col-12 pt-3">
+                                    <div class="text-center">
+                                        <button type="submit" id="katSave"  class="btn btn-warning btn-brown width-md" style="color: #fff">Save</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!-- ANCHOR  form end-->
+            </div>
         </div>    
         <!-- main row end -->
 
@@ -51,9 +107,10 @@
     <!-- Datepicker JS -->
     <script src="{% static 'plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.js' %}"></script>
     
+    <!-- Select2 JS -->
+    <script src="{% static 'plugins/select2/select2.js' %}"></script>
+    
     <!-- Toggle JS -->
     <script src="{% static 'plugins/toggle/toggle.min.js' %}"></script>
     
-    <!-- Custom JS -->
-    <script src="{% static 'residents/residents.js' %}"></script>
 {% endblock jsLink %}

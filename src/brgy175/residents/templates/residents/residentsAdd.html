@@ -5,6 +5,9 @@
     <!-- Datepicker CSS -->
     <link rel="stylesheet" href="{% static 'plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.css' %}">
     
+    <!-- Select2 CSS -->
+    <link rel="stylesheet" href="{% static 'plugins/select2/select2.css' %}">
+    
     <!-- Toggle CSS -->
     <link rel="stylesheet" href="{% static 'plugins/toggle/toggle.min.css' %}">
     
@@ -97,7 +100,7 @@
                     </div>
                     <label for="resCivilStatus" class="col-sm-1 col-form-label ml-4 d-flex justify-content-end">Civil Status</label>
 
-                    {% render_field form_res.civil_status|append_attr:"class:input-field col-sm-4 form-control" type="text" placeholder="Enter Civil Status" name="resCivilStatus" maxlength="20" id="resCivilStatus" %}
+                    {% render_field form_res.civil_status|append_attr:"class:input-field select2 col-sm-4 form-control" type="text" placeholder="Enter Civil Status" name="resCivilStatus" maxlength="20" id="resCivilStatus" %}
 
                 </div>
                 <!-- SECTION Contact Number & Nationality -->
@@ -144,6 +147,9 @@
     <!-- Datepicker JS -->
     <script src="{% static 'plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.js' %}"></script>
     
+    <!-- Select2 JS -->
+    <script src="{% static 'plugins/select2/select2.js' %}"></script>
+
     <!-- Toggle JS -->
     <script src="{% static 'plugins/toggle/toggle.min.js' %}"></script>
     

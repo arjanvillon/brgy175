@@ -842,7 +842,16 @@ label {
     font-family: Reem Kufi, sans-serif;
 }
 
-
+.select2-selection{
+    padding: 0px !important;
+    border-radius: 50px !important;
+}
+.select2-container .select2-selection--single {
+    height: 36px !important;
+}
+.select2-container .select2-selection--single .select2-selection__rendered {
+    padding-top: 5px;
+}
 /* ---------------------------------------------------
  TOGGLE SWITCHES
 ----------------------------------------------------- */
