@@ -4,20 +4,12 @@ from .models import Account
 
 
 class AccountDetail(UserAdmin):
-    list_display        = ('username', 'email','first_name','middle_name','last_name', 'sector','last_login',)
+    list_display        = ( 'username','email', 'sector','first_name','middle_name','last_name',)
     search_fields       = ('email','username',)
     readonly_fields     = ('date_joined', 'last_login')
 
     filter_horizontal   = ()
     list_filter         = ()
-    fieldsets           = ((None,{'fields':('username', 'email', 'first_name','middle_name','last_name', 'sector')}),)
-    
-    
-
-
-    
-    
-
+    fieldsets           = ()
 
 admin.site.register(Account, AccountDetail)
-

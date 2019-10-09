@@ -4,27 +4,15 @@ from django.contrib.auth import authenticate, login
 from django.conf import settings
 from django.contrib.auth import logout
 from django.contrib import messages
-from .models import Account
 
 
 # Create your views here.
 
 def register(request):
+	form_register = UserRegisterForm()
+	form_login = LoginForm()
 	if request.method == 'POST':
-		if 'SignUp' in request.POST:
-			form_login = LoginForm()
-			form_register = UserRegisterForm(request.POST)
-			if form_register.is_valid():
-				form_register.save()
-				context = {
-							'form_l': form_login,
-							'form_r': form_register,
-						}
-
-
-
-		elif 'SignIn' in request.POST:
-			form_login = LoginForm(request.POST)
+		if 'SignIn' in request.POST:
 			username = request.POST['username']
 			password = request.POST['password']
 			user = authenticate(username=username, password=password)
@@ -32,28 +20,25 @@ def register(request):
 				if user.is_active:
 					login(request, user)
 					return redirect((settings.LOGIN_REDIRECT_URL))
-					context = {
-							'form_l': form_login,
-							'form_r': form_register,
-						}
-					
 			else:
 				messages.error(request, 'username or password not correct')
 				return redirect('/login/')
-				context = {
-							'form_l': form_login,
-							'form_r': form_register,
-						}
+		if 'SignUp' in request.POST:
+			
+			form_register = UserRegisterForm(request.POST)
+			if form_register.is_valid():
+				form_register.save()
+
+		
 			
 	else:	
 		form_register = UserRegisterForm()
 		form_login = LoginForm()
-		context = {
+
+	context = {
 		'form_l': form_login,
 		'form_r': form_register,
 	}
-	
-	
 		
 		
 	return render(request, 'user_account/login.html', context)

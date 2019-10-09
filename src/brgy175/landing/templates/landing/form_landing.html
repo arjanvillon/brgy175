@@ -1,0 +1,973 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% block cssLink %}
+    <link rel="stylesheet" href="{% static 'landing/custom.css' %}">
+{% endblock cssLink %}
+
+{% block content %}
+
+<div class="mainContainer">
+    <h2> FORMS </h2> <hr>
+    <div class="row d-flex justify-content-center">
+         <div class="col-sm-1 ml-4">
+             <h4 class="text-warning">STEP 1:</h4></div>
+           <div class="col-sm">
+             <h5 class="text-secondary">Select the name of requestor.</h5></div>
+     </div>
+   
+    <div class="row ">
+         <div class="col-10">
+             <div class="form-group row">
+                 <label for="EmailChangeThis" class="col-sm-2 col-form-label d-flex justify-content-end ml-5">Name of Requestor</label>
+                 
+                 <div class="input-group col-sm-9">
+                     <input type="text" placeholder="Search Name ..." class="form-control box-placeholder" id="myInput">
+
+                     <span class="input-group-append">
+                         <button class="btn btn-warning p-0 border-0 border px-4 font-weight-bold" type="button" onkeyup="myFunction()" >
+                          Search
+                          </button>
+                     </span>
+
+                 </div>
+             </div>
+         </div>
+         <!-- end of col-8 -->
+         
+     </div>
+
+     <div class="row d-flex justify-content-center">
+         <div class="col-3">
+             <div class="form-group row">
+                 <label for="EmailChangeThis" class="col-form-label  mr-3">Not Found?</label>
+                     <a href="#Click here!" class="text-warning col-form-label">Click Here to Add Record</a>
+
+                     
+
+                 </div>
+            
+         </div>
+         <!-- end of col-8 -->
+         
+     </div>
+                                             
+           <hr>
+          
+           <!-- row start -->
+                                
+     <div class="row">
+         <div class="col-sm-1 ml-4">
+             <h4 class="text-warning">STEP 2:</h4></div>
+           <div class="col-sm">
+             <h5 class="text-secondary">Click the type of transaction.</h5></div>
+     </div>
+<div class="container d-flex justify-content-start ml-6">
+     <div class="row  col-12	">
+      <div class="col-md-12 col-sm-12 mt-2">
+        <div class="vertical-tabs nav-fill">
+           <ul class="nav nav-tabs" role="tablist">
+              <li class="nav-item">
+                 <a class="nav-link  active" data-toggle="tab" href="#idcard" role="tab" aria-controls="home">I.D.</a>
+              </li>
+              <li class="nav-item">
+                 <a class="nav-link" data-toggle="tab" href="#indigency" role="tab" aria-controls="profile">Indigency</a>
+              </li>
+              <li class="nav-item">
+                 <a class="nav-link" data-toggle="tab" href="#clearance" role="tab" aria-controls="messages">Brgy. Clearance</a>
+              </li>
+              <li class="nav-item">
+                 <a class="nav-link" data-toggle="tab" href="#permit" role="tab" aria-controls="settings">Brgy Permit</a>
+              </li>
+              <li class="nav-item">
+                 <a class="nav-link" data-toggle="tab" href="#scholar" role="tab" aria-controls="settings">Scholarship</a>
+              </li>
+              <li class="nav-item">
+                 <a class="nav-link" data-toggle="tab" href="#burial" role="tab" aria-controls="settings">Burial Claim</a>
+              </li>
+           </ul>
+           <div class="tab-content">
+              <div class="tab-pane active" id="idcard" role="tabpanel">
+              <!-- FOR ID CARD -->
+                 <div class="sv-tab-panel">
+                     <h4 class="text-warning pb-0">IDENTIFICATION CARD</h4><hr>
+                        <h6 class="text-secondary pl-3 pb-1">Person to be contacted in case of Emergency...</h6>
+                     
+                     <div class="row">
+                         <div class="col-11">
+                             <div class="form-group row">
+                                 <label for="e-name" class="col-sm-2 col-form-label d-flex justify-content-end ">Name</label>
+                                 <div class="col-sm-10">
+                                 <input type="text" class="form-control" id="e-name" name="" placeholder="FN, MI, LN" value="">
+                                 </div>
+                             </div>
+                         </div>
+                         <!-- end of col-8 -->
+                         <div class="col-4">
+                         <!-- for spacing?? -->
+                         </div>
+                     </div>
+                     
+                     <!-- end of row -->
+                      <!-- row start -->
+                     <div class="row">
+                         <div class="col-11">
+                             <div class="form-group row">
+                                 <label for="e-address" class="col-sm-2 col-form-label d-flex justify-content-end ">Address</label>
+                                 <div class="col-sm-10">
+                                 <input type="text" class="form-control" id="e-address" name="" placeholder="Enter address" value="">
+                                 </div>
+                             </div>
+                         </div>
+                         <!-- end of col-8 -->
+                         <div class="col-4">
+                         <!-- for spacing?? -->
+                         </div>
+                     </div>
+
+                      <div class="row">
+                         <div class="col-12">
+                             <div class="form-group row">
+                                 <label for="NameChangeThis" class="col-sm-2 col-form-label d-flex justify-content-end ">Relationship</label>
+                                 <input class="input-field col-sm-4 form-control mr-1" type="text" placeholder="Enter Relationship" name="email" maxlength="20" id="validationCustom01 namest" required>
+                                 <label for="NameChangeThis" class="col-sm-2 col-form-label ml-1  d-flex justify-content-end">Contact No.</label>
+                                 <input class="input-field col-sm-3 form-control" type="number" placeholder="XXXX-XXX-XXXX" name="e-contact" maxlength="20" id="validationCustom01 namest" required>
+                             </div>
+                         </div>
+                         <!-- end of col-8 -->
+
+                         <div class="col-4">
+                         <!-- for spacing?? -->
+                         </div>
+                     </div>
+                     
+                     <div class="row mt-2 d-flex justify-content-center">
+                             <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#IDModal">Confirm>></button>
+                     </div>
+
+                     <!-- Modal -->
+
+                     <!-- Modal -->
+                     <div class="modal fade" id="IDModal" tabindex="-1" role="dialog" aria-labelledby="#IDModalLabel" aria-hidden="true">
+                       <div class="modal-dialog">
+                         <div class="modal-content">
+                           <div class="modal-header">
+                           <h5 class="text-warning">IDENTIFICATION CARD</h5>
+                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                             
+                           </div>
+                           <div class="modal-body">
+                               <p><a href="#" role="button" class="btn btn-secondary popover-test d-flex justify-content-center" title="Popover title" data-content="Popover body content is set in this attribute.">Print ID Card</a> </p>
+                             
+                             </div>
+                           <div class="modal-footer">
+                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                             <button type="button" class="btn btn-primary">Save changes</button>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                 </div>
+              </div>
+              
+              <!-- FOR INDIGENCY TAB -->
+              <div class="tab-pane" id="indigency" role="tabpanel">
+                 <div class="sv-tab-panel">
+                     <h4 class="text-warning pb-0">INDIGENCY</h4><hr>
+                        <h6 class="text-secondary pl-3 pb-1">Pakilagay na lang dito yung mga wala sa residents tab...</h6>
+                     
+                     <div class="row">
+                      <div class="col-md-4">
+                         <div class="card" >
+                                 <!-- Default panel contents -->
+                                 <ul class="list-group list-group-flush">
+                                     <li class="list-group-item">
+                                         CCSWD Social Case Study
+                                                <label class="switch ">
+                           <input type="checkbox" class="warning">
+                           <span class="slider"></span>
+                         </label>
+                                     </li>
+                                     <li class="list-group-item">
+                                         DSWD Medical Assistance
+                                                <label class="switch ">
+                           <input type="checkbox" class="warning">
+                           <span class="slider"></span>
+                         </label>
+                                     </li>
+                                     <li class="list-group-item">
+                                         Solo Parent
+                                                <label class="switch ">
+                           <input type="checkbox" class="warning">
+                           <span class="slider"></span>
+                         </label>
+                                     </li>
+                                     <li class="list-group-item">
+                                         Financial Statement
+                                                <label class="switch ">
+                           <input type="checkbox" class="warning">
+                           <span class="slider"></span>
+                         </label>
+                                     </li>
+                             </div> 
+                             </div>
+                             
+                             <div class="col-md-4">
+                         <div class="card" >
+                                 <!-- Default panel contents -->
+                                 <li class="list-group-item">
+                                         PhilHealth
+                                                <label class="switch ">
+                           <input type="checkbox" class="warning">
+                           <span class="slider"></span>
+                         </label>
+                                     </li>
+                                     <li class="list-group-item">
+                                         Burial Assistance
+                                                <label class="switch ">
+                           <input type="checkbox" class="warning">
+                           <span class="slider"></span>
+                         </label>
+                                     </li>
+                                     <li class="list-group-item">
+                                         Medical Assistance
+                                                <label class="switch ">
+                           <input type="checkbox" class="warning">
+                           <span class="slider"></span>
+                         </label>
+                                     </li>
+                                     
+                                     
+                                 </ul>
+                             </div> 
+                             </div>
+                             
+                             <div class="col-md-4">
+                         <div class="card" >
+                                 <!-- Default panel contents -->
+
+                                 <ul class="list-group list-group-flush">
+                                     <li class="list-group-item">
+                                         Educational Assistance
+                                                <label class="switch ">
+                           <input type="checkbox" class="warning">
+                           <span class="slider"></span>
+                         </label>
+                                     </li>
+                                     <li class="list-group-item">
+                                         DSWD Financial Assistance
+                                                <label class="switch ">
+                           <input type="checkbox" class="warning">
+                           <span class="slider"></span>
+                         </label>
+                                     </li>
+                                     
+                                     <li class="list-group-item">
+                                         <input type="text" class="form-control col" id="ClearanceOthers" name="" placeholder="Other" value="" style="border:none">
+                                                <label class="switch">
+                           <input type="checkbox" class="warning">
+                           <span class="slider"></span>
+                         </label>
+                                     </li>
+                                 </ul>
+                             </div> 
+                             </div>
+                             
+                     </div>
+                     <div class="row mt-2 d-flex justify-content-center">
+                             <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#indigencyModal">Confirm>></button>
+                     </div>
+
+                     <!-- Modal -->
+
+                     <!-- Modal -->
+                     <div class="modal fade" id="indigencyModal" tabindex="-1" role="dialog" aria-labelledby="#indigencyModalLabel" aria-hidden="true">
+                       <div class="modal-dialog">
+                         <div class="modal-content">
+                           <div class="modal-header">
+                           <h5 class="text-warning">INDIGENCY</h5>
+                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                             
+                           </div>
+                           <div class="modal-body">
+                               <p><a href="#" role="button" class="btn btn-secondary popover-test d-flex justify-content-center" title="Popover title" data-content="Popover body content is set in this attribute.">Print Indigency</a> </p>
+                             
+                             </div>
+                           <div class="modal-footer">
+                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                             <button type="button" class="btn btn-primary">Save changes</button>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                 </div>
+              </div>
+              <div class="tab-pane" id="clearance" role="tabpanel">
+                 <div class="sv-tab-panel">
+                     <h4 class="text-warning pb-0">BARANGAY CLEARANCE</h4><hr>
+                        <h6 class="text-secondary pl-3 pb-1">Select purpose of getting clearance</h6>
+                     
+                     <div class="row">
+                      <div class="col-md-4">
+                         <div class="card" >
+                                 <!-- Default panel contents -->
+                                 <ul class="list-group list-group-flush">
+                                     <li class="list-group-item">
+                                         Bail Bond
+                                                <label class="switch ">
+                           <input type="checkbox" class="warning">
+                           <span class="slider"></span>
+                         </label>
+                                     </li>
+                                     <li class="list-group-item">
+                                         Bank 
+                                                <label class="switch ">
+                           <input type="checkbox" class="warning">
+                           <span class="slider"></span>
+                         </label>
+                                     </li>
+                                     <li class="list-group-item">
+                                         Birth Certificate 
+                                                <label class="switch ">
+                           <input type="checkbox" class="warning">
+                           <span class="slider"></span>
+                         </label>
+                                     </li>
+                                     <li class="list-group-item">
+                                         Certificate of Residency
+                                                <label class="switch ">
+                           <input type="checkbox" class="warning">
+                           <span class="slider"></span>
+                         </label>
+                                     </li>
+                                     <li class="list-group-item">
+                                         Mayor’s Permit
+                                                <label class="switch ">
+                           <input type="checkbox" class="warning">
+                           <span class="slider"></span>
+                         </label>
+                                     </li>
+                                     <li class="list-group-item">
+                                         Meralco
+                                                <label class="switch ">
+                           <input type="checkbox" class="warning">
+                           <span class="slider"></span>
+                         </label>
+                                     </li>
+                                     <li class="list-group-item">
+                                         Personal Identification 
+                                                <label class="switch ">
+                           <input type="checkbox" class="warning">
+                           <span class="slider"></span>
+                         </label>
+                                     </li>
+                                     <li class="list-group-item">
+                                         School
+                                                <label class="switch ">
+                           <input type="checkbox" class="warning">
+                           <span class="slider"></span>
+                         </label>
+                                     </li>
+                                     <li class="list-group-item">
+                                         SSS
+                                                <label class="switch ">
+                           <input type="checkbox" class="warning">
+                           <span class="slider"></span>
+                         </label>
+                                     </li>
+                                 </ul>
+                             </div> 
+                             </div>
+                             
+                             <div class="col-md-4">
+                         <div class="card" >
+                                 <!-- Default panel contents -->
+                                 <ul class="list-group list-group-flush">
+                                     <li class="list-group-item">
+                                         Excavation Permit
+                                                <label class="switch ">
+                           <input type="checkbox" class="warning">
+                           <span class="slider"></span>
+                         </label>
+                                     </li>
+                                     <li class="list-group-item">
+                                         Travel Abroad
+                                                <label class="switch ">
+                           <input type="checkbox" class="warning">
+                           <span class="slider"></span>
+                         </label>
+                                     </li>
+                                     <li class="list-group-item">
+                                         Loan
+                                                <label class="switch ">
+                           <input type="checkbox" class="warning">
+                           <span class="slider"></span>
+                         </label>
+                                     </li>
+                                     <li class="list-group-item">
+                                         Certificate of Indigency
+                                                <label class="switch ">
+                           <input type="checkbox" class="warning">
+                           <span class="slider"></span>
+                         </label>
+                                     </li>
+                                     <li class="list-group-item">
+                                         Building Permit Requirement
+                                                <label class="switch ">
+                           <input type="checkbox" class="warning">
+                           <span class="slider"></span>
+                         </label>
+                                     </li>
+                                     <li class="list-group-item">
+                                         Senior Citizen
+                                                <label class="switch ">
+                           <input type="checkbox" class="warning">
+                           <span class="slider"></span>
+                         </label>
+                                     </li>
+                                     <li class="list-group-item">
+                                         Local Employment 
+                                                <label class="switch ">
+                           <input type="checkbox" class="warning">
+                           <span class="slider"></span>
+                         </label>
+                                     </li>
+                                     <li class="list-group-item">
+                                         Maynilad 
+                                                <label class="switch ">
+                           <input type="checkbox" class="warning">
+                           <span class="slider"></span>
+                         </label>
+                                     </li>
+                                     <li class="list-group-item">
+                                         Barangay Id
+                                                <label class="switch ">
+                           <input type="checkbox" class="warning">
+                           <span class="slider"></span>
+                         </label>
+                                     
+                                         
+                             
+                                 
+                                     </li>
+                                 </ul>
+                             </div> 
+                             </div>
+                             
+                             <div class="col-md-4">
+                         <div class="card" >
+                                 <!-- Default panel contents -->
+
+                                 <ul class="list-group list-group-flush">
+                                     <li class="list-group-item">
+                                         Tricycle Franchise
+                                                <label class="switch ">
+                           <input type="checkbox" class="warning">
+                           <span class="slider"></span>
+                         </label>
+                                     </li>
+                                     <li class="list-group-item">
+                                         Lipat Bahay
+                                                <label class="switch ">
+                           <input type="checkbox" class="warning">
+                           <span class="slider"></span>
+                         </label>
+                                     </li>
+                                     <li class="list-group-item">
+                                         PNP
+                                                <label class="switch ">
+                           <input type="checkbox" class="warning">
+                           <span class="slider"></span>
+                         </label>
+                                     </li>
+                                     <li class="list-group-item">
+                                         Postal Id
+                                                <label class="switch ">
+                           <input type="checkbox" class="warning">
+                           <span class="slider"></span>
+                         </label>
+                                     </li>
+                                     <li class="list-group-item">
+                                         Brgy Business Permit
+                                                <label class="switch ">
+                           <input type="checkbox" class="warning">
+                           <span class="slider"></span>
+                         </label>
+                                     </li>
+                                     <li class="list-group-item">
+                                         Motor Loan
+                                                <label class="switch ">
+                           <input type="checkbox" class="warning">
+                           <span class="slider"></span>
+                         </label>
+                                     </li>
+                                     <li class="list-group-item">
+                                         BIR
+                                                <label class="switch ">
+                           <input type="checkbox" class="warning">
+                           <span class="slider"></span>
+                         </label>
+                                     </li>
+                                     <li class="list-group-item">
+                                         NHA
+                                                <label class="switch ">
+                           <input type="checkbox" class="warning">
+                           <span class="slider"></span>
+                         </label>
+                                     </li>
+                                     <li class="list-group-item">
+                                         <input type="text" class="form-control col" id="ClearanceOthers" name="" placeholder="Other" value="" style="border:none">
+                                                <label class="switch">
+                           <input type="checkbox" class="warning">
+                           <span class="slider"></span>
+                         </label>
+                                     </li>
+                                 </ul>
+                             </div> 
+                             </div>
+                             
+                     </div>
+                     <div class="row mt-2 d-flex justify-content-center">
+                             <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#clearModal">Confirm>></button>
+                     </div>
+
+                     <!-- Modal -->
+
+                     <!-- Modal -->
+                     <div class="modal fade" id="clearModal" tabindex="-1" role="dialog" aria-labelledby="#clearModalLabel" aria-hidden="true">
+                       <div class="modal-dialog">
+                         <div class="modal-content">
+                           <div class="modal-header">
+                           <h5 class="text-warning">CLEARANCE FORM</h5>
+                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                             
+                           </div>
+                           <div class="modal-body">
+                               <p><a href="#" role="button" class="btn btn-secondary popover-test d-flex justify-content-center" title="Popover title" data-content="Popover body content is set in this attribute.">Print Clearance/Certification</a> </p>
+                             
+                             </div>
+                           <div class="modal-footer">
+                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                             <button type="button" class="btn btn-primary">Save changes</button>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                 </div>
+              </div>
+              
+              <!-- FOR BARANGAY PERMIT -->
+              <div class="tab-pane" id="permit" role="tabpanel">
+                 <div class="sv-tab-panel">
+                     <h4 class="text-warning pb-0">BARANGAY PERMIT</h4><hr>
+                        <h6 class="text-secondary pl-3 pb-1">Application Form for Business...</h6>
+                     
+                     
+                     <div class="row">
+                      <div class="col-md-6 d-flex justify-content-end">
+                         <ul class="list-group list-group-flush ">
+                                     <li class="list-group-item ">
+                                         Barangay Business Permit
+                                                <label class="switch ">
+                           <input type="checkbox" class="warning ml-3">
+                           <span class="slider"></span>
+                         </label>
+                                     </li>
+                         </ul>
+                             </div>
+                         <div class="col-md-6 d-flex justify-content-start">
+                         <ul class="list-group list-group-flush">
+                                     <li class="list-group-item mr-3">
+                                         Business Clearance for Mayors 	
+                                                <label class="switch ">
+                           <input type="checkbox" class="warning ml-3">
+                           <span class="slider"></span>
+                         </label>
+                                     </li>
+                         </ul>
+                             </div> 
+                     </div>
+                     <div class="row">
+                         <div class="col-11">
+                             <div class="form-group row">
+                                 <label for="e-address" class="col-sm-2 col-form-label d-flex justify-content-end">Business Address</label>
+                                 <div class="col-sm-10">
+                                 <input type="email" class="form-control" id="e-address" name="" placeholder="Enter address" value="">
+                                 </div>
+                             </div>
+                         </div>
+                         <!-- end of col-8 -->
+                         <div class="col-4">
+                         <!-- for spacing?? -->
+                         </div>
+                     </div>
+                     
+                     <div class="row">
+                         <div class="col-11">
+                             <div class="form-group row">
+                                 <label for="MotherName" class="col-sm-2 col-form-label d-flex justify-content-end ">Business Name</label>
+                                 <div class="col-sm-10">
+                                 <input type="text" class="form-control" id="MotherName" name="" placeholder="Enter Name" value="">
+                                 </div>
+                             </div>
+                         </div>
+                         <!-- end of col-8 -->
+                         <div class="col-4">
+                         <!-- for spacing?? -->
+                         </div>
+                     </div>
+                     <!-- end of row -->
+                      <!-- row start -->
+                     <div class="row mt-2 d-flex justify-content-center">
+                             <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#businessModal">Confirm>></button>
+                     </div>
+
+                     <!-- Modal -->
+
+                     <!-- Modal -->
+                     <div class="modal fade" id="businessModal" tabindex="-1" role="dialog" aria-labelledby="#businessModalLabel" aria-hidden="true">
+                       <div class="modal-dialog">
+                         <div class="modal-content">
+                           <div class="modal-header">
+                           <h5 class="text-warning">BUSINESS PERMIT</h5>
+                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                             
+                           </div>
+                           <div class="modal-body">
+                               <p><a href="#" role="button" class="btn btn-secondary popover-test d-flex justify-content-center" title="Popover title" data-content="Popover body content is set in this attribute.">Print Business Permit Application</a> </p>
+                             
+                             </div>
+                           <div class="modal-footer">
+                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                             <button type="button" class="btn btn-primary">Save changes</button>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                 </div>
+              </div>
+              
+              <!-- FOR SCHOLARSHIP -->
+              
+              <div class="tab-pane" id="scholar" role="tabpanel">
+                 <div class="sv-tab-panel">
+                     <h4 class="text-warning pb-0">SCHOLARSHIP FORM</h4><hr>
+                        <h6 class="text-secondary pl-3 pb-1">Father's Information</h6>
+                     
+                     <div class="row">
+                         <div class="col-11">
+                             <div class="form-group row">
+                                 <label for="FatherName" class="col-sm-2 col-form-label d-flex justify-content-end ">Name</label>
+                                 <div class="col-sm-10">
+                                 <input type="text" class="form-control" id="FatherName" name="" placeholder="FN, MI, LN" value="">
+                                 </div>
+                             </div>
+                         </div>
+                         <!-- end of col-8 -->
+                         <div class="col-4">
+                         <!-- for spacing?? -->
+                         </div>
+                     </div>
+                     <!-- end of row -->
+                      <!-- row start -->
+                     <div class="row">
+                         <div class="col-11">
+                             <div class="form-group row">
+                                 <label for="EmailChangeThis" class="col-sm-2 col-form-label d-flex justify-content-end ">Address</label>
+                                 <div class="col-sm-10">
+                                 <input type="text" class="form-control" id="address" name="" placeholder="Enter address" value="">
+                                 </div>
+                             </div>
+                         </div>
+                         <!-- end of col-8 -->
+                         <div class="col-4">
+                         <!-- for spacing?? -->
+                         </div>
+                     </div>
+
+                      <div class="row">
+                         <div class="col-12">
+                             <div class="form-group row">
+                                 <label for="FatherAge" class="col-sm-2 col-form-label d-flex justify-content-end ">Age</label>
+                                 <input class="input-field col-sm-4 form-control mr-1" type="text" placeholder="Enter age" name="text" maxlength="20" id="validationCustom01 namest" required>
+                                 <label for="FatherOccupation" class="col-sm-2 col-form-label ml-1  d-flex justify-content-end">Occupation</label>
+                                 <input class="input-field col-sm-3 form-control" type="text" placeholder="Enter occupation" name="FatherOccupation" maxlength="20" id="validationCustom01 namest" required>
+                             </div>
+                         </div>
+                         <!-- end of col-8 -->
+                         <div class="col-4">
+                         <!-- for spacing?? -->
+                         </div>
+                     </div>
+                         
+                     <div class="row">
+                         <div class="col-12">
+                             <div class="form-group row">
+                                 <label for="FatherContact" class="col-sm-2 col-form-label d-flex justify-content-end ">Contact No.</label>
+                                 <input class="input-field col-sm-4 form-control mr-1" type="text" placeholder="XXXX-XXX-XXXX" name="number" maxlength="20" id="validationCustom01 namest" required>
+                                 <label for="FatherPrecinct" class="col-sm-2 col-form-label ml-1  d-flex justify-content-end">Precinct No.</label>
+                                 <input class="input-field col-sm-3 form-control" type="text" placeholder="Enter precinct number" name="FatherPrecinct" maxlength="20" id="validationCustom01 namest" required>
+                             </div>
+                         </div>
+                         <!-- end of col-8 -->
+                         <div class="col-4">
+                         <!-- for spacing?? -->
+                         </div>
+                     </div>
+                     
+                     <div class="row">
+                         <div class="col-11">
+                             <div class="form-group row">
+                                 <label for="FatherSalary" class="col-sm-2 col-form-label d-flex justify-content-end m-0">Monthly Salary</label>
+                                 <div class="col-sm-10">
+                                 <input type="text" class="form-control" id="FatherSalary" name="" placeholder="Php XXXXX.XX" value="">
+                                 </div>
+                             </div>
+                         </div>
+                         <!-- end of col-8 -->
+                         <div class="col-4">
+                         <!-- for spacing?? -->
+                         </div>
+                     </div>
+                     <hr>
+                     <h6 class="text-secondary pl-3 pb-1">Mother's Information</h6>
+                     
+                     <div class="row">
+                         <div class="col-12">
+                             <div class="form-group row">
+                                 <label for="MotherName" class="col-sm-2 col-form-label d-flex justify-content-end ">Name</label>
+                                 <div class="col-sm-10">
+                                 <input type="text" class="form-control" id="MotherName" name="" placeholder="FN, MI, LN" value="">
+                                 </div>
+                             </div>
+                         </div>
+                         <!-- end of col-8 -->
+                         <div class="col-4">
+                         <!-- for spacing?? -->
+                         </div>
+                     </div>
+                     <!-- end of row -->
+                      <!-- row start -->
+                     <div class="row">
+                         <div class="col-11">
+                             <div class="form-group row">
+                                 <label for="EmailChangeThis" class="col-sm-2 col-form-label d-flex justify-content-end ">Address</label>
+                                 <div class="col-sm-10">
+                                 <input type="text" class="form-control" id="address" name="" placeholder="Enter address" value="">
+                                 </div>
+                             </div>
+                         </div>
+                         <!-- end of col-8 -->
+                         <div class="col-4">
+                         <!-- for spacing?? -->
+                         </div>
+                     </div>
+
+                      <div class="row">
+                         <div class="col-12">
+                             <div class="form-group row">
+                                 <label for="FatherAge" class="col-sm-2 col-form-label d-flex justify-content-end mr-3">Age</label>
+                                 <input class="input-field col-sm-4 form-control mr-1" type="text" placeholder="Enter age" name="text" maxlength="20" id="validationCustom01 namest" required>
+                                 <label for="FatherOccupation" class="col-sm-1 col-form-label d-flex justify-content-end ml-5">Occupation</label>
+                                 <input class="input-field col-sm-3 form-control" type="text" placeholder="Enter occupation" name="FatherOccupation" maxlength="20" id="validationCustom01 namest" required>
+                             </div>
+                         </div>
+                         <!-- end of col-8 -->
+                         <div class="col-4">
+                         <!-- for spacing?? -->
+                         </div>
+                     </div>
+                         
+                     <div class="row">
+                         <div class="col-12">
+                             <div class="form-group row">
+                                 <label for="FatherContact" class="col-sm-2 col-form-label d-flex justify-content-end ">Contact No.</label>
+                                 <input class="input-field col-sm-4 form-control mr-1" type="text" placeholder="XXXX-XXX-XXXX" name="number" maxlength="20" id="validationCustom01 namest" required>
+                                 <label for="FatherPrecinct" class="col-sm-2 col-form-label d-flex justify-content-end">Precinct No.</label>
+                                 <input class="input-field col-sm-3 form-control" type="text" placeholder="Enter precinct number" name="FatherPrecinct" maxlength="20" id="validationCustom01 namest" required>
+                             </div>
+                         </div>
+                         <!-- end of col-8 -->
+                         <div class="col-4">
+                         <!-- for spacing?? -->
+                         </div>
+                     </div>
+                     
+                     <div class="row">
+                         <div class="col-11">
+                             <div class="form-group row">
+                                 <label for="FatherSalary" class="col-sm-2 col-form-label d-flex justify-content-end m-0">Monthly Salary</label>
+                                 <div class="col-sm-10">
+                                 <input type="text" class="form-control" id="FatherSalary" name="" placeholder="Php XXXXX.XX" value="">
+                                 </div>
+                             </div>
+                         </div>
+                         <!-- end of col-8 -->
+                         <div class="col-4">
+                         <!-- for spacing?? -->
+                         </div>
+                     </div>
+                     
+                     <div class="row mt-2 d-flex justify-content-center">
+                             <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#scholarModal">Confirm>></button>
+                     </div>
+
+                     <!-- Modal -->
+
+                     <!-- Modal -->
+                     <div class="modal fade" id="scholarModal" tabindex="-1" role="dialog" aria-labelledby="#scholarModalLabel" aria-hidden="true">
+                       <div class="modal-dialog">
+                         <div class="modal-content">
+                           <div class="modal-header">
+                           <h5 class="text-warning">SCHOLARSHIP FORM</h5>
+                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                             
+                           </div>
+                           <div class="modal-body">
+                               <p><a href="#" role="button" class="btn btn-secondary popover-test d-flex justify-content-center" title="Popover title" data-content="Popover body content is set in this attribute.">Print Indigency</a> </p>
+                             
+                             </div>
+                           <div class="modal-footer">
+                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                             <button type="button" class="btn btn-primary">Save changes</button>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                 </div>
+              </div>
+              
+              <!-- FOR BURIAL -->
+              
+              <div class="tab-pane" id="burial" role="tabpanel">
+                 <div class="sv-tab-panel">
+                     <h4 class="text-warning pb-0">BURIAL CLAIM</h4><hr>
+                        <h6 class="text-secondary pl-3 pb-1">Deceased Members Information</h6>
+                     
+                     <div class="row">
+                         <div class="col-12">
+                             <div class="form-group row">
+                                 <label for="MotherName" class="col-sm-2 col-form-label d-flex justify-content-end ">Name</label>
+                                 <div class="col-sm-9">
+                                 <input type="text" class="form-control" id="MotherName" name="" placeholder="FN, MI, LN" value="">
+                                 </div>
+                             </div>
+                         </div>
+                         <!-- end of col-8 -->
+                         <div class="col-4">
+                         <!-- for spacing?? -->
+                         </div>
+                     </div>
+                     <!-- end of row -->
+                      <!-- row start -->
+                     <div class="row">
+                         <div class="col-11">
+                             <div class="form-group row">
+                                 <label for="EmailChangeThis" class="col-sm-2 col-form-label d-flex justify-content-end ">Address</label>
+                                 <div class="col-sm-10">
+                                 <input type="email" class="form-control" id="address" name="" placeholder="Enter address" value="">
+                                 </div>
+                             </div>
+                         </div>
+                         <!-- end of col-8 -->
+                         <div class="col-4">
+                         <!-- for spacing?? -->
+                         </div>
+                     </div>
+                     
+                     <div class="row">
+                         <div class="col-12">
+                             <div class="form-group row">
+                                 <label for="FatherContact" class="col-sm-2 col-form-label d-flex justify-content-end ">Relation</label>
+                                 <input class="input-field col-sm-4 form-control mr-1" type="text" placeholder="Enter relation" name="number" maxlength="20" id="validationCustom01 namest" required>
+                                 <label for="FatherPrecinct" class="col-sm-2 col-form-label d-flex justify-content-end">Civil Status</label>
+                                 <div class="btn-group col-sm-3">
+                                   <button type="button" class="btn btn-secondary dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                     Select
+                                   </button>
+                                   <div class="dropdown-menu">
+                                     <a class="dropdown-item" href="#">Single</a>
+                                     <a class="dropdown-item" href="#">Married</a>
+                                     <a class="dropdown-item" href="#">Widowed</a>
+                                     <a class="dropdown-item" href="#">Legally Separated</a>
+                                     <a class="dropdown-item" href="#">Others</a>
+                                   </div>
+                                 </div>
+                             </div>
+                         </div>
+                         <!-- end of col-8 -->
+                         <div class="col-4">
+                         <!-- for spacing?? -->
+                         </div>
+                     </div>
+                     
+                     <div class="row">
+                         <div class="col-12">
+                             <div class="form-group row">
+                                 <label for="FatherContact" class="col-sm-2 col-form-label d-flex justify-content-end ">Date of Birth</label>
+                                 <input class="input-field col-sm-4 form-control mr-1" type="date" placeholder="MM-DD-YY" name="number" maxlength="20" id="validationCustom01 namest" required>
+                                 <label for="FatherPrecinct" class="col-sm-2 col-form-label ml-1  d-flex justify-content-end">Date of Death</label>
+                                 <input class="input-field col-sm-3 form-control mr-1" type="date" placeholder="MM-DD-YY" name="number" maxlength="20" id="validationCustom01 namest" required>
+                             </div>
+                         </div>
+                         <!-- end of col-8 -->
+                         <div class="col-4">
+                         <!-- for spacing?? -->
+                         </div>
+                     </div>
+                     <div class="row">
+                         <div class="col-12">
+                             <div class="form-group row">
+                                 <label for="FatherContact" class="col-sm-2 col-form-label d-flex justify-content-end ">Place of Interment</label>
+                                 <input class="input-field col-sm-4 form-control mr-1" type="text" placeholder="Enter place" name="number" maxlength="20" id="validationCustom01 namest" required>
+                                 <label for="FatherPrecinct" class="col-sm-2 col-form-label ml-1  d-flex justify-content-end">Date of Interment</label>
+                                 <input class="input-field col-sm-3 form-control mr-1" type="date" placeholder="MM-DD-YY" name="number" maxlength="20" id="validationCustom01 namest" required>
+                             </div>
+                         </div>
+                         <!-- end of col-8 -->
+                         <div class="col-4">
+                         <!-- for spacing?? -->
+                         </div>
+                     </div>
+                     
+                 
+                     <div class="row mt-2 d-flex justify-content-center">
+                             <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#burialModal">Confirm>></button>
+                     </div>
+
+                     <!-- Modal -->
+                     <div class="modal fade" id="burialModal" tabindex="-1" role="dialog" aria-labelledby="burialModalLabel" aria-hidden="true">
+                       <div class="modal-dialog" role="document">
+                         <div class="modal-content">
+                           <div class="modal-header">
+                                   <h5 class="text-warning">BURIAL CLAIM</h5>
+                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                             
+                           </div>
+                           <div class="modal-body">
+                               <p><a href="#" role="button" class="btn btn-secondary popover-test d-flex justify-content-center" title="Popover title" data-content="Popover body content is set in this attribute.">Print Burial Claim Form</a> </p>
+                             
+                             </div>
+                           </div>
+                           
+                           <div class="modal-footer">
+                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                             <button type="button" class="btn btn-primary">Save changes</button>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                 </div>
+              </div>
+              
+              <!-- ENDS FORM CONTAINER -->
+           </div>
+        </div>
+     </div>
+                   </div>
+</div>
+
+{% endblock content %}
+
+{% block jsLink %}
+    <script src="{% static 'landing/landing.js' %}"></script>
+{% endblock jsLink %}

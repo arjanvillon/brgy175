@@ -16,19 +16,15 @@ SECTORS_CHOICES= [
 ]
 
 class UserRegisterForm(UserCreationForm):
-    first_name = forms.CharField(max_length=255,min_length=3)
-    middle_name = forms.CharField(max_length=3)
-    last_name= forms.CharField(max_length=100)
+    # first_name = forms.CharField(max_length=255,min_length=3)
+    # middle_name = forms.CharField(max_length=3)
+    # last_name= forms.CharField(max_length=100)
     sector= forms.CharField(label='Select Sector', widget=forms.Select(choices=SECTORS_CHOICES))
-    email = forms.EmailField(max_length=255)
-    
-    
-    
 
     class Meta:
         model = Account
-        fields = ("email","username","first_name","middle_name","last_name","sector","password1","password2")
-        
+        fields = ("username","email","first_name","middle_name","last_name","sector","password1","password2")
+        # ,"middle_name","last_name","sector"
 class LoginForm(AuthenticationForm):
 
     class Meta:
