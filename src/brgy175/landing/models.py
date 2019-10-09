@@ -2,14 +2,14 @@ from django.db import models
 from residents.models import Resident
 
 class IDForm(models.Model):
-    resident_idform = models.ForeignKey('residents.Resident', on_delete=models.CASCADE)
+    resident_idform = models.ForeignKey('residents.Resident', on_delete=models.CASCADE, null=True)
     con_person = models.CharField(max_length=50)
     con_person_address = models.CharField(max_length=100)
     con_person_relationsip = models.CharField(max_length=20)
     con_person_mobile = models.CharField(max_length=11)
 
 class IndigencyForm(models.Model):
-    resident_indigency = models.ForeignKey('residents.Resident', on_delete=models.CASCADE)
+    resident_indigency = models.ForeignKey('residents.Resident', on_delete=models.CASCADE, null=True)
     ccswd = models.BooleanField(default=False)
     dswd_medical = models.BooleanField(default=False)
     in_birth_certificate = models.BooleanField(default=False)
@@ -22,7 +22,7 @@ class IndigencyForm(models.Model):
     dswd_financial = models.BooleanField(default=False)
 
 class ClearanceForm(models.Model):
-    resident_clearance = models.ForeignKey('residents.Resident', on_delete=models.CASCADE)
+    resident_clearance = models.ForeignKey('residents.Resident', on_delete=models.CASCADE, null=True)
     bail_bond = models.BooleanField(default=False)
     bank = models.BooleanField(default=False)
     cl_birth_certificate = models.BooleanField(default=False)
@@ -49,14 +49,14 @@ class ClearanceForm(models.Model):
     nha = models.BooleanField(default=False)
 
 class BusinessPermit(models.Model):
-    resident_business = models.ForeignKey('residents.Resident', on_delete=models.CASCADE)
+    resident_business = models.ForeignKey('residents.Resident', on_delete=models.CASCADE, null=True)
     barangay_permit = models.BooleanField(default=False)
     city_permit = models.BooleanField(default=False)
     business_address = models.CharField(max_length=100)
     business_name = models.CharField(max_length=50)
 
 class ScholarshipForm(models.Model):
-    resident_scholarship = models.ForeignKey('residents.Resident', on_delete=models.CASCADE)
+    resident_scholarship = models.ForeignKey('residents.Resident', on_delete=models.CASCADE, null=True)
     father_name = models.CharField(max_length=50)
     father_address = models.CharField(max_length=100)
     father_age = models.IntegerField()
@@ -73,7 +73,7 @@ class ScholarshipForm(models.Model):
     mother_salary =   models.IntegerField()
 
 class BurialForm(models.Model):
-    resident_burial = models.ForeignKey('residents.Resident', on_delete=models.CASCADE)
+    resident_burial = models.ForeignKey('residents.Resident', on_delete=models.CASCADE, null=True)
     burial_name = models.CharField(max_length=50)
     burial_address = models.CharField(max_length=100)
     burial_relation = models.CharField(max_length=20)
