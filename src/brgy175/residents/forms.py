@@ -14,7 +14,10 @@ CIVIL_STATUS_CHOICES = [
     ('Separated', 'Separated'),
 ]
 
+
+
 class ResidentBasicForm(forms.ModelForm):
     class Meta:
         model = Resident
-        fields = { "place_of_birth", "weight", "height", "gender", "civil_status", "contact_number", "nationality", "email_address", "religion", "citizen_id", "pwd_no", "is_senior", "is_fresh_grad", "is_pwd"}
+        fields = { "first_name", "middle_name", "last_name", "suffix"}
+        # fields = { "first_name", "middle_name", "last_name", "suffix", "age", "address", "date_of_birth", "place_of_birth", "weight", "height", "gender", "civil_status", "contact_number", "nationality", "email_address", "religion", "citizen_id", "pwd_no", "is_senior", "is_fresh_grad", "is_pwd"}

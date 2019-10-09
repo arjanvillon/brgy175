@@ -5,19 +5,19 @@ from .forms import ResidentBasicForm
 def residentsHome(request):
     return render(request, 'residents/residentsHome.html', {'title':'Residents'})
 
-def residentsAdd(request):
+def residentsAdd(request): 
+    form_res = ResidentBasicForm()  
     if request.method == 'POST':
         form_res = ResidentBasicForm(request.POST)
-
         if form_res.is_valid():
             form_res.save()
-
-
     else:
-        form_res = ResidentBasicForm()
+         form_res = ResidentBasicForm()
+
     context = {
         'form_res': form_res
     }
+
     return render(request, 'residents/residentsAdd.html', context)
 
 

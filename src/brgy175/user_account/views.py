@@ -42,8 +42,7 @@ def register(request):
 		'form_l': form_login,
 		'form_r': form_register,
 	}
-		
-		
+	
 	return render(request, 'user_account/login.html', context)
 
 def logout_view(request):
