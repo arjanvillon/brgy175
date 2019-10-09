@@ -20,13 +20,14 @@ class UserRegisterForm(UserCreationForm):
     middle_name = forms.CharField(max_length=3)
     last_name= forms.CharField(max_length=100)
     sector= forms.CharField(label='Select Sector', widget=forms.Select(choices=SECTORS_CHOICES))
+    email = forms.EmailField(max_length=255)
     
     
     
 
     class Meta:
         model = Account
-        fields = ("username","first_name","middle_name","last_name","sector","password1","password2")
+        fields = ("email","username","first_name","middle_name","last_name","sector","password1","password2")
         
 class LoginForm(AuthenticationForm):
 

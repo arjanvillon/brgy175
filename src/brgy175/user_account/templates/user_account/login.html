@@ -21,12 +21,12 @@
 	<div class="container" id="container">
 	
 		<div class="form-container sign-up-container">
-			<form method="POST" action="{% url 'login'%}" class="needs-validation" novalidate>
-				{% csrf_token %}
+			<form method="POST" class="needs-validation">{% csrf_token %}
 
 				<h1 class="pulse slower wow delay-4s infinite">Let’s Get Signed Up!</h1>
 				<p><b>Just enter some basic requirements to get started!</b></p>
 				 <div class="input-group">
+						
 					<!--<input class="input-field col-sm-5 form-control" type="text" placeholder="First Name" name="fname" maxlength="20" id="validationCustom01" required>-->
 					{% render_field form_r.first_name|append_attr:"class:input-field col-sm-5 form-control" type="text" placeholder="First Name" name="fname" maxlength="20" id="validationCustom01" %}
 					<!--<input class="input-field col-sm form-control" type="text" placeholder="MI" name="mi" maxlength="2" required>-->
@@ -51,8 +51,9 @@
 					</select> {% endcomment %}
 				  <div class="invalid-feedback">Example invalid custom select feedback</div>
 				  </div>
-
-				  
+				  <div class="input-group">
+				  {% render_field form_r.email|append_attr:"class:input-field col-sm-5 form-control" type="email" placeholder="Email" name="email" id="validationCustom01" %}
+				  </div>
 				<div class="input-group">
 					 <!--<input class="input-field form-control" type="text" placeholder="Username" name="username" id="validationCustom01" required>-->
 					{% render_field form_r.username|attr:"class:input-field form-control" type="text" placeholder="Username" name="username" id="validationCustom01" required="required"%}

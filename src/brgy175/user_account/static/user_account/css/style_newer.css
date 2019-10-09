@@ -5,10 +5,6 @@
 	box-sizing: border-box;
 }
 
-*:focus {
-  outline: none !important;
-}
-
 body {
 	background: #f6f5f7;
 	display: flex;
@@ -144,23 +140,18 @@ option {
 .form-control {
 	font-family: Roboto;
 	font-style: normal;
-  font-weight: normal;
-  text-decoration: inherit;
+    font-weight: normal;
+    text-decoration: inherit;
 	background:none;
-  border: none;
-  border-color: transparent;
+	border: none;
 	padding-left: 15px;
 	color: white;
 	
 }
 
 .form-control:focus, .form-control:active {
-  background: transparent;
-  color:  white;
-  border-color: transparent !important;
-  outline: none !important;
-  -webkit-appearance:none;
-  box-shadow: none !important;
+    background: transparent;
+	color:  white;
 }
 
 .btn-group {
@@ -184,7 +175,7 @@ option {
 	background-color: #eee;
 	border: solid #F3EAEA;
 	padding: 12px 15px;
-	width: 70%;
+	width: 50%;
 	background:none;
   	background-image:none;
   	border:1px solid $gray-light;
