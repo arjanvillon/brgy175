@@ -1,5 +1,4 @@
 from django import forms
-from django.forms import ModelForm
 from .models import Resident
 
 GENDER_CHOICES = [
@@ -18,7 +17,9 @@ CIVIL_STATUS_CHOICES = [
 
 
 class ResidentBasicForm(forms.ModelForm):
+    gender = forms.ChoiceField(choices=(GENDER_CHOICES))
+    civil_status = forms.ChoiceField(choices=(CIVIL_STATUS_CHOICES))
     class Meta:
         model = Resident
-        fields = { "first_name", "middle_name", "last_name", "suffix"}
+        fields = { "first_name", "middle_name", "last_name", "suffix", "address", "date_of_birth", "place_of_birth", "age", "weight", "height", "gender", "civil_status", "contact_number", "nationality", "email_address", "religion"}
         # fields = { "first_name", "middle_name", "last_name", "suffix", "age", "address", "date_of_birth", "place_of_birth", "weight", "height", "gender", "civil_status", "contact_number", "nationality", "email_address", "religion", "citizen_id", "pwd_no", "is_senior", "is_fresh_grad", "is_pwd"}
