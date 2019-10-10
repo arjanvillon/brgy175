@@ -8,7 +8,8 @@ $(document).ready(function() {
 
     // Select2
     $('.select2').select2();
-
+    $('select#id_resident_case').select2();
+    
 
     // Main SideBar
     $('#sidebarCollapse').on('click', function() {

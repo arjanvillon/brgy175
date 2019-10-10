@@ -50,7 +50,7 @@
                 <div class="form-group row">
                     <label class="col-sm-1 col-form-label d-flex justify-content-end ml-5">Name</label>
 
-                    {% render_field form_res.first_name|append_attr:"class:form-control col-sm-3" placeholder="First Name" name="fname" maxlen3th="20" id="resFirstName" %}
+                    {% render_field form_res.first_name|append_attr:"class:form-control col-sm-3" placeholder="First Name" name="fname" maxlength="20" id="resFirstName" %}
 
                     {% render_field form_res.middle_name|append_attr:"class:input-field form-control col-sm-2 mr-1" type="text" placeholder="Middle Name" name="mname" maxlength="15" id="resMiddleName" %}
 

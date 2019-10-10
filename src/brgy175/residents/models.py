@@ -18,6 +18,8 @@ class Resident(models.Model):
     email_address = models.EmailField(max_length=60, unique=True)
     religion = models.CharField(max_length=30)
 
+    def __str__(self):
+        return ("%s %s %s %s" % (self.first_name, self.middle_name, self.last_name, self.suffix))
 
     # citizen_id = models.IntegerField()
     # pwd_no = models.IntegerField()

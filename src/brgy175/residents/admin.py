@@ -23,4 +23,4 @@ class ResidentDetail(admin.ModelAdmin):
 
 # Register your models here.
 # admin.site.register(Resident)
-admin.site.register(Resident, ResidentDetail)
+# admin.site.register(Resident, ResidentDetail)

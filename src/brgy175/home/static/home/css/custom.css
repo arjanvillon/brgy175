@@ -962,3 +962,7 @@ ul.brightPinkList li::before {
     background-color: #F50EDE;
 }
 
+/* SECTION select kat */
+select#id_resident_case {
+    width: auto !important;
+}
