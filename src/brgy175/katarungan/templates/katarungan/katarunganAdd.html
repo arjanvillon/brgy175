@@ -1,5 +1,5 @@
 {% extends "home/base.html" %}
-<!-- {% load widget_tweaks %} -->
+{% load widget_tweaks %}
 {% load staticfiles %}
 {% block cssLink %}
     <!-- Datepicker CSS -->
@@ -44,18 +44,23 @@
             <div class="col-12 col-md-12">
                 <!-- ANCHOR  form -->
                 <form action="" method="POST">
+                    {% csrf_token %}
                     <div class="row">
                         <div class="col-12 col-md-12">
                             <!-- SECTION CASE NUMBER -->
                         <div class="form-group row">
                                 <label for="katCaseNo" class="col-sm-2 col-form-label d-flex justify-content-start ml-5">Case No.</label>
-                                <input class="form-control col-sm-7" type="text" id="katCaseNo" name="katCaseNo">
+                                {% render_field form_case.case_no|append_attr:"class:form-control col-sm-7" placeholder="C-123-453-2019" type="text" id="katCaseNo" name="katCaseNo" %}
                             </div>
                             <!-- SECTION NAME -->
                             <div class="form-group row">
                                 <label for="katName" class="col-sm-2 col-form-label d-flex justify-content-start ml-5">Name</label>
-                                <!-- NOTE the user should be able to select from the list of residents -->
-                                <input class="form-control col-sm-7" type="text" id="katName" name="katName">
+                                <!-- <select class="form-control col-sm-7" name="katName" id="katName">
+                                    {% for fields in form_case.resident_case.all  %}
+                                        <option value=""></option>                                    
+                                    {% endfor %}
+                                </! -->
+                                {{ form_case.resident_case }}
                             </div>
                             <!-- SECTION ADDRESS -->
                             <div class="form-group row">
@@ -66,7 +71,7 @@
                             <!-- SECTION CASE TYPE -->
                             <div class="form-group row">
                                 <label for="katCaseType" class="col-sm-2 col-form-label d-flex justify-content-start ml-5">Case Type</label>
-                                <input class="form-control col-sm-7" type="text" id="katCaseType" name="katCaseType">
+                                {% render_field form_case.case_type|append_attr:"class:form-control col-sm-7" placeholder="" type="text" id="katCaseType" name="katCaseType" %}
                             </div>
                             <!-- SECTION COMPLAINANT NAME -->
                             <div class="form-group row">
@@ -76,11 +81,7 @@
                             <!-- SECTION CASE REMARKS -->
                             <div class="form-group row">
                                 <label for="katRemarks" class="col-sm-2 col-form-label d-flex justify-content-start ml-5">Remarks</label>
-                                <select class="form-control col-sm-7 select2" name="katRemarks" id="katRemarks">
-                                    <option value="CFA">CFA</option>
-                                    <option value="Settled">Settled</option>
-                                    <option value="Withdraw">Withdraw</option>
-                                </select>
+                                {% render_field form_case.case_status|append_attr:"class:form-control col-sm-7 select2" name="katRemarks" id="katRemarks" %}
                             </div>
                             <!-- SECTION Save Button -->
                             <div class="row">
