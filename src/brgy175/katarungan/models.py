@@ -1,7 +1,7 @@
 from django.db import models
 from residents.models import Resident
 
-class CaseRecord(models.Model):
+class Katarungan(models.Model):
     resident_case = models.ForeignKey('residents.Resident', on_delete=models.CASCADE, null=True)
     case_no = models.CharField(max_length=14)
     case_type = models.CharField(max_length=30)

@@ -41,55 +41,16 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>C-123-437-2019</td>
-                    <td>Ryan Jeff Sumayao</td>
-                    <td>San Francisco</td>
-                    <td>Murder</td>
-                    <td>Denielle Gonzales</td>
-                    <td class="text-center"><button type="button" class="btn btn-success w-75">Settled</button></td>
+                {% for p in data %}
+                <tr>  
+                    <td>{{ p.case_no }}</td>
+                    <td>{{ p.resident_case.first_name }}</td>
+                    <td>{{ p.resident_case.address }}</td>
+                    <td>{{ p.case_type }}</td>
+                    <td>{{ p.complainant }}</td>
+                    <td>{{ p.case_status }}></td>
                 </tr>
-                <tr>
-                    <td>C-123-437-2019</td>
-                    <td>Ryan Jeff Sumayao</td>
-                    <td>San Francisco</td>
-                    <td>Murder</td>
-                    <td>Denielle Gonzales</td>
-                    <td class="text-center"><button type="button" class="btn btn-danger w-75">CFA</button></td>
-                </tr>
-                <tr>
-                    <td>C-123-437-2019</td>
-                    <td>Ryan Jeff Sumayao</td>
-                    <td>San Francisco</td>
-                    <td>Murder</td>
-                    <td>Denielle Gonzales</td>
-                    <td class="text-center"><button type="button" class="btn btn-warning w-75">Withdraw</button></td>
-                </tr>
-                <tr>
-                    <td>C-123-437-2019</td>
-                    <td>Ryan Jeff Sumayao</td>
-                    <td>San Francisco</td>
-                    <td>Murder</td>
-                    <td>Denielle Gonzales</td>
-                    <td class="text-center"><button type="button" class="btn btn-success w-75">Settled</button></td>
-                </tr>
-                <tr>
-                    <td>C-123-437-2019</td>
-                    <td>Ryan Jeff Sumayao</td>
-                    <td>San Francisco</td>
-                    <td>Murder</td>
-                    <td>Denielle Gonzales</td>
-                    <td class="text-center"><button type="button" class="btn btn-danger w-75">CFA</button></td>
-                </tr>
-                <tr>
-                    <td>C-123-437-2019</td>
-                    <td>Ryan Jeff Sumayao</td>
-                    <td>San Francisco</td>
-                    <td>Murder</td>
-                    <td>Denielle Gonzales</td>
-                    <td class="text-center"><button type="button" class="btn btn-warning w-75">Withdraw</button></td>
-                </tr>
-                
+                {% endfor %}
             </tbody>
         </table>
     </div>

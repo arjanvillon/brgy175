@@ -45,78 +45,21 @@
                     </thead>
                         
                     <tbody>
+                        {% for p in data %}
                         <tr>
-                            <td>12345</td>
-                            <td>123</td>
-                            <td>Christopher Aligapos</td>
-                            <td>October 10,1932</td>
-                            <td>60</td>
-                            <td>Deaf</td>
+                                <td></td>
+                                <td></td>
+                                <td>{{ p.first_name }}{{ p.last_name }}</td>
+                                <td>{{ p.date_of_birth }}</td>
+                                <td>{{ p.age }}</td>
+                                <td>{{ p.disablity }}></td>
                             <td>
                                 <button type = "button" class="btn btn-warning accordion">Archive</button>
                                 <button type = "button" class="btn btn-primary">Update</button>
                             </td>
+                        {% endfor %}
                         </tr>
-                        <tr>
-                            <td>12345</td>
-                            <td>123</td>
-                            <td>Christopher Aligapos</td>
-                            <td>October 10,1932</td>
-                            <td>60</td>
-                            <td>Deaf</td>
-                            <td>
-                                <button type = "button" class="btn btn-warning accordion">Archive</button>
-                                <button type = "button" class="btn btn-primary">Update</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>12345</td>
-                            <td>123</td>
-                            <td>Christopher Aligapos</td>
-                            <td>October 10,1932</td>
-                            <td>60</td>
-                            <td>Deaf</td>
-                            <td>
-                                <button type = "button" class="btn btn-warning accordion">Archive</button>
-                                <button type = "button" class="btn btn-primary">Update</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>12345</td>
-                            <td>123</td>
-                            <td>Christopher Aligapos</td>
-                            <td>October 10,1932</td>
-                            <td>60</td>
-                            <td>Deaf</td>
-                            <td>
-                                <button type = "button" class="btn btn-warning accordion">Archive</button>
-                                <button type = "button" class="btn btn-primary">Update</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>12345</td>
-                            <td>123</td>
-                            <td>Christopher Aligapos</td>
-                            <td>October 10,1932</td>
-                            <td>60</td>
-                            <td>Deaf</td>
-                            <td>
-                                <button type = "button" class="btn btn-warning accordion">Archive</button>
-                                <button type = "button" class="btn btn-primary">Update</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>12345</td>
-                            <td>123</td>
-                            <td>Christopher Aligapos</td>
-                            <td>October 10,1932</td>
-                            <td>60</td>
-                            <td>Deaf</td>
-                            <td>
-                                <button type = "button" class="btn btn-warning accordion">Archive</button>
-                                <button type = "button" class="btn btn-primary">Update</button>
-                            </td>
-                        </tr>
+                       
           
                     </tbody>
                 </table>

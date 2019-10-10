@@ -1,9 +1,12 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .forms import ResidentBasicForm
+from .models import Resident
 
 def residentsHome(request):
-    return render(request, 'residents/residentsHome.html', {'title':'Residents'})
+    data = Resident.objects.all
+    context = { 'data' : data, 'title':'Residents'}
+    return render(request, 'residents/residentsHome.html', context)
 
 def residentsAdd(request): 
     form_res = ResidentBasicForm()  
