@@ -1,6 +1,72 @@
 {% extends "home/base.html" %}
+
+{% load static %}
+
+{% block cssLink %}
+    <link rel="stylesheet" href="{% static 'plugins/datatables/datatables.css' %}" >
+{% endblock cssLink %}
+
 {% block content %}
 <div class="mainContainer">
-    <h1>{{title}}</h1>
+    <div class="row">
+        <div class="col-12">
+            <h4 class="font-weight-bold">{{title}}</h4>
+
+            <div class="row mb-3">
+                <div class="col-9">
+                    <div class="tabWrapper">
+                        <div class="tabSwitch left text-center " >
+                            <div style="display:inline" class="pillTab active" pillTab-direction="left"><a href="#viewAll">VIEW ALL</a></div>
+                            <div class="pillTab text-center" pillTab-direction="right"><a href="#addNew">ADD NEW</a></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-3">
+                    <input class="form-control tableSearchBox" placeholder="Search..." id="seniorSearchBox"/>
+                </div>
+            </div>
+
+            <!-- table container -->
+            <div class="tableContainer">
+            <br>
+                <table id="seniorTable" class="table table-bordered text-center" style="width:100%;border-radius: 10px;-moz-border-radius: 10px; -webkit-border-radius: 10px;">
+                    <thead>
+                        <tr> 
+                            <th>Name</th>
+                            <th>Date of Birth</th>
+                            <th>Contact Number</th>
+                            <th>Email Address</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                        
+                    <tbody>
+                        {% for p in data %}
+                        <tr>
+                                <td>{{ p.first_name }}{{ p.last_name }}</td>
+                                <td>{{ p.date_of_birth }}</td>
+                                <td>{{ p.contact_number }}</td>
+                                <td>{{ p.email_address }}></td>
+                            <td>
+                                <button type = "button" class="btn btn-warning accordion">Archive</button>
+                                <button type = "button" class="btn btn-primary">Update</button>
+                            </td>
+                        {% endfor %}
+                        </tr>
+                       
+          
+                    </tbody>
+                </table>
+            </div>
+        </div>        
+    </div>
 </div>
 {% endblock content %}
+
+{% block jsLink %}
+    <!-- Datatables JS -->
+    <script src="{% static 'plugins/datatables/datatables.js' %}"></script>
+    <!-- Custom JS -->
+    <script src="{% static 'senior/custom.js' %}"></script>
+{% endblock jsLink %}

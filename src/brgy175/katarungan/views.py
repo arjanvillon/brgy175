@@ -1,9 +1,12 @@
 from django.shortcuts import render
 from django.contrib import messages
 from .forms import CaseForm
+from .forms import Katarungan
 
 def katarunganHome(request):
-    return render(request, 'katarungan/katarunganHome.html' , {'title':'Katarungang Pambarangay'})
+    data = Katarungan.objects.all 
+    context = { 'data': data, 'title':'Katarungang Pambarangay' }
+    return render(request, 'katarungan/katarunganHome.html' , context)
 
 def katarunganDashboard(request):
     return render(request, 'katarungan/katarunganDashboard.html', {'title':'Katarungang Pambarangay Dashboard'})

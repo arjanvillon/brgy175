@@ -46,66 +46,16 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td class = "align-middle">1234</td>
-                    <td class = "align-middle">Matthew Valerio</td>
-                    <td class = "align-middle">San Roque Marikina</td>
-                    <td class = "align-middle">Murder</td>
-                    <td class = "align-middle">Denielle Gonzales</td>
-                    <td> 
-                        <button type="button" class="btn btn-success width-md" style="background:#0EF533;border-color:#0EF533">SETTLED</button>
-                    </td>
+                {% for p in data %}
+                <tr>  
+                    <td>{{ p.case_no }}</td>
+                    <td>{{ p.resident_case.first_name }}</td>
+                    <td>{{ p.resident_case.address }}</td>
+                    <td>{{ p.case_type }}</td>
+                    <td>{{ p.complainant }}</td>
+                    <td>{{ p.case_status }}></td>
                 </tr>
-                <tr>
-                    <td class = "align-middle">1234</td>
-                    <td class = "align-middle">Matthew Valerio</td>
-                    <td class = "align-middle">San Roque Marikina</td>
-                    <td class = "align-middle">Murder</td>
-                    <td class = "align-middle">Denielle Gonzales</td>
-                    <td> 
-                        <button type="button" class="btn btn-danger width-md" style="background:#F90F0F;border-color:#F90F0F">CFA</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td class = "align-middle">1234</td>
-                    <td class = "align-middle">Matthew Valerio</td>
-                    <td class = "align-middle">San Roque Marikina</td>
-                    <td class = "align-middle">Murder</td>
-                    <td class = "align-middle">Denielle Gonzales</td>
-                    <td> 
-                        <button type="button" class="btn btn-warning width-md" style="background:#F09819;border-color:#F09819">WITHDRAW</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td class = "align-middle">1234</td>
-                    <td class = "align-middle">Matthew Valerio</td>
-                    <td class = "align-middle">San Roque Marikina</td>
-                    <td class = "align-middle">Murder</td>
-                    <td class = "align-middle">Denielle Gonzales</td>
-                    <td> 
-                        <button type="button" class="btn btn-success width-md" style="background:#0EF533;border-color:#0EF533">SETTLED</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td class = "align-middle">1234</td>
-                    <td class = "align-middle">Matthew Valerio</td>
-                    <td class = "align-middle">San Roque Marikina</td>
-                    <td class = "align-middle">Murder</td>
-                    <td class = "align-middle">Denielle Gonzales</td>
-                    <td> 
-                        <button type="button" class="btn btn-danger width-md" style="background:#F90F0F;border-color:#F90F0F">CFA</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td class = "align-middle">1234</td>
-                    <td class = "align-middle">Matthew Valerio</td>
-                    <td class = "align-middle">San Roque Marikina</td>
-                    <td class = "align-middle">Murder</td>
-                    <td class = "align-middle">Denielle Gonzales</td>
-                    <td> 
-                        <button type="button" class="btn btn-warning width-md" style="background:#F09819;border-color:#F09819">WITHDRAW</button>
-                    </td>
-                </tr>
+                {% endfor %}
                 
             </tbody>
         </table>
