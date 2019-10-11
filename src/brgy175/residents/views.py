@@ -14,6 +14,7 @@ def residentsAdd(request):
         form_res = ResidentBasicForm(request.POST)
         if form_res.is_valid():
             form_res.save()
+            messages.success(request, 'Successfully registered!')  
     else:
          form_res = ResidentBasicForm()
 
@@ -21,7 +22,6 @@ def residentsAdd(request):
         'form_res': form_res
     }
 
-    messages.success(request, 'Successfully registered!')  
     return render(request, 'residents/residentsAdd.html', context)
 
 

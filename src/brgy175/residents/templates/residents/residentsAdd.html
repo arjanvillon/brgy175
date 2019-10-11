@@ -41,6 +41,13 @@
     <div id="addNew">
         <h4 class="text-warning">Basic Info</h4>
         <hr>
+        {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+            </div>
+            {% endfor %}
+        {% endif %}
         <!-- main row -->
         <div class="row">
             <div class="col-9">

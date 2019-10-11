@@ -55,12 +55,9 @@
                             <!-- SECTION NAME -->
                             <div class="form-group row">
                                 <label for="katName" class="col-sm-2 col-form-label d-flex justify-content-start ml-5">Name</label>
-                                <!-- <select class="form-control col-sm-7" name="katName" id="katName">
-                                    {% for fields in form_case.resident_case.all  %}
-                                        <option value=""></option>                                    
-                                    {% endfor %}
-                                </! -->
-                                {{ form_case.resident_case }}
+                                <div id="katName">{{ form_case.resident_case }}</div>
+                                <!-- <span id="katNotName" class="col-sm-4 col-form-label d-flex justify-content-start">Not in the choices?</span> -->
+                            
                             </div>
                             <!-- SECTION ADDRESS -->
                             <div class="form-group row">

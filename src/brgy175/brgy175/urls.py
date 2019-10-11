@@ -38,6 +38,8 @@ urlpatterns = [
     path('logout/', include('user_account.urls')),
     
     #SECTION landing URLs
+    # path('', landing_views.index, name='index' ),
+    # path('landing/projects', landing_views.landingProjects, name='landingProjects'),
     path('landing/forms', landing_views.landing_forms, name='landingForms'),
     #!SECTION 
 

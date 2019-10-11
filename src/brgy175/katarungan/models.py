@@ -7,3 +7,4 @@ class Katarungan(models.Model):
     case_type = models.CharField(max_length=30)
     complainant = models.CharField(max_length=50)
     case_status = models.CharField(max_length=8)
+

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib import messages
 from .forms import CaseForm
-from .forms import Katarungan
+from .models import Katarungan
 
 def katarunganHome(request):
     data = Katarungan.objects.all 
