@@ -54,12 +54,14 @@ def landing_forms(request):
 
     return render(request, 'landing/form_landing.html', context)
 
-def index(request):
-    return render(request, 'landing/index.html')
+def landing_base(request):
+    return render(request, 'landing/landing_base.html')
 
-def landingProjects(request):
-    return render(request, 'landing/projects.html')
+def about_us(request):
+    return render(request, 'landing/about_us.html')
 
+def contact(request):
+    return render(request, 'landing/co.html')
 
 
 

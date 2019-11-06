@@ -14,8 +14,8 @@
         <!-- tab switch -->
         <div class="tabWrapper">
             <div class="tabSwitch left text-center " >
-                <div style="display:inline" class="pillTab active" pillTab-direction="left"><a href="#viewAll">VIEW ALL</a></div>
-                <div class="pillTab text-center" pillTab-direction="right"><a href="#addNew">ADD NEW</a></div>
+                <div style="display:inline" class="pillTab active" pillTab-direction="left"><a href="{% url 'katarunganHome' %}">VIEW ALL</a></div>
+                <div class="pillTab text-center" pillTab-direction="right"><a href="{% url 'katarunganAddCase' %}">ADD NEW</a></div>
             </div>
         </div>
         <!-- tab switch end -->
@@ -44,11 +44,11 @@
                 {% for p in data %}
                 <tr>  
                     <td>{{ p.case_no }}</td>
-                    <td>{{ p.resident_case.first_name }}</td>
-                    <td>{{ p.resident_case.address }}</td>
+                    <td>{{ p.c_resident.first_name }}</td>
+                    <td>{{ p.c_resident.address }}</td>
                     <td>{{ p.case_type }}</td>
                     <td>{{ p.complainant }}</td>
-                    <td>{{ p.case_status }}></td>
+                    <td>{{ p.case_status }}></td> 
                 </tr>
                 {% endfor %}
             </tbody>

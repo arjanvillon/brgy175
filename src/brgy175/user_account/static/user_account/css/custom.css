@@ -269,7 +269,7 @@ option {
 }
 
 .overlay {
-	background-image: url(../images/bgfinal.jpg);
+	background-image: url('{% static "landing/images/bgfinal.jpg" %}');
 	
 	background-repeat: no-repeat;
 	background-size: cover;

@@ -41,6 +41,9 @@ urlpatterns = [
     # path('', landing_views.index, name='index' ),
     # path('landing/projects', landing_views.landingProjects, name='landingProjects'),
     path('landing/forms', landing_views.landing_forms, name='landingForms'),
+    path('', landing_views.landing_base, name='landingBase'),
+    path('about', landing_views.about_us, name='aboutUs'),
+    path('contact', landing_views.contact, name='contactUs'),
     #!SECTION 
 
     #SECTION Assistance URLs

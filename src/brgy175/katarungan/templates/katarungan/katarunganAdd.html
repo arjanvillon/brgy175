@@ -21,9 +21,9 @@
         <div class="col-7">
             <!-- tab switch -->
             <div class="tabWrapper">
-                <div class="tabSwitch left text-center " >
-                    <div style="display:inline" class="pillTab active" pillTab-direction="left"><a href="#viewAll">VIEW ALL</a></div>
-                    <div class="pillTab text-center" pillTab-direction="right"><a href="#addNew">ADD NEW</a></div>
+                <div class="tabSwitch right text-center " >
+                    <div class="d-inline pillTab" pillTab-direction="left"><a href="{% url 'katarunganHome' %}">VIEW ALL</a></div>
+                    <div class="pillTab text-center active" pillTab-direction="right"><a href="{% url 'katarunganAddCase' %}">ADD NEW</a></div>
                 </div>
             </div>
             <!-- tab switch end -->
@@ -43,22 +43,29 @@
         <div class="row">
             <div class="col-12 col-md-12">
                 <!-- ANCHOR  form -->
-                <form action="" method="POST">
+                <form action="" method="POST" novalidate>
                     {% csrf_token %}
                     <div class="row">
                         <div class="col-12 col-md-12">
                             <!-- SECTION CASE NUMBER -->
                         <div class="form-group row">
                                 <label for="katCaseNo" class="col-sm-2 col-form-label d-flex justify-content-start ml-5">Case No.</label>
-                                {% render_field form_case.case_no|append_attr:"class:form-control col-sm-7" placeholder="C-123-453-2019" type="text" id="katCaseNo" name="katCaseNo" %}
+                                {% render_field form.case_no|append_attr:"class:form-control col-sm-7" placeholder="C-123-453-2019" type="text" id="katCaseNo" name="katCaseNo" %}
                             </div>
                             <!-- SECTION NAME -->
                             <div class="form-group row">
                                 <label for="katName" class="col-sm-2 col-form-label d-flex justify-content-start ml-5">Name</label>
-                                <div id="katName">{{ form_case.resident_case }}</div>
+                                <div id="katName">{{ form.c_resident }}</div>
                                 <!-- <span id="katNotName" class="col-sm-4 col-form-label d-flex justify-content-start">Not in the choices?</span> -->
-                            
+                                
                             </div>
+                            <!-- <div class="form-group row">
+                                <div class="ml-5 col-sm-12">
+                                    <div class="feedback">
+                                        Name must not contain any numbers, symbols and contain 2 - 25 letters only.
+                                    </div>
+                                </div>
+                            </div> -->
                             <!-- SECTION ADDRESS -->
                             <div class="form-group row">
                                 <label for="katAddress" class="col-sm-2 col-form-label d-flex justify-content-start ml-5">Address</label>
@@ -68,17 +75,30 @@
                             <!-- SECTION CASE TYPE -->
                             <div class="form-group row">
                                 <label for="katCaseType" class="col-sm-2 col-form-label d-flex justify-content-start ml-5">Case Type</label>
-                                {% render_field form_case.case_type|append_attr:"class:form-control col-sm-7" placeholder="" type="text" id="katCaseType" name="katCaseType" %}
+                                {% render_field form.case_type|append_attr:"class:form-control col-sm-7" placeholder="" type="text" id="katCaseType" name="katCaseType" %}
                             </div>
                             <!-- SECTION COMPLAINANT NAME -->
                             <div class="form-group row">
                                 <label for="katComplainant" class="col-sm-2 col-form-label d-flex justify-content-start ml-5">Complainant Name</label>
                                 <input class="form-control col-sm-7" type="text" id="katComplainant" name="katComplainant">
+                                
+                                <!-- {% for hidden in form.hidden_fields %}
+                                    {{ hidden }}
+                                {% endfor %}
+                                    
+                                {% for field in form.visible_fields %}
+                                    <p class="col-sm-12" style="color: red"> 
+                                        {{ field.errors }}
+                                        {{ field.help_text }}
+                                        {{ field }}
+                                    </p>
+                                {% endfor %} -->
+                                    
                             </div>
                             <!-- SECTION CASE REMARKS -->
                             <div class="form-group row">
                                 <label for="katRemarks" class="col-sm-2 col-form-label d-flex justify-content-start ml-5">Remarks</label>
-                                {% render_field form_case.case_status|append_attr:"class:form-control col-sm-7 select2" name="katRemarks" id="katRemarks" %}
+                                {% render_field form.case_status|append_attr:"class:form-control col-sm-7 select2" name="katRemarks" id="katRemarks" %}
                             </div>
                             <!-- SECTION Save Button -->
                             <div class="row">

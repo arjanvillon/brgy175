@@ -184,7 +184,7 @@ option {
 	background-color: #eee;
 	border: solid #F3EAEA;
 	padding: 12px 15px;
-	width: 70%;
+	width: 50%;
 	background:none;
   	background-image:none;
   	border:1px solid $gray-light;
@@ -269,7 +269,7 @@ option {
 }
 
 .overlay {
-	background-image: url(../images/bgfinal.jpg);
+	background-image: url('{% static "landing/images/bgfinal.jpg" %}');
 	
 	background-repeat: no-repeat;
 	background-size: cover;

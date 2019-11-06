@@ -842,7 +842,16 @@ label {
     font-family: Reem Kufi, sans-serif;
 }
 
-
+.select2-selection{
+    padding: 0px !important;
+    border-radius: 50px !important;
+}
+.select2-container .select2-selection--single {
+    height: 36px !important;
+}
+.select2-container .select2-selection--single .select2-selection__rendered {
+    padding-top: 5px;
+}
 /* ---------------------------------------------------
  TOGGLE SWITCHES
 ----------------------------------------------------- */
@@ -953,3 +962,18 @@ ul.brightPinkList li::before {
     background-color: #F50EDE;
 }
 
+/* SECTION select kat */
+select#id_resident_case {
+    width: auto !important;
+}
+
+/* SECTION FEEDBACK */
+/*input validations*/
+/*validation styles*/
+
+.feedback {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:  0.9em;
+    font-weight: bold;
+    color: orange;
+}

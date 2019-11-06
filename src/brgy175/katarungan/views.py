@@ -1,10 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib import messages
 from .forms import CaseForm
 from .models import Katarungan
 
+
 def katarunganHome(request):
-    data = Katarungan.objects.all 
+    data = Katarungan.objects.all()
     context = { 'data': data, 'title':'Katarungang Pambarangay' }
     return render(request, 'katarungan/katarunganHome.html' , context)
 
@@ -13,18 +14,13 @@ def katarunganDashboard(request):
 
 def katarunganAddCase(request):
     form = CaseForm()
+    
     if request.method == 'POST':
         form = CaseForm(request.POST)
         if form.is_valid():
-            form.save()
+            case = form.save()
+            return redirect('/katarunganHome/')
     else:
         form = CaseForm()
 
-    context = {
-        'form_case': form
-    }
-
-    messages.success(request, 'Successfully filed a case!')  
-    return render(request, 'katarungan/katarunganAdd.html', context)
-
-
+    return render(request, 'katarungan/katarunganAdd.html', {'form':form})

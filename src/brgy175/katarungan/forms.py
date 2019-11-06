@@ -7,9 +7,9 @@ CASE_STATUS_CHOICES = [
     ('Settled', 'Settled')
 ]
 
-
-class  CaseForm(forms.ModelForm):
+class CaseForm(forms.ModelForm):
     case_status = forms.ChoiceField(choices=(CASE_STATUS_CHOICES))
+
     class Meta:
         model = Katarungan
-        fields = { "resident_case", "case_no", "case_type", "complainant", "case_status"  }
+        fields = "__all__"

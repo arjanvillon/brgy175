@@ -1,0 +1,415 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Barangay 175</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap/bootstrapCSS/bootstrap.css' %}" >
+
+    <link rel="stylesheet" href="{% static 'plugins/mdb/css/mdb.css' %}">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{% static 'plugins/fontawesome/css/all.css' %}">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'landing/css/websitecss.css' %}">
+    {% block landing_custom_css %}
+        
+    {% endblock landing_custom_css %}
+    <style>
+    .btn-outline-secondary {
+      border: none !important;
+      color: #fff !important;
+    }
+    </style>
+</head>
+
+<body>
+    
+{% block mainNav %}
+    <!-- NAVBAR START -->
+    <nav class="navbar navbar-expand-lg mb-4 top-bar navbar-static-top sps sps--abv">
+        <div class="container">
+            <a class="navbar-brand  col-4" href="#"><img src="{% static 'landing/images/brgylogo_long.png' %}" style="width: 100%;"></a>
+            <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon" ></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                <li class="nav-item active"> <a class="nav-link"  href="{% url 'landingBase' %}">Home <span class="sr-only">(current)</span></a> </li>
+                <li class="nav-item"> <a class="nav-link" href="{% url 'aboutUs' %}">About</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="website_applications.html">Applications</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="projects.html">Events</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="{% url 'contactUs' %}">Contact</a> </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+{% endblock mainNav %}
+<!-- SECTION MAIN CONTENT -->
+
+
+{% block sliderContents %}
+    
+
+<!-- Swiper Silder
+    ================================================== --> 
+<!-- Slider main container -->
+<div class="swiper-container main-slider" id="myCarousel">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide slider-bg-position" style="background:url('{% static "landing/images/bgwews.jpg" %}')" data-hash="slide1">
+            <div>
+                <h1 class="my-0 display-4 font-weight-bold mt-5">Online Barangay Form Application</h1>
+                <p>5 easy steps to get your barangay documents!</p>
+                <p><a class="text-light shadow border-0 btn btn-outline-secondary mb-2 mr-3" style="background-image: linear-gradient(to right, #EE5A24 , #EA2027);" href="#" role="button">Apply Now!</a></p>
+            </div>
+        </div>
+        <div class="swiper-slide slider-bg-position" style="background:url('{% static "landing/images/bgwews.jpg" %}')" data-hash="slide2">
+            <div>
+                <h7 class="my-0 display-4 font-weight-bold mt-5">Announcements and Projects</h7>
+                <p class="text-light">Know more about the upcoming events in Barangay 175!</p>
+                <p><a class="text-light shadow border-0 btn btn-outline-secondary mb-2 mr-3" style="background-image: linear-gradient(to right, #EE5A24 , #EA2027);" href="projects.html" role="button">See more...</a></p>
+            </div>
+        </div>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+    <!-- Add Navigation -->
+    <div class="swiper-button-prev"><i class="fa fa-chevron-left"></i></div>
+    <div class="swiper-button-next"><i class="fa fa-chevron-right"></i></div>
+</div>
+{% endblock sliderContents %}
+<!-- Benefits
+    ================================================== -->
+    {% block mainContents %}    
+ <div class="container" style="margin-top: 50px;">
+ <div class="container marketing" >
+		<h1 class="my-4 text-info display-4 font-weight-bold"><center>Try online form <br>application now!</center></h1><hr>
+<div class="row mt-5">
+        <div class="col-4 col-xs-6 col-sm-4 col-md-4 col-lg-4">
+          <i class="fas fa-id-card zoom animated fa-6x mb-3"> </i>
+          <h2>Barangay ID Card</h2>
+          <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. </p>
+          <p><a class="text-light shadow border-0 btn btn-outline-secondary mb-2 mr-3" style="background-image: linear-gradient(to right, #EE5A24 , #EA2027);" href="#" role="button">Try now »</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-4 col-xs-6 col-sm-4 col-md-4 col-lg-4">
+          <i class="fas fa-file-signature zoom animated fa-6x  mb-3"> </i>
+          <h2>Barangay Clearance</h2>
+          <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula,.</p>
+          <p><a class="text-light shadow border-0 btn btn-outline-secondary mb-2 mr-3" style="background-image: linear-gradient(to right, #EE5A24 , #EA2027);" href="#" role="button">Try now »</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-4 col-xs-6 col-sm-4 col-md-4 col-lg-4">
+          <i class=" fas fa-book-reader zoom animated fa-6x  mb-3"> </i>
+          <h2>Scholarship</h2>
+          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis</p>
+          <p><a class="text-light shadow border-0 btn btn-outline-secondary mb-2 mr-3" style="background-image: linear-gradient(to right, #EE5A24 , #EA2027);" href="#" role="button">Try now »</a></p>
+        </div><!-- /.col-lg-4 -->
+      </div><!-- /.row -->
+      <div class="d-flex justify-content-between">
+      <p class="lead mr-3">Other Barangay Officess</p> 
+		<button type="button" class="text-light shadow border-0 btn btn-outline-secondary mb-5 mr-3" style="background-image: linear-gradient(to right, #EE5A24 , #EA2027);">Indigency</button>
+		<button type="button" class="text-light shadow border-0 btn btn-outline-secondary mb-5 mr-3" style="background-image: linear-gradient(to right, #EE5A24 , #EA2027);">Barangay Permit</button>
+		<button type="button" class="text-light shadow border-0 btn btn-outline-secondary mb-5 mr-3" style="background-image: linear-gradient(to right, #EE5A24 , #EA2027);">Burial Claim</button>
+      <hr>
+	</div>
+	</div>
+      <!-- /END THE FEATURETTES -->
+</meta><!-- /.container -->
+      <!-- START THE FEATURETTES -->
+      <!--Carousel Wrapper-->
+<h
+      
+      <div>
+    <div class="container col-12 col-xs-6 col-sm-4">
+    <h1 class="my-4 text-info display-4 font-weight-bold mt-5"><center>SANGGUNIANG BARANGAY</center></h1>
+	  
+	</div>
+ 
+    <!--/.Carousel Wrapper-->
+
+ <div class="container text-light">
+    <div class="row" style="padding-bottom: 40px; padding-top: 40px;">
+        <div class="col-lg-10 col-xs-12 col-sm-12 ml-5 ">
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleControls" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleControls" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleControls" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <div class="col-4 col-xs-6 col-sm-4 col-md-4 col-lg-4">
+							  <div class="our-team">
+								<div class="picture">
+								  <img class="img-fluid" src="{% static 'landing/images/kurs_chairman.png' %}">
+								</div>
+								<div class="team-content">
+								  <h3 class="name">Ronaldo <br>Matias</h3>
+								  <h4 class="title">Barangay Captain</h4>
+								</div>
+								<ul class="social">
+								  <li><a href="https://codepen.io/collection/XdWJOQ/" class="fa fa-business-time" aria-hidden="true"></a></li>
+								</ul>
+							  </div>
+							</div>
+                            <div class="col-4 col-xs-6 col-sm-4 col-md-4 col-lg-4">
+							  <div class="our-team">
+								<div class="picture">
+								  <img class="img-fluid" src="{% static 'landing/images/kurs_kagawad1.jpg' %}">
+								</div>
+								<div class="team-content">
+								  <h3 class="name">Bernard F.<br> Arroyo</h3>
+								  <h4 class="title">Barangay Kagawad</h4>
+								</div>
+								<ul class="social">
+								  <li><a href="#about" class="fa fa-business-time" aria-hidden="true"></a></li>
+								  
+								</ul>
+							  </div>
+							</div>
+                            <div class="col-4 col-xs-6 col-sm-4 col-md-4 col-lg-4">
+							  <div class="our-team">
+								<div class="picture">
+								  <img class="img-fluid" src="{% static 'landing/images/kurs_kagawad2.jpg' %}">
+								</div>
+								<div class="team-content">
+								  <h3 class="name">James Frederick<br>Cayetano</h3>
+								  <h4 class="title">Barangay Kagawad</h4>
+								</div>
+								<ul class="social">
+								  <li><a href="https://codepen.io/collection/XdWJOQ/" class="fa fa-business-time" aria-hidden="true"></a></li>
+								</ul>
+							  </div>
+							</div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-4 col-xs-6 col-sm-4 col-md-4 col-lg-4">
+							  <div class="our-team">
+								<div class="picture">
+								  <img class="img-fluid" src="{% static 'landing/images/kurs_kagawad3.jpg' %}">
+								</div>
+								<div class="team-content">
+								  <h3 class="name">Josephine <br>Mateo</h3>
+								  <h4 class="title">Barangay Kagawad</h4>
+								</div>
+								<ul class="social">
+								  <li><a href="https://codepen.io/collection/XdWJOQ/" class="fa fa-business-time" aria-hidden="true"></a></li>
+								</ul>
+							  </div>
+							</div>
+                            <div class="col-4 col-xs-6 col-sm-4 col-md-4 col-lg-4">
+							  <div class="our-team">
+								<div class="picture">
+								  <img class="img-fluid" src="{% static 'landing/images/kurs_kagawad4.jpg' %}">
+								</div>
+								<div class="team-content">
+								  <h3 class="name">Cesar S. <br>Del Rosario</h3>
+								  <h4 class="title">Barangay Kagawad</h4>
+								</div>
+								<ul class="social">
+								  <li><a href="https://codepen.io/collection/XdWJOQ/" class="fa fa-business-time" aria-hidden="true"></a></li>
+								</ul>
+							  </div>
+							</div>
+                            <div class="col-4 col-xs-6 col-sm-4 col-md-4 col-lg-4">
+							  <div class="our-team">
+								<div class="picture">
+								  <img class="img-fluid" src="{% static 'landing/images/kurs_kagawad5.jpg' %}">
+								</div>
+								<div class="team-content">
+								  <h3 class="name">Jesus<br> Cortez</h3>
+								  <h4 class="title">Barangay Kagawad</h4>
+								</div>
+								<ul class="social">
+								  <li><a href="https://codepen.io/collection/XdWJOQ/" class="fa fa-business-time" aria-hidden="true"></a></li>
+								</ul>
+							  </div>
+							</div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="row ">
+                            <div class="col-4 col-xs-6 col-sm-4 col-md-4 col-lg-4">
+							  <div class="our-team">
+								<div class="picture">
+								  <img class="img-fluid" src="{% static 'landing/images/kurs_kagawad6.jpg' %}">
+								</div>
+								<div class="team-content">
+								  <h3 class="name">Keanu <br> Asistio</h3>
+								  <h4 class="title">Barangay Kagawad</h4>
+								</div>
+								<ul class="social">
+								  <li><a href="https://codepen.io/collection/XdWJOQ/" class="fa fa-business-time" aria-hidden="true"></a></li>
+								</ul>
+							  </div>
+							</div>
+                            <div class="col-4 col-xs-6 col-sm-4 col-md-4 col-lg-4">
+							  <div class="our-team">
+								<div class="picture">
+								  <img class="img-fluid" src="{% static 'landing/images/kurs_kagawad7.jpg' %}">
+								</div>
+								<div class="team-content">
+								  <h3 class="name">Rodrigo <br> delos Santos</h3>
+								  <h4 class="title">Barangay Kagawad</h4>
+								</div>
+								<ul class="social">
+								  <li><a href="https://codepen.io/collection/XdWJOQ/" class="fa fa-business-time" aria-hidden="true"></a></li>
+								</ul>
+							  </div>
+							</div>
+                            <div class="col-4 col-xs-6 col-sm-4 col-md-4 col-lg-4">
+							  <div class="our-team">
+								<div class="picture">
+								  <img class="img-fluid" src="{% static 'landing/images/kurs_kagawad8.jpg' %}">
+								</div>
+								<div class="team-content">
+								  <h3 class="name">Ma. Aurora <br> Tan</h3>
+								  <h4 class="title">SK Chairwoman</h4>
+								</div>
+								<ul class="social">
+								  <li><a href="https://codepen.io/collection/XdWJOQ/" class="fa fa-business-time" aria-hidden="true"></a></li>
+								</ul>
+							  </div>
+							</div>
+                        </div>
+                    </div>
+
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
+  </div>   	
+	   
+  </div>    
+ </meta>
+ {% endblock mainContents %}
+<!-- SECTION MAIN CONTENT END -->
+<!-- FOOTER -->
+<footer class="footer-section">
+<div class="container">
+    <div class="footer-cta pt-5 pb-5">
+        <div class="row">
+            <div class="col-xl-4 col-md-4 mb-30">
+                <div class="single-cta">
+                    <i class="fas fa-map-marker-alt justify-content-start"></i>
+                    <div class="cta-text">
+                        <h4>Visit us</h4>
+                        <span>1500 Camia St. Area A </span>
+                        <span>Libis Camarin Caloocan City</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-md-4 mb-30">
+                <div class="single-cta">
+                    <i class="fas fa-phone"></i>
+                    <div class="cta-text">
+                        <h4>Call us</h4>
+                        <span>‭(0943) 252 9150‬ </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-md-4 mb-30">
+                <div class="single-cta">
+                    <i class="far fa-envelope-open"></i>
+                    <div class="cta-text">
+                        <h4>Mail us</h4>
+                        <span>mail@info.com</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-content pt-5 pb-5">
+        <div class="row">
+            <div class="col-xl-4 col-lg-4 mb-50">
+                <div class="footer-widget">
+                    <div class="footer-logo">
+                        <a href="index.html"><img src="{% static 'landing/images/brgy.png' %}" class="img-fluid" alt="logo"></a>
+                    </div>
+                    
+                    <div class="footer-social-icon row">
+                        <span class="ml-5 text-info">Follow us</span>
+                        <a href="#"><i class="fab fa-facebook fa-2x ml-3"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
+                <div class="footer-widget">
+                    <div class="footer-widget-heading">
+                        <h3>Menu</h3>
+                    </div>
+                    <ul>
+                        <li><a href="websitetemp.html">Home</a></li>
+                        <li><a href="#">about</a></li>
+                        <li><a href="#">Applications</a></li>
+                        <li><a href="#">Events</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-6 mb-50">
+                <div class="footer-widget">
+                    <div class="footer-widget-heading">
+                        <h3>Subscribe</h3>
+                    </div>
+
+                    <div class="footer-text mb-25">
+                        <p>Don’t miss to subscribe to our new feeds, kindly fill the form below.</p>
+                    </div>
+                    <div class="subscribe-form">
+                        <form action="#">
+                            <input type="text" placeholder="Email Address">
+                            <button><i class="fab fa-telegram-plane"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</footer>    
+</body>
+</html>
+		<!-- Content end -->
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="{% static 'plugins/jqueryjs/jquery.js' %}"></script>
+   
+    <!-- Popper.JS -->
+    <script src="{% static 'plugins/popperjs/popper.js' %}"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="{% static 'plugins/bootstrap/bootstrapJS/bootstrap.js' %}"></script>
+
+    <script src="{% static 'plugins/mdb/js/mdb.js' %}"></script>
+    <!-- Fontawesome JS-->
+    <script src="{% static 'plugins/fontawesome/js/all.js' %}" ></script>
+
+    <!-- Custom JS -->
+    <script src="{% static 'landing/js/websitecustom.js' %}"></script>
+    {% block landing_custom_js %}
+        
+    {% endblock landing_custom_js %}
+</body>
+
+</html>

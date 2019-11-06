@@ -966,3 +966,14 @@ ul.brightPinkList li::before {
 select#id_resident_case {
     width: auto !important;
 }
+
+/* SECTION FEEDBACK */
+/*input validations*/
+/*validation styles*/
+
+.feedback {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:  0.9em;
+    font-weight: bold;
+    color: orange;
+}
