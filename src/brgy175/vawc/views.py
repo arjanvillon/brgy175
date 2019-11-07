@@ -1,9 +1,7 @@
 from django.shortcuts import render
 from .forms import CaseForm
 from .models import vawc
-from user_account.decorators import superadmin_vawc_only
 
-@superadmin_vawc_only
 def vawcHome(request):
     data = vawc.objects.all
     context = { 'data' : data, 'title':'VAWC'}

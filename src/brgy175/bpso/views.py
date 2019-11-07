@@ -1,9 +1,7 @@
 from django.shortcuts import render
 from .forms import CaseForm
 from .models import bpso
-from user_account.decorators import superadmin_bpso_only
 
-@superadmin_bpso_only
 def bpsoHome(request):
      data = bpso.objects.all
      context = { 'data' : data, 'title':'BPSO'}

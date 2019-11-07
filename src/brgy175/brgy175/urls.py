@@ -69,7 +69,9 @@ urlpatterns = [
     #!SECTION 
 
     #SECTION Senior & PWD URLs
-    path('senior/', senior_views.seniorHome, name='seniorHome'),
+    path('seniorpwd/', senior_views.seniorHome, name='seniorHome'),
+    path('senior/', senior_views.senior, name='senior'),
+    path('pwd', senior_views.pwd, name='pwd'),
     #!SECTION 
 
     #SECTION SK URLs
