@@ -15,7 +15,7 @@
         <div class="tabWrapper">
             <div class="tabSwitch left text-center " >
                 <div style="display:inline" class="pillTab active" pillTab-direction="left"><a href="#">VIEW ALL</a></div>
-                <div class="pillTab text-center" pillTab-direction="right"><a href="#">ADD NEW</a></div>
+                <div class="pillTab text-center" pillTab-direction="right"><a href="{% url 'katarungan:create' %}">ADD NEW</a></div>
             </div>
         </div>
         <!-- tab switch end -->
@@ -44,11 +44,11 @@
                 {% for case in katarungans %}
                 <tr>  
                     <td><a href="{{ case.id }}">{{ case.case_no }}</a></td>
-                    <td>{{ case.c_resident.first_name }}</td>
-                    <td>{{ case.c_resident.address }}</td>
+                    <td>{{ case.convict.first_name }} {{ case.convict.middle_name }} {{ case.convict.last_name}}</td>
+                    <td>{{ case.convict.address }}</td>
                     <td>{{ case.case_type }}</td>
                     <td>{{ case.complainant }}</td>
-                    <td>{{ case.case_status }}></td> 
+                    <td>{{ case.case_status }}</td> 
                 </tr>
                 {% endfor %}
             </tbody>

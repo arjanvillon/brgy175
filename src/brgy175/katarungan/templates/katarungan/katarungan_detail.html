@@ -1,0 +1,82 @@
+{% extends 'home/base.html' %}
+
+
+{% block content %}
+
+<div class="mainContainer">
+    <div class="row">
+        <div class="col-12">
+            <h4>CASE DETAILS</h4>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-4">
+            <h6 class="font-weight-bold">Case Number: </h6>
+        </div>
+        <div class="col-8">
+            <h6>{{ katarungan_detail.case_no }}</h6>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <h6 class="font-weight-bold">Case Type: </h6>
+        </div>
+        <div class="col-8">
+            <h6>{{ katarungan_detail.case_type }}</h6>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <h6 class="font-weight-bold">Convict: </h6>
+        </div>
+        <div class="col-8">
+            <h6>
+                {{ katarungan_detail.convict.first_name }}
+                {{ katarungan_detail.convict.middle_name }}
+                {{ katarungan_detail.convict.last_name }}
+            </h6>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <h6 class="font-weight-bold">Address of Convict: </h6>
+        </div>
+        <div class="col-8">
+            <h6>{{ katarungan_detail.convict.address }}</h6>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <h6 class="font-weight-bold">Complainant: </h6>
+        </div>
+        <div class="col-8">
+            <h6>{{ katarungan_detail.complainant }}</h6>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <h6 class="font-weight-bold">Case Status: </h6>
+        </div>
+        <div class="col-8">
+            <h6>{{ katarungan_detail.case_status}}</h6>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-12">
+            <a class="float-right btn btn-warning mx-1" href="{% url 'katarungan:update' pk=katarungan_detail.pk %}">Update</a>
+            <a class="float-right btn btn-danger mx-1" href="{% url 'katarungan:delete' pk=katarungan_detail.pk %}">Delete</a>
+        </div>
+    </div>
+</div>
+    
+{% endblock %}
+    

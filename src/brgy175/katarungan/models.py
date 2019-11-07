@@ -7,7 +7,7 @@ class Katarungan(models.Model):
     case_type = models.CharField(max_length=30)
     complainant = models.CharField(max_length=30)
     case_status = models.CharField(max_length=8)
-    c_resident = models.ForeignKey(Resident, on_delete=models.PROTECT, null=True)
+    convict = models.ForeignKey(Resident, on_delete=models.PROTECT, null=True)
 
     def __str__(self):
         return self.case_no
