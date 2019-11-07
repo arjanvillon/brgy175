@@ -5,5 +5,6 @@
         "**/.settings": true,
         "**/.factorypath": true
     },
-    "liveshare.allowGuestTaskControl": true
+    "liveshare.allowGuestTaskControl": true,
+    "python.pythonPath": "C:\\Users\\Lenovo\\AppData\\Local\\Programs\\Python\\Python37\\python.exe"
 }

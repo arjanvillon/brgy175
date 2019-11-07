@@ -3,8 +3,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
 
 
-class Sectors():
-     def superadmin_badac_only(function):
+def superadmin_badac_only(function):
      @wraps(function)
      def wrap(request, *args, **kwargs):
           profile = request.user
@@ -17,7 +16,7 @@ class Sectors():
 
      return wrap
 
-     def superadmin_bpso_only(function):
+def superadmin_bpso_only(function):
      @wraps(function)
      def wrap(request, *args, **kwargs):
           profile = request.user
@@ -30,7 +29,7 @@ class Sectors():
 
      return wrap
 
-     def superadmin_katarungan_only(function):
+def superadmin_katarungan_only(function):
      @wraps(function)
      def wrap(request, *args, **kwargs):
           profile = request.user
@@ -43,7 +42,7 @@ class Sectors():
 
      return wrap
 
-     def superadmin_resident_only(function):
+def superadmin_resident_only(function):
      @wraps(function)
      def wrap(request, *args, **kwargs):
           profile = request.user
@@ -56,7 +55,7 @@ class Sectors():
 
      return wrap
 
-     def superadmin_senior_only(function):
+def superadmin_senior_only(function):
      @wraps(function)
      def wrap(request, *args, **kwargs):
           profile = request.user
@@ -69,7 +68,7 @@ class Sectors():
 
      return wrap
 
-     def superadmin_vawc_only(function):
+def superadmin_vawc_only(function):
      @wraps(function)
      def wrap(request, *args, **kwargs):
           profile = request.user

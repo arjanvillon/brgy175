@@ -22,7 +22,7 @@ from landing import views as landing_views
 from assistance import views as assistance_views
 from badac import views as badac_views
 from bpso import views as bpso_views
-from katarungan import views as katarungan_views
+# from katarungan import views as katarungan_views
 from residents import views as residents_views
 from senior import views as senior_views
 from sk import views as sk_views
@@ -59,9 +59,7 @@ urlpatterns = [
     #!SECTION 
 
     #SECTION Katarungan URLs
-	path('katarungan/', katarungan_views.katarunganHome, name='katarunganHome'),
-	path('katarungan/dashboard', katarungan_views.katarunganDashboard, name='katarunganDashboard'),
-	path('katarungan/add', katarungan_views.katarunganAddCase, name='katarunganAddCase'),
+    path('katarungan/', include('katarungan.urls')),
     #!SECTION
 
     #SECTION Residents URLs
