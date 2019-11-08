@@ -63,9 +63,7 @@ urlpatterns = [
     #!SECTION
 
     #SECTION Residents URLs
-    path('residents/', residents_views.residentsHome, name='residentsHome'),
-    path('residents/add/', residents_views.residentsAdd, name='residentsAdd'),
-    path('residents/view/', residents_views.residentsView, name='residentsView'),
+    path('resident/', include('residents.urls')),
     #!SECTION 
 
     #SECTION Senior & PWD URLs
