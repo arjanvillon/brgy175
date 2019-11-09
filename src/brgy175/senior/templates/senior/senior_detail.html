@@ -2,18 +2,17 @@
 {% load static %}
 {% block cssLink %}
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{% static 'residents/residents.css' %}">
+    <link rel="stylesheet" href="{% static 'senior/senior.css' %}">
 {% endblock cssLink %} 
 {% block content %}
 <div class="mainContainer">
     <h4 class="font-weight-bold text-uppercase">{{title}}</h4>
-
     <div class="row">
         <div class="col-6">
             <div class="container">
                 <div class="row">
                     <div class="w-auto name-border pt-2 px-3">
-                        <h6 class=" text-uppercase" style="font-size: 18px !important">Sumayao, Ryan Jeff ALCANTARA</h6>
+                        <h6 class=" text-uppercase" style="font-size: 18px !important">{{senior_detail.resident.last_name}}, {{senior_detail.resident.first_name}} {{senior_detail.resident.middle_name}} {{senior_detail.resident.suffix}}</h6>
                     </div>
                 </div>
             </div>
@@ -38,6 +37,7 @@
                             <div id="upload_button" >
                                     <label>
                                         <input type="file" name="residentImg" accept="image/*">
+                                         <!-- TODO  -->
                                         <span class="text-white font-weight-bold" style="cursor: pointer !important; font-size: 14px !important;">
                                             UPLOAD PHOTO <i class="fa fa-edit"></i>
                                         </span>
@@ -50,11 +50,13 @@
                     </div>
                     <div class="row">
                         <div class="col-6 col-md-12 darkOrange">
+                            <!-- TODO  -->
                             <small class="font-weight-bold">FRESH GRADUATE</small>
                         </div>    
                     </div>
                     <div class="row">
                         <div class="col-6 col-md-12 lightOrange">
+                            <!-- TODO  -->
                                 <small class="lightOrange">PWD NO.: <span class="font-weight-bold">NONE</span></small><br> 
                             </div>    
                         </div>
@@ -62,8 +64,13 @@
                 <!-- <div class="col-12 col-md-1 p-0 m-0 w-0"></div> -->
                 <div class="col-12 col-md-8 ml-4">
                     <div class="row">
-                        <div class="col-12">
+                        <div class="col-8">
                             <p><u>BASIC INFORMATION</u></p>
+                        </div>
+                        <div class="col-4">
+                            <div class="ml-auto float-right">
+                                <span class="font-weight-bold">SENIOR ID: {{senior_detail.senior_id}}</span>
+                            </div>
                         </div>
                     </div>
 
@@ -72,7 +79,7 @@
                             <small class="font-weight-bold">ADDRESS:</small>
                         </div>
                         <div class="col-9">
-                            <small class="text-uppercase">2042 Jose Abad Santos Street. Brgy. 175 Camarin Zone 15 District 1, Caloocan City</small>
+                            <small class="text-uppercase">{{senior_detail.resident.address}}</small>
                         </div>
                     </div>
 
@@ -81,7 +88,7 @@
                             <small class="font-weight-bold">DATE OF BIRTH:</small>
                         </div>
                         <div class="col-9 lightOrange">
-                            <small class="text-uppercase">August 15, 2019</small>
+                            <small class="dateYear text-uppercase">{{senior_detail.resident.date_of_birth}}</small>
                         </div>
                     </div>
 
@@ -90,7 +97,7 @@
                             <small class="font-weight-bold">PLACE OF BIRTH:</small>
                         </div>
                         <div class="col-9">
-                            <small class="text-uppercase">Pasig City</small>
+                            <small class="text-uppercase">{{senior_detail.resident.place_of_birth}}</small>
                         </div>
                     </div>
 
@@ -99,10 +106,10 @@
                             <small class="font-weight-bold">AGE:</small>
                         </div>
                         <div class="col-5 lightOrange">
-                            <small class="text-uppercase">21 Years Old</small>
+                            <small class="text-uppercase age">{{senior_detail.resident.age}}</small><small class="text-uppercase"> YEARS OLD</small>
                         </div>
                         <div class="col-4 darkOrange">
-                            <small class="text-uppercase">Non-Senior</small>
+                            <small class="text-uppercase senior">Non-Senior</small>
                         </div>
                     </div>
 
@@ -111,7 +118,8 @@
                             <small class="font-weight-bold">HEIGHT:</small>
                         </div>
                         <div class="col-9">
-                            <small class="text-uppercase">160 CM</small>
+                            <!-- NOTE add notif in add new that this will be in cm -->
+                            <small class="text-uppercase">{{senior_detail.resident.height}} CM</small>
                         </div>
                     </div>
 
@@ -120,7 +128,7 @@
                             <small class="font-weight-bold">WEIGHT:</small>
                         </div>
                         <div class="col-9 lightOrange">
-                            <small class="text-uppercase">50 KG</small>
+                            <small class="text-uppercase">{{senior_detail.resident.weight}} KG</small>
                         </div>
                     </div>
 
@@ -129,7 +137,7 @@
                             <small class="font-weight-bold">GENDER:</small>
                         </div>
                         <div class="col-9">
-                            <small class="text-uppercase">Male</small>
+                            <small class="text-uppercase">{{senior_detail.resident.gender}}</small>
                         </div>
                     </div>
 
@@ -138,7 +146,7 @@
                             <small class="font-weight-bold">CIVIL STATUS:</small>
                         </div>
                         <div class="col-9 lightOrange">
-                            <small class="text-uppercase">Single</small>
+                            <small class="text-uppercase">{{senior_detail.resident.civil_status}}</small>
                         </div>
                     </div>
 
@@ -147,7 +155,7 @@
                             <small class="font-weight-bold">CONTACT NO.:</small>
                         </div>
                         <div class="col-9">
-                            <small class="text-uppercase">09499807802</small>
+                            <small class="text-uppercase">{{senior_detail.resident.contact_number}}</small>
                         </div>
                     </div>
 
@@ -156,7 +164,7 @@
                             <small class="font-weight-bold">NATIONALITY:</small>
                         </div>
                         <div class="col-9 lightOrange">
-                            <small class="text-uppercase">Filipino</small>
+                            <small class="text-uppercase">{{senior_detail.resident.nationality}}</small>
                         </div>
                     </div>
 
@@ -164,6 +172,7 @@
             </div>
             <div class="row">
                 <div class="col-12 pl-0">
+                    <!-- NOTE to be added soon -->
                     <div id="accordion" class="pt-3">
                             <div class="card">
                                 <div class="card-header" id="headingOne">
@@ -232,7 +241,7 @@
                                                 <small class="font-weight-bold">AGE:</small>
                                             </div>
                                             <div class="col-9">
-                                                <small class="text-uppercase">51 YEARS OLD</small>
+                                                <small class="text-uppercase">51</small><small class="text-uppercase"> YEARS OLD</small>
                                             </div>    
                                         </div>
                                         <!-- address -->
@@ -393,3 +402,21 @@
 </div>
 
 {% endblock content %}
+
+{% block jsLink %}
+    <script>
+        $age = $('small.age').text();
+        $ageInt = parseInt($age);
+
+        // $(document).ready(function(){
+            if ($ageInt >= 60){
+                $('small.senior').html('SENIOR');
+            }
+            else if ($ageInt <= 59){
+            }
+        // });
+    </script>
+{% endblock jsLink %}
+    
+
+    
