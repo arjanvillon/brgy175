@@ -24,7 +24,7 @@
             <!-- tab switch -->
             <div class="tabWrapper">
                 <div class="tabSwitch right text-center " >
-                        <div class="pillTab active d-inline font-weight-bold" style="color:#524747 !important" pillTab-direction="left"><a href="#">VIEW ALL</a></div>
+                        <div class="pillTab active d-inline font-weight-bold" style="color:#524747 !important" pillTab-direction="left"><a href="{% url 'residents:resident_list' %}">VIEW ALL</a></div>
                     <div class="pillTab text-center text-white" pillTab-direction="right">
                         {% if not form.instance.pk %}
                         <a href="{% url 'residents:add_resident' %}">ADD NEW</a>
@@ -80,7 +80,7 @@
                 <!-- SECTION DATE OF BIRTH & PLACE OF BIRTH -->
                 <div class="form-group row">
                     <label for="resBirthDate" class="col-sm-1 col-form-label d-flex justify-content-end ml-5">Birth Date</label>
-                        <div class="col-sm-4">
+                        <div class="col-sm-4 dateYear">
                             {{ form.date_of_birth|as_crispy_field }}
                         </div>
                     
@@ -93,7 +93,8 @@
                 <div class="form-group row"> 
                     <label for="resAge" class="col-sm-1 col-form-label d-flex justify-content-end ml-5">Age</label>
                         <div class="col-sm-3">
-                            <input type="text" class="form-control" value="none"> 
+                            <!-- <input type="text" id="id_age" class="form-control" value="" readonly>  -->
+                            {{ form.age|as_crispy_field }}
                         </div>
                     <label for="resWeightresWeight" class="col-sm-1 col-form-label d-flex justify-content-end ml-5">Weight</label>
                         <div class="col-sm-2">
@@ -170,4 +171,33 @@
     
     <!-- Custom JS -->
     <script src="{% static 'residents/residents.js' %}"></script>
+    <script>
+        $('#id_date_of_birth').addClass('datepicker');
+        $('#id_age').prop('readonly', true);
+        $(document).ready(function(){
+            var $year = $("#id_date_of_birth");
+            var $age = $('#id_age');
+            var d = new Date();
+            var month = d.getMonth()+1;
+            var day = d.getDate();
+
+            var date_today = (month<10 ? '0' : '') + month + '/' +
+                        (day<10 ? '0' : '') + day + '/' +
+                        d.getFullYear()
+
+            $("#id_date_of_birth").blur(function() {
+                // alert($year.val(this.value));
+                birthDate = this.value + "";
+                birthDate = new Date(birthDate);
+                var date_today = new Date();
+                $ageD = Math.floor((date_today-birthDate) / (365.25 * 24 * 60 * 60 * 1000));
+                $age.val($ageD);
+
+
+
+                // $age.val(birthDate);
+            });
+        }); 
+        
+    </script>
 {% endblock jsLink %}

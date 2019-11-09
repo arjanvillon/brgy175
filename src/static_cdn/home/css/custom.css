@@ -977,3 +977,9 @@ select#id_resident_case {
     font-weight: bold;
     color: orange;
 }
+
+/* SECTION A links */
+td a:hover{
+    color: orangered !important;
+    text-decoration: underline !important;
+}

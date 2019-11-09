@@ -9,7 +9,7 @@ class Resident(models.Model):
     address = models.CharField(max_length=100)
     date_of_birth = models.DateField(auto_now=False, auto_now_add=False)
     place_of_birth = models.CharField(max_length=30)
-    # age = models.PositiveIntegerField()
+    age = models.CharField(max_length=4, default='age')
     weight = models.PositiveIntegerField()
     height = models.PositiveIntegerField()
     gender = models.CharField(max_length=6)
