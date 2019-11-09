@@ -22,6 +22,11 @@ class ResidentCreateView(CreateView):
     # fields = ('first_name', 'middle_name', 'last_name', 'suffix', 'address', 'date_of_birth', 'place_of_birth', 'age', 'weight', 'height', 'gender', 'civil_status', 'contact_number', 'nationality', 'email_address', 'religion')
     model = models.Resident
 
+class ResidentUpdateView(UpdateView):
+    form_class = ResidentForm
+    model = models.Resident
+
+
 # from django.shortcuts import render, redirect
 # from django.contrib import messages
 # from .forms import ResidentBasicForm
