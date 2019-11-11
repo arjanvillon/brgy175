@@ -1,5 +1,5 @@
 {% extends "home/base.html" %}
-{% load widget_tweaks %}
+{% load crispy_forms_tags %}
 {% load staticfiles %}
 {% block cssLink %}
     <!-- Datepicker CSS -->
@@ -23,17 +23,18 @@
         <div class="col-7">
             <!-- tab switch -->
             <div class="tabWrapper">
-                <div class="tabSwitch left text-center " >
-                    <div style="display:inline" class="pillTab active" pillTab-direction="left"><a href="{% url 'residentsHome' %}">VIEW ALL</a></div>
-                    <div class="pillTab text-center" pillTab-direction="right"><a href="{% url 'residentsAdd' %}">ADD NEW</a></div>
+                <div class="tabSwitch right text-center " >
+                        <div class="pillTab active d-inline font-weight-bold" style="color:#524747 !important" pillTab-direction="left"><a href="{% url 'residents:resident_list' %}">VIEW ALL</a></div>
+                    <div class="pillTab text-center text-white" pillTab-direction="right">
+                        {% if not form.instance.pk %}
+                        <a href="{% url 'residents:add_resident' %}">ADD NEW</a>
+                        {% else %}
+                        <a href="#">UPDATE</a>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
             <!-- tab switch end -->
-        </div>
-        <div class="col-3 ml-auto">
-            <!-- search box for table -->
-             <input class="form-control tableSearchBox" placeholder="Search..." />
-            <!-- search box for table end -->
         </div>
     </div>
     <!-- tab end -->
@@ -55,80 +56,88 @@
                 {% csrf_token %}
                 <!-- SECTION FULL NAME -->
                 <div class="form-group row">
-                    <label class="col-sm-1 col-form-label d-flex justify-content-end ml-5">Name</label>
-
-                    {% render_field form_res.first_name|append_attr:"class:form-control col-sm-3" placeholder="First Name" name="fname" maxlength="20" id="resFirstName" %}
-
-                    {% render_field form_res.middle_name|append_attr:"class:input-field form-control col-sm-2 mr-1" type="text" placeholder="Middle Name" name="mname" maxlength="15" id="resMiddleName" %}
-
-                    {% render_field form_res.last_name|append_attr:"class:input-field form-control col-sm-3 mr-1" type="text" placeholder="Last Name" name="lname" maxlength="15" id="resLastName" %}
-          
-                    {% render_field form_res.suffix|append_attr:"class:input-field form-control col-sm-1 mr-1" type="text" placeholder="Suffix" name="lname" maxlength="2" id="resLastName" %}
+                    <label for="{{ form.first_name.id_for_label }}" class="col-sm-1 col-form-label d-flex justify-content-end ml-5">Name</label>
+                    <div class="col-sm-3 mr-1">
+                        {{ form.first_name|as_crispy_field }}
+                    </div>
+                    <div class="col-sm-2 mr-1">
+                        {{ form.middle_name|as_crispy_field }}
+                    </div>
+                    <div class="col-sm-3 mr-1">
+                        {{ form.last_name|as_crispy_field }}
+                    </div>
+                    <div class="col-sm-2 mr-1">
+                        {{ form.suffix|as_crispy_field }}
+                    </div>
                 </div>
                 <!-- SECTION ADDRESS -->
                 <div class="form-group row">
                     <label for="address" class="col-sm-1 col-form-label d-flex justify-content-end ml-5">Address</label>
-                    <div class="col-sm-9 ml-0 pl-0">
-
-                        {% render_field form_res.address|append_attr:"class:form-control ml-0" id="address" type="text" name="" placeholder="Enter address" value="" %}
+                    <div class="col-sm-10 w-100">
+                            {{ form.address|as_crispy_field }}
                     </div>
                 </div>
                 <!-- SECTION DATE OF BIRTH & PLACE OF BIRTH -->
                 <div class="form-group row">
                     <label for="resBirthDate" class="col-sm-1 col-form-label d-flex justify-content-end ml-5">Birth Date</label>
-   
-                    {% render_field form_res.date_of_birth|append_attr:"class:datepicker input-field col-4 form-control mr-1" placeholder="YYYY-MM-DD" data-provide="datepicker" data-date-format="yyyy-mm-dd" name="resBirthDate"  id="resBirthDate" %}
-
+                        <div class="col-sm-4 dateYear">
+                            {{ form.date_of_birth|as_crispy_field }}
+                        </div>
+                    
                     <label for="resBirthPlace" class="col-sm-1 col-form-label ml-4 d-flex justify-content-end ">Birth Place</label>
-            
-                    {% render_field form_res.place_of_birth|append_attr:"class:input-field col-4 form-control" type="text" placeholder="Enter Place" name="resBirthPlace" id="resBirthPlace" maxlength="20" %}
+                        <div class="col-sm-5">
+                            {{ form.place_of_birth|as_crispy_field }}
+                        </div>
                 </div>
                 <!-- SECTION AGE, WEIGHT & HEIGHT -->
                 <div class="form-group row"> 
                     <label for="resAge" class="col-sm-1 col-form-label d-flex justify-content-end ml-5">Age</label>
-
-                    {% render_field form_res.age|append_attr:"class:input-field col-sm-4 form-control mr-1" type="text" placeholder="Enter Age" name="resAge" id="resAge" maxlength="20" %}
-
+                        <div class="col-sm-3">
+                            <!-- <input type="text" id="id_age" class="form-control" value="" readonly>  -->
+                            {{ form.age|as_crispy_field }}
+                        </div>
                     <label for="resWeightresWeight" class="col-sm-1 col-form-label d-flex justify-content-end ml-5">Weight</label>
-
-                    {% render_field form_res.weight|append_attr:"class:input-field col-sm-1 form-control mr-1" type="text" placeholder="" name="resWeight" maxlength="20" id="resWeight" %}
-
+                        <div class="col-sm-2">
+                            {{ form.weight|as_crispy_field }}
+                        </div>
                     <label for="resHeight" class="col-sm-1 col-form-label ml-4 d-flex justify-content-end">Height</label>
-
-                    {% render_field form_res.height|append_attr:"class:input-field col-sm-1 form-control" type="text" placeholder="" name="resHeight" id="resHeight" maxlength="20" %}
+                        <div class="col-sm-2">
+                            {{ form.height|as_crispy_field }}
+                        </div>
                 </div>
                 <!-- SECTION Gender & Civil Status -->
                 <div class="form-group row">
                     <label for="resGender" class="col-sm-1 col-form-label d-flex justify-content-end ml-5">Gender</label>
-                    <div class="col-sm-4">
-
-                        {% render_field form_res.gender|append_attr:"class:form-control select2 m-0" name="resGender" id="resGender" %}
-
-                    </div>
+                        <div class="col-sm-4">
+                            {{ form.gender|as_crispy_field }}
+                        </div>
                     <label for="resCivilStatus" class="col-sm-1 col-form-label ml-4 d-flex justify-content-end">Civil Status</label>
-
-                    {% render_field form_res.civil_status|append_attr:"class:input-field select2 col-sm-4 form-control" type="text" placeholder="Enter Civil Status" name="resCivilStatus" maxlength="20" id="resCivilStatus" %}
-
+                        <div class="col-sm-5">
+                            {{ form.civil_status|as_crispy_field }}
+                        </div>
                 </div>
                 <!-- SECTION Contact Number & Nationality -->
                 <div class="form-group row">
                     <label for="resContactNumber" class="col-sm-1 col-form-label d-flex justify-content-end ml-5">Contact No.</label>
-
-                    {% render_field form_res.contact_number|append_attr:"class:input-field col-sm-4 form-control mr-1" type="number" placeholder="XXXX-XXX-XXXX" name="resContactNumber" id="resContactNumber" maxlength="20" %}
-
+                        <div class="col-sm-4">
+                                {{ form.contact_number|as_crispy_field }}
+                        </div>
                     <label for="resNationality" class="col-sm-1 col-form-label ml-4 d-flex justify-content-end">Nationality</label>
-
-                    {% render_field form_res.nationality|append_attr:"class:input-field col-sm-4 form-control" type="text" placeholder="Enter Nationality" name="resNationality" id="resNationality" maxlength="20"%}
+                        <div class="col-sm-5">
+                                {{ form.nationality|as_crispy_field }}
+                        </div>
                 </div>
                 <!-- SECTION Email Address & Religion -->
                 <div class="form-group row">
                     <label for="resEmailAddress" class="col-sm-1 col-form-label d-flex justify-content-end ml-5">Email Add</label>
-
-                    {% render_field form_res.email_address|append_attr:"class:input-field col-sm-4 form-control mr-1" type="email" placeholder="juandelacruz@gmail.com" name="resEmailAddress" id="resEmailAddress" maxlength="20"%}
-
+                        <div class="col-sm-4">
+                            {{ form.email_address|as_crispy_field }}
+                        </div>
                     <label for="resReligion" class="col-sm-1 col-form-label ml-4 d-flex justify-content-end">Religion</label>
-
-                    {% render_field form_res.religion|append_attr:"class:input-field col-sm-4 form-control" type="text" placeholder="Enter Religion" name="resReligion" id="resReligion" maxlength="20"%}
+                        <div class="col-sm-5">
+                            {{ form.religion|as_crispy_field }}
+                        </div>
+                    
 
                 </div> 
             <!-- Basic info end -->
@@ -162,4 +171,33 @@
     
     <!-- Custom JS -->
     <script src="{% static 'residents/residents.js' %}"></script>
+    <script>
+        $('#id_date_of_birth').addClass('datepicker');
+        $('#id_age').prop('readonly', true);
+        $(document).ready(function(){
+            var $year = $("#id_date_of_birth");
+            var $age = $('#id_age');
+            var d = new Date();
+            var month = d.getMonth()+1;
+            var day = d.getDate();
+
+            var date_today = (month<10 ? '0' : '') + month + '/' +
+                        (day<10 ? '0' : '') + day + '/' +
+                        d.getFullYear()
+
+            $("#id_date_of_birth").blur(function() {
+                // alert($year.val(this.value));
+                birthDate = this.value + "";
+                birthDate = new Date(birthDate);
+                var date_today = new Date();
+                $ageD = Math.floor((date_today-birthDate) / (365.25 * 24 * 60 * 60 * 1000));
+                $age.val($ageD);
+
+
+
+                // $age.val(birthDate);
+            });
+        }); 
+        
+    </script>
 {% endblock jsLink %}

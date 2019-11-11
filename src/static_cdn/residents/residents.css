@@ -27,7 +27,7 @@ div.photoContainer .fa-user {
 
 #upload_button input[type=file] {
     display: none;
-    cursor: pointer;
+    cursor: pointer !important;
 }
 
 div.photoContainer #upload_button .btn-secondary {
@@ -83,6 +83,28 @@ SECTION Name border
     border-bottom-left-radius: 0px !important;
 }
 .container-tab-border {
+    background-color: #fff;
     border-radius: 50px;
-    border-color: 2px solid #524747;
+    border: 3px solid #524747 !important;
+}
+.container-brown-tab {
+    background-color: #524747;
+    border-radius: 50px;
+    border-top-left-radius: 0px !important;
+}
+.imgResidentInv {
+    border: 1px solid #c4c4c4;
+}
+.updateImgContainer {
+    background-color:#5c5a5a;
+    color:#fff;
+}
+.updateImgContainer:hover {
+    background-color:#464444;
+    color:#fff;
+}
+
+.a-hover:hover {
+    color: #fd562d !important;
+    text-decoration: underline !important;
 }

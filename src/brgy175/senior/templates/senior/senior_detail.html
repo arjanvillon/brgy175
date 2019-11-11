@@ -1,0 +1,422 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% block cssLink %}
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'senior/senior.css' %}">
+{% endblock cssLink %} 
+{% block content %}
+<div class="mainContainer">
+    <h4 class="font-weight-bold text-uppercase">{{title}}</h4>
+    <div class="row">
+        <div class="col-6">
+            <div class="container">
+                <div class="row">
+                    <div class="w-auto name-border pt-2 px-3">
+                        <h6 class=" text-uppercase" style="font-size: 18px !important">{{senior_detail.resident.last_name}}, {{senior_detail.resident.first_name}} {{senior_detail.resident.middle_name}} {{senior_detail.resident.suffix}}</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-brown-tab">
+        <div class="container-fluid container-tab-border m-0 p-5">
+            <div class="row">
+                <div class="col-12 col-md-3">
+                    <div class="row">
+                        <div class="col-6 col-md-12 p-0">
+                            <div class=" imgResidentInv text-center pt-4">
+                                <!-- replace with image -->
+                                <i class="fa fa-user fa-10x" style="color: #c4c4c4"></i>
+                            </div>
+                        </div>    
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-6 col-md-12 text-center updateImgContainer pt-2 mb-3" >
+                            <div id="upload_button" >
+                                    <label>
+                                        <input type="file" name="residentImg" accept="image/*">
+                                         <!-- TODO  -->
+                                        <span class="text-white font-weight-bold" style="cursor: pointer !important; font-size: 14px !important;">
+                                            UPLOAD PHOTO <i class="fa fa-edit"></i>
+                                        </span>
+                                    </label>
+                                </div>
+                            <!-- <input type="file" accept="images/*" class="" >
+                            <small class=" font-weight-bold ">UPDATE PROFILE IMAGE<i class="fa fa-edit"></i> 
+                            </small> -->
+                        </div>    
+                    </div>
+                    <div class="row">
+                        <div class="col-6 col-md-12 darkOrange">
+                            <!-- TODO  -->
+                            <small class="font-weight-bold">FRESH GRADUATE</small>
+                        </div>    
+                    </div>
+                    <div class="row">
+                        <div class="col-6 col-md-12 lightOrange">
+                            <!-- TODO  -->
+                                <small class="lightOrange">PWD NO.: <span class="font-weight-bold">NONE</span></small><br> 
+                            </div>    
+                        </div>
+                </div>
+                <!-- <div class="col-12 col-md-1 p-0 m-0 w-0"></div> -->
+                <div class="col-12 col-md-8 ml-4">
+                    <div class="row">
+                        <div class="col-8">
+                            <p><u>BASIC INFORMATION</u></p>
+                        </div>
+                        <div class="col-4">
+                            <div class="ml-auto float-right">
+                                <span class="font-weight-bold">SENIOR ID: {{senior_detail.senior_id}}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-3">
+                            <small class="font-weight-bold">ADDRESS:</small>
+                        </div>
+                        <div class="col-9">
+                            <small class="text-uppercase">{{senior_detail.resident.address}}</small>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-3 lightOrange">
+                            <small class="font-weight-bold">DATE OF BIRTH:</small>
+                        </div>
+                        <div class="col-9 lightOrange">
+                            <small class="dateYear text-uppercase">{{senior_detail.resident.date_of_birth}}</small>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-3">
+                            <small class="font-weight-bold">PLACE OF BIRTH:</small>
+                        </div>
+                        <div class="col-9">
+                            <small class="text-uppercase">{{senior_detail.resident.place_of_birth}}</small>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-3 lightOrange">
+                            <small class="font-weight-bold">AGE:</small>
+                        </div>
+                        <div class="col-5 lightOrange">
+                            <small class="text-uppercase age">{{senior_detail.resident.age}}</small><small class="text-uppercase"> YEARS OLD</small>
+                        </div>
+                        <div class="col-4 darkOrange">
+                            <small class="text-uppercase senior">Non-Senior</small>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-3">
+                            <small class="font-weight-bold">HEIGHT:</small>
+                        </div>
+                        <div class="col-9">
+                            <!-- NOTE add notif in add new that this will be in cm -->
+                            <small class="text-uppercase">{{senior_detail.resident.height}} CM</small>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-3 lightOrange">
+                            <small class="font-weight-bold">WEIGHT:</small>
+                        </div>
+                        <div class="col-9 lightOrange">
+                            <small class="text-uppercase">{{senior_detail.resident.weight}} KG</small>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-3">
+                            <small class="font-weight-bold">GENDER:</small>
+                        </div>
+                        <div class="col-9">
+                            <small class="text-uppercase">{{senior_detail.resident.gender}}</small>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-3 lightOrange">
+                            <small class="font-weight-bold">CIVIL STATUS:</small>
+                        </div>
+                        <div class="col-9 lightOrange">
+                            <small class="text-uppercase">{{senior_detail.resident.civil_status}}</small>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-3">
+                            <small class="font-weight-bold">CONTACT NO.:</small>
+                        </div>
+                        <div class="col-9">
+                            <small class="text-uppercase">{{senior_detail.resident.contact_number}}</small>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-3 lightOrange">
+                            <small class="font-weight-bold">NATIONALITY:</small>
+                        </div>
+                        <div class="col-9 lightOrange">
+                            <small class="text-uppercase">{{senior_detail.resident.nationality}}</small>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 pl-0">
+                    <!-- NOTE to be added soon -->
+                    <div id="accordion" class="pt-3">
+                            <div class="card">
+                                <div class="card-header" id="headingOne">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <u>SCHOOL</u>
+                                    </button>
+                                </h5>
+                                </div>
+                            
+                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div class="card-body">
+                                    <!-- college -->
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <small class="font-weight-bold">COLLEGE/UNIVERSITY NAME:</small>
+                                        </div>
+                                        <div class="col-9">
+                                            <small class="text-uppercase">POLYTECHNIC UNIVERSITY OF THE PHILIPPINES</small>
+                                        </div>    
+                                    </div>
+                                    <!-- year level -->
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <small class="font-weight-bold">YEAR LEVEL:</small>
+                                        </div>
+                                        <div class="col-9">
+                                            <small class="text-uppercase">5th Year Level</small>
+                                        </div>    
+                                    </div>
+                                    <!-- course -->
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <small class="font-weight-bold">COURSE:</small>
+                                        </div>
+                                        <div class="col-9">
+                                            <small class="text-uppercase">Computer Engineering</small>
+                                        </div>    
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingTwo">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                        <u>FAMILY BACKGROUND</u>
+                                    </button>
+                                </h5>
+                                </div>
+                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                <div class="card-body">
+                                    <div class="pl-2">
+                                        <!-- father's name -->
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <small class="font-weight-bold">FATHER'S NAME:</small>
+                                            </div>
+                                            <div class="col-9">
+                                                <small class="text-uppercase">DENIELLE SUMAYAO</small>
+                                            </div>    
+                                        </div>
+                                        <!-- age -->
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <small class="font-weight-bold">AGE:</small>
+                                            </div>
+                                            <div class="col-9">
+                                                <small class="text-uppercase">51</small><small class="text-uppercase"> YEARS OLD</small>
+                                            </div>    
+                                        </div>
+                                        <!-- address -->
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <small class="font-weight-bold">ADDRESS:</small>
+                                            </div>
+                                            <div class="col-9">
+                                                <small class="text-uppercase">1902 JOSE ABAD SANTOS STREET</small>
+                                            </div>    
+                                        </div>
+                                        <!-- contact number -->
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <small class="font-weight-bold">CONTACT NO.:</small>
+                                            </div>
+                                            <div class="col-9">
+                                                <small class="text-uppercase">09218467838S</small>
+                                            </div>    
+                                        </div>
+                                        <!-- gross monthly salary -->
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <small class="font-weight-bold">GROSS MONTHLY SALARY:</small>
+                                            </div>
+                                            <div class="col-9">
+                                                <small class="text-uppercase">21 000 PHP</small>
+                                            </div>    
+                                        </div>
+                                        <!-- precint number -->
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <small class="font-weight-bold">PRECINT NO.:</small>
+                                            </div>
+                                            <div class="col-9">
+                                                <small class="text-uppercase">5143284-P</small>
+                                            </div>    
+                                        </div>
+                                    </div>
+                                    <div class="lightOrange pl-2">
+                                        <!-- mother's name -->
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <small class="font-weight-bold">MOTHER'S MAIDEN NAME:</small>
+                                            </div>
+                                            <div class="col-9">
+                                                <small class="text-uppercase">DENIELLE SUMAYAO</small>
+                                            </div>    
+                                        </div>
+                                        <!-- age -->
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <small class="font-weight-bold">AGE:</small>
+                                            </div>
+                                            <div class="col-9">
+                                                <small class="text-uppercase">51 YEARS OLD</small>
+                                            </div>    
+                                        </div>
+                                        <!-- address -->
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <small class="font-weight-bold">ADDRESS:</small>
+                                            </div>
+                                            <div class="col-9">
+                                                <small class="text-uppercase">1902 JOSE ABAD SANTOS STREET</small>
+                                            </div>    
+                                        </div>
+                                        <!-- contact number -->
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <small class="font-weight-bold">CONTACT NO.:</small>
+                                            </div>
+                                            <div class="col-9">
+                                                <small class="text-uppercase">09218467838S</small>
+                                            </div>    
+                                        </div>
+                                        <!-- gross monthly salary -->
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <small class="font-weight-bold">GROSS MONTHLY SALARY:</small>
+                                            </div>
+                                            <div class="col-9">
+                                                <small class="text-uppercase">21 000 PHP</small>
+                                            </div>    
+                                        </div>
+                                        <!-- precint number -->
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <small class="font-weight-bold">PRECINT NO.:</small>
+                                            </div>
+                                            <div class="col-9">
+                                                <small class="text-uppercase">5143284-P</small>
+                                            </div>    
+                                        </div>
+                                    </div>
+                                </div><!--card body-->
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingThree">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                                        <u>CASE RECORDS</u>
+                                    </button>
+                                </h5>
+                                </div>
+                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <small class="font-weight-bold">COMPLAINANT:</small>
+                                        </div>
+                                        <div class="col-8">
+                                            <small class="text-uppercase">Denielle Gonzales</small>
+                                        </div>
+                                    </div>
+                            
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <small class="font-weight-bold">CASE TYPE:</small>
+                                        </div>
+                                        <div class="col-8">
+                                            <small class="text-uppercase">Murder</small>
+                                        </div>
+                                    </div>
+                            
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <small class="font-weight-bold">CASE NO.:</small>
+                                        </div>
+                                        <div class="col-8">
+                                            <small class="text-uppercase">C-123-4983-2019</small>
+                                        </div>
+                                    </div>
+                            
+                                    <div class="row">
+                                        <div class="col-4 align-self-center">
+                                            <small class="font-weight-bold">REMARKS:</small>
+                                        </div>
+                                        <div class="col-8">
+                                            <button class="btn btn-success">SETTLED</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+
+           
+            
+            
+        </div>
+        <!-- first container end -->
+    </div>
+    <!-- bornw container end -->
+</div>
+
+{% endblock content %}
+
+{% block jsLink %}
+    <script>
+        $age = $('small.age').text();
+        $ageInt = parseInt($age);
+
+        // $(document).ready(function(){
+            if ($ageInt >= 60){
+                $('small.senior').html('SENIOR');
+            }
+            else if ($ageInt <= 59){
+            }
+        // });
+    </script>
+{% endblock jsLink %}
+    
+
+    
