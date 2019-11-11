@@ -23,11 +23,13 @@
 
     <hr>
 
+    {{latest_pk}}
+
     <div class="row">
         <div class="col-12">
             <form method="POST">
                 {% csrf_token %}
-
+    
                 {{ form|crispy }}
 
                 <input type="submit" class="btn btn-primary" value="Submit">

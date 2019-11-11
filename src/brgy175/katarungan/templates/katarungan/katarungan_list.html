@@ -43,7 +43,7 @@
             <tbody>
                 {% for case in katarungans %}
                 <tr>  
-                    <td><a href="{{ case.id }}">{{ case.case_no }}</a></td>
+                    <td><u><a href="{{ case.id }}">{{ case.case_no }}</a></u></td>
                     <td>{{ case.convict.first_name }} {{ case.convict.middle_name }} {{ case.convict.last_name}}</td>
                     <td>{{ case.convict.address }}</td>
                     <td>{{ case.case_type }}</td>
