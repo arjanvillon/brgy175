@@ -55,33 +55,6 @@ class BusinessPermit(models.Model):
     business_address = models.CharField(max_length=100)
     business_name = models.CharField(max_length=50)
 
-class ScholarshipForm(models.Model):
-    resident_scholarship = models.ForeignKey('residents.Resident', on_delete=models.CASCADE, null=True)
-    father_name = models.CharField(max_length=50)
-    father_address = models.CharField(max_length=100)
-    father_age = models.IntegerField()
-    father_occupation =   models.CharField(max_length=30)
-    father_mobile =   models.CharField(max_length=11)
-    father_precint =   models.CharField(max_length=30)
-    father_salary =   models.IntegerField()
-    mother_name = models.CharField(max_length=50)
-    mother_address = models.CharField(max_length=100)
-    mother_age = models.IntegerField()
-    mother_occupation =   models.CharField(max_length=30)
-    mother_mobile =   models.CharField(max_length=11)
-    mother_precint =   models.CharField(max_length=30)
-    mother_salary =   models.IntegerField()
-
-class BurialForm(models.Model):
-    resident_burial = models.ForeignKey('residents.Resident', on_delete=models.CASCADE, null=True)
-    burial_name = models.CharField(max_length=50)
-    burial_address = models.CharField(max_length=100)
-    burial_relation = models.CharField(max_length=20)
-    burial_birth = models.DateField()
-    burial_death = models.DateField()
-    burial_interment_place = models.CharField(max_length=50)
-    burial_interment_date = models.DateField()
-
     
         
 # Create your models here.

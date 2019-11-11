@@ -1,0 +1,215 @@
+{% extends 'home/base.html' %}
+
+
+{% block content %}
+
+<div class="mainContainer">
+    {% if not scholar.is_approved %}
+
+        <div class="alert alert-danger">
+            This student is not yet approved!
+        </div>
+        
+    {% endif %}
+        
+    <div class="row">
+        <div class="col-12">
+            <h4>Scholar Details</h4>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-4">
+            <h6 class="font-weight-bold">Name of Student:</h6>
+        </div>
+        <div class="col-8">
+            <h6>
+                {{ scholar.student.first_name }}
+                {{ scholar.student.middle_name }}
+                {{ scholar.student.last_name }}
+            </h6>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <h6 class="font-weight-bold">School: </h6>
+        </div>
+        <div class="col-8">
+            <h6>{{ scholar.school }}</h6>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <h6 class="font-weight-bold">Year Level: </h6>
+        </div>
+        <div class="col-8">
+            <h6>{{ scholar.year_level }}</h6>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-4">
+            <h6 class="font-weight-bold">Course: </h6>
+        </div>
+        <div class="col-8">
+            <h6>{{ scholar.course }}</h6>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <h4>Father's Details</h4>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-4">
+            <h6 class="font-weight-bold">Name: </h6>
+        </div>
+        <div class="col-8">
+            <h6>{{ scholar.father_name }}</h6>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <h6 class="font-weight-bold">Address: </h6>
+        </div>
+        <div class="col-8">
+            <h6>{{ scholar.father_address }}</h6>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <h6 class="font-weight-bold">Age: </h6>
+        </div>
+        <div class="col-8">
+            <h6>{{ scholar.father_age}}</h6>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <h6 class="font-weight-bold">Occupation: </h6>
+        </div>
+        <div class="col-8">
+            <h6>{{ scholar.father_occupation }}</h6>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <h6 class="font-weight-bold">Mobile Number: </h6>
+        </div>
+        <div class="col-8">
+            <h6>{{ scholar.father_mobile}}</h6>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <h6 class="font-weight-bold">Precint Number: </h6>
+        </div>
+        <div class="col-8">
+            <h6>{{ scholar.father_precint}}</h6>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-4">
+            <h6 class="font-weight-bold">Salary: </h6>
+        </div>
+        <div class="col-8">
+            <h6>{{ scholar.father_salary}}</h6>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <h4>Mother's Details</h4>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-4">
+            <h6 class="font-weight-bold">Name: </h6>
+        </div>
+        <div class="col-8">
+            <h6>{{ scholar.mother_name }}</h6>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <h6 class="font-weight-bold">Address: </h6>
+        </div>
+        <div class="col-8">
+            <h6>{{ scholar.mother_address }}</h6>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <h6 class="font-weight-bold">Age: </h6>
+        </div>
+        <div class="col-8">
+            <h6>{{ scholar.mother_age}}</h6>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <h6 class="font-weight-bold">Occupation: </h6>
+        </div>
+        <div class="col-8">
+            <h6>{{ scholar.mother_occupation }}</h6>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <h6 class="font-weight-bold">Mobile Number: </h6>
+        </div>
+        <div class="col-8">
+            <h6>{{ scholar.mother_mobile}}</h6>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <h6 class="font-weight-bold">Precint Number: </h6>
+        </div>
+        <div class="col-8">
+            <h6>{{ scholar.mother_precint}}</h6>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-4">
+            <h6 class="font-weight-bold">Salary: </h6>
+        </div>
+        <div class="col-8">
+            <h6>{{ scholar.mother_salary}}</h6>
+        </div>
+    </div>
+
+    
+    <div class="row">
+        <div class="col-12">
+            <a class="float-right btn btn-warning mx-1" href="{% url 'assistance:approve_scholar' pk=scholar.pk %}">Approve</a>
+            <a class="float-right btn btn-danger mx-1" href="{% url 'assistance:scholar_delete' pk=scholar.pk %}">Delete</a>
+        </div>
+    </div>
+</div>
+    
+{% endblock %}
+    

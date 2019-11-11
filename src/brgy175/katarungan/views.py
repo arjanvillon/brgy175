@@ -18,6 +18,11 @@ class KatarunganCreateView(CreateView):
     fields = ('case_no', 'case_type', 'convict', 'complainant', 'case_status')
     model = models.Katarungan
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['case_number'] = 'ABC-123'
+        return context
+
 class KatarunganUpdateView(UpdateView):
     fields = ('case_type', 'case_status')
     model = models.Katarungan

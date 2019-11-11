@@ -1,0 +1,21 @@
+{% extends 'home/base.html' %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+
+{% block cssLink %}
+    <link rel="stylesheet" href="{% static 'assistance/assistance.css' %}">
+{% endblock %}
+
+
+{% block content %}
+    
+<div class="mainContainer">
+    <form method="POST">
+        {% csrf_token %}
+        {{ form|crispy }}
+
+        <input type="submit" class="btn btn-primary" value="Submit">
+    </form>
+</div>
+
+{% endblock %}

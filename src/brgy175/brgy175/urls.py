@@ -19,7 +19,7 @@ from django.contrib.auth import views as auth_views
 from django.urls import path, include
 from django.conf.urls.static import static
 from landing import views as landing_views
-from assistance import views as assistance_views
+# from assistance import views as assistance_views
 from badac import views as badac_views
 from bpso import views as bpso_views
 # from katarungan import views as katarungan_views
@@ -47,7 +47,7 @@ urlpatterns = [
     #!SECTION 
 
     #SECTION Assistance URLs
-	path('assistance/', assistance_views.assistanceHome, name='assistanceHome'),
+    path('assistance/', include('assistance.urls')),
     #!SECTION 
 
     #SECTION BADAC URLs
