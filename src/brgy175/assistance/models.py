@@ -34,9 +34,6 @@ class Scholar(models.Model):
         self.is_approved = True
         self.save()
 
-    def count_scholars(self):
-        return self.objects.all()
-
     def get_absolute_url(self):
         return reverse('assistance:scholar_detail', kwargs={'pk':self.pk})
 

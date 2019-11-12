@@ -4,6 +4,7 @@ from django.views.generic import (View, TemplateView, ListView, DetailView, Crea
 from django.urls import reverse_lazy
 from .models import Katarungan
 from .forms import KatarunganForm
+import datetime
 
 class KatarunganListView(ListView):
     context_object_name = 'katarungans'
@@ -21,7 +22,7 @@ class KatarunganCreateView(CreateView):
     def get_context_data(self, **kwargs):
         query = Katarungan.objects.all().latest('created_date')
         pk = query.pk + 1
-        year = query.created_date.year
+        year = datetime.datetime.now().year
 
         if pk < 10:
             case_no = "K-" + str(year) + "-000" + str(pk)

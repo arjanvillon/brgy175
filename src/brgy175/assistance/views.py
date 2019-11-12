@@ -10,10 +10,11 @@ class Assistance(TemplateView):
     template_name = 'assistance/assistance_home.html'
     model = Scholar
 
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     context['scholar'] = Scholar.objects.all().count 
-    #     return context
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['scholar_count'] = Scholar.objects.all().count()
+        context['scholar_approved'] = Scholar.objects.filter(is_approved=True).count()
+        return context
 
 class ScholarListView(ListView):
     model = Scholar
