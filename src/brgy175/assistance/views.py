@@ -8,12 +8,17 @@ from assistance.forms import ScholarForm, BurialForm
 
 class Assistance(TemplateView):
     template_name = 'assistance/assistance_home.html'
-    model = Scholar
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['scholar_count'] = Scholar.objects.all().count()
+        # Scholar Queries
+        context['scholar_all'] = Scholar.objects.all().count()
         context['scholar_approved'] = Scholar.objects.filter(is_approved=True).count()
+        context['scholar_pending'] = Scholar.objects.filter(is_approved=False).count()
+        # Burial Queries
+        context['burial_all'] = Burial.objects.all().count()
+        context['burial_approved'] = Burial.objects.filter(is_approved=True).count()
+        context['burial_pending'] = Burial.objects.filter(is_approved=False).count()
         return context
 
 class ScholarListView(ListView):

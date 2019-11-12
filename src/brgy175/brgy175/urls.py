@@ -24,7 +24,7 @@ from badac import views as badac_views
 from bpso import views as bpso_views
 # from katarungan import views as katarungan_views
 from residents import views as residents_views
-from senior import views as senior_views
+# from senior import views as senior_views
 from sk import views as sk_views
 from user_account import views as user_views
 from vawc import views as vawc_views

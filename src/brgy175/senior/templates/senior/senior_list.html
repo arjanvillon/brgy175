@@ -46,6 +46,7 @@
                             
                         <tbody>
                             {% for senior in senior_list %}
+                                
                             <tr>
                                     <td>{{senior.resident.id}}</td>
                                     <td>{{senior.senior_id}}</td>
@@ -56,8 +57,8 @@
                                 <td>
                                     <button type = "button" class="btn btn-warning accordion">Archive</button>
                                 </td>
-                            {% endfor %}
                             </tr>
+                            {% endfor %}
                            
               
                         </tbody>

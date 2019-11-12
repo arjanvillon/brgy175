@@ -1,5 +1,5 @@
 from django.contrib import admin
-from senior.models import Senior,Resident
+from senior.models import Senior
 # Register your models here.
 class SeniorDetail(admin.ModelAdmin):
     model = Senior

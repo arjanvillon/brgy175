@@ -51,9 +51,9 @@
                         <td>{{ scholar.course }}</td>
                         <td>
                             {% if scholar.is_approved %}
-                                Approved
+                                <span class="text-success">Approved</span>
                             {% else %}
-                                Not Approved
+                                <span class="text-danger">Not Approved</span>
                             {% endif %}
                         </td>
                     </tr>
