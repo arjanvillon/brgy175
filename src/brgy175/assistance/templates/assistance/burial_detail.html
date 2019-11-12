@@ -1,0 +1,117 @@
+{% extends 'home/base.html' %}
+
+
+{% block content %}
+
+<div class="mainContainer">
+    {% if not burial.is_approved %}
+
+        <div class="alert alert-danger">
+            This request is not yet approved!
+        </div>
+        
+    {% endif %}
+        
+    <div class="row">
+        <div class="col-12">
+            <h4>Burial Details</h4>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-4">
+            <h6 class="font-weight-bold">Name of Corpse:</h6>
+        </div>
+        <div class="col-8">
+            <h6>
+                {{ burial.corpse.first_name }} 
+                {{ burial.corpse.middle_name }} 
+                {{ burial.corpse.last_name }}
+            </h6>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <h6 class="font-weight-bold">Date of Birth: </h6>
+        </div>
+        <div class="col-8">
+            <h6>{{ burial.date_of_birth }}</h6>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <h6 class="font-weight-bold">Date of Death: </h6>
+        </div>
+        <div class="col-8">
+            <h6>{{ burial.date_of_death }}</h6>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <h6 class="font-weight-bold">Interment Address: </h6>
+        </div>
+        <div class="col-8">
+            <h6>{{ burial.interment_address }}</h6>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-4">
+            <h6 class="font-weight-bold">Interment Date: </h6>
+        </div>
+        <div class="col-8">
+            <h6>{{ burial.interment_date }}</h6>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <h4>Claimant Details</h4>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-4">
+            <h6 class="font-weight-bold">Name: </h6>
+        </div>
+        <div class="col-8">
+            <h6>{{ burial.name }}</h6>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <h6 class="font-weight-bold">Address: </h6>
+        </div>
+        <div class="col-8">
+            <h6>{{ burial.address }}</h6>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <h6 class="font-weight-bold">Relationship </h6>
+        </div>
+        <div class="col-8">
+            <h6>{{ burial.relationship }}</h6>
+        </div>
+    </div>
+
+    
+    <div class="row">
+        <div class="col-12">
+            <a class="float-right btn btn-warning mx-1" href="{% url 'assistance:approve_burial' pk=burial.pk %}">Approve</a>
+            <a class="float-right btn btn-danger mx-1" href="{% url 'assistance:burial_delete' pk=burial.pk %}">Delete</a>
+        </div>
+    </div>
+</div>
+    
+{% endblock %}
+    

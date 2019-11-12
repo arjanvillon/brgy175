@@ -1,5 +1,5 @@
 from django import forms
-from .models import IDForm, IndigencyForm, ClearanceForm, BusinessPermit, ScholarshipForm, BurialForm
+from .models import IDForm, IndigencyForm, ClearanceForm, BusinessPermit
 
 
 class Form_id(forms.ModelForm):
@@ -28,17 +28,17 @@ class Form_business(forms.ModelForm):
         model= BusinessPermit
         fields= "__all__"
 
-class Form_scholar(forms.ModelForm):
+# class Form_scholar(forms.ModelForm):
 
-    class Meta:
-        model= ScholarshipForm
-        fields= "__all__"
+#     class Meta:
+#         model= ScholarshipForm
+#         fields= "__all__"
 
-class Form_burial(forms.ModelForm):
+# class Form_burial(forms.ModelForm):
 
-    class Meta:
-        model= BurialForm
-        fields= "__all__"
+#     class Meta:
+#         model= BurialForm
+#         fields= "__all__"
 
 
 

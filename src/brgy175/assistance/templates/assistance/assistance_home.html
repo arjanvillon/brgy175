@@ -1,0 +1,174 @@
+{% extends 'home/base.html' %}
+
+
+{% block content %}
+
+
+<div class="container-fluid p-3">
+    
+    <div class="row ">
+        <div class="col-12 col-lg-7 px-1">
+            
+            <div class="row m-3">
+                <div class="col-12 col-lg-4 px-1">
+                    <div class="card m-2">
+                        <div class="card-body p-3">
+                            <h5 class="font-weight-bold text-center">ALL STUDENT</h5>
+                            <h2 class="font-weight-bold text-center">{{ scholar.count_scholars.count }}</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-4 px-1">
+                    <div class="card m-2">
+                        <div class="card-body p-3">
+                            <h5 class="font-weight-bold text-center">CREATED</h5>
+                            <h2 class="font-weight-bold text-center">
+                                <span class="text-success">41</span> out of 56
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-4 px-1">
+                    <div class="card m-2">
+                        <div class="card-body p-3">
+                            <h5 class="font-weight-bold text-center">SUBMITTED</h5>
+                            <h2 class="font-weight-bold text-center">15</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row m-3">
+                <div class="col-12 col-lg-4 px-1">
+                    <div class="card m-2">
+                        <div class="card-body p-3">
+                            <h5 class="font-weight-bold text-center">APPROVED</h5>
+                            <h2 class="font-weight-bold text-center">4096</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-4 px-1">
+                    <div class="card m-2">
+                        <div class="card-body p-3">
+                            <h5 class="font-weight-bold text-center">REJECTED</h5>
+                            <h2 class="font-weight-bold text-center">
+                                <span class="text-success">41</span> out of 56
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-4 px-1">
+                    <div class="card m-2">
+                        <div class="card-body p-3">
+                            <h5 class="font-weight-bold text-center">IN PROCESS</h5>
+                            <h2 class="font-weight-bold text-center">15</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row m-3">
+                <div class="col-12 col-lg-6 px-1">
+                    <div class="card m-2">
+                        <div class="card-body p-3">
+                            <h5 class="font-weight-bold text-center">PENDING FOR SUBMISSION</h5>
+                            <h2 class="font-weight-bold text-center">4096</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-6 px-1">
+                    <div class="card m-2">
+                        <div class="card-body p-3">
+                            <h5 class="font-weight-bold text-center">QUERY CASE</h5>
+                            <h2 class="font-weight-bold text-center">
+                                <span class="text-success">41</span> out of 56
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row m-3">
+                <div class="col-12">
+                    <div class="card mb-2">
+                        <div class="card-body">
+                            <h2 class="font-weight-bold">CREATED REQUESTS</h2>
+
+                            <table class="table table-bordered table-hover">
+							  <thead>
+								<tr>
+								  <th scope="col-3" class="font-weight-bold">REQUEST NUMBER</th>
+								  <th scope="col-4" class="font-weight-bold">SCHEME NAME</th>
+								</tr>
+							  </thead>
+							  <tbody>
+								<tr>
+								  <th scope="row">2019123451</th>
+								  <td>SA-102 Scholarship </td>
+								</tr>
+								<tr>
+								  <th scope="row">2019123452</th>
+								  <td>SA-103 Scholarship </td>
+								</tr>
+								<tr>
+								  <th scope="row">2019123453</th>
+								  <td>BA-101 Burial </td>
+								</tr>
+								<tr>
+								  <th scope="row">2019123454</th>
+								  <td>SA-104 Scholarship </td>
+								</tr>
+							  </tbody>
+							</table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="col-12 col-lg-5 px-1">
+            <div class="row mt-4">
+                <div class="col-6 text-center">
+                    <a class="btn btn-warning" href="{% url 'assistance:scholar_list' %}"> See full list of scholars here</a>
+                </div>
+                <div class="col-6 text-center">
+                    <a class="btn btn-warning" href="{% url 'assistance:burial_list' %}"> See burial requests here</a>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div class="card mb-2">
+                        <div class="card-body">
+                            <h2 class="font-weight-bold">CHANGE LOGS</h2>
+
+                            <ul class="round brightPinkList">
+                                <li><span class="font-weight-bold">adminA</span> modified a record   <span class="text-secondary font-italic">30 mn ago</span> </li>
+                                <li><span class="font-weight-bold">adminA</span> modified a record   <span class="text-secondary font-italic">30 mn ago</span> </li>
+                                <li><span class="font-weight-bold">adminA</span> modified a record   <span class="text-secondary font-italic">30 mn ago</span> </li>
+                                <li><span class="font-weight-bold">adminA</span> modified a record   <span class="text-secondary font-italic">30 mn ago</span> </li>
+                                <li><span class="font-weight-bold">adminA</span> modified a record   <span class="text-secondary font-italic">30 mn ago</span> </li>
+                                <li><span class="font-weight-bold">adminA</span> modified a record   <span class="text-secondary font-italic">30 mn ago</span> </li>
+                                <li><span class="font-weight-bold">adminA</span> modified a record   <span class="text-secondary font-italic">30 mn ago</span> </li>
+                                <li><span class="font-weight-bold">adminA</span> modified a record   <span class="text-secondary font-italic">30 mn ago</span> </li>
+                                <li><span class="font-weight-bold">adminA</span> modified a record   <span class="text-secondary font-italic">30 mn ago</span> </li>
+                                <li><span class="font-weight-bold">adminA</span> modified a record   <span class="text-secondary font-italic">30 mn ago</span> </li>
+                                <li><span class="font-weight-bold">adminA</span> modified a record   <span class="text-secondary font-italic">30 mn ago</span> </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        </div>    
+    </div>
+</div>
+    
+    
+{% endblock %}
+    

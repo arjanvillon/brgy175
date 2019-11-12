@@ -60,12 +60,12 @@
                             <li><a href="{% url 'vawcHome' %}">VAWC / BCPC</a></li>
                             <li><a href="{% url 'badacHome' %}">BADAC</a></li>
                             <li><a href="{% url 'bpsoHome' %}">BPSO</a></li>
-                            <li><a href="{% url 'seniorHome' %}">PWD & SENIOR Dept.</a></li>
+                            <li><a href="{% url 'senior:senior_list' %}">PWD & SENIOR Dept.</a></li>
                             <li><a href="{% url 'skHome' %}">Sangguniang Kabataan</a></li>
-                            <li><a href="{% url 'assistanceHome' %}">Financial Assistance</a></li>
+                            <li><a href="{% url 'assistance:assistance' %}">Financial Assistance</a></li>
                         </ul>
                     </li>
-                    <li><a href="{% url 'residentsHome' %}"><i class="fa fa-users"></i> RESIDENTS</a></li>
+                    <li><a href="{% url 'residents:resident_list' %}"><i class="fa fa-users"></i> RESIDENTS</a></li>
                     <li><a href="#announcements"><i class="fa fa-bullhorn"></i> ANNOUNCEMENTS</a></li>
                     <li><a href="#reports"><i class="fa fa-line-chart"></i> REPORTS</a></li>
                 </ul>

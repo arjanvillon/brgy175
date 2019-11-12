@@ -1,10 +1,10 @@
 from django.contrib import admin
-from .models import IDForm, IndigencyForm, ClearanceForm, BusinessPermit, ScholarshipForm, BurialForm
+from .models import IDForm, IndigencyForm, ClearanceForm, BusinessPermit
 
 
 admin.site.register(IDForm,)
 admin.site.register(IndigencyForm,)
 admin.site.register(ClearanceForm,)
 admin.site.register(BusinessPermit,)
-admin.site.register(ScholarshipForm,)
-admin.site.register(BurialForm,)
+# admin.site.register(ScholarshipForm,)
+# admin.site.register(BurialForm,)

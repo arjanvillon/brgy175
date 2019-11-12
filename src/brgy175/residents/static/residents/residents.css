@@ -103,3 +103,8 @@ SECTION Name border
     background-color:#464444;
     color:#fff;
 }
+
+.a-hover:hover {
+    color: #fd562d !important;
+    text-decoration: underline !important;
+}
