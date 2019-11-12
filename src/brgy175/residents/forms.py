@@ -22,7 +22,7 @@ class ResidentForm(forms.ModelForm):
     civil_status = forms.ChoiceField(choices=(CIVIL_STATUS_CHOICES))
     class Meta:
         model = Resident
-        fields = "__all__"
+        fields = '__all__'
 
         widgets = {
             'first_name':forms.TextInput(attrs={'placeholder':'First Name'}),
@@ -37,7 +37,7 @@ class ResidentForm(forms.ModelForm):
             'contact_number':forms.TextInput(attrs={'placeholder':'09xx-xxx-xxxx'}),
             'nationality':forms.TextInput(attrs={'placeholder':'Filipino'}),
             'email_address':forms.TextInput(attrs={'placeholder':'e.g. juan@gmail.com'}),
-            'Religion':forms.TextInput(attrs={'placeholder':'Catholic'}),
+            'religion':forms.TextInput(attrs={'placeholder':'Catholic'}),
         }
         required = {
             'suffix': False,

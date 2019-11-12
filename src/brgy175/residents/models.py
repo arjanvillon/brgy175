@@ -1,15 +1,16 @@
 from django.db import models
+from django.utils import timezone
 from django.urls import reverse
 
 class Resident(models.Model):
     first_name = models.CharField(max_length=30)
     middle_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
-    suffix= models.CharField(max_length=3)
+    suffix = models.CharField(max_length=3)
     address = models.CharField(max_length=100)
     date_of_birth = models.DateField(auto_now=False, auto_now_add=False)
     place_of_birth = models.CharField(max_length=30)
-    age = models.CharField(max_length=4, default='age')
+    age = models.PositiveIntegerField()
     weight = models.PositiveIntegerField()
     height = models.PositiveIntegerField()
     gender = models.CharField(max_length=6)
@@ -18,6 +19,9 @@ class Resident(models.Model):
     nationality = models.CharField(max_length=15)
     email_address = models.EmailField(max_length=60, unique=True)
     religion = models.CharField(max_length=30)
+
+    is_senior = models.BooleanField(default=False)
+    created_date = models.DateTimeField(default=timezone.now)
 
 
  
