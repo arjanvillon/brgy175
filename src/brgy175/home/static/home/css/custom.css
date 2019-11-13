@@ -983,3 +983,7 @@ td a:hover{
     color: orangered !important;
     text-decoration: underline !important;
 }
+
+textarea{
+    border-radius: 15px !important;
+}

@@ -1,0 +1,24 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+
+<div class="mainContainer">
+    <div class="row mb-5">
+        <div class="col-12">
+            <h1 class="text-center">Are you sure to delete the <span class="text-primary">{{ announcement.title }} </span> announcement?</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 text-center">
+            <form method="POST">
+                {% csrf_token %}
+                <input type="submit" class="btn btn-danger btn-lg" value="Delete">
+                <a class="btn btn-primary btn-lg" href="{% url 'announcement:announcement_detail' pk=announcement.pk %}">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
+    
+{% endblock %}
+    

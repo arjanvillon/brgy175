@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views.generic import (View, TemplateView, ListView, DetailView, CreateView, DeleteView)
 from .forms import Form_id, Form_idigent, Form_business, Form_clearance
 def landing_forms(request):
     form_id       =    Form_id()
@@ -61,7 +62,10 @@ def about_us(request):
     return render(request, 'landing/about_us.html')
 
 def contact(request):
-    return render(request, 'landing/co.html')
+    return render(request, 'landing/contact.html')
+
+# class ContactView(TemplateView):
+#     template_name = 'landing/contact.html'
 
 
 

@@ -46,6 +46,8 @@ urlpatterns = [
     path('contact', landing_views.contact, name='contactUs'),
     #!SECTION 
 
+    path('announcement/', include('announcement.urls')),
+
     #SECTION Assistance URLs
     path('assistance/', include('assistance.urls')),
     #!SECTION 

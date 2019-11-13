@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'landing.apps.LandingConfig',
     'widget_tweaks',
+    'announcement',
     'residents.apps.ResidentsConfig',
     'katarungan.apps.KatarunganConfig',
     'vawc.apps.VawcConfig',
