@@ -1,44 +1,45 @@
 from django import forms
-from .models import IDForm, IndigencyForm, ClearanceForm, BusinessPermit
+from .models import (  IDForm, IndigencyForm, ClearanceForm,
+                     BusinessPermit, ScholarshipForm, BurialForm)
+from residents.models import Resident
 
-
-class Form_id(forms.ModelForm):
-
-    class Meta:
-        model= IDForm
-        fields= "__all__"
-
-
-class Form_idigent(forms.ModelForm):
+class FormId(forms.ModelForm):
 
     class Meta:
-        model= IndigencyForm
-        fields= "__all__"
-
-class Form_clearance(forms.ModelForm):
-
-    class Meta:
-        model= ClearanceForm
-        fields= "__all__"
+        model = IDForm
+        exclude = ('resident_idform',)
 
 
-class Form_business(forms.ModelForm):
+class FormIdigent(forms.ModelForm):
 
     class Meta:
-        model= BusinessPermit
-        fields= "__all__"
+        model = IndigencyForm
+        exclude = ('resident_indigency',)
 
-# class Form_scholar(forms.ModelForm):
+class FormClearance(forms.ModelForm):
 
-#     class Meta:
-#         model= ScholarshipForm
-#         fields= "__all__"
+    class Meta:
+        model = ClearanceForm
+        exclude = ('resident_clearance',)
 
-# class Form_burial(forms.ModelForm):
 
-#     class Meta:
-#         model= BurialForm
-#         fields= "__all__"
+class FormBusiness(forms.ModelForm):
+
+    class Meta:
+        model = BusinessPermit
+        exclude = ('resident_business',)
+
+class FormScholar(forms.ModelForm):
+
+    class Meta:
+        model = ScholarshipForm
+        exclude = ('resident_scholarship',)
+
+class FormBurial(forms.ModelForm):
+
+    class Meta:
+        model = BurialForm
+        exclude = ('resident_burial',)
 
 
 
