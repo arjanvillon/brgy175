@@ -3,10 +3,12 @@ from django.views.generic import (TemplateView, ListView, DetailView, CreateView
 from django.urls import reverse_lazy
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from assistance.models import Scholar, Burial
 from assistance.forms import ScholarForm, BurialForm
 
-class Assistance(TemplateView):
+class Assistance(LoginRequiredMixin, TemplateView):
+    login_url = '/login/'
     template_name = 'assistance/assistance_home.html'
 
     def get_context_data(self, **kwargs):
@@ -21,20 +23,24 @@ class Assistance(TemplateView):
         context['burial_pending'] = Burial.objects.filter(is_approved=False).count()
         return context
 
-class ScholarListView(ListView):
+class ScholarListView(LoginRequiredMixin, ListView):
+    login_url = '/login/'
     model = Scholar
 
     def get_queryset(self):
         return Scholar.objects.filter(created_date__lte=timezone.now()).order_by('-created_date')
 
-class ScholarDetailView(DetailView):
+class ScholarDetailView(LoginRequiredMixin, DetailView):
+    login_url = '/login/'
     model = Scholar
 
-class ScholarCreateView(CreateView):
+class ScholarCreateView(LoginRequiredMixin, CreateView):
+    login_url = '/login/'
     form_class = ScholarForm
     model = Scholar
 
-class ScholarDeleteView(DeleteView):
+class ScholarDeleteView(LoginRequiredMixin, DeleteView):
+    login_url = '/login/'
     model = Scholar
     success_url = reverse_lazy('scholar_list')
 
@@ -44,22 +50,25 @@ def approve_scholar(request,pk):
     scholar.approve()
     return redirect('assistance:scholar_detail', pk=pk)
 
-class BurialListView(ListView):
+class BurialListView(LoginRequiredMixin, ListView):
+    login_url = '/login/'
     model = Burial
 
     def get_queryset(self):
         return Burial.objects.filter(created_date__lte=timezone.now()).order_by('-created_date')
 
-class BurialDetailView(DetailView):
+class BurialDetailView(LoginRequiredMixin, DetailView):
+    login_url = '/login/'
     model = Burial
 
-class BurialCreateView(CreateView):
+class BurialCreateView(LoginRequiredMixin, CreateView):
+    login_url = '/login/'
     form_class = BurialForm
     model = Burial
-class BurialDeleteView(DeleteView):
+class BurialDeleteView(LoginRequiredMixin, DeleteView):
+    login_url = '/login/'
     model = Burial
     success_url = reverse_lazy('burial_list')
-
 
 @login_required
 def approve_burial(request,pk):
