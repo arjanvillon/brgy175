@@ -1,0 +1,79 @@
+{% extends 'home/base.html' %}
+{% load staticfiles %}
+{% block cssLink %}
+    <link rel="stylesheet" href="{% static 'plugins/mdb/css/mdb.css' %}"/> 
+{% endblock cssLink %}
+    
+
+{% block content %}
+
+<div class="container-fluid m-2">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h2>Sangguniang Kabataan</h2>
+                    <hr class="mt-0">
+                    <div class="row">
+                        <div class="col-4 hoverable">
+                            <div class="color-block-dark text-white warning-color-dark z-depth-2 hoverable">
+                                <div class="row p-2 text-center">
+                                    <div class="col-12">
+                                        <h5 class="card-title">Programs</h5>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 text-center">
+                                        <h5 class="card-title">5</h5>
+                                    </div>
+                                </div>
+                            </div><!--block-->
+                        </div><!--col4-->
+                        <div class="col-4 hoverable">
+                            <div class="color-block-dark text-white warning-color z-depth-2">
+                                <div class="row p-2 text-center">
+                                    <div class="col-12">
+                                        <h5 class="card-title">In Progress Programs</h5>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 text-center">
+                                        <h5 class="card-title">10</h5>
+                                    </div>
+                                </div>
+                            </div><!--block-->
+                        </div><!--col4-->
+                        <div class="col-4 hoverable mx-0">
+                            <div class="color-block-dark text-white warning-color-dark z-depth-2 ">
+                                <div class="row p-2 text-center">
+                                    <div class="col-12">
+                                        <h5 class="card-title">Programs Finished</h5>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 text-center">
+                                        <h5 class="card-title">4</h5>
+                                    </div>
+                                </div>
+                            </div><!--block-->
+                        </div><!--col4--> 
+                    </div><!--row-->
+                    <div class="row">
+                        <div class="col-12 text-center pt-3">
+                            <a class="btn btn-outline-warning waves-effect" style="color:#524747 !important;" href="{% url 'assistance:scholar_list' %}"> See full list of sangguniang kabataan members here</a>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div> <!--col6-->
+</div><!--row-->
+
+</div><!--container-->
+    
+{% endblock %}
+
+{% block jsLink %}
+    <script src="{% static 'plugins/mdb/js/mdb.js' %}"></script>
+{% endblock jsLink %}
+    
+    

@@ -196,11 +196,17 @@
                 var date_today = new Date();
                 $ageD = Math.floor((date_today-birthDate) / (365.25 * 24 * 60 * 60 * 1000));
                 $age.val($ageD);
-
-
-
-                // $age.val(birthDate);
+                // is senior?
+                if( $age.val().length > 1 ) {
+                    if( $age.val() >= 60) {
+                        $('#id_is_senior').val('Senior');
+                    }
+                    else if( $age.val() <= 59) {
+                        $('#id_is_senior').val('Nonsenior');
+                    }
+                }
             });
+
         }); 
         
     </script>

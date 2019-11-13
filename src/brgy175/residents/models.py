@@ -20,7 +20,7 @@ class Resident(models.Model):
     email_address = models.EmailField(max_length=60, unique=True)
     religion = models.CharField(max_length=30)
 
-    is_senior = models.BooleanField(default=False)
+    is_senior = models.CharField(max_length=10)
     created_date = models.DateTimeField(default=timezone.now)
 
 

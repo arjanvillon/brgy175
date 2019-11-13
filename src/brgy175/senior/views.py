@@ -8,9 +8,18 @@ from django.views.generic import (
     DeleteView
 )
 
+class SeniorIndexView(TemplateView):
+    template_name = 'senior/senior_home.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["senior"] = Resident.objects.filter(is_senior="Senior").all()
+        return context
+    
+
 class SeniorListView(ListView):
     context_object_name = 'senior_list'
-    model = models.Senior
+    model = Resident
 
 class SeniorDetailView(DetailView):
     context_object_name = 'senior_detail'

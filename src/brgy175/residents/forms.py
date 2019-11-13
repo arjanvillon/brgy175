@@ -22,7 +22,7 @@ class ResidentForm(forms.ModelForm):
     civil_status = forms.ChoiceField(choices=(CIVIL_STATUS_CHOICES))
     class Meta:
         model = Resident
-        fields = '__all__'
+        fields = ('first_name', 'middle_name', 'last_name', 'suffix', 'address', 'date_of_birth', 'place_of_birth', 'age', 'weight', 'height', 'gender', 'civil_status', 'contact_number', 'nationality', 'email_address', 'religion', 'is_senior')
 
         widgets = {
             'first_name':forms.TextInput(attrs={'placeholder':'First Name'}),
@@ -53,4 +53,7 @@ class ResidentForm(forms.ModelForm):
         self.fields['suffix'].required = False
         self.fields['gender'].required = True
         self.fields['civil_status'].required = True
+        self.fields['religion'].required = False
+        self.fields['weight'].required = False
+        self.fields['height'].required = False
         
