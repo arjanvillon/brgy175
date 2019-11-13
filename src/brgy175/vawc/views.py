@@ -1,23 +1,27 @@
-from django.shortcuts import render
-from .forms import CaseForm
-from .models import vawc
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from django.views.generic import (View, TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView)
+from django.urls import reverse_lazy
+# from katarungan.forms import CaseForm
+from vawc import models
 
-def vawcHome(request):
-    data = vawc.objects.all
-    context = { 'data' : data, 'title':'VAWC'}
-    return render(request, 'vawc/vawcHome.html', context)
+class VawcListView(ListView):
+    context_object_name = 'vawcs'
+    model =  models.vawc
 
-def vawcAddCase(request):
-    form = CaseForm()
-    if request.method == 'POST':
-        form = CaseForm(request.POST)
-        if form.is_valid():
-            form.save()
-    else:
-        form = CaseForm()
+class VawcDetailView(DetailView):
+    context_object_name = 'vawc_detail'
+    model = models.vawc
+    template_name = 'vawc/vawc_detail.html'
 
-    context = {
-        'form_case': form
-    }
+class VawcCreateView(CreateView):
+    fields = ('case_no', 'case_type', 'convict', 'complainant', 'case_status')
+    model = models.vawc
 
-    return render(request, 'vawc/vawcAdd.html', context)
+class VawcUpdateView(UpdateView):
+    fields = ('case_type', 'case_status')
+    model = models.vawc
+
+class VawcDeleteView(DeleteView):
+    model = models.vawc
+    success_url = reverse_lazy('vawc:list')

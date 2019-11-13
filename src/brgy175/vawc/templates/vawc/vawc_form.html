@@ -1,0 +1,40 @@
+{% extends 'home/base.html' %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+
+{% block cssLink %}
+    <link rel="stylesheet" href="{% static 'vawc/vawc.css' %}">
+{% endblock %}
+    
+{% block content %}
+
+<div class="mainContainer">
+    <div class="row">
+        <div class="col-12">
+            <h4>
+                {% if not form.instance.pk %}
+                    Create Case
+                {% else %}
+                    Update Case
+                {% endif %}
+            </h4>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-12">
+            <form method="POST">
+                {% csrf_token %}
+
+                {{ form|crispy }}
+
+                <input type="submit" class="btn btn-primary" value="Submit">
+            </form>
+        </div>
+    </div>
+</div>
+    
+{% endblock %}
+    
