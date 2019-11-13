@@ -48,7 +48,16 @@
                     <td>{{ case.convict.address }}</td>
                     <td>{{ case.case_type }}</td>
                     <td>{{ case.complainant }}</td>
-                    <td>{{ case.case_status }}</td> 
+                    <td>
+
+                        {% if "CFA" in case.case_status %}
+                            <span class="text-danger">{{ case.case_status }}</span>
+                        {% elif "Settled" in case.case_status %}
+                            <span class="text-warning">{{ case.case_status }}</span>
+                        {% else %}
+                            <span class="text-success">{{ case.case_status }}</span>
+                        {% endif %}
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>

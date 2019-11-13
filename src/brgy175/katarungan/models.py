@@ -7,7 +7,7 @@ class Katarungan(models.Model):
     case_no = models.CharField(max_length=14)
     case_type = models.CharField(max_length=30)
     complainant = models.CharField(max_length=30)
-    case_status = models.CharField(max_length=8)
+    case_status = models.CharField(max_length=8, default='CFA')
     convict = models.ForeignKey(Resident, on_delete=models.CASCADE, null=True)
 
     created_date = models.DateTimeField(default=timezone.now)
@@ -17,3 +17,11 @@ class Katarungan(models.Model):
 
     def get_absolute_url(self):
         return reverse("katarungan:detail", kwargs={"pk": self.pk})
+
+    def settle(self):
+        self.case_status = "Settled"
+        self.save()
+
+    def withdraw(self):
+        self.case_status = "Withdraw"
+        self.save()

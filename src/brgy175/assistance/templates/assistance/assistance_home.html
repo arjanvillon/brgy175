@@ -1,45 +1,162 @@
 {% extends 'home/base.html' %}
-
+{% load staticfiles %}
+{% block cssLink %}
+    <link rel="stylesheet" href="{% static 'plugins/mdb/css/mdb.css' %}"/> 
+{% endblock cssLink %}
+    
 
 {% block content %}
 
 <div class="container-fluid m-2">
-<div class="col-6">
-    <div class="card">
-        <div class="card-body">
-            <div class="row">
-                <div class="col-12">
-                    <h4 class="card-title">Scholarship Assistance</h4>
-                </div>
-            </div>
-
-            <hr class="mt-0">
-
-            <div class="row">
-                <div class="col-4">
-                    <div class="card text-white bg-primary">
-                        <div class="card-body">
-                            <div class="row">
+    <div class="row">
+        <div class="col-12 col-lg-6 mb-2">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <h4 class="card-title">Scholarship Assistance</h4>
+                        </div>
+                    </div>
+        
+                    <hr class="mt-0">
+        
+                <div class="row">
+                    <div class="col-4 hoverable">
+                        <div class="color-block-dark text-white warning-color-dark z-depth-2 hoverable">
+                            <div class="row p-2 text-center">
                                 <div class="col-12">
                                     <h5 class="card-title">Student Applications</h5>
                                 </div>
                             </div>
-
                             <div class="row">
                                 <div class="col-12 text-center">
-                                    <h6 class="card-title">{{ scholar_all }}</h6>
+                                    <h5 class="card-title">{{ scholar_all }}</h5>
                                 </div>
                             </div>
-                        </div>
+                        </div><!--block-->
+                    </div><!--col4-->
+                    <div class="col-4 hoverable">
+                        <div class="color-block-dark text-white warning-color z-depth-2">
+                            <div class="row p-2 text-center">
+                                <div class="col-12">
+                                    <h5 class="card-title">In Progress Requests</h5>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <h5 class="card-title">{{ scholar_pending }}</h5>
+                                </div>
+                            </div>
+                        </div><!--block-->
+                    </div><!--col4-->
+                    <div class="col-4 hoverable mx-0">
+                        <div class="color-block-dark text-white warning-color-dark z-depth-2 ">
+                            <div class="row p-2 text-center">
+                                <div class="col-12">
+                                    <h5 class="card-title">Approved Requests</h5>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <h5 class="card-title">{{ scholar_approved }}</h5>
+                                </div>
+                            </div>
+                        </div><!--block-->
+                    </div><!--col4--> 
+                </div><!--row-->
+                <div class="row">
+                    <div class="col-12 text-center pt-3">
+                        <a class="btn btn-outline-warning waves-effect" style="color:#524747 !important;" href="{% url 'assistance:scholar_list' %}"> See full list of scholars here</a>
                     </div>
                 </div>
-                
             </div>
         </div>
+    </div> <!--col6-->
+    <div class="col-12 col-lg-6 mb-2">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12">
+                        <h4 class="card-title">Burial Assistance</h4>
+                    </div>
+                </div>
+
+                <hr class="mt-0">
+
+                <div class="row">
+                    <div class="col-4 hoverable">
+                        <div class="color-block-dark text-white warning-color-dark z-depth-2 hoverable">
+                            <div class="row p-2 text-center">
+                                <div class="col-12">
+                                    <h5 class="card-title">Burial Applications</h5>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <h5 class="card-title">{{ burial_all }}</h5>
+                                </div>
+                            </div>
+                        </div><!--block-->
+                    </div><!--col4-->
+                    <div class="col-4 hoverable">
+                        <div class="color-block-dark text-white warning-color z-depth-2">
+                            <div class="row p-2 text-center">
+                                <div class="col-12">
+                                    <h5 class="card-title">In Progress Requests</h5>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <h5 class="card-title">{{ burial_pending}}</h5>
+                                </div>
+                            </div>
+                        </div><!--block-->
+                    </div><!--col4-->
+                    <div class="col-4 hoverable mx-0">
+                        <div class="color-block-dark text-white warning-color-dark z-depth-2 ">
+                            <div class="row p-2 text-center">
+                                <div class="col-12">
+                                    <h5 class="card-title">Approved Requests</h5>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <h5 class="card-title">{{ burial_approved }}</h5>
+                                </div>
+                            </div>
+                        </div><!--block-->
+                    </div><!--col4--> 
+                </div><!--row-->
+                <div class="row">
+                    <div class="col-12 text-center pt-3">
+                        <a class="btn btn-outline-warning waves-effect" style="color:#524747 !important;" href="{% url 'assistance:burial_list' %}"> See full list of burial requests here</a>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div> <!--col6-->
     </div>
-</div>    
+
+    <div class="row">
+        <div class="col-12 col-lg-6 mb-2">
+            <div class="card">
+                <div class="card-body">
+                    <canvas id="myChart" width="400" height="400"></canvas>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
 </div>
     
 {% endblock %}
+
+{% block jsLink %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+    <script src="{% static 'plugins/mdb/js/mdb.js' %}"></script>
+    <script src="{% static 'assistance/assistance.js' %}"></script>
+{% endblock jsLink %}
+    
     

@@ -12,17 +12,11 @@
 <div class="mainContainer">
     <div class="row">
         <div class="col-12">
-            <h4>
-                {% if not form.instance.pk %}
-                    Create Case
-                {% else %}
-                    Update Case
-                {% endif %}
-            </h4>
+            <h4>Create Case</h4>
         </div>
     </div>
 
-    <hr>
+    <hr class="mt-0">
 
     Case No. : <span class="font-weight-bold case_id">{{latest_pk}}</span>
     <div class="row">
