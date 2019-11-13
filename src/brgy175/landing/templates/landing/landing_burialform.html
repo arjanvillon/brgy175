@@ -1,0 +1,128 @@
+{% load widget_tweaks %}
+<form method="POST">{% csrf_token %}
+    <div class="sv-tab-panel">
+        <h4 class="text-warning pb-0">BURIAL CLAIM</h4><hr>
+           <h6 class="text-secondary pl-3 pb-1">Deceased Members Information</h6>
+        
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group row">
+                    <label for="MotherName" class="col-sm-2 col-form-label d-flex justify-content-end ">Name</label>
+                    <div class="col-sm-9">
+                    <!-- <input type="text" class="form-control" id="MotherName" name="" placeholder="FN, MI, LN" value=""> -->
+                    {% render_field burial.burial_name|append_attr:"class:form-control" id="MotherName" name="" placeholder="FN, MI, LN" type="text" %}
+                    </div>
+                </div>
+            </div>
+            <!-- end of col-8 -->
+            <div class="col-4">
+            <!-- for spacing?? -->
+            </div>
+        </div>
+        <!-- end of row -->
+         <!-- row start -->
+        <div class="row">
+            <div class="col-11">
+                <div class="form-group row">
+                    <label for="EmailChangeThis" class="col-sm-2 col-form-label d-flex justify-content-end ">Address</label>
+                    <div class="col-sm-10">
+                    <!-- <input type="email" class="form-control" id="address" name="" placeholder="Enter address" value=""> -->
+                    {% render_field burial.burial_address|append_attr:"class:form-control" id="address" name="" placeholder="Enter address" type="email" %}
+                    
+                    </div>
+                </div>
+            </div>
+            <!-- end of col-8 -->
+            <div class="col-4">
+            <!-- for spacing?? -->
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group row">
+                    <label for="FatherContact" class="col-sm-2 col-form-label d-flex justify-content-end ">Relation</label>
+                    <!-- <input class="input-field col-sm-4 form-control mr-1" type="text" placeholder="Enter relation" name="number" maxlength="20" id="validationCustom01 namest" required> -->
+                    {% render_field burial.burial_relation|append_attr:"class:input-field col-sm-4 form-control mr-1" type="text" placeholder="Enter relation" name="number" maxlength="20" id="validationCustom01 namest" %}
+                    <label for="FatherPrecinct" class="col-sm-2 col-form-label d-flex justify-content-end">Civil Status</label>
+                    <div class="btn-group col-sm-3">
+                      <button type="button" class="btn btn-secondary dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Select
+                      </button>
+                      <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Single</a>
+                        <a class="dropdown-item" href="#">Married</a>
+                        <a class="dropdown-item" href="#">Widowed</a>
+                        <a class="dropdown-item" href="#">Legally Separated</a>
+                        <a class="dropdown-item" href="#">Others</a>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end of col-8 -->
+            <div class="col-4">
+            <!-- for spacing?? -->
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group row">
+                    <label for="FatherContact" class="col-sm-2 col-form-label d-flex justify-content-end ">Date of Birth</label>
+                    <!-- <input class="input-field col-sm-4 form-control mr-1" type="date" placeholder="MM-DD-YY" name="number" maxlength="20" id="validationCustom01 namest" required> -->
+                    {% render_field burial.burial_birth|append_attr:"class:input-field col-sm-4 form-control mr-1" type="date" placeholder="MM-DD-YY" name="number" maxlength="20" id="validationCustom01 namest" %}
+                    <label for="FatherPrecinct" class="col-sm-2 col-form-label ml-1  d-flex justify-content-end">Date of Death</label>
+                    <!-- <input class="input-field col-sm-3 form-control mr-1" type="date" placeholder="MM-DD-YY" name="number" maxlength="20" id="validationCustom01 namest" required> -->
+                    {% render_field burial.burial_death|append_attr:"class:input-field col-sm-3 form-control mr-1" type="date" placeholder="MM-DD-YY" name="number" maxlength="20" id="validationCustom01 namest" %}
+                  </div>
+            </div>
+            <!-- end of col-8 -->
+            <div class="col-4">
+            <!-- for spacing?? -->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group row">
+                    <label for="FatherContact" class="col-sm-2 col-form-label d-flex justify-content-end ">Place of Interment</label>
+                    <!-- <input class="input-field col-sm-4 form-control mr-1" type="text" placeholder="Enter place" name="number" maxlength="20" id="validationCustom01 namest" required> -->
+                    {% render_field burial.burial_interment_place|append_attr:"class:input-field col-sm-4 form-control mr-1" type="text" placeholder="Enter place" name="number" maxlength="20" id="validationCustom01 namest" %}
+                    <label for="FatherPrecinct" class="col-sm-2 col-form-label ml-1  d-flex justify-content-end">Date of Interment</label>
+                    <!-- <input class="input-field col-sm-3 form-control mr-1" type="date" placeholder="MM-DD-YY" name="number" maxlength="20" id="validationCustom01 namest" required> -->
+                    {% render_field burial.burial_interment_date|append_attr:"class:input-fiinput-field col-sm-3 form-control mr-1" type="date" placeholder="MM-DD-YY" name="number" maxlength="20" id="validationCustom01 namest" %}
+                  </div>
+            </div>
+            <!-- end of col-8 -->
+            <div class="col-4">
+            <!-- for spacing?? -->
+            </div>
+        </div>
+        
+    
+        <div class="row mt-2 d-flex justify-content-center">
+                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#burialModal">Confirm>></button>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="burialModal" tabindex="-1" role="dialog" aria-labelledby="burialModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                      <h5 class="text-warning">BURIAL CLAIM</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                
+              </div>
+              <div class="modal-body">
+                  <p><a href="#" role="button" class="btn btn-secondary popover-test d-flex justify-content-center" title="Popover title" data-content="Popover body content is set in this attribute.">Print Burial Claim Form</a> </p>
+                
+                </div>
+              </div>
+              
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" name="Submit_burial" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+       </form>

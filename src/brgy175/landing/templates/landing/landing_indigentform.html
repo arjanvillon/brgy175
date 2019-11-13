@@ -1,0 +1,141 @@
+{% load widget_tweaks %}
+<form method="POST">{% csrf_token %}
+    <div class="sv-tab-panel">
+        <h4 class="text-warning pb-0">INDIGENCY</h4><hr>
+            <h6 class="text-secondary pl-3 pb-1">Pakilagay na lang dito yung mga wala sa residents tab...</h6>
+        
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card" >
+                    <!-- Default panel contents -->
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            CCSWD Social Case Study
+                                    <label class="switch ">
+              <!-- <input type="checkbox" class="warning"> -->
+              {% render_field indigent.ccswd|append_attr:"class:warning" type="checkbox" %}
+              <span class="slider"></span>
+            </label>
+                        </li>
+                        <li class="list-group-item">
+                            DSWD Medical Assistance
+                                    <label class="switch ">
+              <!-- <input type="checkbox" class="warning"> -->
+              {% render_field indigent.dswd_medical|append_attr:"class:warning" type="checkbox" %}
+              <span class="slider"></span>
+            </label>
+                        </li>
+                        <li class="list-group-item">
+                            Solo Parent
+                                    <label class="switch ">
+              <!-- <input type="checkbox" class="warning"> -->
+              {% render_field indigent.solo_parent|append_attr:"class:warning" type="checkbox" %}
+              <span class="slider"></span>
+            </label>
+                        </li>
+                        <li class="list-group-item">
+                            Financial Statement
+                                    <label class="switch ">
+              <!-- <input type="checkbox" class="warning"> -->
+              {% render_field indigent.financial_assistance|append_attr:"class:warning" type="checkbox" %}
+              <span class="slider"></span>
+            </label>
+                        </li>
+                </div> 
+                </div>
+                
+                <div class="col-md-4">
+            <div class="card" >
+                    <!-- Default panel contents -->
+                    <li class="list-group-item">
+                            PhilHealth
+                                    <label class="switch ">
+              <!-- <input type="checkbox" class="warning"> -->
+              {% render_field indigent.philhealth|append_attr:"class:warning" type="checkbox" %}
+              <span class="slider"></span>
+            </label>
+                        </li>
+                        <li class="list-group-item">
+                            Burial Assistance
+                                    <label class="switch ">
+              <!-- <input type="checkbox" class="warning"> -->
+              {% render_field indigent.burial_assistance|append_attr:"class:warning" type="checkbox" %}
+              <span class="slider"></span>
+            </label>
+                        </li>
+                        <li class="list-group-item">
+                            Medical Assistance
+                                    <label class="switch ">
+              <!-- <input type="checkbox" class="warning"> -->
+              {% render_field indigent.medical_assistance|append_attr:"class:warning" type="checkbox" %}
+              <span class="slider"></span>
+            </label>
+                        </li>
+                        
+                        
+                    </ul>
+                </div> 
+                </div>
+                
+                <div class="col-md-4">
+            <div class="card" >
+                    <!-- Default panel contents -->
+
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            Educational Assistance
+                                    <label class="switch ">
+              <!-- <input type="checkbox" class="warning"> -->
+              {% render_field indigent.educational_assistance|append_attr:"class:warning" type="checkbox" %}
+              <span class="slider"></span>
+            </label>
+                        </li>
+                        <li class="list-group-item">
+                            DSWD Financial Assistance
+                                    <label class="switch ">
+              <!-- <input type="checkbox" class="warning"> -->
+              {% render_field indigent.dswd_financial|append_attr:"class:warning" type="checkbox"%}
+              <span class="slider"></span>
+            </label>
+                        </li>
+                        
+                        <li class="list-group-item">
+                            <input type="text" class="form-control col" id="ClearanceOthers" name="" placeholder="Other" value="" style="border:none">
+                                    <label class="switch">
+              <input type="checkbox" class="warning">
+              <span class="slider"></span>
+            </label>
+                        </li>
+                    </ul>
+                </div> 
+                </div>
+                
+        </div>
+        <div class="row mt-2 d-flex justify-content-center">
+                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#indigencyModal">Confirm>></button>
+        </div>
+
+        <!-- Modal -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="indigencyModal" tabindex="-1" role="dialog" aria-labelledby="#indigencyModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+              <h5 class="text-warning">INDIGENCY</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                
+              </div>
+              <div class="modal-body">
+                  <p><a href="#" role="button" class="btn btn-secondary popover-test d-flex justify-content-center" title="Popover title" data-content="Popover body content is set in this attribute.">Print Indigency</a> </p>
+                
+                </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" name=" Submit_indigent" value=" Submit_indigent" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</form>

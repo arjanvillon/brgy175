@@ -1,0 +1,95 @@
+{% load widget_tweaks %}
+<form method="POST">{% csrf_token %}
+                    
+    <div class="sv-tab-panel">
+        <h4 class="text-warning pb-0">BARANGAY PERMIT</h4><hr>
+           <h6 class="text-secondary pl-3 pb-1">Application Form for Business...</h6>
+        
+        
+        <div class="row">
+         <div class="col-md-6 d-flex justify-content-end">
+            <ul class="list-group list-group-flush ">
+                        <li class="list-group-item ">
+                            Barangay Business Permit
+                                   <label class="switch ">
+              <!-- <input type="checkbox" class="warning ml-3"> -->
+              {% render_field business.barangay_permit|append_attr:"class:warning ml-3" type="checkbox" %}
+              <span class="slider"></span>
+            </label>
+                        </li>
+            </ul>
+                </div>
+            <div class="col-md-6 d-flex justify-content-start">
+            <ul class="list-group list-group-flush">
+                        <li class="list-group-item mr-3">
+                            Business Clearance for Mayors 	
+                                   <label class="switch ">
+              <!-- <input type="checkbox" class="warning ml-3"> -->
+              {% render_field business.city_permit|append_attr:"class:warning ml-3" type="checkbox" %}
+              <span class="slider"></span>
+            </label>
+                        </li>
+            </ul>
+                </div> 
+        </div>
+        <div class="row">
+            <div class="col-11">
+                <div class="form-group row">
+                    <label for="e-address" class="col-sm-2 col-form-label d-flex justify-content-end">Business Address</label>
+                    <div class="col-sm-10">
+                    <!-- <input type="email" class="form-control" id="e-address" name="" placeholder="Enter address" value=""> -->
+                    {% render_field business.city_permit|append_attr:"class:form-control" type="email" id="e-address" name="" placeholder="Enter address" %}
+                    </div>
+                </div>
+            </div>
+            <!-- end of col-8 -->
+            <div class="col-4">
+            <!-- for spacing?? -->
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-11">
+                <div class="form-group row">
+                    <label for="MotherName" class="col-sm-2 col-form-label d-flex justify-content-end ">Business Name</label>
+                    <div class="col-sm-10">
+                    <!-- <input type="text" class="form-control" id="MotherName" name="" placeholder="Enter Name" value=""> -->
+                    {% render_field business.city_permit|append_attr:"class:form-control" type="text" id="MotherName" name="" placeholder="Enter Name" %}
+                  </div>
+                </div>
+            </div>
+            <!-- end of col-8 -->
+            <div class="col-4">
+            <!-- for spacing?? -->
+            </div>
+        </div>
+        <!-- end of row -->
+         <!-- row start -->
+        <div class="row mt-2 d-flex justify-content-center">
+                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#businessModal">Confirm>></button>
+        </div>
+
+        <!-- Modal -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="businessModal" tabindex="-1" role="dialog" aria-labelledby="#businessModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+              <h5 class="text-warning">BUSINESS PERMIT</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                
+              </div>
+              <div class="modal-body">
+                  <p><a href="#" role="button" class="btn btn-secondary popover-test d-flex justify-content-center" title="Popover title" data-content="Popover body content is set in this attribute.">Print Business Permit Application</a> </p>
+                
+                </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+   </form>

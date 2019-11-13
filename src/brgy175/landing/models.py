@@ -1,15 +1,14 @@
 from django.db import models
-from residents.models import Resident
 
 class IDForm(models.Model):
-    resident_idform = models.ForeignKey('residents.Resident', on_delete=models.CASCADE, null=True)
+    resident_idform = models.OneToOneField('residents.Resident', on_delete=models.CASCADE, null=True)
     con_person = models.CharField(max_length=50)
     con_person_address = models.CharField(max_length=100)
     con_person_relationsip = models.CharField(max_length=20)
     con_person_mobile = models.CharField(max_length=11)
 
 class IndigencyForm(models.Model):
-    resident_indigency = models.ForeignKey('residents.Resident', on_delete=models.CASCADE, null=True)
+    resident_indigency = models.OneToOneField('residents.Resident', on_delete=models.CASCADE, null=True)
     ccswd = models.BooleanField(default=False)
     dswd_medical = models.BooleanField(default=False)
     in_birth_certificate = models.BooleanField(default=False)
@@ -22,7 +21,7 @@ class IndigencyForm(models.Model):
     dswd_financial = models.BooleanField(default=False)
 
 class ClearanceForm(models.Model):
-    resident_clearance = models.ForeignKey('residents.Resident', on_delete=models.CASCADE, null=True)
+    resident_clearance = models.OneToOneField('residents.Resident', on_delete=models.CASCADE, null=True)
     bail_bond = models.BooleanField(default=False)
     bank = models.BooleanField(default=False)
     cl_birth_certificate = models.BooleanField(default=False)
@@ -34,7 +33,7 @@ class ClearanceForm(models.Model):
     travel = models.BooleanField(default=False)
     loan = models.BooleanField(default=False)
     indigency = models.BooleanField(default=False)
-    building_permit= models.BooleanField(default=False)
+    building_permit = models.BooleanField(default=False)
     senior_citizen = models.BooleanField(default=False)
     local_employment = models.BooleanField(default=False)
     maynilad = models.BooleanField(default=False)
@@ -55,6 +54,29 @@ class BusinessPermit(models.Model):
     business_address = models.CharField(max_length=100)
     business_name = models.CharField(max_length=50)
 
-    
-        
-# Create your models here.
+class ScholarshipForm(models.Model):
+    resident_scholarship = models.OneToOneField('residents.Resident', on_delete=models.CASCADE, null=True)
+    father_name = models.CharField(max_length=50)
+    father_address = models.CharField(max_length=100)
+    father_age = models.IntegerField()
+    father_occupation = models.CharField(max_length=30)
+    father_mobile = models.CharField(max_length=11)
+    father_precint = models.CharField(max_length=30)
+    father_salary = models.IntegerField()
+    mother_name = models.CharField(max_length=50)
+    mother_address = models.CharField(max_length=100)
+    mother_age = models.IntegerField()
+    mother_occupation = models.CharField(max_length=30)
+    mother_mobile = models.CharField(max_length=11)
+    mother_precint = models.CharField(max_length=30)
+    mother_salary = models.IntegerField()
+
+class BurialForm(models.Model):
+    resident_burial = models.ForeignKey('residents.Resident', on_delete=models.CASCADE, null=True)
+    burial_name = models.CharField(max_length=50)
+    burial_address = models.CharField(max_length=100)
+    burial_relation = models.CharField(max_length=20)
+    burial_birth = models.DateField()
+    burial_death = models.DateField()
+    burial_interment_place = models.CharField(max_length=50)
+    burial_interment_date = models.DateField()

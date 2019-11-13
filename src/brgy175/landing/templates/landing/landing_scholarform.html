@@ -1,0 +1,203 @@
+{% load widget_tweaks %}
+<form method="POST">{% csrf_token %}
+    <div class="sv-tab-panel">
+        <h4 class="text-warning pb-0">SCHOLARSHIP FORM</h4><hr>
+           <h6 class="text-secondary pl-3 pb-1">Father's Information</h6>
+        
+        <div class="row">
+            <div class="col-11">
+                <div class="form-group row">
+                    <label for="FatherName" class="col-sm-2 col-form-label d-flex justify-content-end ">Name</label>
+                    <div class="col-sm-10">
+                    <!-- <input type="text" class="form-control" id="FatherName" name="" placeholder="FN, MI, LN" value=""> -->
+                    {% render_field scholar.father_name|append_attr:"class:form-control" id="FatherName" name="" placeholder="FN, MI, LN"  type="text"  %}
+                </div>
+                </div>
+            </div>
+            <!-- end of col-8 -->
+            <div class="col-4">
+            <!-- for spacing?? -->
+            </div>
+        </div>
+        <!-- end of row -->
+         <!-- row start -->
+        <div class="row">
+            <div class="col-11">
+                <div class="form-group row">
+                    <label for="EmailChangeThis" class="col-sm-2 col-form-label d-flex justify-content-end ">Address</label>
+                    <div class="col-sm-10">
+                    <input type="text" class="form-control" id="address" name="" placeholder="Enter address" value="">
+                    {% render_field scholar.father_address|append_attr:"class:form-control" id="address" name="" placeholder="Enter address"  type="text"  %}
+                </div>
+                </div>
+            </div>
+            <!-- end of col-8 -->
+            <div class="col-4">
+            <!-- for spacing?? -->
+            </div>
+        </div>
+
+         <div class="row">
+            <div class="col-12">
+                <div class="form-group row">
+                    <label for="FatherAge" class="col-sm-2 col-form-label d-flex justify-content-end ">Age</label>
+                    <!-- <input class="input-field col-sm-4 form-control mr-1" type="text" placeholder="Enter age" name="text" maxlength="20" id="validationCustom01 namest" required> -->
+                    {% render_field scholar.father_age|append_attr:"class:input-field col-sm-4 form-control mr-1" type="text" placeholder="Enter age" name="text" maxlength="20" id="validationCustom01 namest"  %}
+                    <label for="FatherOccupation" class="col-sm-2 col-form-label ml-1  d-flex justify-content-end">Occupation</label>
+                    <!-- <input class="input-field col-sm-3 form-control" type="text" placeholder="Enter occupation" name="FatherOccupation" maxlength="20" id="validationCustom01 namest" required> -->
+                    {% render_field scholar.father_occupation|append_attr:"class:input-field col-sm-3 form-control" type="text" placeholder="Enter occupation" name="FatherOccupation" maxlength="20" id="validationCustom01 namest"  %}
+                    
+                </div>
+            </div>
+            <!-- end of col-8 -->
+            <div class="col-4">
+            <!-- for spacing?? -->
+            </div>
+        </div>
+            
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group row">
+                    <label for="FatherContact" class="col-sm-2 col-form-label d-flex justify-content-end ">Contact No.</label>
+                    <!-- <input class="input-field col-sm-4 form-control mr-1" type="text" placeholder="XXXX-XXX-XXXX" name="number" maxlength="20" id="validationCustom01 namest" required> -->
+                    {% render_field scholar.father_mobile|append_attr:"class:input-field col-sm-4 form-control mr-1" type="text" placeholder="XXXX-XXX-XXXX" name="number" maxlength="20" id="validationCustom01 namest"  %}
+                    <label for="FatherPrecinct" class="col-sm-2 col-form-label ml-1  d-flex justify-content-end">Precinct No.</label>
+                    {% render_field scholar.father_precint|append_attr:"class:input-field col-sm-3 form-control" type="text" placeholder="Enter precinct number" name="FatherPrecinct" maxlength="20" id="validationCustom01 namest"  %}
+                    <!-- <input class="input-field col-sm-3 form-control" type="text" placeholder="Enter precinct number" name="FatherPrecinct" maxlength="20" id="validationCustom01 namest" required> -->
+                </div>
+            </div>
+            <!-- end of col-8 -->
+            <div class="col-4">
+            <!-- for spacing?? -->
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-11">
+                <div class="form-group row">
+                    <label for="FatherSalary" class="col-sm-2 col-form-label d-flex justify-content-end m-0">Monthly Salary</label>
+                    <div class="col-sm-10">
+                    <!-- <input type="text" class="form-control" id="FatherSalary" name="" placeholder="Php XXXXX.XX" value=""> -->
+                    {% render_field scholar.father_salary|append_attr:"class:form-control" type="text" id="FatherSalary" name="" placeholder="Php XXXXX.XX"  %}
+                </div>
+                </div>
+            </div>
+            <!-- end of col-8 -->
+            <div class="col-4">
+            <!-- for spacing?? -->
+            </div>
+        </div>
+        <hr>
+        <h6 class="text-secondary pl-3 pb-1">Mother's Information</h6>
+        
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group row">
+                    <label for="MotherName" class="col-sm-2 col-form-label d-flex justify-content-end ">Name</label>
+                    <div class="col-sm-10">
+                    <!-- <input type="text" class="form-control" id="MotherName" name="" placeholder="FN, MI, LN" value=""> -->
+                    {% render_field scholar.mother_name|append_attr:"class:form-control" id="MotherName" name="" placeholder="FN, MI, LN"  type="text"  %}
+                    </div>
+                </div>
+            </div>
+            <!-- end of col-8 -->
+            <div class="col-4">
+            <!-- for spacing?? -->
+            </div>
+        </div>
+        <!-- end of row -->
+         <!-- row start -->
+        <div class="row">
+            <div class="col-11">
+                <div class="form-group row">
+                    <label for="EmailChangeThis" class="col-sm-2 col-form-label d-flex justify-content-end ">Address</label>
+                    <div class="col-sm-10">
+                    <input type="text" class="form-control" id="address" name="" placeholder="Enter address" value="">
+                    {% render_field scholar.mother_address|append_attr:"class:form-control" id="address" name="" placeholder="Enter address"  type="text"  %}
+                </div>
+                </div>
+            </div>
+            <!-- end of col-8 -->
+            <div class="col-4">
+            <!-- for spacing?? -->
+            </div>
+        </div>
+
+         <div class="row">
+            <div class="col-12">
+                <div class="form-group row">
+                    <label for="FatherAge" class="col-sm-2 col-form-label d-flex justify-content-end mr-3">Age</label>
+                    <!-- <input class="input-field col-sm-4 form-control mr-1" type="text" placeholder="Enter age" name="text" maxlength="20" id="validationCustom01 namest" required> -->
+                    {% render_field scholar.mother_age|append_attr:"class:input-field col-sm-4 form-control mr-1" type="text" placeholder="Enter age" name="text" maxlength="20" id="validationCustom01 namest"  %}
+                    <label for="FatherOccupation" class="col-sm-1 col-form-label d-flex justify-content-end ml-5">Occupation</label>
+                    <!-- <input class="input-field col-sm-3 form-control" type="text" placeholder="Enter occupation" name="FatherOccupation" maxlength="20" id="validationCustom01 namest" required> -->
+                    {% render_field scholar.mother_occupation|append_attr:"class:input-field col-sm-3 form-control" type="text" placeholder="Enter occupation" name="FatherOccupation" maxlength="20" id="validationCustom01 namest"  %}
+                </div>
+            </div>
+            <!-- end of col-8 -->
+            <div class="col-4">
+            <!-- for spacing?? -->
+            </div>
+        </div>
+            
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group row">
+                    <label for="FatherContact" class="col-sm-2 col-form-label d-flex justify-content-end ">Contact No.</label>
+                    <!-- <input class="input-field col-sm-4 form-control mr-1" type="text" placeholder="XXXX-XXX-XXXX" name="number" maxlength="20" id="validationCustom01 namest" required> -->
+                    {% render_field scholar.mother_mobile|append_attr:"class:input-field col-sm-4 form-control mr-1" type="text" placeholder="XXXX-XXX-XXXX" name="number" maxlength="20" id="validationCustom01 namest"  %}
+                    <label for="FatherPrecinct" class="col-sm-2 col-form-label d-flex justify-content-end">Precinct No.</label>
+                    <!-- <input class="input-field col-sm-3 form-control" type="text" placeholder="Enter precinct number" name="FatherPrecinct" maxlength="20" id="validationCustom01 namest" required> -->
+                    {% render_field scholar.mother_precint|append_attr:"class:input-field col-sm-3 form-control" type="text" placeholder="Enter precinct number" name="FatherPrecinct" maxlength="20" id="validationCustom01 namest"  %}
+                </div>
+            </div>
+            <!-- end of col-8 -->
+            <div class="col-4">
+            <!-- for spacing?? -->
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-11">
+                <div class="form-group row">
+                    <label for="FatherSalary" class="col-sm-2 col-form-label d-flex justify-content-end m-0">Monthly Salary</label>
+                    <div class="col-sm-10">
+                    <!-- <input type="text" class="form-control" id="FatherSalary" name="" placeholder="Php XXXXX.XX" value=""> -->
+                    {% render_field scholar.mother_salary|append_attr:"class:form-control" type="text" id="FatherSalary" name="" placeholder="Php XXXXX.XX"  %}
+                </div>
+                </div>
+            </div>
+            <!-- end of col-8 -->
+            <div class="col-4">
+            <!-- for spacing?? -->
+            </div>
+        </div>
+        
+        <div class="row mt-2 d-flex justify-content-center">
+                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#scholarModal">Confirm>></button>
+        </div>
+
+        <!-- Modal -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="scholarModal" tabindex="-1" role="dialog" aria-labelledby="#scholarModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+              <h5 class="text-warning">SCHOLARSHIP FORM</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                
+              </div>
+              <div class="modal-body">
+                  <p><a href="#" role="button" class="btn btn-secondary popover-test d-flex justify-content-center" title="Popover title" data-content="Popover body content is set in this attribute.">Print Indigency</a> </p>
+                
+                </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+     </form>
