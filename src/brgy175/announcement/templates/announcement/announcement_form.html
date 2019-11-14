@@ -1,0 +1,57 @@
+{% extends 'home/base.html' %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+
+{% block cssLink %}
+    <link rel="stylesheet" href="{% static 'announcement/announcement.css' %}">
+{% endblock %}
+    
+
+{% block content %}
+
+<div class="mainContainer">
+    <div class="row">
+        <div class="col-12">
+            <h3>        
+                {% if not form.instance.pk %}
+                    Create Announcement
+                {% else %}
+                    Update Announcement
+                {% endif %}
+            </h3>
+        </div>
+    </div>
+
+    <hr class="mt-0">
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form|crispy }}
+
+        <input type="submit" class="btn btn-primary" value="Submit">
+    </form>
+</div>
+    
+{% endblock %}
+
+{% block jsLink %}
+    <script>
+    // $( "#div_id_picture div.custom-file:contains('Change')" ).css( "text-decoration", "none");
+    // alert($('#div_id_picture div.custom-file').text());
+    $('#div_id_picture div.custom-file:contains("Change:")').each(function(){
+        $(this).html($(this).html().split("Change:").join(""));
+    });
+
+    // $('#id_author option[selected]').removeAttr("selected");
+    // $('#id_author option[value="'+$user+'"]').prop("selected", true);
+    // $('#id_author').attr("disabled", "disabled");
+
+    $(function() {
+        $("input:file").change(function (){
+            var fileName = $(this).val();
+            $(".custom-file-label").html(fileName);
+        });
+    });
+    </script>
+{% endblock jsLink %}
+    

@@ -1,0 +1,307 @@
+{% load widget_tweaks %}
+<form method="POST">{% csrf_token %}
+    <div class="sv-tab-panel">
+     
+        <h4 class="text-warning pb-0">BARANGAY CLEARANCE</h4><hr>
+           <h6 class="text-secondary pl-3 pb-1">Select purpose of getting clearance</h6>
+        
+        <div class="row">
+         <div class="col-md-4">
+            <div class="card" >
+                    <!-- Default panel contents -->
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            Bail Bond
+                                   <label class="switch ">
+              <!-- <input type="checkbox" class="warning"> -->
+              {% render_field clearance.bail_bond|append_attr:"class:warning" type="checkbox"%}
+              <span class="slider"></span>
+            </label>
+                        </li>
+                        <li class="list-group-item">
+                            Bank 
+                                   <label class="switch ">
+              <!-- <input type="checkbox" class="warning">  -->
+              {% render_field clearance.bank|append_attr:"class:warning" type="checkbox"%}
+
+              <span class="slider"></span>
+            </label>
+                        </li>
+                        <li class="list-group-item">
+                            Birth Certificate 
+                                   <label class="switch ">
+              <!-- <input type="checkbox" class="warning"> -->
+               {% render_field clearance.cl_birth_certificate|append_attr:"class:warning" type="checkbox"%}
+
+              <span class="slider"></span>
+            </label>
+                        </li>
+                        <li class="list-group-item">
+                            Certificate of Residency
+                                   <label class="switch ">
+              <!-- <input type="checkbox" class="warning"> -->
+               
+
+              <span class="slider"></span>
+            </label>
+                        </li>
+                        <li class="list-group-item">
+                            Mayor’s Permit
+                                   <label class="switch ">
+              <!-- <input type="checkbox" class="warning">  -->
+              {% render_field clearance.mayors_permit|append_attr:"class:warning" type="checkbox"%}
+
+              <span class="slider"></span>
+            </label>
+                        </li>
+                        <li class="list-group-item">
+                            Meralco
+                                   <label class="switch ">
+              <!-- <input type="checkbox" class="warning"> -->
+              {% render_field clearance.meralco|append_attr:"class:warning" type="checkbox"%}
+              <span class="slider"></span>
+            </label>
+                        </li>
+                        <li class="list-group-item">
+                            Personal Identification 
+                                   <label class="switch ">
+              <!-- <input type="checkbox" class="warning"> -->
+               {% render_field clearance.personal_id|append_attr:"class:warning" type="checkbox"%}
+
+              <span class="slider"></span>
+            </label>
+                        </li>
+                        <li class="list-group-item">
+                            School
+                                   <label class="switch ">
+              <!-- <input type="checkbox" class="warning">  -->
+              
+
+              <span class="slider"></span>
+            </label>
+                        </li>
+                        <li class="list-group-item">
+                            SSS
+                                   <label class="switch ">
+              <!-- <input type="checkbox" class="warning">  -->
+              {% render_field clearance.sss|append_attr:"class:warning" type="checkbox"%}
+
+              <span class="slider"></span>
+            </label>
+                        </li>
+                    </ul>
+                </div> 
+                </div>
+                
+                <div class="col-md-4">
+            <div class="card" >
+                    <!-- Default panel contents -->
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            Excavation Permit
+                                   <label class="switch ">
+              <!-- <input type="checkbox" class="warning"> -->
+               {% render_field clearance.excavation_permit|append_attr:"class:warning" type="checkbox"%}
+
+              <span class="slider"></span>
+            </label>
+                        </li>
+                        <li class="list-group-item">
+                            Travel Abroad
+                                   <label class="switch ">
+              <!-- <input type="checkbox" class="warning"> -->
+               {% render_field clearance.travel|append_attr:"class:warning" type="checkbox"%}
+
+              <span class="slider"></span>
+            </label>
+                        </li>
+                        <li class="list-group-item">
+                            Loan
+                                   <label class="switch ">
+              <!-- <input type="checkbox" class="warning"> -->
+               {% render_field clearance.loan|append_attr:"class:warning" type="checkbox"%}
+
+              <span class="slider"></span>
+            </label>
+                        </li>
+                        <li class="list-group-item">
+                            Certificate of Indigency
+                                   <label class="switch ">
+              <!-- <input type="checkbox" class="warning">  -->
+              {% render_field clearance.indigency|append_attr:"class:warning" type="checkbox"%}
+
+              <span class="slider"></span>
+            </label>
+                        </li>
+                        <li class="list-group-item">
+                            Building Permit Requirement
+                                   <label class="switch ">
+              <!-- <input type="checkbox" class="warning">  -->
+              {% render_field clearance.building_permit|append_attr:"class:warning" type="checkbox"%}
+
+              <span class="slider"></span>
+            </label>
+                        </li>
+                        <li class="list-group-item">
+                            Senior Citizen
+                                   <label class="switch ">
+              <!-- <input type="checkbox" class="warning">  -->
+              {% render_field clearance.senior_citizen|append_attr:"class:warning" type="checkbox"%}
+
+              <span class="slider"></span>
+            </label>
+                        </li>
+                        <li class="list-group-item">
+                            Local Employment 
+                                   <label class="switch ">
+              <!-- <input type="checkbox" class="warning">  -->
+              
+              {% render_field clearance.local_employment|append_attr:"class:warning" type="checkbox"%}
+
+              <span class="slider"></span>
+            </label>
+                        </li>
+                        <li class="list-group-item">
+                            Maynilad 
+                                   <label class="switch ">
+              <!-- <input type="checkbox" class="warning">  -->
+              {% render_field clearance.maynilad|append_attr:"class:warning" type="checkbox"%}
+
+              <span class="slider"></span>
+            </label>
+                        </li>
+                        <li class="list-group-item">
+                            Barangay Id
+                                   <label class="switch ">
+              <!-- <input type="checkbox" class="warning">  -->
+              {% render_field clearance.barangay_id|append_attr:"class:warning" type="checkbox"%}
+
+              <span class="slider"></span>
+            </label>
+                        
+                            
+                
+                    
+                        </li>
+                    </ul>
+                </div> 
+                </div>
+                
+                <div class="col-md-4">
+            <div class="card" >
+                    <!-- Default panel contents -->
+
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            Tricycle Franchise
+                                   <label class="switch ">
+              <!-- <input type="checkbox" class="warning"> -->
+               {% render_field clearance.tricycle_franchise|append_attr:"class:warning" type="checkbox"%}
+
+              <span class="slider"></span>
+            </label>
+                        </li>
+                        <li class="list-group-item">
+                            Lipat Bahay
+                                   <label class="switch ">
+              <!-- <input type="checkbox" class="warning">  -->
+              {% render_field clearance.lipat_bahay|append_attr:"class:warning" type="checkbox"%}
+
+              <span class="slider"></span>
+            </label>
+                        </li>
+                        <li class="list-group-item">
+                            PNP
+                                   <label class="switch ">
+              <!-- <input type="checkbox" class="warning">  -->
+              {% render_field clearance.pnp|append_attr:"class:warning" type="checkbox"%}
+
+              <span class="slider"></span>
+            </label>
+                        </li>
+                        <li class="list-group-item">
+                            Postal Id
+                                   <label class="switch ">
+              <!-- <input type="checkbox" class="warning">  -->
+              {% render_field clearance.postal_id|append_attr:"class:warning" type="checkbox"%}
+
+              <span class="slider"></span>
+            </label>
+                        </li>
+                        <li class="list-group-item">
+                            Brgy Business Permit
+                                   <label class="switch ">
+              <!-- <input type="checkbox" class="warning"> -->
+               {% render_field clearance.business_license|append_attr:"class:warning" type="checkbox"%}
+
+              <span class="slider"></span>
+            </label>
+                        </li>
+                        <li class="list-group-item">
+                            Motor Loan
+                                   <label class="switch ">
+              <!-- <input type="checkbox" class="warning"> -->
+               {% render_field clearance.motor_loan|append_attr:"class:warning" type="checkbox"%}
+
+              <span class="slider"></span>
+            </label>
+                        </li>
+                        <li class="list-group-item">
+                            BIR
+                                   <label class="switch ">
+              <!-- <input type="checkbox" class="warning">  -->
+              {% render_field clearance.bir|append_attr:"class:warning" type="checkbox"%}
+
+              <span class="slider"></span>
+            </label>
+                        </li>
+                        <li class="list-group-item">
+                            NHA
+                                   <label class="switch ">
+              <!-- <input type="checkbox" class="warning"> -->
+               {% render_field clearance.nha|append_attr:"class:warning" type="checkbox"%}
+
+              <span class="slider"></span>
+            </label>
+                        </li>
+                        <li class="list-group-item">
+                            <input type="text" class="form-control col" id="ClearanceOthers" name="" placeholder="Other" value="" style="border:none">
+                                   <label class="switch">
+              <input type="checkbox" class="warning">
+              
+              <span class="slider"></span>
+            </label>
+                        </li>
+                    </ul>
+                </div> 
+                </div>
+                
+        </div>
+        <div class="row mt-2 d-flex justify-content-center">
+                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#clearModal">Confirm>></button>
+        </div>
+
+        <!-- Modal -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="clearModal" tabindex="-1" role="dialog" aria-labelledby="#clearModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+              <h5 class="text-warning">CLEARANCE FORM</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                
+              </div>
+              <div class="modal-body">
+                  <p><a href="#" role="button" class="btn btn-secondary popover-test d-flex justify-content-center" title="Popover title" data-content="Popover body content is set in this attribute.">Print Clearance/Certification</a> </p>
+                
+                </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" name="Submit_clearance" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+   </form>

@@ -27,7 +27,7 @@ from residents import views as residents_views
 # from senior import views as senior_views
 from sk import views as sk_views
 from user_account import views as user_views
-from vawc import views as vawc_views
+# from vawc import views as vawc_views
 
 
 
@@ -45,6 +45,8 @@ urlpatterns = [
     path('about', landing_views.about_us, name='aboutUs'),
     path('contact', landing_views.contact, name='contactUs'),
     #!SECTION 
+
+    path('announcement/', include('announcement.urls')),
 
     #SECTION Assistance URLs
     path('assistance/', include('assistance.urls')),
@@ -80,7 +82,7 @@ urlpatterns = [
     #!SECTION 
 
     #SECTION VAWC & BCPC URLs
-    path('vawc/', vawc_views.vawcHome, name='vawcHome'),
+     path('vawc/', include('vawc.urls')),
     #!SECTION 
 ]
 

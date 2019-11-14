@@ -89,6 +89,10 @@ form {
 	text-align: center;
 }
 
+.overlay-container{
+	background-image: url(../images/bgfinal.jpg);
+}
+
 input {
 	background-color: #eee;
 	font-family: FontAwesome, Roboto;

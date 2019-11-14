@@ -57,7 +57,7 @@
                         <a href="#officeSectors" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-building"></i> OFFICES</a></a>
                         <ul class="collapse list-unstyled" id="officeSectors">
                             <li><a href="{% url 'katarungan:list' %}">Katarungang Pambarangay</a></li>
-                            <li><a href="{% url 'vawcHome' %}">VAWC / BCPC</a></li>
+                            <li><a href="{% url 'vawc:list' %}">VAWC / BCPC</a></li>
                             <li><a href="{% url 'badacHome' %}">BADAC</a></li>
                             <li><a href="{% url 'bpsoHome' %}">BPSO</a></li>
                             <li><a href="{% url 'senior:senior_list' %}">PWD & SENIOR Dept.</a></li>
@@ -66,7 +66,7 @@
                         </ul>
                     </li>
                     <li><a href="{% url 'residents:resident_list' %}"><i class="fa fa-users"></i> RESIDENTS</a></li>
-                    <li><a href="#announcements"><i class="fa fa-bullhorn"></i> ANNOUNCEMENTS</a></li>
+                    <li><a href="{% url 'announcement:announcement_list' %}"><i class="fa fa-bullhorn"></i> ANNOUNCEMENTS</a></li>
                     <li><a href="#reports"><i class="fa fa-line-chart"></i> REPORTS</a></li>
                 </ul>
                 <!-- <div class="sidebarImgWrapper">

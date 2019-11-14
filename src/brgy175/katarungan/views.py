@@ -3,20 +3,24 @@ from django.contrib import messages
 from django.views.generic import (View, TemplateView, ListView, DetailView, CreateView, DeleteView)
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Katarungan
 from .forms import KatarunganForm
 import datetime
 
-class KatarunganListView(ListView):
+class KatarunganListView(LoginRequiredMixin, ListView):
+    login_url = '/login/'
     context_object_name = 'katarungans'
     model = Katarungan
-    
-class KatarunganDetailView(DetailView):
+
+class KatarunganDetailView(LoginRequiredMixin, DetailView):
+    login_url = '/login/'
     context_object_name = 'katarungan_detail'
     model = Katarungan
     template_name = 'katarungan/katarungan_detail.html'
 
-class KatarunganCreateView(CreateView):
+class KatarunganCreateView(LoginRequiredMixin, CreateView):
+    login_url = '/login/'
     form_class = KatarunganForm
     model = Katarungan
 
@@ -41,7 +45,8 @@ class KatarunganCreateView(CreateView):
         context["latest_pk"] = case_no
         return context
 
-class KatarunganDeleteView(DeleteView):
+class KatarunganDeleteView(LoginRequiredMixin, DeleteView):
+    login_url = '/login/'
     model = Katarungan
     success_url = reverse_lazy('katarungan:list')
 
