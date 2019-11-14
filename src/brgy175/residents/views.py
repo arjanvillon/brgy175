@@ -1,6 +1,9 @@
 from django.shortcuts import render
-from . import models
+from .models import Resident
 from residents.forms import ResidentForm
+from katarungan.models import Katarungan
+import datetime
+
 from django.views.generic import (
     View, TemplateView,
     ListView, DetailView,
@@ -10,21 +13,64 @@ from django.views.generic import (
 
 class ResidentListView(ListView):
     context_object_name = 'resident_list'
-    model = models.Resident
+    model = Resident
 
 class ResidentDetailView(DetailView):
     context_object_name = 'resident_detail'
-    model = models.Resident
+    model = Resident
     template_name = 'residents/resident_detail.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["cases"] =  Katarungan.objects.filter(convict__pk=self.kwargs['pk'])
+        return context
+    
 class ResidentCreateView(CreateView):
     form_class = ResidentForm
     # fields = ('first_name', 'middle_name', 'last_name', 'suffix', 'address', 'date_of_birth', 'place_of_birth', 'age', 'weight', 'height', 'gender', 'civil_status', 'contact_number', 'nationality', 'email_address', 'religion')
-    model = models.Resident
+    model = Resident
+
+    def get_context_data(self, **kwargs):
+        query = Resident.objects.all().latest('created_date')
+        if not query:
+            senior_id = "S-2019-0000"
+        else:
+            pk = query.pk + 1
+            year = datetime.datetime.now().year
+
+            if pk < 10:
+                senior_id = "S-" + str(year) + "-000" + str(pk)
+            elif pk >= 10 and pk < 100:
+                senior_id = "S-" + str(year) + "-00" + str(pk)
+            elif pk >= 100 and pk < 1000:
+                senior_id = "S-" + str(year) + "-0" + str(pk)
+            else:
+                senior_id = "S-" + str(year) + "-" + str(pk)
+
+        pwd_query = Resident.objects.all().latest('created_date')
+        if not pwd_query:
+            pwd_id = "PWD-2019-0000"
+        else:
+            pk_pwd = pwd_query.pk + 1
+            year = datetime.datetime.now().year
+
+            if pk_pwd < 10:
+                pwd_id = "PWD-" + str(year) + "-000" + str(pk_pwd)
+            elif pk_pwd >= 10 and pk_pwd < 100:
+                pwd_id = "PWD-" + str(year) + "-00" + str(pk_pwd)
+            elif pk_pwd >= 100 and pk_pwd < 1000:
+                pwd_id = "PWD-" + str(year) + "-0" + str(pk_pwd)
+            else:
+                pwd_id = "PWD-" + str(year) + "-" + str(pk_pwd)
+
+        context = super().get_context_data(**kwargs)
+        context["senior_id"] = senior_id
+        context["pwd_id"] = pwd_id
+        return context
 
 class ResidentUpdateView(UpdateView):
     form_class = ResidentForm
-    model = models.Resident
+    model = Resident
 
 
 # from django.shortcuts import render, redirect

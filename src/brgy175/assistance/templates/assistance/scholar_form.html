@@ -3,19 +3,126 @@
 {% load staticfiles %}
 
 {% block cssLink %}
+    <link rel="stylesheet" href="{% static 'plugins/select2/select2.css' %}">
     <link rel="stylesheet" href="{% static 'assistance/assistance.css' %}">
 {% endblock %}
 
 
 {% block content %}
-    
+
 <div class="mainContainer">
+<h1>{{title}}</h1>
+    <div class="row mb-3">
+        <div class="col-9">
+            <!-- tab switch -->
+            <div class="tabWrapper">
+                <div class="tabSwitch right text-center " >
+                    <div style="display:inline" class="pillTab " pillTab-direction="left"><a href="{% url 'assistance:scholar_list' %}">VIEW ALL</a></div>
+                    <div class="pillTab text-center active" pillTab-direction="right"><a href="{% url 'assistance:scholar_create' %}">ADD NEW</a></div>
+                </div>
+            </div>
+            <!-- tab switch end -->
+        </div>
+
+    </div>
     <form method="POST">
         {% csrf_token %}
-        {{ form|crispy }}
+        <h4 class="text-warning">School Information</h4>
+        <hr>
+        <div class="form-group row">
+            <div class="col-sm-12">
+                {{ form.student|as_crispy_field }}
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-6">
+                {{ form.school|as_crispy_field }}
+            </div>
+            <div class="col-sm-3">
+                {{ form.year_level|as_crispy_field }}
+            </div>
+            <div class="col-sm-3">
+                {{ form.course|as_crispy_field }}
+            </div>
+        </div>
+        <h4 class="text-warning">Family Background - Father</h4>
+        <hr>
+        <div class="form-group row">
+            <div class="col-sm-6">
+                {{ form.father_name|as_crispy_field }}
+            </div>
+            <div class="col-sm-2">
+                {{ form.father_age|as_crispy_field }}
+            </div>
+            <div class="col-sm-2">
+                {{ form.father_mobile|as_crispy_field }}
+            </div>
+            
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-6">
+                {{ form.father_address|as_crispy_field }}
+            </div>
+            <div class="col-sm-6">
+                    <div class="col-sm-8">
+                        {{ form.father_occupation|as_crispy_field }}
+                    </div>
+                    <div class="col-sm-8">
+                        {{ form.father_salary|as_crispy_field }}
+                    </div>
+                    <div class="col-sm-8">
+                        {{ form.father_precint|as_crispy_field }}
+                    </div>
+            </div>
+        </div>
+    <!-- SECTION Mother -->
+    <h4 class="text-warning">Family Background - Mother</h4>
+        <hr>
+        <div class="form-group row">
+            <div class="col-sm-6">
+                {{ form.mother_name|as_crispy_field }}
+            </div>
+            <div class="col-sm-2">
+                {{ form.mother_age|as_crispy_field }}
+            </div>
+            <div class="col-sm-2">
+                {{ form.mother_mobile|as_crispy_field }}
+            </div>
+            
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-6">
+                {{ form.mother_address|as_crispy_field }}
+            </div>
+            <div class="col-sm-6">
+                    <div class="col-sm-8">
+                        {{ form.mother_occupation|as_crispy_field }}
+                    </div>
+                    <div class="col-sm-8">
+                        {{ form.mother_salary|as_crispy_field }}
+                    </div>
+                    <div class="col-sm-8">
+                        {{ form.mother_precint|as_crispy_field }}
+                    </div>
+            </div>
+        </div>
+
 
         <input type="submit" class="btn btn-primary" value="Submit">
     </form>
-</div>
+</div><!--maincontainer-->
+    
 
 {% endblock %}
+
+{% block jsLink %}
+<script src="{% static 'plugins/select2/select2.js' %}"></script>
+<script>
+    $(document).ready(function() {
+        $('#id_student').select2();
+        
+    });
+
+</script>
+{% endblock jsLink %}
+    

@@ -63,11 +63,11 @@ urlpatterns = [
     #!SECTION
 
     #SECTION Residents URLs
-    path('resident/', include('residents.urls')),
+    path('residents/', include('residents.urls')),
     #!SECTION 
 
     #SECTION Senior & PWD URLs
-    path('seniorpwd/', include('senior.urls')),
+    path('priority/', include('senior.urls')),
     #!SECTION 
 
     #SECTION SK URLs

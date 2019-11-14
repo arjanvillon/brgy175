@@ -6,7 +6,7 @@ from residents.models import Resident
 # Create your models here.
 
 class Scholar(models.Model):
-    student = models.ForeignKey('residents.Resident', related_name='students', on_delete=models.CASCADE)
+    student = models.OneToOneField('residents.Resident', related_name='students', on_delete=models.CASCADE)
     school = models.CharField(max_length=50)
     year_level = models.CharField(max_length=10)
     course = models.CharField(max_length=100)

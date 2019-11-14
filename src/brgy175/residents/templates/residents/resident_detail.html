@@ -50,14 +50,25 @@
                     </div>
                     <div class="row">
                         <div class="col-6 col-md-12 darkOrange">
-                            <!-- TODO  -->
-                            <small class="font-weight-bold">FRESH GRADUATE</small>
+                            
+                            {% if 'yes' in resident_detail.is_fresh_grad  %}
+                                <small class="font-weight-bold">FRESH GRADUATE</small>
+                            {% else %}
+                                <small class="font-weight-bold">NOT FRESH GRADUATE</small>
+                            {% endif %}   
                         </div>    
                     </div>
                     <div class="row">
                         <div class="col-6 col-md-12 lightOrange">
                             <!-- TODO  -->
-                                <small class="lightOrange">PWD NO.: <span class="font-weight-bold">NONE</span></small><br> 
+                                <small class="lightOrange">PWD NO.:
+                                    
+                                    {% if resident_detail.pwd_id %}
+                                        <span class="font-weight-bold"> {{ resident_detail.pwd_id }}</span></small><br> 
+                                    {% else %}
+                                        <span class="font-weight-bold">NONE</span></small><br> 
+                                    {% endif %}
+                                        
                             </div>    
                         </div>
                 </div>
@@ -191,7 +202,7 @@
                                             <small class="font-weight-bold">COLLEGE/UNIVERSITY NAME:</small>
                                         </div>
                                         <div class="col-9">
-                                            <small class="text-uppercase">POLYTECHNIC UNIVERSITY OF THE PHILIPPINES</small>
+                                            <small class="text-uppercase">{{ resident_detail.students.school }}</small>
                                         </div>    
                                     </div>
                                     <!-- year level -->
@@ -200,7 +211,7 @@
                                             <small class="font-weight-bold">YEAR LEVEL:</small>
                                         </div>
                                         <div class="col-9">
-                                            <small class="text-uppercase">5th Year Level</small>
+                                            <small class="text-uppercase">{{ resident_detail.students.year_level }}</small>
                                         </div>    
                                     </div>
                                     <!-- course -->
@@ -209,7 +220,7 @@
                                             <small class="font-weight-bold">COURSE:</small>
                                         </div>
                                         <div class="col-9">
-                                            <small class="text-uppercase">Computer Engineering</small>
+                                            <small class="text-uppercase">{{ resident_detail.students.course }}</small>
                                         </div>    
                                     </div>
                                 </div>
@@ -232,7 +243,7 @@
                                                 <small class="font-weight-bold">FATHER'S NAME:</small>
                                             </div>
                                             <div class="col-9">
-                                                <small class="text-uppercase">DENIELLE SUMAYAO</small>
+                                                <small class="text-uppercase">{{ resident_detail.students.father_name }}</small>
                                             </div>    
                                         </div>
                                         <!-- age -->
@@ -241,7 +252,7 @@
                                                 <small class="font-weight-bold">AGE:</small>
                                             </div>
                                             <div class="col-9">
-                                                <small class="text-uppercase">51</small><small class="text-uppercase"> YEARS OLD</small>
+                                                <small class="text-uppercase">{{ resident_detail.students.father_age }}</small><small class="text-uppercase"> YEARS OLD</small>
                                             </div>    
                                         </div>
                                         <!-- address -->
@@ -250,7 +261,7 @@
                                                 <small class="font-weight-bold">ADDRESS:</small>
                                             </div>
                                             <div class="col-9">
-                                                <small class="text-uppercase">1902 JOSE ABAD SANTOS STREET</small>
+                                                <small class="text-uppercase">{{ resident_detail.students.father_address }}</small>
                                             </div>    
                                         </div>
                                         <!-- contact number -->
@@ -259,7 +270,7 @@
                                                 <small class="font-weight-bold">CONTACT NO.:</small>
                                             </div>
                                             <div class="col-9">
-                                                <small class="text-uppercase">09218467838S</small>
+                                                <small class="text-uppercase">{{ resident_detail.students.father_mobile }}</small>
                                             </div>    
                                         </div>
                                         <!-- gross monthly salary -->
@@ -268,7 +279,7 @@
                                                 <small class="font-weight-bold">GROSS MONTHLY SALARY:</small>
                                             </div>
                                             <div class="col-9">
-                                                <small class="text-uppercase">21 000 PHP</small>
+                                                <small class="text-uppercase">{{ resident_detail.students.father_salary }} PHP</small>
                                             </div>    
                                         </div>
                                         <!-- precint number -->
@@ -277,7 +288,7 @@
                                                 <small class="font-weight-bold">PRECINT NO.:</small>
                                             </div>
                                             <div class="col-9">
-                                                <small class="text-uppercase">5143284-P</small>
+                                                <small class="text-uppercase">{{ resident_detail.students.father_precint }}</small>
                                             </div>    
                                         </div>
                                     </div>
@@ -288,7 +299,7 @@
                                                 <small class="font-weight-bold">MOTHER'S MAIDEN NAME:</small>
                                             </div>
                                             <div class="col-9">
-                                                <small class="text-uppercase">DENIELLE SUMAYAO</small>
+                                                <small class="text-uppercase">{{ resident_detail.students.mother_name }}</small>
                                             </div>    
                                         </div>
                                         <!-- age -->
@@ -297,7 +308,7 @@
                                                 <small class="font-weight-bold">AGE:</small>
                                             </div>
                                             <div class="col-9">
-                                                <small class="text-uppercase">51 YEARS OLD</small>
+                                                <small class="text-uppercase">{{ resident_detail.students.mother_age }} YEARS OLD</small>
                                             </div>    
                                         </div>
                                         <!-- address -->
@@ -306,7 +317,7 @@
                                                 <small class="font-weight-bold">ADDRESS:</small>
                                             </div>
                                             <div class="col-9">
-                                                <small class="text-uppercase">1902 JOSE ABAD SANTOS STREET</small>
+                                                <small class="text-uppercase">{{ resident_detail.students.mother_address }}</small>
                                             </div>    
                                         </div>
                                         <!-- contact number -->
@@ -315,7 +326,7 @@
                                                 <small class="font-weight-bold">CONTACT NO.:</small>
                                             </div>
                                             <div class="col-9">
-                                                <small class="text-uppercase">09218467838S</small>
+                                                <small class="text-uppercase">{{ resident_detail.students.mother_mobile }}</small>
                                             </div>    
                                         </div>
                                         <!-- gross monthly salary -->
@@ -324,7 +335,7 @@
                                                 <small class="font-weight-bold">GROSS MONTHLY SALARY:</small>
                                             </div>
                                             <div class="col-9">
-                                                <small class="text-uppercase">21 000 PHP</small>
+                                                <small class="text-uppercase">{{ resident_detail.students.mother_salary }} PHP</small>
                                             </div>    
                                         </div>
                                         <!-- precint number -->
@@ -333,7 +344,7 @@
                                                 <small class="font-weight-bold">PRECINT NO.:</small>
                                             </div>
                                             <div class="col-9">
-                                                <small class="text-uppercase">5143284-P</small>
+                                                <small class="text-uppercase">{{ resident_detail.students.mother_precint }}</small>
                                             </div>    
                                         </div>
                                     </div>
@@ -348,14 +359,16 @@
                                     </button>
                                 </h5>
                                 </div>
+
                                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                                 <div class="card-body">
+                                    {% for case in cases %}
                                     <div class="row">
                                         <div class="col-4">
                                             <small class="font-weight-bold">COMPLAINANT:</small>
                                         </div>
                                         <div class="col-8">
-                                            <small class="text-uppercase">Denielle Gonzales</small>
+                                            <small class="text-uppercase">{{ case.complainant }}</small>
                                         </div>
                                     </div>
                             
@@ -364,7 +377,7 @@
                                             <small class="font-weight-bold">CASE TYPE:</small>
                                         </div>
                                         <div class="col-8">
-                                            <small class="text-uppercase">Murder</small>
+                                            <small class="text-uppercase">{{ case.case_type }}</small>
                                         </div>
                                     </div>
                             
@@ -373,7 +386,7 @@
                                             <small class="font-weight-bold">CASE NO.:</small>
                                         </div>
                                         <div class="col-8">
-                                            <small class="text-uppercase">C-123-4983-2019</small>
+                                            <small class="text-uppercase">{{ case.case_no }}</small>
                                         </div>
                                     </div>
                             
@@ -381,18 +394,32 @@
                                         <div class="col-4 align-self-center">
                                             <small class="font-weight-bold">REMARKS:</small>
                                         </div>
-                                        <div class="col-8">
-                                            <button class="btn btn-success">SETTLED</button>
+                                        <div class="col-8 btnRemarks">
+                                            
+                                            {% if "Settled" in case.case_status %}
+                                                <button class="btn btn-sm btn-success text-white">SETTLED</button>
+                                            {% elif "CFA" in case.case_status %}
+                                                <button class="btn btn-sm btn-danger text-white">CFA</button>
+                                            {% else %}
+                                                <button class="btn btn-sm btn-warning text-white">Withdraw</button>
+                                            {% endif %}
+                                                
                                         </div>
                                     </div>
+                                    <hr>
+                                    <span class="d-none caseNo">{{ case.case_no }}</span>
+                                    {% endfor %}
                                 </div>
                                 </div>
+                                
                             </div>
                         </div>
                 </div>
             </div>
 
+            <span class="d-none scholarApproved">{{ resident_detail.students.is_approved }}</span>
            
+            
             
             
         </div>
@@ -407,14 +434,30 @@
     <script>
         $age = $('small.age').text();
         $ageInt = parseInt($age);
+        $scholarApproved = $('span.scholarApproved').text();
+        $caseStatus = $('span.caseRemarks').text();
+        $caseNo = $('span.caseNo').text();
 
-        // $(document).ready(function(){
+        $(document).ready(function(){
             if ($ageInt >= 60){
                 $('small.senior').html('SENIOR');
             }
             else if ($ageInt <= 59){
             }
-        // });
+
+            if($scholarApproved.length == 0){
+                $('div#accordion div#headingOne').addClass('d-none');
+                $('div#accordion div#headingTwo').addClass('d-none');
+                $('div#accordion div#collapseThree').addClass('show');
+                $('div#accordion div#collapseOne').removeClass('show');
+                
+            }
+
+            if($caseNo.length == 0){
+                $('div#accordion div#headingThree').addClass('d-none');
+                $('div#accordion div#collapseThree').removeClass('show');
+            }
+        });
     </script>
 {% endblock jsLink %}
     

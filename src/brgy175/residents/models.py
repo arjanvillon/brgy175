@@ -11,8 +11,8 @@ class Resident(models.Model):
     date_of_birth = models.DateField(auto_now=False, auto_now_add=False)
     place_of_birth = models.CharField(max_length=30)
     age = models.PositiveIntegerField()
-    weight = models.PositiveIntegerField()
-    height = models.PositiveIntegerField()
+    weight = models.PositiveIntegerField(null=True)
+    height = models.PositiveIntegerField(null=True)
     gender = models.CharField(max_length=6)
     civil_status = models.CharField(max_length=10)
     contact_number = models.CharField(max_length=11)
@@ -21,15 +21,20 @@ class Resident(models.Model):
     religion = models.CharField(max_length=30)
 
     is_senior = models.CharField(max_length=10)
+    senior_id = models.CharField(max_length=15, default='')
     created_date = models.DateTimeField(default=timezone.now)
 
+    is_pwd = models.CharField(max_length=10, default='no')
+    pwd_id = models.CharField(max_length=15, default='')
+    disability = models.CharField(max_length=50, default='')
 
- 
-    def __str__(self):
-        return ("%s %s %s %s" % (self.first_name, self.middle_name, self.last_name, self.suffix))
+    is_fresh_grad = models.CharField(max_length=10, default='no')
 
     def get_absolute_url(self):
         return reverse('residents:resident_detail', kwargs={'pk': self.pk})
+ 
+    def __str__(self):
+        return ("%s %s %s %s" % (self.first_name, self.middle_name, self.last_name, self.suffix))
     # citizen_id = models.IntegerField()
     # pwd_no = models.IntegerField()
     # is_senior = models.BooleanField(default=False)

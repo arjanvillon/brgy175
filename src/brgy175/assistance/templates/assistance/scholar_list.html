@@ -45,15 +45,15 @@
                     {% for scholar in scholar_list %}
 
                     <tr>
-                        <td><u><a href="{{ scholar.id }}">{{ scholar.student.first_name }} {{ scholar.student.middle_name }} {{ scholar.student.last_name }}</a></u></td>
+                        <td class="text-capitalize"><u><a href="{{ scholar.id }}"><span class="font-weight-bold">{{ scholar.student.last_name }}</span>, {{ scholar.student.first_name }} {{ scholar.student.middle_name }} </a></u></td>
                         <td>{{ scholar.school }}</td>
                         <td>{{ scholar.year_level }}</td>
                         <td>{{ scholar.course }}</td>
                         <td>
                             {% if scholar.is_approved %}
-                                Approved
+                                <button class="btn btn-sm btn-success text-white">APPROVED</button>
                             {% else %}
-                                Not Approved
+                                <button class="btn btn-sm btn-danger text-white">NOT APPROVED</button>
                             {% endif %}
                         </td>
                     </tr>
