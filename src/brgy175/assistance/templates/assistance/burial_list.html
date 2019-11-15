@@ -46,16 +46,16 @@
                     {% for burial in burial_list %}
 
                     <tr>
-                        <td><u><a href="{{ burial.id }}">{{ burial.corpse.first_name }} {{ burial.corpse.middle_name }} {{ burial.corpse.last_name }}</a></u></td>
+                        <td class="text-capitalize"><u><a href="{{ burial.id }}"><span class="font-weight-bold"> {{ burial.corpse.last_name }}</span>, {{ burial.corpse.first_name }} {{ burial.corpse.middle_name }}</a></u></td>
                         <td>{{ burial.date_of_death }}</td>
                         <td>{{ burial.interment_address }}</td>
                         <td>{{ burial.name }}</td>
                         <td>{{ burial.relationship }}</td>
                         <td>
                             {% if burial.is_approved %}
-                                <span class="text-success">Approved</span>
+                                <span class="btn btn-sm btn-sucess text-white">Approved</span>
                             {% else %}
-                                <span class="text-danger">Not Approved</span>
+                                <span class="btn btn-sm btn-danger text-white">Not Approved</span>
                             {% endif %}
                         </td>
                     </tr>

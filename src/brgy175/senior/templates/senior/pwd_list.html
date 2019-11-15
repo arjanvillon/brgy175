@@ -1,0 +1,77 @@
+{% extends "home/base.html" %}
+
+{% load static %}
+
+{% block cssLink %}
+    <link rel="stylesheet" href="{% static 'plugins/datatables/datatables.css' %}" >
+{% endblock cssLink %}
+
+{% block content %}
+<div class="mainContainer">
+    <div class="row">
+        <div class="col-12">
+            <h4 class="font-weight-bold">{{title}}</h4>
+
+            <div class="row mb-3">
+                <div class="col-9">
+                    <div class="tabWrapper">
+                        <div class="tabSwitch right text-center " >
+                            <div class="d-inline pillTab" pillTab-direction="left"><a href="{% url 'senior:senior_list' %}">SENIOR</a></div>
+                            <div class="pillTab text-center active" pillTab-direction="right"><a href="{% url 'senior:pwd_list' %}">PWD</a></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-3">
+                    <input class="form-control tableSearchBox" placeholder="Search..." id="seniorSearchBox"/>
+                </div>
+            </div>
+
+            <!-- table container -->
+            <div class="tableContainer">
+            <br>
+                <table id="seniorTable" class="table table-bordered text-center" style="width:100%;border-radius: 10px;-moz-border-radius: 10px; -webkit-border-radius: 10px;">
+                    <thead>
+                        <tr> 
+                            <th>ID</th>
+                            <th>PWD ID</th>
+                            <th>NAME</th>
+                            <th>DATE OF BIRTH</th>
+                            <th>AGE</th>
+                            <th>DISABILITY</th>
+                            <th>ACTIONS</th>
+                            
+                        </tr>
+                    </thead>
+                        
+                    <tbody>
+                        {% for d in pwd %}
+                        <tr>
+                                <td>{{d.id}}</td>
+                                <td>{{d.pwd_id}}</td>
+                                <td class="text-capitalize"><a href="{% url 'residents:resident_detail' pk=d.id %}"><span class="font-weight-bold">{{ d.last_name }}</span>, {{ d.first_name }} {{d.middle_name}}  </a></td>
+                                <td>{{ d.date_of_birth }}</td>
+                                <td>{{ d.age }}</td>
+                                <td>{{ d.disability }}</td>
+                            <td>
+                                <a style="text-decoration: none !important;color: #000 !important;" href="{% url 'residents:update' pk=d.id %}" class="btn btn-sm btn-primary">Update</a>
+                            </td>
+                        
+                        </tr>
+                        {% endfor %}
+                       
+          
+                    </tbody>
+                </table>
+            </div>
+        </div>        
+    </div>
+</div>
+{% endblock content %}
+
+{% block jsLink %}
+    <!-- Datatables JS -->
+    <script src="{% static 'plugins/datatables/datatables.js' %}"></script>
+    <!-- Custom JS -->
+    <script src="{% static 'senior/custom.js' %}"></script>
+{% endblock jsLink %}

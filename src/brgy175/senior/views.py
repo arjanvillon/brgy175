@@ -1,18 +1,20 @@
 from django.shortcuts import render
 from residents.models import Resident
-from .models import Senior
-from django.views.generic import (
-    View, TemplateView,
-    ListView, DetailView,
-    CreateView, UpdateView,
-    DeleteView
-)
 
-class SeniorListView(ListView):
-    context_object_name = 'senior_list'
-    model = Senior
+from django.views.generic import TemplateView
 
-class SeniorDetailView(DetailView):
-    context_object_name = 'senior_detail'
-    model = Senior
-    template_name = 'senior/senior_detail.html'
+class SeniorIndexView(TemplateView):
+    template_name = 'senior/senior_list.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["senior"] = Resident.objects.filter(is_senior="Senior").all()
+        return context
+    
+class PwdIndexView(TemplateView):
+    template_name = 'senior/pwd_list.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["pwd"] = Resident.objects.filter(is_pwd="yes").all()
+        return context

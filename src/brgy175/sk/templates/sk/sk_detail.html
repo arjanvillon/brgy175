@@ -1,0 +1,127 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% block cssLink %}
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'residents/residents.css' %}">
+{% endblock cssLink %} 
+{% block content %}
+<div class="mainContainer">
+    <h4 class="font-weight-bold text-uppercase">{{title}}</h4>
+    <div class="row">
+        <div class="col-6">
+            <div class="container">
+                <div class="row">
+                    <div class="w-auto name-border pt-2 px-3">
+                        <h6 class=" text-uppercase" style="font-size: 18px !important">{{ sk_detail.project_name }}</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-brown-tab">
+        <div class="container-fluid container-tab-border m-0 p-5">
+            <div class="row">
+                <div class="col-12 col-md-3">
+                    <div class="row">
+                        <div class="col-6 col-md-12 p-0">
+                            <div class=" text-center">
+                                    <img class="img-thumbnail img-fluid sk_img" src="{{ sk_detail.project_picture.url }}" alt="default" width="300" height="300">
+                            </div>
+                        </div>    
+                    </div>
+                </div>
+                <!-- <div class="col-12 col-md-1 p-0 m-0 w-0"></div> -->
+                <div class="col-12 col-md-8 ml-4">
+                    <div class="row">
+                        <div class="col-8">
+                            <p><u>PROJECT INFORMATION</u></p>
+                        </div>
+                        <div class="col-4">
+                            <div class="ml-auto float-right">
+                                <a href="{% url 'sk:sk_update' pk=sk_detail.pk %}" class="btn btn-primary">Update</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-3">
+                            <small class="font-weight-bold">PROJECT ID :</small>
+                        </div>
+                        <div class="col-9">
+                            <small class="text-uppercase">{{sk_detail.id}}</small>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-3 lightOrange">
+                            <small class="font-weight-bold">OFFICER IN CHARGE :</small>
+                        </div>
+                        <div class="col-9 lightOrange">
+                            <small class="dateYear text-uppercase">{{sk_detail.officer}}</small>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-3">
+                            <small class="font-weight-bold">START DATE:</small>
+                        </div>
+                        <div class="col-9">
+                            <small class="text-uppercase">{{sk_detail.start_date}}</small>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-3 lightOrange">
+                            <small class="font-weight-bold">END DATE:</small>
+                        </div>
+                        <div class="col-9 lightOrange">
+                            <small class="text-uppercase">{{sk_detail.end_date}}</small>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-3">
+                            <small class="font-weight-bold">PROJECT DURATION :</small>
+                        </div>
+                        <div class="col-9">
+                            <small class="text-uppercase duration"></small>
+                        </div>
+                    </div>
+                 
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 pt-2">
+                    <p><u>PROJECT DETAILS</u></p>
+                    {{sk_detail.project_details}}
+                </div>
+            </div>
+            
+            
+        </div>
+        <!-- first container end -->
+    </div>
+    <!-- bornw container end -->
+</div>
+
+{% endblock content %}
+
+{% block jsLink %}
+    <script>
+        $(document).ready(function(){
+            // date duration
+            start_date = '{{ sk_detail.start_date }}';
+            end_date = '{{ sk_detail.end_date }}';
+            start_date = new Date(start_date);
+            end_date = new Date(end_date);
+            var msDay = 1000 * 60 * 60 * 24;
+            var duration = end_date.getTime() - start_date.getTime();
+            var days = duration / msDay
+            $('.duration').html(days);
+        }); 
+        
+    </script>
+{% endblock jsLink %}
+    
+
+    

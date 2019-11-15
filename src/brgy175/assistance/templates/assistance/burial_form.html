@@ -3,19 +3,89 @@
 {% load staticfiles %}
 
 {% block cssLink %}
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/select2/select2.css' %}">
     <link rel="stylesheet" href="{% static 'assistance/assistance.css' %}">
 {% endblock %}
 
 
 {% block content %}
-    
-<div class="mainContainer">
-    <form method="POST">
-        {% csrf_token %}
-        {{ form|crispy }}
 
-        <input type="submit" class="btn btn-primary" value="Submit">
-    </form>
-</div>
+<div class="mainContainer">
+    <h1>{{title}}</h1>
+        <div class="row mb-3">
+            <div class="col-9">
+                <!-- tab switch -->
+                <div class="tabWrapper">
+                    <div class="tabSwitch right text-center " >
+                        <div style="display:inline" class="pillTab " pillTab-direction="left"><a href="{% url 'assistance:burial_list' %}">VIEW ALL</a></div>
+                        <div class="pillTab text-center active" pillTab-direction="right"><a href="{% url 'assistance:burial_create' %}">ADD NEW</a></div>
+                    </div>
+                </div>
+                <!-- tab switch end -->
+            </div>
+    
+        </div>
+        <form method="POST">
+            {% csrf_token %}
+            <h4 class="text-warning">Burial Information</h4>
+            <hr>
+            <div class="form-group row">
+                <div class="col-sm-12">
+                    {{ form.corpse|as_crispy_field }}
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-4">
+                    {{ form.date_of_birth|as_crispy_field }}
+                </div>
+                <div class="col-sm-4">
+                    {{ form.date_of_death|as_crispy_field }}
+                </div>
+                <div class="col-sm-4">
+                    {{ form.interment_date|as_crispy_field }}
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-12">
+                    {{ form.interment_address|as_crispy_field }}
+                </div>
+            </div>
+            <h4 class="text-warning">Claimant Information</h4>
+            <hr>
+            <div class="form-group row">
+                <div class="col-sm-8">
+                    {{ form.name|as_crispy_field }}
+                </div>
+                <div class="col-sm-4">
+                    {{ form.relationship|as_crispy_field }}
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-12">
+                    {{ form.address|as_crispy_field }}
+                </div>
+            </div>
+            <input type="submit" class="btn btn-primary" value="Submit">
+        </form>
+    </div><!--maincontainer-->
 
 {% endblock %}
+
+{% block jsLink %}
+ <!-- Datepicker JS -->
+ <script src="{% static 'plugins/select2/select2.js' %}"></script>
+ <script src="{% static 'assistance/bootstrap-datepicker/dist/js/bootstrap-datepicker.js' %}"></script>
+    
+ <!-- Select2 JS -->
+<script>
+    $(document).ready(function() {
+        // $('#id_corpse').select2();
+    });
+        $('#id_date_of_birth').addClass('datepicker');
+        $('#id_date_of_death').addClass('datepicker');
+        $('#id_interment_date').addClass('datepicker');
+    
+    </script>
+{% endblock jsLink %}
+    

@@ -1,0 +1,75 @@
+{% extends "home/base.html" %}
+{% load static %}
+
+{% block cssLink %}
+    <link rel="stylesheet" href="{% static 'plugins/datatables/datatables.css' %}" >
+{% endblock cssLink %}
+    
+{% block content %}
+<div class="mainContainer">
+<h1>{{title}}</h1>
+
+<div class="row mb-3">
+    <div class="col-9">
+        <!-- tab switch -->
+        <div class="tabWrapper">
+            <div class="tabSwitch left text-center " >
+                <div style="display:inline" class="pillTab active" pillTab-direction="left"><a href="#">VIEW ALL</a></div>
+                <div class="pillTab text-center" pillTab-direction="right"><a href="{% url 'bpso:create' %}">ADD NEW</a></div>
+            </div>
+        </div>
+        <!-- tab switch end -->
+    </div>
+    <div class="col-3">
+        <!-- search box for table -->
+         <input class="form-control tableSearchBox" placeholder="Search..." id="katBrgySearchBox"/>
+        <!-- search box for table end -->
+    </div>
+</div>
+
+<!-- table container -->
+<div class="tableContainer">
+    <table id="katBrgyTable" class="table table-bordered" style="width:100%;border-radius: 10px;-moz-border-radius: 10px; -webkit-border-radius: 10px;">
+            <thead>
+                <tr>
+                    <th>Case No.</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Case Type</th>
+                    <th>Complainant</th>
+                    <th>Remarks</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for case in bpso_list %}
+                <tr>  
+                    <td><u><a href="{{ case.id }}">{{ case.case_no_bpso }}</a></u></td>
+                    <td>{{ case.convict.first_name }} {{ case.convict.middle_name }} {{ case.convict.last_name}}</td>
+                    <td>{{ case.convict.address }}</td>
+                    <td>{{ case.case_type_bpso }}</td>
+                    <td>{{ case.complainant_bpso }}</td>
+                    <td>
+
+                        {% if "CFA" in case.case_status_bpso %}
+                            <span class="btn btn-sm btn-danger" style="color: black;">{{ case.case_status_bpso }}</span>
+                        {% elif "Settled" in case.case_status_bpso %}
+                            <span class="btn btn-sm btn-warning" style="color: black;">{{ case.case_status_bpso }}</span>
+                        {% else %}
+                            <span class="btn btn-sm btn-success" style="color: black;">{{ case.case_status_bpso }}</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <!-- table container end -->
+</div>
+{% endblock content %}
+    
+{% block jsLink %}
+    <!-- Datatables JS -->
+    <script src="{% static 'plugins/datatables/datatables.js' %}"></script>
+    <!-- Custom JS -->
+    <script src="{% static 'katarungan/custom.js' %}"></script>
+{% endblock jsLink %}

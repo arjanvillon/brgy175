@@ -55,7 +55,7 @@ SECTION highlight colors
 /* ---------------------------------------------------
 SECTION Toggle Switch
 ----------------------------------------------------- */
-
+/* 
 .toggleAnswer {
     font-family: Reem Kufi, sans-serif;
     color: #fff;
@@ -71,7 +71,8 @@ SECTION Toggle Switch
     border-top-right-radius: 50px !important;
     border-bottom-right-radius: 50px !important;
     border-color: #F09819;
-}
+} */
+
 
 /* ---------------------------------------------------
 SECTION Name border

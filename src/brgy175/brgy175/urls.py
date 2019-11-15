@@ -54,11 +54,11 @@ urlpatterns = [
     #!SECTION 
 
     #SECTION BADAC URLs
-	path('badac/', badac_views.badacHome, name='badacHome'),
+	path('badac/', include('badac.urls')),
     #!SECTION 
 
     #SECTION BPSO URLs
-	path('bpso/', bpso_views.bpsoHome, name='bpsoHome'),
+	path('bpso/', include('bpso.urls')),
     #!SECTION 
 
     #SECTION Katarungan URLs
@@ -66,15 +66,15 @@ urlpatterns = [
     #!SECTION
 
     #SECTION Residents URLs
-    path('resident/', include('residents.urls')),
+    path('residents/', include('residents.urls')),
     #!SECTION 
 
     #SECTION Senior & PWD URLs
-    path('seniorpwd/', include('senior.urls')),
+    path('priority/', include('senior.urls')),
     #!SECTION 
 
     #SECTION SK URLs
-    path('sk/', sk_views.skHome, name='skHome'),
+    path('sk/', include('sk.urls')),
     #!SECTION 
 
     #SECTION User Account URLs

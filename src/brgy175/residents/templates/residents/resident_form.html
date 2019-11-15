@@ -13,6 +13,52 @@
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'residents/residents.css' %}">
+    <style>
+        .switch-field {
+            display: flex;
+            margin-bottom: 36px;
+            overflow: hidden;
+        }
+
+        .switch-field input {
+            position: absolute !important;
+            clip: rect(0, 0, 0, 0);
+            height: 1px;
+            width: 1px;
+            border: 0;
+            overflow: hidden;
+        }
+
+        .switch-field label {
+            background-color: #e4e4e4;
+            color: rgba(0, 0, 0, 0.6);
+            font-size: 16px;
+            line-height: 1;
+            text-align: center;
+            padding: 10px 20px;
+            margin-right: -1px;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+            transition: all 0.1s ease-in-out;
+        }
+
+        .switch-field label:hover {
+            cursor: pointer;
+        }
+
+        .switch-field input:checked + label {
+            background-color: #F09819;
+            box-shadow: none;
+        }
+
+        .switch-field label:first-of-type {
+            border-radius: 20px 0 0 20px;
+        }
+
+        .switch-field label:last-of-type {
+            border-radius: 0 20px 20px 0;
+        }
+    </style>
 
 {% endblock cssLink %} 
 {% block content %}
@@ -52,11 +98,12 @@
         <!-- main row -->
         <div class="row">
             <div class="col-9">
-                <form method="POST" action="" class="needs-validation" novalidate>
+                <form method="POST" action="" class="needs-validation" enctype="multipart/form-data" novalidate>
+     
                 {% csrf_token %}
                 <!-- SECTION FULL NAME -->
                 <div class="form-group row">
-                    <label for="{{ form.first_name.id_for_label }}" class="col-sm-1 col-form-label d-flex justify-content-end ml-5">Name</label>
+                    <label title="This field is required" for="{{ form.first_name.id_for_label }}" class="col-sm-1 col-form-label d-flex justify-content-end ml-5">Name <span style="color: red;" title="This field is required"> *</span></label>
                     <div class="col-sm-3 mr-1">
                         {{ form.first_name|as_crispy_field }}
                     </div>
@@ -72,26 +119,26 @@
                 </div>
                 <!-- SECTION ADDRESS -->
                 <div class="form-group row">
-                    <label for="address" class="col-sm-1 col-form-label d-flex justify-content-end ml-5">Address</label>
+                    <label for="address" class="col-sm-1 col-form-label d-flex justify-content-end ml-5">Address <span style="color: red;" title="This field is required"> *</span></label>
                     <div class="col-sm-10 w-100">
                             {{ form.address|as_crispy_field }}
                     </div>
                 </div>
                 <!-- SECTION DATE OF BIRTH & PLACE OF BIRTH -->
                 <div class="form-group row">
-                    <label for="resBirthDate" class="col-sm-1 col-form-label d-flex justify-content-end ml-5">Birth Date</label>
+                    <label for="resBirthDate" class="col-sm-1 col-form-label d-flex justify-content-end ml-5">Birth Date <span style="color: red;" title="This field is required"> *</span></label>
                         <div class="col-sm-4 dateYear">
                             {{ form.date_of_birth|as_crispy_field }}
                         </div>
                     
-                    <label for="resBirthPlace" class="col-sm-1 col-form-label ml-4 d-flex justify-content-end ">Birth Place</label>
+                    <label for="resBirthPlace" class="col-sm-1 col-form-label ml-4 d-flex justify-content-end ">Birth Place <span style="color: red;" title="This field is required"> *</span></label>
                         <div class="col-sm-5">
                             {{ form.place_of_birth|as_crispy_field }}
                         </div>
                 </div>
                 <!-- SECTION AGE, WEIGHT & HEIGHT -->
                 <div class="form-group row"> 
-                    <label for="resAge" class="col-sm-1 col-form-label d-flex justify-content-end ml-5">Age</label>
+                    <label for="resAge" class="col-sm-1 col-form-label d-flex justify-content-end ml-5">Age <span style="color: red;" title="This field is required"> *</span></label>
                         <div class="col-sm-3">
                             <!-- <input type="text" id="id_age" class="form-control" value="" readonly>  -->
                             {{ form.age|as_crispy_field }}
@@ -107,29 +154,29 @@
                 </div>
                 <!-- SECTION Gender & Civil Status -->
                 <div class="form-group row">
-                    <label for="resGender" class="col-sm-1 col-form-label d-flex justify-content-end ml-5">Gender</label>
+                    <label for="resGender" class="col-sm-1 col-form-label d-flex justify-content-end ml-5">Gender <span style="color: red;" title="This field is required"> *</span></label>
                         <div class="col-sm-4">
                             {{ form.gender|as_crispy_field }}
                         </div>
-                    <label for="resCivilStatus" class="col-sm-1 col-form-label ml-4 d-flex justify-content-end">Civil Status</label>
+                    <label for="resCivilStatus" class="col-sm-1 col-form-label ml-4 d-flex justify-content-end">Civil Status <span style="color: red;" title="This field is required"> *</span></label>
                         <div class="col-sm-5">
                             {{ form.civil_status|as_crispy_field }}
                         </div>
                 </div>
                 <!-- SECTION Contact Number & Nationality -->
                 <div class="form-group row">
-                    <label for="resContactNumber" class="col-sm-1 col-form-label d-flex justify-content-end ml-5">Contact No.</label>
+                    <label for="resContactNumber" class="col-sm-1 col-form-label d-flex justify-content-end ml-5">Contact No. <span style="color: red;" title="This field is required"> *</span></label>
                         <div class="col-sm-4">
                                 {{ form.contact_number|as_crispy_field }}
                         </div>
-                    <label for="resNationality" class="col-sm-1 col-form-label ml-4 d-flex justify-content-end">Nationality</label>
+                    <label for="resNationality" class="col-sm-1 col-form-label ml-4 d-flex justify-content-end">Nationality <span style="color: red;" title="This field is required"> *</span></label>
                         <div class="col-sm-5">
                                 {{ form.nationality|as_crispy_field }}
                         </div>
                 </div>
                 <!-- SECTION Email Address & Religion -->
                 <div class="form-group row">
-                    <label for="resEmailAddress" class="col-sm-1 col-form-label d-flex justify-content-end ml-5">Email Add</label>
+                    <label for="resEmailAddress" class="col-sm-1 col-form-label d-flex justify-content-end ml-5">Email Add <span style="color: red;" title="This field is required"> *</span></label>
                         <div class="col-sm-4">
                             {{ form.email_address|as_crispy_field }}
                         </div>
@@ -142,6 +189,13 @@
                 <div class="form-group row">
                         <div class="col-12">
                             {{ form.is_senior|as_crispy_field }}
+                            {{ form.senior_id|as_crispy_field }}
+                            {{ form.is_pwd|as_crispy_field }}
+                            {{ form.pwd_id|as_crispy_field }}
+                            {{ form.is_fresh_grad|as_crispy_field }}
+                            <span id="seniorId">{{senior_id}}</span>
+                            <span id="pwdId">{{pwd_id}}</span>
+                           
                         </div>
                 </div>
             <!-- Basic info end -->
@@ -152,12 +206,89 @@
                         </div>
                     </div>
                     <!-- col-12 end -->
-                </div>
+                </div><!--col9-->
+                <div class="col-3">
+                        <div class="row">
+                            <div class="col-6 col-md-12 p-0">
+                                <div class=" imgResidentInv text-center pt-4">
+                                    
+                                    <!-- {% if resident_profile %} -->
+                                        <!-- <img class="card-img-top" src="{{ resident_profile.picture.url }}"/> -->
+                                    <!-- {% else %} -->
+                                         <i class="fa fa-user fa-10x" style="color: #c4c4c4"></i>
+                                    <!-- {% endif %} -->
+                                        
+                                </div>
+                            </div>    
+                        </div>
+                        <div class="row">
+                            <div class="col-6 col-md-12 text-center updateImgContainer pt-2 mb-3" >
+                                <div id="upload_button" >
+                                    <label>
+                                        {{ form.resident_profile|as_crispy_field }}
+                                            <!-- TODO  -->
+                                        <span class="text-white font-weight-bold" style="cursor: pointer !important; font-size: 14px !important;">
+                                            UPLOAD PHOTO <i class="fa fa-edit"></i>
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>    
+                        </div>
+                        <div class="row">
+                            <div class="col-11">
+                                <div class="inputLabel black-text"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 text-center pb-3">
+                                <span class="font-weight-bold text-center">
+                                    PWD?
+                                </span>
+                            </div>
+                            <div class="col-3"></div>
+                            <div class="col-6">
+                                <div class="switch-field isPwd">
+                                    <input type="radio" id="pwdYesId" name="switch-one" value="yes" />
+                                    <label for="pwdYesId">Yes</label>
+                                    <input type="radio" id="pwdNoId" name="switch-one" value="no" checked />
+                                    <label for="pwdNoId">No</label>
+                                </div>
+                            </div>
+                            <div class="col-3"></div>
+                        </div><!--row-->
+                        <div class="row disabilityRow d-none">
+                            <div class="col-12 text-center">
+                                <label for="resReligion" class="text-center">Enter Disability</label>
+                            </div>
+                            <div class="col-2"></div>
+                            <div class="col-8">
+                                {{ form.disability|as_crispy_field }}
+                            </div>
+                        </div><!--disability row-->
+                        <div class="row">
+                        <div class="col-12 text-center pb-3">
+                            <span class="font-weight-bold text-center">
+                                Fresh Graduate?
+                            </span>
+                        </div>
+                        <div class="col-3"></div>
+                        <div class="col-6">
+                            <div class="switch-field isFreshGrad">
+                                <input type="radio" id="gradYesId" name="switch-two" value="yes" />
+                                <label for="gradYesId">Yes</label>
+                                <input type="radio" id="gradNoId" name="switch-two" value="no" checked />
+                                <label for="gradNoId">No</label>
+                            </div>
+                        </div>
+                        <div class="col-3"></div>
+                    </div><!--row-->
+                </div><!-- col3-->
             </div>
         </div>
+    
     </form>
         <!-- main row end -->
-
+       
     </div>
     <!-- add container end -->
 </div>
@@ -176,8 +307,18 @@
     <!-- Custom JS -->
     <script src="{% static 'residents/residents.js' %}"></script>
     <script>
+        $('#id_nationality').val('Filipino');
         $('#id_date_of_birth').addClass('datepicker');
         $('#id_age').prop('readonly', true);
+        $('#div_id_is_senior').addClass('d-none');
+        $('#div_id_senior_id').addClass('d-none');
+        $('#div_id_is_pwd').addClass('d-none');
+        $('#div_id_is_fresh_grad').addClass('d-none');
+        $('#div_id_pwd_id').addClass('d-none');
+        $('#seniorId').addClass('d-none');
+        $('#pwdId').addClass('d-none');
+        $seniorId = $('span#seniorId').text();
+        $pwdId = $('span#pwdId').text();
         $(document).ready(function(){
             var $year = $("#id_date_of_birth");
             var $age = $('#id_age');
@@ -196,10 +337,42 @@
                 var date_today = new Date();
                 $ageD = Math.floor((date_today-birthDate) / (365.25 * 24 * 60 * 60 * 1000));
                 $age.val($ageD);
-
-
-
-                // $age.val(birthDate);
+                // is senior?
+                if( $age.val().length > 1 ) {
+                    if( $age.val() >= 60) {
+                        $('#id_is_senior').val('Senior');
+                        $('#id_senior_id').val($seniorId);
+                    }
+                    else if( $age.val() <= 59) {
+                        $('#id_is_senior').val('Nonsenior');
+                    }
+                }
+            });
+            // is pwd?
+            $("div.isPwd input[type='radio']").click(function(){
+                var radioValue = $("input[name='switch-one']:checked").val();
+                if(radioValue){
+                    $('#id_is_pwd').val(radioValue);
+                    if($('#id_is_pwd').val() == 'yes'){
+                        $('div.disabilityRow').removeClass('d-none');
+                        $('#id_pwd_id').val($pwdId);
+                    }
+                    else if ($('#id_is_pwd').val() == 'no'){
+                        $('div.disabilityRow').addClass('d-none');
+                    }
+                }
+            });
+            // is fresh grad?
+            $("div.isFreshGrad input[type='radio']").click(function(){
+                var radioValue2 = $("input[name='switch-two']:checked").val();
+                if(radioValue2){
+                    $('#id_is_fresh_grad').val(radioValue2);
+                }
+            });
+            // picture
+            $("input:file").change(function (){
+                var fileName = $(this).val();
+                $(".inputLabel").html(fileName);
             });
         }); 
         

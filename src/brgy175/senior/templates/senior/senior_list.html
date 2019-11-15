@@ -15,11 +15,11 @@
                 <div class="row mb-3">
                     <div class="col-9">
                         <div class="tabWrapper">
-                            <div class="tabSwitch left text-center " >
-                                <div style="display:inline" class="pillTab active" pillTab-direction="left"><a href="{% url 'senior:senior_list' %}">SENIOR</a></div>
-                                <div class="pillTab text-center" pillTab-direction="right"><a href="#">PWD</a></div>
+                                <div class="tabSwitch left text-center " >
+                                    <div style="display:inline" class="pillTab active" pillTab-direction="left"><a href="{% url 'senior:senior_list' %}">SENIOR</a></div>
+                                    <div class="pillTab text-center" pillTab-direction="right"><a href="{% url 'senior:pwd_list' %}">PWD</a></div>
+                                </div>
                             </div>
-                        </div>
                     </div>
     
                     <div class="col-3">
@@ -34,7 +34,7 @@
                         <thead>
                             <tr>
                                 <th>RESIDENT ID</th>
-                                <th>SC ID</th>
+                                <th>SENIOR ID</th>
                                 <th>NAME</th>
                                 <th>DATE OF BIRTH</th>
                                 <th>AGE</th>
@@ -45,21 +45,18 @@
                         </thead>
                             
                         <tbody>
-                            {% for senior in senior_list %}
-                                
-                            <tr>
-                                    <td>{{senior.resident.id}}</td>
-                                    <td>{{senior.senior_id}}</td>
-                                    <td class="text-capitalize text-left"><a class="a-hover" href="{{ senior.id }}"><span class="font-weight-bold">{{ senior.resident.last_name }}</span>, {{senior.resident.first_name}} {{ senior.resident.middle_name }}</a></td>
-                                    <td>{{ senior.resident.date_of_birth }}</td>
-                                    <td>{{ senior.resident.age }}</td>
-                                    <td>{{ senior.resident.civil_status }}</td>
-                                <td>
-                                    <button type = "button" class="btn btn-warning accordion">Archive</button>
-                                </td>
-                            </tr>
+                            {% for s in senior %}
+                                <tr>
+                                    <td>{{ s.id }}</td>
+                                    <td>{{ s.senior_id }}</td>
+                                    <td class="text-capitalize"><a href="{% url 'residents:resident_detail' pk=s.id %}"><span class="font-weight-bold">{{ s.last_name }}</span>, {{ s.first_name }} {{s.middle_name}}</a></td>
+                                    <td>{{ s.date_of_birth }}</td>
+                                    <td>{{ s.age }}</td>
+                                    <td>{{ s.civil_status }}</td>
+                                    <td><a href="{% url 'residents:update' pk=s.id %}" class="btn btn-sm btn-primary">UPDATE</a></td>
+                                </tr>
+
                             {% endfor %}
-                           
               
                         </tbody>
                     </table>

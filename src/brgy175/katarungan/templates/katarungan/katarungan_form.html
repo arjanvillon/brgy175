@@ -27,6 +27,7 @@
                 {{ form|crispy }}
 
                 <input type="submit" class="btn btn-primary" value="Submit">
+                <a class="btn btn-danger" href="{% url 'katarungan:list' %}">Cancel</a>
             </form>
         </div>
     </div>
@@ -41,6 +42,7 @@
 
     $( document ).ready(function() {
         $('#id_convict').select2();
+        $('#id_case_type').select2();
         $('#id_case_no').val($caseId);
         $('#div_id_case_no').addClass('d-none');
     });

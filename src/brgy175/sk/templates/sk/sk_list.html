@@ -1,0 +1,75 @@
+{% extends "home/base.html" %}
+
+{% load static %}
+
+{% block cssLink %}
+    <link rel="stylesheet" href="{% static 'plugins/datatables/datatables.css' %}" >
+    <link rel="stylesheet" href="{% static 'sk/sk.css' %}" >
+{% endblock cssLink %}
+
+{% block content %}
+<div class="mainContainer">
+    <div class="row">
+        <div class="col-12">
+            <h4 class="font-weight-bold">{{title}}</h4>
+
+            <div class="row mb-3">
+                <div class="col-9">
+                    <div class="tabWrapper">
+                        <div class="tabSwitch left text-center " >
+                            <div style="display:inline" class="pillTab active" pillTab-direction="left"><a href="{% url 'sk:sk_list' %}">VIEW ALL</a></div>
+                            <div class="pillTab text-center" pillTab-direction="right"><a href="{% url 'sk:sk_create' %}">ADD NEW</a></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-3">
+                    <input class="form-control tableSearchBox" placeholder="Search..." id="seniorSearchBox"/>
+                </div>
+            </div>
+
+            <!-- table container -->
+            <div class="tableContainer">
+            <br>
+                <table id="seniorTable" class="table table-bordered text-center" style="width:100%;border-radius: 10px;-moz-border-radius: 10px; -webkit-border-radius: 10px;">
+                    <thead>
+                        <tr> 
+                            <th>Project ID</th>
+                            <th>Project Name</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                        
+                    <tbody>
+                        {% for sk in sk_list %}
+                        <tr>
+                            <td width="10px">{{sk.id}}</td>
+                            <td>{{ sk.project_name }}</td>
+                            <td>{{ sk.start_date }}</td>
+                            <td>{{ sk.end_date }}</td>
+                            <td>
+                                <a href="{% url 'sk:sk_update' pk=sk.pk %}" class="btn btn-sm btn-primary" style="color: #fff;">Update</a>
+                            </td>
+                        {% endfor %}
+                        </tr>
+                       
+          
+                    </tbody>
+                </table>
+            </div>
+        </div>        
+    </div>
+</div>
+{% endblock content %}
+
+{% block jsLink %}
+    <!-- Datatables JS -->
+    <script src="{% static 'plugins/datatables/datatables.js' %}"></script>
+    <!-- Custom JS -->
+    <script src="{% static 'senior/custom.js' %}"></script>
+    <script>
+    
+    </script>
+{% endblock jsLink %}

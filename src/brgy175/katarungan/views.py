@@ -52,6 +52,12 @@ class KatarunganDeleteView(LoginRequiredMixin,superadmin_katarungan_only, Delete
     success_url = reverse_lazy('katarungan:list')
 
 @login_required
+def cfa_case(request, pk):
+    case = get_object_or_404(Katarungan, pk=pk)
+    case.cfa()
+    return redirect('katarungan:detail', pk=pk)
+
+@login_required
 def settle_case(request, pk):
     case = get_object_or_404(Katarungan, pk=pk)
     case.settle()
@@ -62,4 +68,6 @@ def withdraw_case(request, pk):
     case = get_object_or_404(Katarungan, pk=pk)
     case.withdraw()
     return redirect('katarungan:detail', pk=pk)
+
+
 
