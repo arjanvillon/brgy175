@@ -98,7 +98,7 @@
         <!-- main row -->
         <div class="row">
             <div class="col-9">
-                <form method="POST" action="" class="needs-validation" novalidate>
+                <form method="POST" action="" class="needs-validation" enctype="multipart/form-data" novalidate>
      
                 {% csrf_token %}
                 <!-- SECTION FULL NAME -->
@@ -209,6 +209,37 @@
                 </div><!--col9-->
                 <div class="col-3">
                         <div class="row">
+                            <div class="col-6 col-md-12 p-0">
+                                <div class=" imgResidentInv text-center pt-4">
+                                    
+                                    <!-- {% if resident_profile %} -->
+                                        <!-- <img class="card-img-top" src="{{ resident_profile.picture.url }}"/> -->
+                                    <!-- {% else %} -->
+                                         <i class="fa fa-user fa-10x" style="color: #c4c4c4"></i>
+                                    <!-- {% endif %} -->
+                                        
+                                </div>
+                            </div>    
+                        </div>
+                        <div class="row">
+                            <div class="col-6 col-md-12 text-center updateImgContainer pt-2 mb-3" >
+                                <div id="upload_button" >
+                                    <label>
+                                        {{ form.resident_profile|as_crispy_field }}
+                                            <!-- TODO  -->
+                                        <span class="text-white font-weight-bold" style="cursor: pointer !important; font-size: 14px !important;">
+                                            UPLOAD PHOTO <i class="fa fa-edit"></i>
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>    
+                        </div>
+                        <div class="row">
+                            <div class="col-11">
+                                <div class="inputLabel black-text"></div>
+                            </div>
+                        </div>
+                        <div class="row">
                             <div class="col-12 text-center pb-3">
                                 <span class="font-weight-bold text-center">
                                     PWD?
@@ -254,9 +285,10 @@
                 </div><!-- col3-->
             </div>
         </div>
+    
     </form>
         <!-- main row end -->
-
+       
     </div>
     <!-- add container end -->
 </div>
@@ -336,6 +368,11 @@
                 if(radioValue2){
                     $('#id_is_fresh_grad').val(radioValue2);
                 }
+            });
+            // picture
+            $("input:file").change(function (){
+                var fileName = $(this).val();
+                $(".inputLabel").html(fileName);
             });
         }); 
         

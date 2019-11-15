@@ -108,3 +108,9 @@ SECTION Name border
     color: #fd562d !important;
     text-decoration: underline !important;
 }
+/* SECTION Image field */
+.resident_img {
+    max-height: 250px !important;
+    max-width: 250px !important;
+    object-fit: cover !important;
+}
