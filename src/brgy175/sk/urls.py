@@ -4,9 +4,12 @@ from sk import views
 app_name = 'sk'
 
 urlpatterns = [
+	# Home
 	path('', views.SkHomeView.as_view(), name='sk-home'),
-	path('list/', views.SkListView.as_view(), name='sk_list'),
-	path('create/', views.SkCreateView.as_view(), name='sk_create'),
-	path('<int:pk>/', views.SkDetailView.as_view(), name='sk_detail'),
-	path('update/<int:pk>/', views.SkUpdateView.as_view(), name='sk_update'),
+	# Project
+	path('project/list/', views.ProjectListView.as_view(), name='project_list'),
+	path('project/create/', views.ProjectCreateView.as_view(), name='project_create'),
+	path('project/<int:pk>/', views.ProjectDetailView.as_view(), name='project_detail'),
+	path('project/update/<int:pk>/', views.ProjectUpdateView.as_view(), name='project_update'),
+	path('project/delete/<int:pk>/', views.ProjectDeleteView.as_view(), name='project_delete'),
 ] 
