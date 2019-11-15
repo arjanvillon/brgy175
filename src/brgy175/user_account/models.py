@@ -53,6 +53,7 @@ class Account(AbstractBaseUser):
     middle_name         = models.CharField(max_length=30)
     last_name           = models.CharField(max_length=30)
     sector              = models.CharField(max_length=30)
+ 
 
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['email','first_name','middle_name','last_name','sector']

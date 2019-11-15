@@ -8,7 +8,7 @@ urlpatterns = [
 	# path('dashboard/', katarungan_views.katarunganDashboard, name='katarunganDashboard'),
 	# path('add/', katarungan_views.katarunganAddCase, name='katarunganAddCase'),
 
-	path('', views.VawcListView.as_view(), name='list'),
+	path('',views.VawcListView.as_view(), name='list'),
 	path('<int:pk>/', views.VawcDetailView.as_view(), name='detail'),
 	path('create/', views.VawcCreateView.as_view(), name='create'),
 	path('update/<int:pk>/', views.VawcUpdateView.as_view(), name='update'),
