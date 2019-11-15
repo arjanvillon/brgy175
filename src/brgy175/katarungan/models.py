@@ -18,6 +18,10 @@ class Katarungan(models.Model):
 
     def get_absolute_url(self):
         return reverse("katarungan:detail", kwargs={"pk": self.pk})
+        
+    def cfa(self):
+        self.case_status = "CFA"
+        self.save()
 
     def settle(self):
         self.case_status = "Settled"
