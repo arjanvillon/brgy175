@@ -49,14 +49,17 @@
                     <td>{{ case.case_type_badac }}</td>
                     <td>{{ case.complainant_badac }}</td>
                     <td>
-
-                        {% if "CFA" in case.case_status_badac %}
-                            <span class="btn btn-sm btn-danger" style="color: black;">{{ case.case_status_badac }}</span>
-                        {% elif "Settled" in case.case_status_badac %}
-                            <span class="btn btn-sm btn-warning" style="color: black;">{{ case.case_status_badac }}</span>
+                        <center>
+                        {% if "R" in case.case_status_badac %}
+                            <span  class="btn btn-sm btn-danger" style="color: black; height: 20px;width: 40px;"></span>
+                        {% elif "G" in case.case_status_badac %}
+                            <span  class="btn btn-sm btn-success" style="color: black; height: 20px; width: 40px;"></span>
+                        {% elif "Y" in case.case_status_badac %}
+                            <span  class="btn btn-sm btn-warning" style="color: black; height: 20px; width: 40px;"></span>
                         {% else %}
-                            <span class="btn btn-sm btn-success" style="color: black;">{{ case.case_status_badac }}</span>
+                            <span  class="btn btn-sm btn-primary" style="color: black; height: 20px; width: 40px;"></span>
                         {% endif %}
+                        </center>
                     </td>
                 </tr>
                 {% endfor %}

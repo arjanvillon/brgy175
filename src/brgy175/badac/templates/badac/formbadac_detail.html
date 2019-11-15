@@ -73,15 +73,12 @@
     <div class="row">
         <div class="col-12">
             
-            {% if "CFA" in badac_detail.case_status_badac %}
-                <a class="float-right btn btn-warning mx-1" href="{% url 'badac:settle' pk=badac_detail.pk %}">Settle Case</a>
-            {% elif "Settled" in badac_detail.case_status_badac %}
-                <a class="float-right btn btn-success mx-1" href="{% url 'badac:withdraw' pk=badac_detail.pk %}">Withdraw Case</a>
-            {% else %}
-                
-            {% endif %}
+            <a style="color: black; height: 40px;width: 60px;" class="p-1 mb-1 float-right btn btn-primary mx-1" href="{% url 'badac:B' pk=badac_detail.pk %}"></a>
+            <a style="color: black; height: 40px;width: 60px;"class="float-right btn btn-success mx-1" href="{% url 'badac:G' pk=badac_detail.pk %}"></a>
+            <a style="color: black; height: 40px;width: 60px;"class="float-right btn btn-danger mx-1" href="{% url 'badac:R' pk=badac_detail.pk %}"></a>
+            <a style="color: black; height: 40px;width: 60px;"class="float-right btn btn-warning mx-1" href="{% url 'badac:Y' pk=badac_detail.pk %}"></div></a>
 
-            <a class="float-right btn btn-danger mx-1" href="{% url 'badac:delete' pk=badac_detail.pk %}">Delete</a>
+            <a class="float-right btn btn-secondary mx-1 ml-3" href="{% url 'badac:delete' pk=badac_detail.pk %}">Delete</a>
         </div>
     </div>
 </div>

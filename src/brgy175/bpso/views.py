@@ -50,6 +50,14 @@ class BPSODeleteView(LoginRequiredMixin, DeleteView):
     model = FormBPSO
     success_url = reverse_lazy('bpso:list')
 
+
+@login_required
+def cfa_case(request, pk):
+    case = get_object_or_404(FormBPSO, pk=pk)
+    case.cfa()
+    return redirect('bpso:detail', pk=pk)
+
+
 @login_required
 def settle_case(request, pk):
     case = get_object_or_404(FormBPSO, pk=pk)

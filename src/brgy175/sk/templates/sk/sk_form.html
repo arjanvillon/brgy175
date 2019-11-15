@@ -1,0 +1,141 @@
+{% extends 'home/base.html' %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+
+{% block cssLink %}
+    <!-- Datepicker CSS -->
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.css' %}">
+        
+    <!-- Select2 CSS -->
+    <link rel="stylesheet" href="{% static 'plugins/select2/select2.css' %}">
+    <link rel="stylesheet" href="{% static 'sk/sk.css' %}">
+{% endblock %}
+    
+
+{% block content %}
+
+<div class="mainContainer">
+    <div class="row">
+        <div class="col-12">
+            <h3>        
+                {% if not form.instance.pk %}
+                    Add New Project
+                {% else %}
+                    Update Project
+                {% endif %}
+            </h3>
+        </div>
+    </div>
+
+    <hr class="mt-0">
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-3 pl-3">
+                <div class="imgResidentInv text-center pt-4">
+                    <i class="fa fa-user fa-10x" style="color: #c4c4c4"></i>   
+                </div>
+                <div class="col-6 col-md-12 text-center updateImgContainer pt-2 mb-3" >
+                    <div id="upload_button" >
+                        <label>
+                            {{ form.project_picture|as_crispy_field }}
+                                <!-- TODO  -->
+                            <span class="text-white font-weight-bold" style="cursor: pointer !important; font-size: 14px !important;">
+                                UPLOAD PHOTO <i class="fa fa-edit"></i>
+                            </span>
+                        </label>
+                    </div>
+                </div>  
+            </div>
+            <div class="col-9">
+                <div class="form-group row">
+                    <div class="col-2">
+                        <label for="">Project Name <span style="color: red;" title="This field is required"> *</span></label>
+                    </div>
+                    <div class="col-10">
+                        {{ form.project_name|as_crispy_field }}
+                    </div>
+                </div> 
+                <div class="form-group row">
+                    <div class="col-2">
+                        <label for="">Officer In Charge <span style="color: red;" title="This field is required"> *</span></label>
+                    </div>
+                    <div class="col-sm-10">
+                        {{ form.officer|as_crispy_field }}
+                    </div>
+                </div> 
+                <div class="form-group row">
+                    <div class="col-2">
+                        <label for="">Start Date <span style="color: red;" title="This field is required"> *</span></label>
+                    </div>
+                    <div class="col-sm-10">
+                        {{ form.start_date|as_crispy_field }}
+                    </div>
+                </div> 
+                <div class="form-group row">
+                    <div class="col-2">
+                        <label for="">End Date <span style="color: red;" title="This field is required"> *</span></label>
+                    </div>
+                    <div class="col-sm-10">
+                        {{ form.end_date|as_crispy_field }}
+                    </div>
+                </div>
+ 
+            </div>    
+        </div>
+        <div class="form-group row imgPath d-none">
+                <div class="col-2">
+                    <label for="">Project Image Path: </label>
+                </div>
+                <div class="col-sm-10">
+                    <span id="projectImage"></span>
+                </div>
+            </div> 
+        <div class="form-group row">
+            <div class="col-12">
+                <label for="">Project Details <span style="color: red;" title="This field is required"> *</span></label>
+            </div>
+            <div class="col-sm-12">
+                {{ form.project_details|as_crispy_field }}
+            </div>
+        </div>
+      
+        <input type="submit" class="btn btn-primary" value="Submit">
+    </form>
+</div>
+    
+{% endblock %}
+
+{% block jsLink %}
+    <!-- Datepicker JS -->
+    <script src="{% static 'plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.js' %}"></script>
+    
+    <!-- Select2 JS -->
+    <script src="{% static 'plugins/select2/select2.js' %}"></script>
+    <script>
+
+    // $( "#div_id_picture div.custom-file:contains('Change')" ).css( "text-decoration", "none");
+    // alert($('#div_id_picture div.custom-file').text());
+    $('#div_id_picture div.custom-file:contains("Change:")').each(function(){
+        $(this).html($(this).html().split("Change:").join(""));
+    });
+
+    // $('#id_author option[selected]').removeAttr("selected");
+    // $('#id_author option[value="'+$user+'"]').prop("selected", true);
+    // $('#id_author').attr("disabled", "disabled");
+
+    $(function() {
+        $("input:file").change(function (){
+            var fileName = $(this).val();
+            $("#projectImage").html(fileName);
+            $('.imgPath').removeClass('d-none');
+        });
+        $('#id_start_date').addClass('datepicker');
+        $('#id_end_date').addClass('datepicker');
+        // $('#id_officer').select2();
+        $('#div_id_project_picture').addClass('hideText');
+    });
+    </script>
+{% endblock jsLink %}
+    

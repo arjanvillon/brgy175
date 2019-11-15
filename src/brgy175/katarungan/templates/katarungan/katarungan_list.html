@@ -44,12 +44,12 @@
                 {% for case in katarungans %}
                 <tr>  
                     <td><u><a href="{{ case.id }}">{{ case.case_no }}</a></u></td>
-                    <td class="text-capitalize"><a href="{% url 'residents:resident_detail' pk=case.id %}"><span class="font-weight-bold">{{ case.convict.last_name}}</span>, {{ case.convict.first_name }} {{ case.convict.middle_name }}</a></td>
+                    <td class="text-capitalize"><a href="{% url 'residents:resident_detail' pk=case.convict.id %}"><span class="font-weight-bold">{{ case.convict.last_name}}</span>, {{ case.convict.first_name }} {{ case.convict.middle_name }}</a></td>
                     <td>{{ case.convict.address }}</td>
                     <td>{{ case.case_type }}</td>
                     <td>{{ case.complainant }}</td>
                     <td>
-
+                        <center>
                         {% if "CFA" in case.case_status %}
                             <span class="btn btn-sm btn-danger" style="color: black;">{{ case.case_status }}</span>
                         {% elif "Settled" in case.case_status %}
@@ -57,6 +57,7 @@
                         {% else %}
                             <span class="btn btn-sm btn-success" style="color: black;">{{ case.case_status }}</span>
                         {% endif %}
+                        </center>
                     </td>
                 </tr>
                 {% endfor %}

@@ -19,6 +19,10 @@ class FormBPSO(models.Model):
     def get_absolute_url(self):
         return reverse("bpso:detail", kwargs={"pk": self.pk})
 
+    def cfa(self):
+        self.case_status_bpso = "CFA"
+        self.save()
+   
     def settle(self):
         self.case_status_bpso = "Settled"
         self.save()

@@ -10,6 +10,7 @@ urlpatterns = [
 	path('create/', views.KatarunganCreateView.as_view(), name='create'),
 	path('update/<int:pk>/settle', views.settle_case, name='settle'),
 	path('update/<int:pk>/withdraw', views.withdraw_case, name='withdraw'),
+	path('update/<int:pk>/cfa', views.cfa_case, name='cfa'),
 	path('delete/<int:pk>/', views.KatarunganDeleteView.as_view(), name='delete'),
 
 ]

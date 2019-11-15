@@ -12,7 +12,15 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h2>Sangguniang Kabataan</h2>
+                    <div class="row">
+                        <div class="col-8">
+                            <h2>Sangguniang Kabataan</h2>
+                        </div>
+                        <div class="col-4">
+                            <a href="{% url 'sk:sk_list' %}" class="btn btn-sm btn-outline-warning" style="color: #000 !important;">View List of Projects</a>
+                            <a href="{% url 'sk:sk_create' %}" class="btn btn-sm btn-warning">Add New Project</a>
+                        </div>
+                    </div>
                     <hr class="mt-0">
                     <div class="row">
                         <div class="col-4 hoverable">

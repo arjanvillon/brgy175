@@ -30,6 +30,8 @@ class Resident(models.Model):
 
     is_fresh_grad = models.CharField(max_length=10, default='no')
 
+    resident_profile = models.ImageField(default='default_profile.jpg', upload_to='resident_profile_pics')
+
     def get_absolute_url(self):
         return reverse('residents:resident_detail', kwargs={'pk': self.pk})
  

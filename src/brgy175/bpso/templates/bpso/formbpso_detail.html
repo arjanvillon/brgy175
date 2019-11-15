@@ -73,15 +73,16 @@
     <div class="row">
         <div class="col-12">
             
-            {% if "CFA" in bpso_detail.case_status_bpso %}
-                <a class="float-right btn btn-warning mx-1" href="{% url 'bpso:settle' pk=bpso_detail.pk %}">Settle Case</a>
-            {% elif "Settled" in bpso_detail.case_status_bpso %}
-                <a class="float-right btn btn-success mx-1" href="{% url 'bpso:withdraw' pk=bpso_detail.pk %}">Withdraw Case</a>
-            {% else %}
-                
-            {% endif %}
 
-            <a class="float-right btn btn-danger mx-1" href="{% url 'bpso:delete' pk=bpso_detail.pk %}">Delete</a>
+                       <a class="float-right btn btn-warning mx-1" href="{% url 'bpso:settle' pk=bpso_detail.pk %}">Settle Case</a>
+
+            <a class="float-right btn btn-danger mx-1" href="{% url 'bpso:cfa' pk=bpso_detail.pk %}">CFA</a>
+
+            <a class="float-right btn btn-success mx-1" href="{% url 'bpso:withdraw' pk=bpso_detail.pk %}">Withdraw Case</div></a>
+
+            <a class="float-left btn btn-secondary mx-1 ml-3" href="{% url 'bpso:delete' pk=bpso_detail.pk %}">Delete</a>
+
+            
         </div>
     </div>
 </div>
