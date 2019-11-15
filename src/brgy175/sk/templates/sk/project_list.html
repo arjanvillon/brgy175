@@ -17,8 +17,8 @@
                 <div class="col-9">
                     <div class="tabWrapper">
                         <div class="tabSwitch left text-center " >
-                            <div style="display:inline" class="pillTab active" pillTab-direction="left"><a href="{% url 'sk:sk_list' %}">VIEW ALL</a></div>
-                            <div class="pillTab text-center" pillTab-direction="right"><a href="{% url 'sk:sk_create' %}">ADD NEW</a></div>
+                            <div style="display:inline" class="pillTab active" pillTab-direction="left"><a href="{% url 'sk:project_list' %}">VIEW ALL</a></div>
+                            <div class="pillTab text-center" pillTab-direction="right"><a href="{% url 'sk:project_create' %}">ADD NEW</a></div>
                         </div>
                     </div>
                 </div>
@@ -43,14 +43,15 @@
                     </thead>
                         
                     <tbody>
-                        {% for sk in sk_list %}
+                        {% for project in project_list %}
                         <tr>
-                            <td width="10px">{{sk.id}}</td>
-                            <td>{{ sk.project_name }}</td>
-                            <td>{{ sk.start_date }}</td>
-                            <td>{{ sk.end_date }}</td>
+                            <td width="10px">{{project.id}}</td>
+                            <td><u><a href="{% url 'sk:project_detail' pk=project.pk %}">{{ project.project_name }}</a></u></td>
+                            <td>{{ project.start_date }}</td>
+                            <td>{{ project.end_date }}</td>
                             <td>
-                                <a href="{% url 'sk:sk_update' pk=sk.pk %}" class="btn btn-sm btn-primary" style="color: #fff;">Update</a>
+                                <a href="{% url 'sk:project_update' pk=project.pk %}" class="btn btn-sm btn-primary" style="color: #fff;">Update</a>
+                                <a href="{% url 'sk:project_delete' pk=project.pk %}" class="btn btn-sm btn-danger" style="color: #fff;">Delete</a>
                             </td>
                         {% endfor %}
                         </tr>

@@ -1,29 +1,34 @@
 from django.shortcuts import render
-from sk.models import Sk
-from sk.forms import SkForm
+from sk.models import Project
+from sk.forms import ProjectForm
 from django.views.generic import (
     View, TemplateView,
     ListView, DetailView,
     CreateView, UpdateView,
     DeleteView
 )
+from django.urls import reverse_lazy
 
 class SkHomeView(TemplateView):
     template_name = 'sk/skHome.html'
     
-class SkCreateView(CreateView):
-    form_class = SkForm
-    model = Sk
+class ProjectCreateView(CreateView):
+    form_class = ProjectForm
+    model = Project
 
-class SkListView(ListView):
-    context_object_name = 'sk_list'
-    model = Sk
+class ProjectListView(ListView):
+    context_object_name = 'project_list'
+    model = Project
 
-class SkDetailView(DetailView):
-    context_object_name = 'sk_detail'
-    model = Sk
-    template_name = 'sk/sk_detail.html'
+class ProjectDetailView(DetailView):
+    context_object_name = 'project_detail'
+    model = Project
+    template_name = 'sk/project_detail.html'
 
-class SkUpdateView(UpdateView):
-    form_class = SkForm
-    model = Sk
+class ProjectUpdateView(UpdateView):
+    form_class = ProjectForm
+    model = Project
+
+class ProjectDeleteView(DeleteView):
+    model = Project
+    success_url = reverse_lazy('sk:project_list')

@@ -4,7 +4,7 @@ from residents.models import Resident
 from django.urls import reverse
 
 # Create your models here.
-class Sk(models.Model):
+class Project(models.Model):
     project_name = models.CharField(max_length=80)
     project_details = models.TextField()
     officer = models.ForeignKey(Resident, on_delete=models.CASCADE)
@@ -17,4 +17,4 @@ class Sk(models.Model):
         return self.project_name
         
     def get_absolute_url(self):
-        return reverse("sk:sk_detail", kwargs={"pk": self.pk})
+        return reverse("sk:project_detail", kwargs={"pk": self.pk})
