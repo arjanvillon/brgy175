@@ -25,7 +25,11 @@ class BPSOCreateView(LoginRequiredMixin, CreateView):
     model = FormBPSO
 
     def get_context_data(self, **kwargs):
-        query = FormBPSO.objects.all().latest('created_date')
+        try:
+            query = FormBPSO.objects.all().latest('created_date')
+        except FormBPSO.DoesNotExist:
+            query = None
+
         if not query:
             case_no_bpso = "BPSO-2019-0000"
         else:
