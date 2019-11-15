@@ -5,7 +5,7 @@ from residents.models import Resident
 
 
 class FormBADAC(models.Model):
-    case_no_badac = models.CharField(max_length=14)
+    case_no_badac = models.CharField(max_length=25)
     case_type_badac = models.CharField(max_length=30)
     complainant_badac = models.CharField(max_length=30)
     case_status_badac = models.CharField(max_length=8, default='CFA')
