@@ -25,7 +25,12 @@ class BADACCreateView(LoginRequiredMixin, CreateView):
     model = FormBADAC
 
     def get_context_data(self, **kwargs):
-        query = FormBADAC.objects.all().latest('created_date')
+ 
+        try:
+            query = FormBADAC.objects.all().latest('created_date')
+        except FormBADAC.DoesNotExist:
+            
+            query = None
         if not query:
             case_no_badac = "BADAC-2019-0000"
         else:
@@ -51,14 +56,25 @@ class BADACDeleteView(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy('badac:list')
 
 @login_required
-def settle_case(request, pk):
+def R_case(request, pk):
     case = get_object_or_404(FormBADAC, pk=pk)
-    case.settle()
+    case.R()
     return redirect('badac:detail', pk=pk)
 
 @login_required
-def withdraw_case(request, pk):
+def G_case(request, pk):
     case = get_object_or_404(FormBADAC, pk=pk)
-    case.withdraw()
+    case.G()
     return redirect('badac:detail', pk=pk)
 
+@login_required
+def B_case(request, pk):
+    case = get_object_or_404(FormBADAC, pk=pk)
+    case.B()
+    return redirect('badac:detail', pk=pk)
+
+@login_required
+def Y_case(request, pk):
+    case = get_object_or_404(FormBADAC, pk=pk)
+    case.Y()
+    return redirect('badac:detail', pk=pk)

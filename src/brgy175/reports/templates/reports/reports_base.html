@@ -1,0 +1,35 @@
+{% extends 'home/base.html' %}
+{% load staticfiles %}
+{% block cssLink %}
+    <link rel="stylesheet" href="{% static 'plugins/chartjs/Chart.css' %}">
+{% endblock cssLink %}
+
+{% block content %}
+
+<div class="mainContainer">
+    <div class="row">
+        <div class="col-12">
+            <h3>Reports</h3>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-12">
+
+        </div>
+    </div>
+
+    {% block reports_content %}
+        
+    {% endblock reports_content %}
+        
+</div>
+
+{% endblock %}
+
+
+{% block jsLink %}
+    <script src="{% static 'plugins/chartjs/Chart.js' %}"></script>
+{% endblock jsLink %}
+    
+    

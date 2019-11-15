@@ -2,6 +2,24 @@
 {% load staticfiles %}
 {% block cssLink %}
     <link rel="stylesheet" href="{% static 'plugins/mdb/css/mdb.css' %}"/> 
+    <link rel="stylesheet" href="{% static 'plugins/fullcalendar/packages/core/main.min.css' %}"/> 
+    <link rel="stylesheet" href="{% static 'plugins/fullcalendar/packages/timegrid/main.min.css' %}"/> 
+    <link rel="stylesheet" href="{% static 'plugins/fullcalendar/packages/daygrid/main.min.css' %}"/> 
+    <link rel="stylesheet" href="{% static 'plugins/fullcalendar/packages/list/main.min.css' %}"/> 
+    <link rel="stylesheet" href="{% static 'plugins/fullcalendar/packages/bootstrap/main.min.css' %}"/> 
+    <link rel="stylesheet" href="{% static 'plugins/fontawesome/css/all.css' %}"/> 
+
+
+
+
+    <link rel="stylesheet" href="{% static 'sk.css' %}"/> 
+    <style>
+    #calendar {
+        max-width: 900px;
+        max-height: 800px;
+        margin: 40px auto;
+    }
+    </style>
 {% endblock cssLink %}
     
 
@@ -11,77 +29,211 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
+                <div class="card-body text-uppercase font-weight-bold">
+                    <h2 class="font-weight-bold">Sangguniang Kabataan</h2>
+                </div>
+            </div>
+        </div>
+    </div><!-- row-->
+    <div class="row my-3">
+        <div class="col-2">
+            <div class="color-block-dark border border-warning orange lighten-5 hoverable" style="border-width: 2px !important;">
+                <div class="row p-2 text-center">
+                    <div class="col-12">
+                        <h3 class="card-title brown-text">TOTAL PROJECTS</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h3 class="card-title brown-text font-weight-bold">10</h3>
+                    </div>
+                </div>
+            </div>
+        </div><!--col-2-->
+        <div class="col-2">
+            <div class="color-block-dark border border-warning orange lighten-5 hoverable" style="border-width: 2px !important;">
+                <div class="row p-2 text-center">
+                    <div class="col-12">
+                        <h3 class="card-title brown-text">ON GOING PROJECTS</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h3 class="card-title font-weight-bold">10</h3>
+                    </div>
+                </div>
+            </div>
+        </div><!--col-2-->
+        <div class="col-2">
+            <div class="color-block-dark border border-warning orange lighten-5 hoverable" style="border-width: 2px !important;">
+                <div class="row p-2 text-center">
+                    <div class="col-12">
+                        <h3 class="card-title brown-text">TOTAL<br> EVENTS </h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h3 class="card-title font-weight-bold">10</h3>
+                    </div>
+                </div>
+            </div>
+        </div><!--col-2-->
+        <div class="col-2">
+            <div class="color-block-dark border border-warning orange lighten-5 hoverable" style="border-width: 2px !important;">
+                <div class="row p-2 text-center">
+                    <div class="col-12">
+                        <h3 class="card-title brown-text">ON GOING EVENTS</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h3 class="card-title font-weight-bold">10</h3>
+                    </div>
+                </div>
+            </div>
+        </div><!--col-2-->
+        <div class="col-2">
+            <div class="color-block-dark border border-warning orange lighten-5 hoverable" style="border-width: 2px !important;">
+                <div class="row p-2 text-center">
+                    <div class="col-12">
+                        <h3 class="card-title brown-text">FINISHED PROJECTS</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h3 class="card-title font-weight-bold">10</h3>
+                    </div>
+                </div>
+            </div>
+        </div><!--col-2-->
+        <div class="col-2">
+            <div class="color-block-dark border border-warning orange lighten-5 hoverable" style="border-width: 2px !important;">
+                <div class="row p-2 text-center">
+                    <div class="col-12">
+                        <h3 class="card-title brown-text">FINISHED EVENTS</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h3 class="card-title font-weight-bold">10</h3>
+                    </div>
+                </div>
+            </div>
+        </div><!--col-2-->
+
+    </div>
+    <div class="row">
+        <div class="col-7">
+            <!-- SECTION Calendar -->
+            <div class="card mt-2 pr-0">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-8">
-                            <h2>Sangguniang Kabataan</h2>
+                        <div class="col-9">
+                            <h2 class="font-weight-bold">EVENTS</h2>
                         </div>
-                        <div class="col-4">
-                            <a href="{% url 'sk:sk_list' %}" class="btn btn-sm btn-outline-warning" style="color: #000 !important;">View List of Projects</a>
-                            <a href="{% url 'sk:sk_create' %}" class="btn btn-sm btn-warning">Add New Project</a>
+                        <div class="col-3 ml-auto float-right">
+                            <a href="" class="btn btn-warning" style="font-family: 'Poppins', sans-serif !important;">ADD NEW EVENT <i class="fa fa-plus"></i></a>
                         </div>
                     </div>
-                    <hr class="mt-0">
-                    <div class="row">
-                        <div class="col-4 hoverable">
-                            <div class="color-block-dark text-white warning-color-dark z-depth-2 hoverable">
-                                <div class="row p-2 text-center">
-                                    <div class="col-12">
-                                        <h5 class="card-title">Programs</h5>
+                    <div id="calendar"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-5">
+            <div class="row">
+                <div class="col-12">
+                    <!-- SECTION  -->
+                    <div class="card mt-2 pl-0">
+                        <div class="card-body">
+                            <div class="row"><!-- SECTION Projects -->
+                                <div class="col-4 text-center pt-5" style="border-right: 2px solid #C4C4C4 !important;">
+                                    <i class="fa fa-tasks fa-5x"  style="color: #524747;"></i>
+                                </div>
+                                <div class="col-8">
+                                    <h4 class="font-weight-bold" style="color: #524747;">PROJECTS</h4>
+                                    <p class="pt-3">These are the projects of the Sangguniang Kabataan in Barangay 175.</p>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <a href="{% url 'sk:project_list' %}" class="btn btn-sm btn-warning float-right">View</a>
+                                        </div>
+                                        <div class="col-6">
+                                            <a href="{% url 'sk:project_create' %}" class="btn btn-sm btn-warning">Create <i class="fa fa-plus"></i></a>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-12 text-center">
-                                        <h5 class="card-title">5</h5>
-                                    </div>
-                                </div>
-                            </div><!--block-->
-                        </div><!--col4-->
-                        <div class="col-4 hoverable">
-                            <div class="color-block-dark text-white warning-color z-depth-2">
-                                <div class="row p-2 text-center">
-                                    <div class="col-12">
-                                        <h5 class="card-title">In Progress Programs</h5>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-12 text-center">
-                                        <h5 class="card-title">10</h5>
-                                    </div>
-                                </div>
-                            </div><!--block-->
-                        </div><!--col4-->
-                        <div class="col-4 hoverable mx-0">
-                            <div class="color-block-dark text-white warning-color-dark z-depth-2 ">
-                                <div class="row p-2 text-center">
-                                    <div class="col-12">
-                                        <h5 class="card-title">Programs Finished</h5>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-12 text-center">
-                                        <h5 class="card-title">4</h5>
-                                    </div>
-                                </div>
-                            </div><!--block-->
-                        </div><!--col4--> 
-                    </div><!--row-->
-                    <div class="row">
-                        <div class="col-12 text-center pt-3">
-                            <a class="btn btn-outline-warning waves-effect" style="color:#524747 !important;" href="{% url 'assistance:scholar_list' %}"> See full list of sangguniang kabataan members here</a>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <div class="col-12">
+                    <!-- SECTION  -->
+                    <div class="card mt-3 mb-1 pl-0">
+                        <div class="card-body">
+                            <div class="row"><!-- SECTION Events -->
+                                <div class="col-4 text-center pt-5" style="border-right: 2px solid #C4C4C4 !important;">
+                                    <i class="fa fa-calendar-alt fa-5x"  style="color: #524747;"></i>
+                                </div>
+                                <div class="col-8">
+                                    <h4 class="font-weight-bold" style="color: #524747;">EVENTS</h4>
+                                    <p class="pt-3">These are the events of the Sangguniang Kabataan in Barangay 175.</p>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <a href="" class="btn btn-sm btn-warning float-right">View</a>
+                                        </div>
+                                        <div class="col-6">
+                                            <a href="" class="btn btn-sm btn-warning">Create <i class="fa fa-plus"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <!-- SECTION  -->
+                    <div class="card mt-3 pl-0 ">
+                        <div class="card-body">
+                            <div class="row"><!-- SECTION Members -->
+                                <div class="col-4 text-center pt-5" style="border-right: 2px solid #C4C4C4 !important;">
+                                    <i class="fa fa-users fa-5x"  style="color: #524747;"></i>
+                                </div>
+                                <div class="col-8">
+                                    <h4 class="font-weight-bold" style="color: #524747;">MEMBERS</h4>
+                                    <p class="pt-3">These are the list of members of the Sangguniang Kabataan in Barangay 175.</p>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <a href="" class="btn btn-sm btn-warning float-right">View</a>
+                                        </div>
+                                        <div class="col-6">
+                                            <a href="" class="btn btn-sm btn-warning">Create <i class="fa fa-plus"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div> <!--col6-->
-</div><!--row-->
+    </div>
+
+
 
 </div><!--container-->
-    
+ 
 {% endblock %}
 
 {% block jsLink %}
     <script src="{% static 'plugins/mdb/js/mdb.js' %}"></script>
+    <script src="{% static 'plugins/fullcalendar/packages/core/main.min.js' %}"></script>
+    <script src="{% static 'plugins/fullcalendar/packages/daygrid/main.min.js' %}"></script>
+    <script src="{% static 'plugins/fullcalendar/packages/timegrid/main.min.js' %}"></script>
+    <script src="{% static 'plugins/fullcalendar/packages/list/main.min.js' %}"></script>
+    <script src="{% static 'plugins/fullcalendar/packages/bootstrap/main.min.js' %}"></script>
+    <script src="{% static 'sk/sk.js' %}"></script>
+    <script>
+    
+    </script>
 {% endblock jsLink %}
     
     

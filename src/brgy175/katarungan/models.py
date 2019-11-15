@@ -9,7 +9,7 @@ class Katarungan(models.Model):
     case_type = models.CharField(max_length=30, choices=CASE_TYPE_CHOICES)
     complainant = models.CharField(max_length=30)
     case_status = models.CharField(max_length=8, default='CFA')
-    convict = models.ForeignKey(Resident,related_name='convicted', on_delete=models.CASCADE)
+    convict = models.ForeignKey(Resident,related_name='convicted', on_delete=models.CASCADE, null=True)
 
     created_date = models.DateTimeField(default=timezone.now)
 
@@ -22,6 +22,7 @@ class Katarungan(models.Model):
     def cfa(self):
         self.case_status = "CFA"
         self.save()
+
 
     def settle(self):
         self.case_status = "Settled"

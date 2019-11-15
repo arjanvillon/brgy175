@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'landing.apps.LandingConfig',
     'widget_tweaks',
     'announcement',
+    'reports',
     'residents.apps.ResidentsConfig',
     'katarungan.apps.KatarunganConfig',
     'vawc.apps.VawcConfig',

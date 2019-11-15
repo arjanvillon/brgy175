@@ -65,6 +65,8 @@ urlpatterns = [
     path('residents/', include('residents.urls')),
     #!SECTION 
 
+    path('reports/', include('reports.urls')),
+
     #SECTION Senior & PWD URLs
     path('priority/', include('senior.urls')),
     #!SECTION 

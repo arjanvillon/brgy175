@@ -26,9 +26,13 @@ class KatarunganCreateView(LoginRequiredMixin,superadmin_katarungan_only, Create
     model = Katarungan
 
     def get_context_data(self, **kwargs):
-        query = Katarungan.objects.all().latest('created_date')
+        try:
+            query = Katarungan.objects.all().latest('created_date')
+        except Katarungan.DoesNotExist:
+            query = None
+
         if not query:
-            case_no = "K-2019-0000"
+            case_no = "K-2019-0001"
         else:
             pk = query.pk + 1
             year = datetime.datetime.now().year
@@ -68,6 +72,9 @@ def withdraw_case(request, pk):
     case = get_object_or_404(Katarungan, pk=pk)
     case.withdraw()
     return redirect('katarungan:detail', pk=pk)
+
+
+
 
 
 
