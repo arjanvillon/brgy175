@@ -6,5 +6,9 @@
         "**/.factorypath": true
     },
     "liveshare.allowGuestTaskControl": true,
+<<<<<<< HEAD
     "python.pythonPath": "C:\\Users\\Denielle\\AppData\\Local\\Programs\\Python\\Python38-32\\python.exe",
+=======
+    "python.pythonPath": "C:\\Users\\Lenovo\\AppData\\Local\\Programs\\Python\\Python37\\python.exe",
+>>>>>>> 6377c3d2befbfba76ae1687ee73a00fdf3954710
 }
