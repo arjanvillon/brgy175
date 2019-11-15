@@ -40,10 +40,11 @@ urlpatterns = [
     #SECTION landing URLs
     # path('', landing_views.index, name='index' ),
     # path('landing/projects', landing_views.landingProjects, name='landingProjects'),
-    path('landing/forms', landing_views.landing_forms, name='landingForms'),
+    path('landing/forms/', landing_views.landing_forms, name='landingForms'),
     path('', landing_views.landing_base, name='landingBase'),
-    path('about', landing_views.about_us, name='aboutUs'),
-    path('contact', landing_views.contact, name='contactUs'),
+    path('about/', landing_views.about_us, name='aboutUs'),
+    path('contact/', landing_views.contact, name='contactUs'),
+    path('landing/announcement', landing_views.landing_announce, name='landing_announcement'),
     #!SECTION 
 
     path('announcement/', include('announcement.urls')),
