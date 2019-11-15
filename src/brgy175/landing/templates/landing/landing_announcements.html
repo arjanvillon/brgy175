@@ -30,31 +30,28 @@
     </div>
 </nav>
 <div class="row">
-{% for announce in announcement %}
+    {% for announcement in announcement_list %}
+        <div class="col-12 col-lg-4 mb-3">
+            <div class="card">
+                <img class="card-img-top" src="{{ announcement.picture.url }}">
 
-    <div class="col-12 col-lg-4 mb-3">
-        <div class="card ml-4 mr-4">
-            <img class="card-img-top" src="{{ announce.picture.url }}">
-
-            <div class="card-body">
-                
-                <div class="row">
-                    <div class="col-12">
-                        <p class="text-info m-0">Created by: {{ announce.author }}</p>
+                <div class="card-body">
+                    <a href="{% url 'landing:announcement_detail' pk=announcement.pk %}"><h4 class="card-title mb-0">{{ announcement.title }}</h4></a>
+                    <div class="row">
+                        <div class="col-12">
+                            <p class="text-info m-0">Created by: {{ announcement.author }}</p>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <small class="text-info">{{ announce.created_date }}</small>
+                    <div class="row">
+                        <div class="col-12">
+                            <small class="text-info">{{ announcement.created_date }}</small>
+                        </div>
                     </div>
-                </div>
 
+                </div>
             </div>
         </div>
-    </div>
-
-
-{% endfor %}
+    {% endfor %}
 </div>
 
 

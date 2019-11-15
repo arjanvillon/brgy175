@@ -16,11 +16,11 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                <li class="nav-item"> <a class="nav-link"  href="{% url 'landingBase' %}">Home <span class="sr-only">(current)</span></a> </li>
-                <li class="nav-item"> <a class="nav-link" href="{% url 'aboutUs' %}">About</a> </li>
+                <li class="nav-item"> <a class="nav-link"  href="{% url 'landing:landingBase' %}">Home <span class="sr-only">(current)</span></a> </li>
+                <li class="nav-item"> <a class="nav-link" href="{% url 'landing:aboutUs' %}">About</a> </li>
                 <li class="nav-item"> <a class="nav-link" href="website_applications.html">Applications</a> </li>
                 <li class="nav-item"> <a class="nav-link" href="projects.html">Events</a> </li>
-                <li class="nav-item active"> <a class="nav-link" href="{% url 'contactUs' %}">Contact</a> </li>
+                <li class="nav-item active"> <a class="nav-link" href="{% url 'landing:contactUs' %}">Contact</a> </li>
             </ul>
         </div>
     </div>

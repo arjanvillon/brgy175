@@ -43,11 +43,11 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-            <li class="nav-item"> <a class="nav-link"  href="{% url 'landingBase' %}">Home <span class="sr-only">(current)</span></a> </li>
-            <li class="nav-item"> <a class="nav-link" href="{% url 'aboutUs' %}">About</a> </li>
-            <li class="nav-item"> <a class="nav-link" href="website_applications.html">Applications</a> </li>
+            <li class="nav-item"> <a class="nav-link"  href="{% url 'landing:landingBase' %}">Home <span class="sr-only">(current)</span></a> </li>
+            <li class="nav-item"> <a class="nav-link" href="{% url 'landing:aboutUs' %}">About</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="{% url 'landing:apply' %}">Applications</a> </li>
             <li class="nav-item active"> <a class="nav-link" href="projects.html">Events</a> </li>
-            <li class="nav-item"> <a class="nav-link" href="{% url 'contactUs' %}">Contact</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="{% url 'landing:contactUs' %}">Contact</a> </li>
         </ul>
     </div>
 </div>
@@ -74,7 +74,7 @@
             <div>
                 <h7 class="my-0 display-4 font-weight-bold mt-5">Announcements and Projects</h7>
                 <p class="text-light">Know more about the upcoming events in Barangay 175!</p>
-                <p><a class="text-light shadow border-0 btn btn-outline-secondary mb-2 mr-3" style="background-image: linear-gradient(to right, #EE5A24 , #EA2027);" href= "{% url 'landing_announcement'%}" role="button">See more...</a></p>
+                <p><a class="text-light shadow border-0 btn btn-outline-secondary mb-2 mr-3" style="background-image: linear-gradient(to right, #EE5A24 , #EA2027);" href= "{% url 'landing:landing_announcement_list'%}" role="button">See more...</a></p>
             </div>
         </div>
     </div>
@@ -304,6 +304,7 @@
  {% endblock mainContents %}
 <!-- SECTION MAIN CONTENT END -->
 <!-- FOOTER -->
+{% block footer %}
 <footer class="footer-section">
 <div class="container">
     <div class="footer-cta pt-5 pb-5">
@@ -386,11 +387,12 @@
         </div>
     </div>
 </div>
-</footer>    
+</footer> 
+{% endblock footer %}   
 </body>
 </html>
 		<!-- Content end -->
-
+    {% block js %}
     <!-- jQuery CDN - Slim version (=without AJAX) -->
     <script src="{% static 'plugins/jqueryjs/jquery.js' %}"></script>
    
@@ -406,6 +408,7 @@
 
     <!-- Custom JS -->
     <script src="{% static 'landing/js/websitecustom.js' %}"></script>
+    {% endblock js %}
     {% block landing_custom_js %}
         
     {% endblock landing_custom_js %}

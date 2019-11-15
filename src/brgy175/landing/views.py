@@ -5,7 +5,7 @@ from residents.models import Resident
 from .forms import FormId, FormIdigent, FormScholar, FormBurial, FormBusiness, FormClearance
 from .models import IDForm, IndigencyForm
 from announcement.models import Announcement
-
+from django.views.generic import (TemplateView, ListView, DetailView)
 
 def landing_forms(request):
     id_form = FormId(prefix='a')
@@ -152,7 +152,8 @@ def landing_id_form(request):
     
     return render(request, 'landing/form_landing.html', context)
 
-
+def landing_apply(request):
+    return render(request, 'landing/landing_application.html')
 
 def landing_base(request):
     return render(request, 'landing/landing_base.html')
@@ -161,16 +162,28 @@ def about_us(request):
     return render(request, 'landing/about_us.html')
 
 def contact(request):
-    return render(request, 'landing/co.html')
+    return render(request, 'landing/contact.html')
 
-def landing_announce(request):
-    announce = Announcement.objects.all
+# def landing_announce(request):
+#     announce = Announcement.objects.all
 
-    context = {
-        'announcement':announce
-    }
+#     context = {
+#         'announcement':announce
+#     }
 
-    return render(request, 'landing/landing_announcements.html', context)
+#     return render(request, 'landing/landing_announcements.html', context)
+
+class AnnouncementDetailView(DetailView):
+    template_name = "landing/landing_announcements_detail.html"
+    model = Announcement
+
+class AnnouncementListView(ListView):
+    template_name = "landing/landing_announcements.html"
+
+    model = Announcement
+    
+    def get_queryset(self):
+        return Announcement.objects.all().order_by('-created_date')
 
 
 
