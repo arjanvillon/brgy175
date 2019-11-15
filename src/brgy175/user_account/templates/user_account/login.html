@@ -28,15 +28,15 @@
                 <p><b>Just enter some basic requirements to get started!</b></p>
                  <div class="input-group">
                     <!--<input class="input-field col-sm-5 form-control" type="text" placeholder="First Name" name="fname" maxlength="20" id="validationCustom01" required>-->
-                    {% render_field form_r.first_name|append_attr:"class:input-field col-sm-5 form-control" type="text" placeholder="First Name" name="fname" maxlength="20" id="validationCustom01" %}
-                    {% render_field form_r.middle_name|append_attr:"class:input-field col-sm-5 form-control" type="text" placeholder="MI" name="middle_name" maxlength="20" id="validationCustom01" %}
-                    {% render_field form_r.last_name|append_attr:"class:input-field col-sm-5 form-control" type="text" placeholder="Last Name" name="lname" maxlength="20" id="validationCustom01" %}
+                    {% render_field form_r.first_name|append_attr:"class:input-field col-sm-5 form-control text-dark" type="text" placeholder="First Name" name="fname" maxlength="20" id="validationCustom01" autocomplete="false" required="required" %}
+                    {% render_field form_r.middle_name|append_attr:"class:input-field col-sm-5 form-control text-dark" type="text" placeholder="MI" name="middle_name" maxlength="20" id="validationCustom01" autocomplete="false" required="required" %}
+                    {% render_field form_r.last_name|append_attr:"class:input-field col-sm-5 form-control text-dark" type="text" placeholder="Last Name" name="lname" maxlength="20" id="validationCustom01" autocomplete="false" required="required" %}
                     
                   </div>
                 <div class="input-group">
                   <div class="input-group-prepend">
                   </div>
-                     {% render_field form_r.sector|attr:"class:custom-select browser-default" id="inputGroupSelect01" placeholder="Select Sector" %}
+                     {% render_field form_r.sector|attr:"class:custom-select browser-default text-dark" id="inputGroupSelect01" name="sector" placeholder="Select Sector" %}
                     <!--{% comment %} <select class="custom-select browser-default" id="inputGroupSelect01">
                         <option selected>Select sector...</option>
                         <option value="1">Super Admin</option>
@@ -51,20 +51,20 @@
                   <div class="invalid-feedback">Example invalid custom select feedback</div>
                   </div>
                   <div class="input-group">
-                    {% render_field form_r.email|append_attr:"class:input-field col-sm-5 form-control" type="email" placeholder="Email" name="email" maxlength="60" %}
+                    {% render_field form_r.email|append_attr:"class:input-field form-control text-dark" type="email" placeholder="Email" name="email" maxlength="50" autocomplete="false" %}
                </div>
                   
                 <div class="input-group">
                      <!--<input class="input-field form-control" type="text" placeholder="Username" name="username" id="validationCustom01" required>-->
-                    {% render_field form_r.username|attr:"class:input-field form-control" type="text" placeholder="Username" name="username" id="validationCustom01" required="required"%}
+                    {% render_field form_r.username|attr:"class:input-field form-control text-dark" type="text" placeholder="Username" name="username" maxlength="15" id="validationCustom01" required="required"%}
                 </div>
                 <div class="input-group">
                     <!--<input class="input-field form-control" type="password" placeholder="Password" name="password" id="validationCustom01" required>-->
-                    {% render_field form_r.password1|attr:"class:input-field form-control" type="password" placeholder="Password" name="passvalid" id="validationCustom01" required="required"%}
+                    {% render_field form_r.password1|attr:"class:input-field form-control text-dark" type="password" placeholder="Password" name="passvalid" maxlength="15" id="validationCustom01" required="required"%}
                 </div>
                 <div class="input-group">
                     <!--<input class="input-field form-control" type="password" placeholder="Repeat Password" name="passvalid" id="validationCustom01" required>-->
-                    {% render_field form_r.password2|attr:"class:input-field form-control" type="password" placeholder="Repeat Password" name="passvalid" id="validationCustom01" required="required"%}
+                    {% render_field form_r.password2|attr:"class:input-field form-control text-dark" type="password" placeholder="Repeat Password" name="passvalid" maxlength="15" id="validationCustom01" autocomplete="false" required="required"%}
                 </div>
                 <div class="valid-feedback"> Password matched! </div> 
                 

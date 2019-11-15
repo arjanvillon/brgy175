@@ -192,7 +192,7 @@
             var x = new Date();
             var isPM = x.getHours() >= 12;
             var x1=monthNames[x.getMonth()] + " " + ('0'+x.getDate()).slice(-2) + ", " + x.getFullYear() + " "; 
-            x1 = x1 + dayNames[x.getUTCDay()] + " - " +  x.getHours( )+ ":" +  ('0'+x.getMinutes()).slice(-2) + (isPM ? ' PM' : ' AM');
+            x1 = x1 + dayNames[x.getUTCDay()] + " - " +  x.getHours() + ":" +  ('0'+x.getMinutes()).slice(-2) + (isPM ? ' PM' : ' AM');
             document.getElementById('timeBar').innerHTML = x1;
             display_c();
         }
