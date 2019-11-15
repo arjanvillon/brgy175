@@ -27,19 +27,19 @@ class BPSOCreateView(LoginRequiredMixin, CreateView):
     def get_context_data(self, **kwargs):
         query = FormBPSO.objects.all().latest('created_date')
         if not query:
-            case_no_bpso = "K-2019-0000"
+            case_no_bpso = "BPSO-2019-0000"
         else:
             pk = query.pk + 1
             year = datetime.datetime.now().year
 
             if pk < 10:
-                case_no_bpso = "K-" + str(year) + "-000" + str(pk)
+                case_no_bpso = "BPSO-" + str(year) + "-000" + str(pk)
             elif pk >= 10 and pk < 100:
-                case_no_bpso = "K-" + str(year) + "-00" + str(pk)
+                case_no_bpso = "BPSO-" + str(year) + "-00" + str(pk)
             elif pk >= 100 and pk < 1000:
-                case_no_bpso = "K-" + str(year) + "-0" + str(pk)
+                case_no_bpso = "BPSO-" + str(year) + "-0" + str(pk)
             else:
-                case_no_bpso = "K-" + str(year) + "-" + str(pk)
+                case_no_bpso = "BPSO-" + str(year) + "-" + str(pk)
 
         context = super().get_context_data(**kwargs)
         context["latest_pk"] = case_no_bpso
