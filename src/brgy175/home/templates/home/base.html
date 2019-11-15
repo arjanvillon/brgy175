@@ -67,7 +67,7 @@
                     </li>
                     <li><a href="{% url 'residents:resident_list' %}"><i class="fa fa-users"></i> RESIDENTS</a></li>
                     <li><a href="{% url 'announcement:announcement_list' %}"><i class="fa fa-bullhorn"></i> ANNOUNCEMENTS</a></li>
-                    <li><a href="#reports"><i class="fa fa-line-chart"></i> REPORTS</a></li>
+                    <li><a href="{% url 'reports:katarungan_reports' %}"><i class="fa fa-line-chart"></i> REPORTS</a></li>
                 </ul>
                 <!-- <div class="sidebarImgWrapper">
                     <img src="{% static '../static/home/images/sidebarbg2.jpg' %}" class="text-center shadow">
@@ -192,7 +192,7 @@
             var x = new Date();
             var isPM = x.getHours() >= 12;
             var x1=monthNames[x.getMonth()] + " " + ('0'+x.getDate()).slice(-2) + ", " + x.getFullYear() + " "; 
-            x1 = x1 + dayNames[x.getUTCDay()] + " - " +  x.getHours( )+ ":" +  ('0'+x.getMinutes()).slice(-2) + (isPM ? ' PM' : ' AM');
+            x1 = x1 + dayNames[x.getUTCDay()] + " - " +  x.getHours() + ":" +  ('0'+x.getMinutes()).slice(-2) + (isPM ? ' PM' : ' AM');
             document.getElementById('timeBar').innerHTML = x1;
             display_c();
         }

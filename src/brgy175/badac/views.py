@@ -26,6 +26,7 @@ class BADACCreateView(LoginRequiredMixin, CreateView):
 
     def get_context_data(self, **kwargs):
         query = FormBADAC.objects.all().latest('created_date')
+
         if not query:
             case_no_badac = "BADAC-2019-0000"
         else:

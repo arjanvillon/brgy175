@@ -32,30 +32,29 @@
 </head>
 
 <body>
-    
-{% block mainNav %}
     <!-- NAVBAR START -->
-    <nav class="navbar navbar-expand-lg mb-4 top-bar navbar-static-top sps sps--abv">
-        <div class="container">
-            <a class="navbar-brand  col-4" href="#"><img src="{% static 'landing/images/brgylogo_long.png' %}" style="width: 100%;"></a>
-            <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon" ></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                <li class="nav-item active"> <a class="nav-link"  href="{% url 'landingBase' %}">Home <span class="sr-only">(current)</span></a> </li>
-                <li class="nav-item"> <a class="nav-link" href="{% url 'aboutUs' %}">About</a> </li>
-                <li class="nav-item"> <a class="nav-link" href="website_applications.html">Applications</a> </li>
-                <li class="nav-item"> <a class="nav-link" href="projects.html">Events</a> </li>
-                <li class="nav-item"> <a class="nav-link" href="{% url 'contactUs' %}">Contact</a> </li>
-            </ul>
-        </div>
+     
+ {% block mainNav %}
+ <nav class="navbar navbar-expand-lg mb-4 top-bar fixed-top" style="background:#F47735">
+    <div class="container">
+        <a class="navbar-brand  col-4" href="#"><img src="{% static 'landing/images/brgylogo_long.png' %}" style="width: 100%;"></a>
+        <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon" ></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+            <li class="nav-item"> <a class="nav-link"  href="{% url 'landingBase' %}">Home <span class="sr-only">(current)</span></a> </li>
+            <li class="nav-item"> <a class="nav-link" href="{% url 'aboutUs' %}">About</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="website_applications.html">Applications</a> </li>
+            <li class="nav-item active"> <a class="nav-link" href="projects.html">Events</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="{% url 'contactUs' %}">Contact</a> </li>
+        </ul>
     </div>
+</div>
 </nav>
-{% endblock mainNav %}
 <!-- SECTION MAIN CONTENT -->
 
-
+{% endblock mainNav %}
 {% block sliderContents %}
     
 
@@ -68,14 +67,14 @@
             <div>
                 <h1 class="my-0 display-4 font-weight-bold mt-5">Online Barangay Form Application</h1>
                 <p>5 easy steps to get your barangay documents!</p>
-                <p><a class="text-light shadow border-0 btn btn-outline-secondary mb-2 mr-3" style="background-image: linear-gradient(to right, #EE5A24 , #EA2027);" href="#" role="button">Apply Now!</a></p>
+                <p><a class="text-light shadow border-0 btn btn-outline-secondary mb-2 mr-3" style="background-image: linear-gradient(to right, #EE5A24 , #EA2027);" href="#try-app" role="button">Apply Now!</a></p>
             </div>
         </div>
         <div class="swiper-slide slider-bg-position" style="background:url('{% static "landing/images/bgwews.jpg" %}')" data-hash="slide2">
             <div>
                 <h7 class="my-0 display-4 font-weight-bold mt-5">Announcements and Projects</h7>
                 <p class="text-light">Know more about the upcoming events in Barangay 175!</p>
-                <p><a class="text-light shadow border-0 btn btn-outline-secondary mb-2 mr-3" style="background-image: linear-gradient(to right, #EE5A24 , #EA2027);" href="projects.html" role="button">See more...</a></p>
+                <p><a class="text-light shadow border-0 btn btn-outline-secondary mb-2 mr-3" style="background-image: linear-gradient(to right, #EE5A24 , #EA2027);" href= "{% url 'landing_announcement'%}" role="button">See more...</a></p>
             </div>
         </div>
     </div>
@@ -89,7 +88,7 @@
 <!-- Benefits
     ================================================== -->
     {% block mainContents %}    
- <div class="container" style="margin-top: 50px;">
+ <div class="container " id=" try-app" style="margin-top: 50px;">
  <div class="container marketing" >
 		<h1 class="my-4 text-info display-4 font-weight-bold"><center>Try online form <br>application now!</center></h1><hr>
 <div class="row mt-5">

@@ -22,3 +22,14 @@ class Announcement(models.Model):
         return self.title
 
 
+
+
+
+
+
+
+    
+
+
+
+

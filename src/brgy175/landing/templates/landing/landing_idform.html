@@ -1,5 +1,10 @@
 {% load widget_tweaks %}
 <form method="POST">{% csrf_token %}
+ 
+    {{ form.resident.as_hidden }}
+    
+
+    
         <div class="sv-tab-panel">
             <h4 class="text-warning pb-0">IDENTIFICATION CARD</h4><hr>
                <h6 class="text-secondary pl-3 pb-1">Person to be contacted in case of Emergency...</h6>

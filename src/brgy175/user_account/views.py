@@ -54,4 +54,3 @@ def updateProfile(request):
 	return render(request, 'user_account/updateProfile.html', {'title': 'Update Profile'})
 
 
-

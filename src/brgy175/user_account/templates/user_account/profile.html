@@ -13,7 +13,7 @@
             <div class="container">
                 <div class="row">
                     <div class="w-auto name-border pt-2 px-3">
-                        <h6 class=" text-uppercase" style="font-size: 18px !important">Sumayao, Ryan Jeff ALCANTARA</h6>
+                        <h6 class=" text-uppercase" style="font-size: 18px !important">{{user.last_name}}, {{user.first_name}} {{user.middle_name}} </h6>
                     </div>
                 </div>
             </div>
@@ -30,11 +30,10 @@
                                 <!-- replace with image -->
                                 <i class="fa fa-user fa-10x" style="color: #c4c4c4"></i>
                             </div>
+                             <input type="file" name="residentImg" accept="image/*">
                         </div>    
                     </div>
-                    
-
-
+                
 
                 </div>
 
@@ -50,7 +49,7 @@
                             <small class="font-weight-bold">USERNAME:</small>
                         </div>
                         <div class="col-9">
-                            <small>joe</small>
+                            <small>{{user.username}}</small>
                         </div>
                     </div>
                     
@@ -59,7 +58,7 @@
                             <small class="font-weight-bold">DEPARTMENT:</small>
                         </div>
                         <div class="col-9">
-                            <small class="text-uppercase">BADAC</small>
+                            <small class="text-uppercase">{{user.sector}}</small>
                         </div>
                     </div>
 
@@ -68,45 +67,11 @@
                             <small class="font-weight-bold">EMAIL-ADDRESS:</small>
                         </div>
                         <div class="col-9">
-                            <small>heaven.arjan@gmail.com</small>
+                            <small>{{user.email}}</small>
                         </div>
                     </div>
 
-                    <div class="row">
-                        <div class="col-3">
-                            <small class="font-weight-bold">ADDRESS:</small>
-                        </div>
-                        <div class="col-9">
-                            <small class="text-uppercase">2042 Jose Abad Santos Street. Brgy. 175 Camarin Zone 15 District 1, Caloocan City</small>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-3 ">
-                            <small class="font-weight-bold">DATE OF BIRTH:</small>
-                        </div>
-                        <div class="col-9 ">
-                            <small class="text-uppercase">August 15, 2019</small>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-3 ">
-                            <small class="font-weight-bold">AGE:</small>
-                        </div>
-                        <div class="col-9 ">
-                            <small class="text-uppercase">21 Years Old</small>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-3">
-                            <small class="font-weight-bold">CONTACT NO.:</small>
-                        </div>
-                        <div class="col-9">
-                            <small class="text-uppercase">09499807802</small>
-                        </div>
-                    </div>
+                   
 
                     <div class="row">
                         <div class="col-12">
