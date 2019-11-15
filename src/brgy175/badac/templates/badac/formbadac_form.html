@@ -1,0 +1,51 @@
+{% extends 'home/base.html' %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+
+{% block cssLink %}
+    <link rel="stylesheet" href="{% static 'plugins/select2/select2.css' %}">
+    <link rel="stylesheet" href="{% static 'katarungan/katarungan.css' %}">
+{% endblock %}
+    
+{% block content %}
+
+<div class="mainContainer">
+    <div class="row">
+        <div class="col-12">
+            <h4>Create Case</h4>
+        </div>
+    </div>
+
+    <hr class="mt-0">
+
+    Case No. : <span class="font-weight-bold case_id">{{ latest_pk }}</span>
+    <div class="row">
+        <div class="col-12">
+            <form method="POST">
+                {% csrf_token %}
+    
+                {{ form|crispy }}
+
+                <input type="submit" class="btn btn-primary" value="Submit">
+            </form>
+        </div>
+    </div>
+</div>
+    
+{% endblock %}
+
+{% block jsLink %}
+    <script src="{% static 'plugins/select2/select2.js' %}"></script>
+    <script>
+    $caseId = $('.case_id').text();
+
+    $( document ).ready(function() {
+        $('#id_convict').select2();
+        $('#id_case_no_badac').val($caseId);
+        $('#div_id_case_no_badac').addClass('d-none');
+    });
+
+    </script>
+{% endblock jsLink %}
+    
+    

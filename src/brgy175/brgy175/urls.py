@@ -53,11 +53,11 @@ urlpatterns = [
     #!SECTION 
 
     #SECTION BADAC URLs
-	path('badac/', badac_views.badacHome, name='badacHome'),
+	path('badac/', include('badac.urls')),
     #!SECTION 
 
     #SECTION BPSO URLs
-	path('bpso/', bpso_views.bpsoHome, name='bpsoHome'),
+	path('bpso/', include('bpso.urls')),
     #!SECTION 
 
     #SECTION Katarungan URLs

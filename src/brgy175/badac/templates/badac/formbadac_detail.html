@@ -1,0 +1,90 @@
+{% extends 'home/base.html' %}
+
+
+{% block content %}
+
+<div class="mainContainer">
+    <div class="row">
+        <div class="col-12">
+            <h4>CASE DETAILS</h4>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-4">
+            <h6 class="font-weight-bold">Case Number: </h6>
+        </div>
+        <div class="col-8">
+            <h6>{{ badac_detail.case_no_badac }}</h6>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <h6 class="font-weight-bold">Case Type: </h6>
+        </div>
+        <div class="col-8">
+            <h6>{{ badac_detail.case_type_badac }}</h6>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <h6 class="font-weight-bold">Convict: </h6>
+        </div>
+        <div class="col-8">
+            <h6>
+                {{ badac_detail.convict.first_name }}
+                {{ badac_detail.convict.middle_name }}
+                {{ badac_detail.convict.last_name }}
+            </h6>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <h6 class="font-weight-bold">Address of Convict: </h6>
+        </div>
+        <div class="col-8">
+            <h6>{{ badac_detail.convict.address }}</h6>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <h6 class="font-weight-bold">Complainant: </h6>
+        </div>
+        <div class="col-8">
+            <h6>{{ badac_detail.complainant_badac }}</h6>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <h6 class="font-weight-bold">Case Status: </h6>
+        </div>
+        <div class="col-8">
+            <h6>{{ badac_detail.case_status_badac}}</h6>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-12">
+            
+            {% if "CFA" in badac_detail.case_status_badac %}
+                <a class="float-right btn btn-warning mx-1" href="{% url 'badac:settle' pk=badac_detail.pk %}">Settle Case</a>
+            {% elif "Settled" in badac_detail.case_status_badac %}
+                <a class="float-right btn btn-success mx-1" href="{% url 'badac:withdraw' pk=badac_detail.pk %}">Withdraw Case</a>
+            {% else %}
+                
+            {% endif %}
+
+            <a class="float-right btn btn-danger mx-1" href="{% url 'badac:delete' pk=badac_detail.pk %}">Delete</a>
+        </div>
+    </div>
+</div>
+    
+{% endblock %}
+    
