@@ -987,3 +987,11 @@ td a:hover{
 textarea{
     border-radius: 15px !important;
 }
+
+.breadcrumb{
+    background-color: transparent !important;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    content: none !important; 
+}

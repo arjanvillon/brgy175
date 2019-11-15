@@ -2,6 +2,17 @@
 
 
 {% block content %}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb px-4">
+        <li class="breadcrumb-item"><a class="black-text" href="{% url 'assistance:burial_list' %}">Burial</a><i
+            class="fas fa-angle-double-right mx-2 text-warning" aria-hidden="true"></i></li>
+        <li class="breadcrumb-item active">                
+            {{ burial.corpse.first_name }} 
+            {{ burial.corpse.middle_name }} 
+            {{ burial.corpse.last_name }}
+        </li>
+    </ol>
+</nav>
 
 <div class="mainContainer">
     {% if not burial.is_approved %}
