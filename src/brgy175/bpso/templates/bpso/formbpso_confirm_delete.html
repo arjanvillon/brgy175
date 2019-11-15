@@ -5,7 +5,7 @@
 <div class="mainContainer">
     <div class="row mb-5">
         <div class="col-12">
-            <h1 class="text-center">Are you sure to delete case file with case number {{ bpso.case_no_bpso }}?</h1>
+            <h1 class="text-center">Are you sure to delete case file with case number {{ formbpso.case_no_bpso }}?</h1>
         </div>
     </div>
 
@@ -14,7 +14,7 @@
             <form method="POST">
                 {% csrf_token %}
                 <input type="submit" class="btn btn-danger btn-lg" value="Delete">
-                <a class="btn btn-primary btn-lg" href="{% url 'bpso:detail' pk=bpso.pk %}">Cancel</a>
+                <a class="btn btn-primary btn-lg" href="{% url 'bpso:detail' pk=formbpso.pk %}">Cancel</a>
             </form>
         </div>
     </div>

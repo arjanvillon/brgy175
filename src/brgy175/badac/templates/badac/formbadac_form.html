@@ -12,6 +12,14 @@
 <div class="mainContainer">
     <div class="row">
         <div class="col-12">
+        <div class="tabWrapper">
+            <div class="tabSwitch right text-center " >
+                <div style="display:inline" class="pillTab text-center" pillTab-direction="left"><a href="{% url 'badac:list' %}">VIEW ALL</a></div>
+                <div class="pillTab active" pillTab-direction="right"><a href="{% url 'badac:create' %}">ADD NEW</a></div>
+            </div>
+        </div>
+        <!-- tab switch end -->
+        <br>
             <h4>Create Case</h4>
         </div>
     </div>
