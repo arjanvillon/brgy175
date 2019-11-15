@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.models import User
 from .models import Account
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.forms import TextInput
 
 
 SECTORS_CHOICES= [
@@ -24,6 +25,9 @@ class UserRegisterForm(UserCreationForm):
     class Meta:
         model = Account
         fields = ("username","email","first_name","middle_name","last_name","sector","password1","password2")
+        widgets = {
+            'name': TextInput(attrs={'autocomplete': 'false'}),
+        }
         # ,"middle_name","last_name","sector"
 class LoginForm(AuthenticationForm):
 

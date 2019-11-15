@@ -23,7 +23,7 @@
     </div>
 
     <hr class="mt-0">
-
+    {{ user.username }}
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form|crispy }}
@@ -42,9 +42,9 @@
         $(this).html($(this).html().split("Change:").join(""));
     });
 
-    // $('#id_author option[selected]').removeAttr("selected");
-    // $('#id_author option[value="'+$user+'"]').prop("selected", true);
-    // $('#id_author').attr("disabled", "disabled");
+    $('#id_author option[selected]').removeAttr("selected");
+    $('#id_author option[value="{{ user.pk }}"]').attr("selected", true);
+    $('#id_author').attr("disabled", "disabled");
 
     $(function() {
         $("input:file").change(function (){

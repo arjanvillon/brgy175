@@ -24,7 +24,8 @@
     <div class="row">
         
         {% for announcement in announcement_list %}
-            <div class="col-12 col-lg-4 mb-3">
+        {% include 'announcement/announcement_for_loop.html' %}
+            <!-- <div class="col-12 col-lg-4 mb-3">
                 <div class="card">
                     <img class="card-img-top" src="{{ announcement.picture.url }}">
 
@@ -43,7 +44,7 @@
 
                     </div>
                 </div>
-            </div>
+            </div> -->
         {% endfor %}
 
     </div>

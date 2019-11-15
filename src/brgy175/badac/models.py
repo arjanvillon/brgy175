@@ -2,11 +2,12 @@ from django.db import models
 from django.urls import reverse
 from django.utils import timezone
 from residents.models import Resident
+from badac.choices import CASE_TYPE_CHOICES
 
 
 class FormBADAC(models.Model):
     case_no_badac = models.CharField(max_length=25)
-    case_type_badac = models.CharField(max_length=30)
+    case_type_badac = models.CharField(max_length=30, choices=CASE_TYPE_CHOICES)
     complainant_badac = models.CharField(max_length=30)
     case_status_badac = models.CharField(max_length=8, default='Red')
     convict = models.ForeignKey(Resident, on_delete=models.CASCADE, null=True)

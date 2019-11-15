@@ -7,7 +7,8 @@ class FormId(forms.ModelForm):
 
     class Meta:
         model = IDForm
-        exclude = ('resident_idform',)
+        # exclude = ('resident_idform',)
+        fields = "__all__"
 
 
 class FormIdigent(forms.ModelForm):

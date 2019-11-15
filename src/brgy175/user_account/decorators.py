@@ -1,82 +1,57 @@
 from functools import wraps
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate
+from django.contrib.auth.mixins import AccessMixin
 
 
-def superadmin_badac_only(function):
-     @wraps(function)
-     def wrap(request, *args, **kwargs):
+
+class superadmin_katarungan_only(AccessMixin):
+    def dispatch(self, request, *args, **kwargs):
           profile = request.user
-          if profile.sector == 'badac':
-               return function(request, *args, **kwargs)
-          elif profile.sector == 'superadmin':
-               return function(request, *args, **kwargs)  
-          else:
-               return HttpResponseRedirect('/home')
+          if not profile.sector == 'Katarungan' and not profile.sector == 'superadmin' :
+               return self.handle_no_permission()   
+          return super().dispatch(request, *args, **kwargs)
 
-     return wrap
-
-def superadmin_bpso_only(function):
-     @wraps(function)
-     def wrap(request, *args, **kwargs):
+class superadmin_bpso_only(AccessMixin):
+    def dispatch(self, request, *args, **kwargs):
           profile = request.user
-          if profile.sector == 'bpso':
-               return function(request, *args, **kwargs)
-          elif profile.sector == 'superadmin':
-               return function(request, *args, **kwargs)     
-          else:
-               return HttpResponseRedirect('/home')
+          if not profile.sector == 'bpso' and not profile.sector == 'superadmin' :
+               return self.handle_no_permission()   
+          return super().dispatch(request, *args, **kwargs)
 
-     return wrap
-
-def superadmin_katarungan_only(function):
-     @wraps(function)
-     def wrap(request, *args, **kwargs):
+class superadmin_vawc_only(AccessMixin):
+    def dispatch(self, request, *args, **kwargs):
           profile = request.user
-          if profile.sector == 'katarungan':
-               return function(request, *args, **kwargs)
-          elif profile.sector == 'superadmin':
-               return function(request, *args, **kwargs)  
-          else:
-               return HttpResponseRedirect('/home')
+          if not profile.sector == 'vawc' and not profile.sector == 'superadmin' :
+               return self.handle_no_permission()   
+          return super().dispatch(request, *args, **kwargs)
 
-     return wrap
 
-def superadmin_resident_only(function):
-     @wraps(function)
-     def wrap(request, *args, **kwargs):
+class superadmin_senior_only(AccessMixin):
+    def dispatch(self, request, *args, **kwargs):
           profile = request.user
-          if profile.sector == 'resident':
-               return function(request, *args, **kwargs)
-          elif profile.sector == 'superadmin':
-               return function(request, *args, **kwargs)      
-          else:
-               return HttpResponseRedirect('/home')
+          if not profile.sector == 'bpso' and not profile.sector == 'superadmin' :
+               return self.handle_no_permission()   
+          return super().dispatch(request, *args, **kwargs)
 
-     return wrap
-
-def superadmin_senior_only(function):
-     @wraps(function)
-     def wrap(request, *args, **kwargs):
+class superadmin_resident_only(AccessMixin):
+    def dispatch(self, request, *args, **kwargs):
           profile = request.user
-          if profile.sector == 'senior':
-               return function(request, *args, **kwargs)
-          elif profile.sector == 'superadmin':
-               return function(request, *args, **kwargs)  
-          else:
-               return HttpResponseRedirect('/home')
+          if not profile.sector == 'resident' and not profile.sector == 'superadmin' :
+               return self.handle_no_permission()   
+          return super().dispatch(request, *args, **kwargs)
 
-     return wrap
-
-def superadmin_vawc_only(function):
-     @wraps(function)
-     def wrap(request, *args, **kwargs):
+class superadmin_bpso_only(AccessMixin):
+    def dispatch(self, request, *args, **kwargs):
           profile = request.user
-          if profile.sector == 'vawc':
-               return function(request, *args, **kwargs)
-          elif profile.sector == 'superadmin':
-               return function(request, *args, **kwargs)  
-          else:
-               return HttpResponseRedirect('/home')
+          if not profile.sector == 'bpso' and not profile.sector == 'superadmin' :
+               return self.handle_no_permission()   
+          return super().dispatch(request, *args, **kwargs)
 
-     return wrap
+class superadmin_badac_only(AccessMixin):
+    def dispatch(self, request, *args, **kwargs):
+          profile = request.user
+          if not profile.sector == 'badac' and not profile.sector == 'superadmin' :
+               return self.handle_no_permission()   
+          return super().dispatch(request, *args, **kwargs)

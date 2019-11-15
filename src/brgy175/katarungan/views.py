@@ -4,30 +4,35 @@ from django.views.generic import (View, TemplateView, ListView, DetailView, Crea
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from user_account.decorators import superadmin_katarungan_only
 from .models import Katarungan
 from .forms import KatarunganForm
 import datetime
 
-class KatarunganListView(LoginRequiredMixin, ListView):
+class KatarunganListView(LoginRequiredMixin, superadmin_katarungan_only, ListView):
     login_url = '/login/'
     context_object_name = 'katarungans'
     model = Katarungan
 
-class KatarunganDetailView(LoginRequiredMixin, DetailView):
+class KatarunganDetailView(LoginRequiredMixin,superadmin_katarungan_only, DetailView):
     login_url = '/login/'
     context_object_name = 'katarungan_detail'
     model = Katarungan
     template_name = 'katarungan/katarungan_detail.html'
 
-class KatarunganCreateView(LoginRequiredMixin, CreateView):
+class KatarunganCreateView(LoginRequiredMixin,superadmin_katarungan_only, CreateView):
     login_url = '/login/'
     form_class = KatarunganForm
     model = Katarungan
 
     def get_context_data(self, **kwargs):
-        query = Katarungan.objects.all().latest('created_date')
+        try:
+            query = Katarungan.objects.all().latest('created_date')
+        except Katarungan.DoesNotExist:
+            query = None
+
         if not query:
-            case_no = "K-2019-0000"
+            case_no = "K-2019-0001"
         else:
             pk = query.pk + 1
             year = datetime.datetime.now().year
@@ -45,7 +50,7 @@ class KatarunganCreateView(LoginRequiredMixin, CreateView):
         context["latest_pk"] = case_no
         return context
 
-class KatarunganDeleteView(LoginRequiredMixin, DeleteView):
+class KatarunganDeleteView(LoginRequiredMixin,superadmin_katarungan_only, DeleteView):
     login_url = '/login/'
     model = Katarungan
     success_url = reverse_lazy('katarungan:list')

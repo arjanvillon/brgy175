@@ -3,7 +3,13 @@
 
 {% block content %}
 
-
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb px-4">
+        <li class="breadcrumb-item"><a class="black-text" href="{% url 'katarungan:list' %}">Katarungan</a><i
+            class="fas fa-angle-double-right mx-2 text-warning" aria-hidden="true"></i></li>
+        <li class="breadcrumb-item active">{{ katarungan_detail.case_no }}</li>
+    </ol>
+</nav>
 
 <div class="mainContainer">
     <div class="row">

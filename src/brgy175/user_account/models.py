@@ -1,5 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.core.exceptions import ValidationError
+from django.core.validators import validate_email
+from django.core.exceptions import ValidationError
+from django.core.validators import RegexValidator
+
 
 class MyAccountManager(BaseUserManager):
 	def create_user(self, email, username,first_name, middle_name, last_name, sector, password=None,):
@@ -40,6 +45,7 @@ class MyAccountManager(BaseUserManager):
 
 
 
+
 class Account(AbstractBaseUser):
     email               = models.EmailField(verbose_name="email", max_length=60, unique=True)
     username            = models.CharField(max_length=30, unique=True,  )
@@ -53,6 +59,7 @@ class Account(AbstractBaseUser):
     middle_name         = models.CharField(max_length=30)
     last_name           = models.CharField(max_length=30)
     sector              = models.CharField(max_length=30)
+    picture             = models.ImageField(default='default.jpg', upload_to='user_pics')
 
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['email','first_name','middle_name','last_name','sector']
@@ -67,4 +74,6 @@ class Account(AbstractBaseUser):
 
     def has_module_perms(self, app_label):
         return True
+    
+  
 

@@ -2,6 +2,17 @@
 
 
 {% block content %}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb px-4">
+        <li class="breadcrumb-item"><a class="black-text" href="{% url 'assistance:scholar_list' %}">Scholar</a><i
+            class="fas fa-angle-double-right mx-2 text-warning" aria-hidden="true"></i></li>
+        <li class="breadcrumb-item active">                
+            {{ scholar.student.first_name }}
+            {{ scholar.student.middle_name }}
+            {{ scholar.student.last_name }}
+        </li>
+    </ol>
+</nav>
 
 <div class="mainContainer">
     {% if not scholar.is_approved %}

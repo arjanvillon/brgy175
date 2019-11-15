@@ -49,7 +49,7 @@
                     <td>{{ case.case_type_bpso }}</td>
                     <td>{{ case.complainant_bpso }}</td>
                     <td>
-
+                        <center>
                         {% if "CFA" in case.case_status_bpso %}
                             <span class="btn btn-sm btn-danger" style="color: black;">{{ case.case_status_bpso }}</span>
                         {% elif "Settled" in case.case_status_bpso %}
@@ -57,6 +57,7 @@
                         {% else %}
                             <span class="btn btn-sm btn-success" style="color: black;">{{ case.case_status_bpso }}</span>
                         {% endif %}
+                        </center>
                     </td>
                 </tr>
                 {% endfor %}
