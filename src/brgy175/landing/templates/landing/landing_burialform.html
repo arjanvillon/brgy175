@@ -2,6 +2,7 @@
 <form method="POST">{% csrf_token %}
     <div class="sv-tab-panel">
         <h4 class="text-warning pb-0">BURIAL CLAIM</h4><hr>
+        {{ burial.resident }}
            <h6 class="text-secondary pl-3 pb-1">Deceased Members Information</h6>
         
         <div class="row">

@@ -1,0 +1,9 @@
+{% extends 'landing/scholar_form.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% include 'landing/landing_burialform.html' %}
+<a href="{% url 'landing:landingBase' %}" class="text-light shadow border-0 btn btn-outline-secondary mb-5 mr-3" style="background-image: linear-gradient(to right, #EE5A24 , #EA2027);">Back to Home</a>
+
+{% endblock content %}       

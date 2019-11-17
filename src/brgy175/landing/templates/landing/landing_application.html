@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-{% load static %}
-
+{% load staticfiles %}
+{% load widget_tweaks %}
+{% load crispy_forms_tags %}
 <html>
 
 <head>
@@ -9,7 +10,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <title>Super Admin Dashboard</title>
-
+	<link rel="stylesheet" href="{% static 'plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.css' %}">
+    
+    <!-- Select2 CSS -->
+    <link rel="stylesheet" href="{% static 'plugins/select2/select2.css' %}">
+    
+    <!-- Toggle CSS -->
+    <link rel="stylesheet" href="{% static 'plugins/toggle/toggle.min.css' %}">
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'landing/css/website-formcss.css' %}">
@@ -21,60 +28,33 @@
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{% static 'plugins/fontawesome/css/all.css' %}">
-    <!-- <link rel="stylesheet" href="{% static 'landing/css/websitecss.css' %}"> -->
-    <script src="{% static 'plugins/fontawesome/js/all.js' %}" ></script>
+	<!-- <link rel="stylesheet" href="{% static 'landing/css/websitecss.css' %}"> -->
+	
+	<script src="{% static 'plugins/fontawesome/js/all.js' %}" ></script>
+
 
 </head>
      <body>
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top row" style="background:#F47735">
-		  <div class="container text-secondary">
-			<a class="navbar-brand  col-4" href="#"><img src="{% static 'landing/images/brgylogo_long.png' %}" style="width: 100%;"></a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-				  <span class="navbar-toggler-icon"></span>
-				</button>
-			<div class="collapse navbar-collapse" id="navbarResponsive">
-			  <ul class="navbar-nav ml-auto">
-				<li class="nav-item">
-				  <a class="nav-link" href="websitetemp.html">Home
-						<span class="sr-only">(current)</span>
-					  </a>
-				</li>
-				<li class="nav-item">
-				  <a class="nav-link" href="about.html">About</a>
-				</li>
-				<li class="nav-item active">
-				  <a class="nav-link" href="newestwebsiteform.html">Applications</a>
-				</li>
-				<li class="nav-item">
-				  <a class="nav-link" href="projects.html">Projects</a>
-				</li>
-				<li class="nav-item">
-				  <a class="nav-link" href="contact.html">Contact Us 	</a>
-				</li>
-			  </ul>
-			</div>
-		  </div>
-		</nav> 
-		
-		
-  	<!-- Start of form -->
-  		
-  		<div class="mt-5">-</div>
+{% block mainNav %}
+{% include "landing/landing_navbar.html" %}
+{% endblock mainNav %}
+
+{% block forms %}
+<div class="mt-5">-</div>
   		<div class="mt-5">-</div>
 	  	 <div class="container d-flex justify-content-start ml-6 align-top">
-					<div class="row  col-12	">
-					 <div class="col-md-12 col-sm-12">
-					   <div class="vertical-tabs nav-fill">
+			<div class="row  col-12	">
+				<div class="col-md-12 col-sm-12">
+					<div class="vertical-tabs nav-fill">
 						  <ul class="nav nav-tabs" role="tablist">
 							 <li class="nav-item">
 								<a class="nav-link  active" data-toggle="tab" href="#idcard" role="tab" aria-controls="home">Create Resident Record</a>
 							 </li>
-							 <li class="nav-item">
-								<a class="nav-link" data-toggle="tab" href="#indigency" role="tab" aria-controls="profile">Registered Resident</a>
-							 </li>
+							
 							</ul>
-					  		<form id="regForm" action="/action_page.php" class="card">
-						  <div class="tab-content">
+					<form method="POST" class=" card" enctype="multipart/form-data" >{% csrf_token %}
+						
+						<div class="tab-content">
 						  	
 							 <div class="tab-pane active" id="idcard" role="tabpanel">
 							 <!-- FOR ID CARD -->
@@ -83,95 +63,112 @@
 									<h4 class="text-warning pb-0">Register New Resident</h4><hr>
                      				  <h6 class="text-secondary pl-3 pb-1">Please fill up the form if not yet registered...</h6>
 									<div class="row ml-5 mr-5">
-										<div class="input-container col-sm-4  col-xs-3 col-lg-4 ml-0 mr-3 mb-3">
-											<input class="form-control form-control-md form-control-sm" type="text"  oninput="this.className = ''" name=fname required="required" data-error="enter valid username"/>
-                      <label for="firstName">First Name</label>
+									-	<div class="input-container col-sm-4  colxs-3 col-lg-3 ml-0 mr-3 mb-3">
+											<!-- <input class="form-control form-control-md form-control-sm" type="text"  oninput="this.className = ''" name=fname required="required" data-error="enter valid username"/> -->
+                      					{% render_field form.first_name|append_attr:"class:form-control form-control-md form-control-sm" type="text" name=fname required="required" placeholder="" %}
+                      						<label for="firstName">First Name</label>
 											<div class="bar"></div>
 										</div>
 										<div class="input-container col-sm-3  col-xs-3 col-lg-3 ml-0 mr-3 mb-3">
-											<input class="form-control form-control-md form-control-sm" type="text"  oninput="this.className = ''" name=mname required="required" />
+											<!-- <input class="form-control form-control-md form-control-sm" type="text"  oninput="this.className = ''" name=mname required="required" /> -->
+											{% render_field form.middle_name|append_attr:"class:form-control form-control-md form-control-sm" type="text" name="mname"   placeholder="" %}
 											<label for="midName">Middle Name</label>
 											<div class="bar"></div>
 										</div>
-										<div class="input-container col-sm-4  col-xs-3 col-lg-4	mr-0 ml-0 mb-3">
-											<input class="form-control form-control-md form-control-sm" type="text"  oninput="this.className = ''" name=lname required="required" />
+										<div class="input-container col-sm-4  col-xs-3 col-lg-3	mr-0 ml-3 mb-3">
+											<!-- <input class="form-control form-control-md form-control-sm" type="text"  oninput="this.className = ''" name=lname required="required" /> -->
+											{% render_field form.last_name|append_attr:"classform-control form-control-md form-control-sm" type="text" placeholder="" name=lname required="required" %}
 											<label for="lastName">Last Name</label>
 											<div class="bar"></div>
 										</div>
+										<div class="input-container col-sm-4  col-xs-3 col-lg-1	mr-0 ml-4 mb-3">
+												<!-- <input class="form-control form-control-md form-control-sm" type="text"  oninput="this.className = ''" name=lname required="required" /> -->
+												{% render_field form.suffix|append_attr:"class:form-control form-control-md form-control-sm" type="text" placeholder="" name=suffix required="required" %}
+												<label for="Suffix">Suffix</label>
+												<div class="bar"></div>
+											</div>
 									</div>
 									<div class="input-container mb-3 mt-0 ml-5">
-										<input class="form-control form-control-md form-control-sm" type="text"  oninput="this.className = ''" name=address required="required" />
+										<!-- <input class="form-control form-control-md form-control-sm" type="text"  oninput="this.className = ''" name=address required="required" /> -->
+										{% render_field form.address|append_attr:"class:form-control form-control-md form-control-sm" name='address' type="text" placeholder="" required="required" %}
 										<label for="Address">Address</label>
 										<div class="bar"></div>
 									  </div>
 									<div class="row ml-5 mr-5">
 										<div class="input-container col-sm-3  col-xs-3 col-lg-6 ml-0 mr-3 mb-3">
-											<input class="form-control form-control-md form-control-sm" type="text" oninput="this.className = ''" maxlength="411" name=bplace required="required" />
+											<!-- <input class="form-control form-control-md form-control-sm" type="text" oninput="this.className = ''" maxlength="411" name=bplace required="required" /> -->
+											{% render_field form.place_of_birth|append_attr:"class:form-control form-control-md form-control-sm" type="text"  maxlength="411" name="bplace" placeholder=""  required="required" %}
 											<label for="bplace">Birthplace</label>
 											<div class="bar"></div>
 										</div>
-										<div class="input-container col-sm-3  col-xs-3 col-lg-5 ml-0 mr-3 mb-3">
-											<input class="form-control form-control-md form-control-sm" name="date" type="text" onfocus="(this.type='date')" onblur="if(!this.value)this.type='text'">
-											<label for="bdate">Birthdate</label>
+										<label for="bdate"><font color="orange">Birthdate</font></label>
+										<div class="input-container col-sm-3  col-xs-3 col-lg-3 ml-0 mr-3 mb-3">
+											
+											<!-- <input class="form-control form-control-md form-control-sm" name="date" type="text" onfocus="(this.type='date')" onblur="if(!this.value)this.type='text'"> -->
+											{% render_field form.date_of_birth|append_attr:"class:form-control form-control-md form-control-smdateYear" name="date" type="date"  placeholder="" required="required" %}
+											
 											<div class="bar"></div>
 										</div>
 									</div>
 									<div class="row ml-5 mr-5">
 										<div class="input-container col-sm-3  col-xs-3 col-lg-6 ml-0 mr-3 mb-3">
-											<input class="form-control form-control-md form-control-sm" type="number" oninput="this.className = ''" maxlength="11" name=contact required="required" />
+											<!-- <input class="form-control form-control-md form-control-sm" type="number" oninput="this.className = ''" maxlength="11" name=contact required="required" /> -->
+											{% render_field form.contact_number|append_attr:"class:form-control form-control-md form-control-sm" type="number"  maxlength="11" name=contact  placeholder=""  required="required" %}
 											<label for="contact">Contact Number</label>
 											<div class="bar"></div>
 										</div>
 										<div class="input-container col-sm-3  col-xs-3 col-lg-5 ml-0 mr-3 mb-3">
-											<input class="form-control form-control-md form-control-sm" type="text"  oninput="this.className = ''" name=nationality required="required" />
+											<!-- <input class="form-control form-control-md form-control-sm" type="text"  oninput="this.className = ''" name=nationality required="required" /> -->
+											{% render_field form.nationality|append_attr:"class:form-control form-control-md form-control-sm" type="text" name=nationality placeholder=""  required="required" %}
 											<label for="nationality">Nationality</label>
 											<div class="bar"></div>
 										</div>
 									</div>
 									<div class="row ml-5 mr-5">
 										<div class="input-container col-sm-3  col-xs-3 col-lg-5 ml-0 mr-3 mb-3">
-											<input class="form-control form-control-md form-control-sm" type="email"  oninput="this.className = ''" name=emailadd required="required" />
+											<!-- <input class="form-control form-control-md form-control-sm" type="email"  oninput="this.className = ''" name=emailadd required="required" /> -->
+											{% render_field form.email_address|append_attr:"class:form-control form-control-md form-control-sm" type="email" name=emailadd   placeholder=""  required="required" %}	
 											<label for="emailadd">Email Address</label>
 											<div class="bar"></div>
 										</div>
 										<div class="input-container col-sm-3 col-xs-3 col-lg-3 ml-0 mr-3 mb-3 d-flex justify-content-start">
-											<select class="form-control form-control-md form-control-sm" id="civilStatus" name="gender" onchange="ChangecatList()" required>
-												<option value="">Gender... </option>
-												<option value="Classroom Instruction and Assessment">Male</option>
-												<option value="Curriculum Development and Alignment">Female</option>
-												<option value="Classroom Instruction and Assessment">Other</option>
-											</select>
+											{% render_field form.gender|append_attr:"class:form-control form-control-md form-control-sm" id="civilStatus" name="gender" onchange="ChangecatList()"   placeholder=""  required="required" %}	
 											<div class="bar"></div>
 										</div>
 										<div class="input-container col-sm-3  col-xs-3 col-lg-3 ml-0 mr-3 mb-3">
-											<select class="form-control form-control-md form-control-sm" id="civilStatus" name="gender" onchange="ChangecatList()" required>
+												{% render_field form.civil_status|append_attr:"class:form-control form-control-md form-control-sm" id="civilStatus" name="gender" onchange="ChangecatList()"  placeholder=""  required="required" %}				
+											<!-- <select class="form-control form-control-md form-control-sm" id="civilStatus" name="gender" onchange="ChangecatList()" required>
 												<option value="">Civil Status... </option>
 												<option value="Classroom Instruction and Assessment">Single</option>
 												<option value="Curriculum Development and Alignment">Married</option>
 												<option value="Classroom Instruction and Assessment">Widowed</option>
 												<option value="Curriculum Development and Alignment">Separated</option>
-											</select>
-											<div class="bar"></div>
+											</select>-->
+											<div class="bar"></div> 
 										</div>
 									</div>
 									<div class="row ml-5 mr-5  mt-0">
 										<div class="input-container col-sm-3  col-xs-3 col-lg-5 ml-0 mr-3 mb-3">
-											<input class="form-control form-control-md form-control-sm" type="text"  oninput="this.className = ''" name=religion required="required" />
+											<!-- <input class="form-control form-control-md form-control-sm" type="text"  oninput="this.className = ''" name=religion required="required" /> -->
+											{% render_field form.religion|append_attr:"class:form-control form-control-md form-control-sm" type="text"  name='religion'  placeholder=""  required="required" %}	
 											<label for="religion">Religion</label>
 											<div class="bar"></div>
 										</div>
 										<div class="input-container col-sm-3  col-xs-3 col-lg-3 ml-0 mr-3 mb-3">
-											<input class="form-control form-control-md form-control-sm" type="number"  oninput="this.className = ''" name=weight required="required" />
+											<!-- <input class="form-control form-control-md form-control-sm" type="number"  oninput="this.className = ''" name=weight required="required" /> -->
+											{% render_field form.weight|append_attr:"class:form-control form-control-md form-control-sm" type="number" name="weight"   %}	
 											<label for="Weight">Weight</label>
 											<div class="bar"></div>
 										</div>
 										<div class="input-container col-sm-3  col-xs-3 col-lg-3 ml-0 mr-3 mb-3">
-											<input class="form-control form-control-md form-control-sm" type="number"  oninput="this.className = ''" name=height required="required" />
+											<!-- <input class="form-control form-control-md form-control-sm" type="number"  oninput="this.className = ''" name=height required="required" /> -->
+											{% render_field form.height|append_attr:"class:form-control form-control-md form-control-sm" type="number" name="height"    %}	
 											<label for="Height">Height</label>
 											<div class="bar"></div>
 										</div>
 									</div>	
-									<div class="row ml-5 mr-5">
+									<!-- This is password -->
+									<!-- <div class="row ml-5 mr-5">
 										<div class="input-container col-sm-3  col-xs-3 col-lg-5 ml-0 mr-3 mb-3">
 											<input class="form-control form-control-md form-control-sm" type="password"  oninput="this.className = ''" name=password required="required" />
 											<label for="password">Password</label>
@@ -182,181 +179,109 @@
 											<label for="reppassword">Repeat Password</label>
 											<div class="bar"></div>
 										</div>
-									</div>
-									
-									<div class="row mt-2 d-flex justify-content-center">
-											<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#IDModal" >Next Step >></button>
-									</div>
+									</div> -->
+									  
+					</form>
 
-									<!-- Modal -->
+				 </div>
 
-									<!-- Modal -->
-									
-								</div>
-								 </form>
-							 </div>
-							 
-							 <!-- FOR INDIGENCY TAB -->
-							 <div class="tab-pane" id="indigency" role="tabpanel">
-								<div class="sv-tab-panel">
-									<h4 class="text-warning pb-0">Registered Resident</h4><hr>
-                     				  <h6 class="text-secondary pl-3 pb-1 d-flex justify-content-center">Let's get started...</h6>
-									<div class="row ml-5 mr-5 d-flex justify-content-center">
-										<div class="input-container col-sm-12  col-xs-12 col-lg-6 ml-0 mr-3 mb-3">
-											<input type="email" oninput="this.className = ''" name=email required="required" />
-											<label for="email">Email</label>
-											<div class="bar"></div>
-										</div>
-									</div>
-									<div class="row ml-5 mr-5 d-flex justify-content-center">
-										<div class="input-container col-sm-12  col-xs-12 col-lg-6 ml-0 mr-3 mb-3">
-											<input type="password"  oninput="this.className = ''" name=password required="required" />
-											<label for="pass">Password</label>
-											<div class="bar"></div>
-										</div>
-									</div>
-
-									<div class="row d-flex justify-content-center">
-										<div class="col-4">
-											<div class="form-group row">
-												<label for="EmailChangeThis" class="col-form-label  mr-3 text-light">Forgot Password?</label>
-													<a href="#Click here!" class="text-warning col-form-label">Click Here</a>
-
-
-
-												</div>
-
-										</div>
-										<!-- end of col-8 -->
-
-									</div>
-									
-									
-									<div class="row mt-2 d-flex justify-content-center">
-											<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#indigencyModal">Next Step >></button>
-									</div>
-
-									<!-- Modal -->
-
-									<!-- Modal -->
-									
-								</div>
-							 </div>
-							 
-							 
-							 </div>
-							 
-							 <!-- ENDS FORM CONTAINER -->
-						  </div>
-					   </div>
-					</div>
 				</div>
+			</div>							 
+		 </div>	
+{% endblock forms %}
+
+
+{% block footer %}
+{% include "landing/landing_footer.html"%}
+{% endblock footer %}
+<script>
+	  $('#id_nationality').val('Filipino');
+	  $('#id_date_of_birth').addClass('datepicker');
+	  $('#id_age').prop('readonly', true);
+	  $('#div_id_is_senior').addClass('d-none');
+	  $('#div_id_senior_id').addClass('d-none');
+	  $('#div_id_is_pwd').addClass('d-none');
+	  $('#div_id_is_fresh_grad').addClass('d-none');
+	  $('#div_id_pwd_id').addClass('d-none');
+	  $('#seniorId').addClass('d-none');
+	  $('#pwdId').addClass('d-none');
+	  $seniorId = $('span#seniorId').text();
+	  $pwdId = $('span#pwdId').text();
+	  $(document).ready(function(){
+		  var $year = $("#id_date_of_birth");
+		  var $age = $('#id_age');
+		  var d = new Date();
+		  var month = d.getMonth()+1;
+		  var day = d.getDate();
+
+		  var date_today = (month<10 ? '0' : '') + month + '/' +
+					  (day<10 ? '0' : '') + day + '/' +
+					  d.getFullYear()
+
+		  $("#id_date_of_birth").blur(function() {
+			  // alert($year.val(this.value));
+			  birthDate = this.value + "";
+			  birthDate = new Date(birthDate);
+			  var date_today = new Date();
+			  $ageD = Math.floor((date_today-birthDate) / (365.25 * 24 * 60 * 60 * 1000));
+			  $age.val($ageD);
+			  // is senior?
+			  if( $age.val().length > 1 ) {
+				  if( $age.val() >= 60) {
+					  $('#id_is_senior').val('Senior');
+					  $('#id_senior_id').val($seniorId);
+				  }
+				  else if( $age.val() <= 59) {
+					  $('#id_is_senior').val('Nonsenior');
+				  }
+			  }
+		  });
+		  // is pwd?
+		  $("div.isPwd input[type='radio']").click(function(){
+			  var radioValue = $("input[name='switch-one']:checked").val();
+			  if(radioValue){
+				  $('#id_is_pwd').val(radioValue);
+				  if($('#id_is_pwd').val() == 'yes'){
+					  $('div.disabilityRow').removeClass('d-none');
+					  $('#id_pwd_id').val($pwdId);
+				  }
+				  else if ($('#id_is_pwd').val() == 'no'){
+					  $('div.disabilityRow').addClass('d-none');
+				  }
+			  }
+		  });
+		  // is fresh grad?
+		  $("div.isFreshGrad input[type='radio']").click(function(){
+			  var radioValue2 = $("input[name='switch-two']:checked").val();
+			  if(radioValue2){
+				  $('#id_is_fresh_grad').val(radioValue2);
+			  }
+		  });
+		  // picture
+		  $("input:file").change(function (){
+			  var fileName = $(this).val();
+			  $(".inputLabel").html(fileName);
+		  });
+	  }); 
 	  
-	  <!-- One "tab" for each step in the form: -->
-	        <!-- FOOTER -->
-      <footer class="footer-section mt-5">
-        <div class="container">
-            <div class="footer-cta pt-5 pb-5">
-                <div class="row">
-                    <div class="col-xl-4 col-md-4 mb-30">
-                        <div class="single-cta">
-                            <i class="fas fa-map-marker-alt justify-content-start"></i>
-                            <div class="cta-text">
-                                <h4>Visit us</h4>
-                                <span>1500 Camia St. Area A </span>
-                                <span>Libis Camarin Caloocan City</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-md-4 mb-30">
-                        <div class="single-cta">
-                            <i class="fas fa-phone"></i>
-                            <div class="cta-text">
-                                <h4>Call us</h4>
-                                <span>‭(0943) 252 9150‬ </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-md-4 mb-30">
-                        <div class="single-cta">
-                            <i class="far fa-envelope-open"></i>
-                            <div class="cta-text">
-                                <h4>Mail us</h4>
-                                <span>mail@info.com</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-content pt-5 pb-5">
-                <div class="row">
-                    <div class="col-xl-4 col-lg-4 mb-50">
-                        <div class="footer-widget">
-                            <div class="footer-logo">
-                                <a href="index.html"><img src="{% static 'landing/images/brgylogo_long.png' %}" class="img-fluid" alt="logo"></a>
-                            </div>
-                            
-                            <div class="footer-social-icon row">
-                                <span class="ml-5 text-info">Follow us</span>
-                                <a href="#"><i class="fab fa-facebook fa-2x ml-3"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
-                        <div class="footer-widget">
-                            <div class="footer-widget-heading">
-                                <h3>Useful Links</h3>
-                            </div>
-                            <ul>
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">about</a></li>
-                                <li><a href="#">services</a></li>
-                                <li><a href="#">portfolio</a></li>
-                                <li><a href="#">Contact</a></li>
-                                <li><a href="#">About us</a></li>
-                                <li><a href="#">Our Services</a></li>
-                                <li><a href="#">Expert Team</a></li>
-                                <li><a href="#">Contact us</a></li>
-                                <li><a href="#">Latest News</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6 mb-50">
-                        <div class="footer-widget">
-                            <div class="footer-widget-heading">
-                                <h3>Subscribe</h3>
-                            </div>
+  </script>
+  <script src="{% static 'plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.js' %}"></script>
+  <!-- Select2 JS -->
+  <script src="{% static 'plugins/select2/select2.js' %}"></script>
+  <!-- Toggle JS -->
+  <script src="{% static 'plugins/toggle/toggle.min.js' %}"></script>
+  <!-- Custom JS -->
+  <script src="{% static 'residents/residents.js' %}"></script>
+   <script src="{% static 'plugins/jqueryjs/jquery.js' %}"></script>
+   <!-- Popper.JS -->
+   <script src="{% static 'plugins/popperjs/popper.js' %}"></script>
+   <!-- Bootstrap JS -->
+   <script src="{% static 'plugins/bootstrap/bootstrapJS/bootstrap.js' %}"></script>
+   <!-- Custom JS -->
+   <script src="{% static 'landing/js/appcustom.js' %}"></script>
 
-                            <div class="footer-text mb-25">
-                                <p>Don’t miss to subscribe to our new feeds, kindly fill the form below.</p>
-                            </div>
-                            <div class="subscribe-form">
-                                <form action="#">
-                                    <input type="text" placeholder="Email Address">
-                                    <button><i class="fab fa-telegram-plane"></i></button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-    </footer>
-	
-<!-- end of main wrapper -->
 
-    <!-- jQuery CDN - Slim version (=without AJAX) -->
-    <script src="{% static 'plugins/jqueryjs/jquery.js' %}"></script>
-   
-    <!-- Popper.JS -->
-    <script src="{% static 'plugins/popperjs/popper.js' %}"></script>
-
-    <!-- Bootstrap JS -->
-    <script src="{% static 'plugins/bootstrap/bootstrapJS/bootstrap.js' %}"></script>
-
-    <!-- Custom JS -->
-    <script src="{% static 'landing/js/appcustom.js' %}"></script>
+ 
 </body>
 
 </html>

@@ -1,0 +1,44 @@
+{% load static %}
+{% load widget_tweaks %}
+{% load crispy_forms_tags %}
+
+<html>
+    <head>
+            <link rel="stylesheet" href="{% static 'home/plugins/bootstrap/bootstrapCSS/bootstrap.css' %}" >
+
+            <!-- Custom CSS -->
+            <link rel="stylesheet" href="{% static 'home/css/custom.css' %}">
+            <link rel="stylesheet" href="{% static 'landing/custom.css' %}">
+            <!-- Font Awesome -->
+            <link rel="stylesheet" href="{% static 'home/plugins/fontawesome/css/all.css' %}">
+            <script src="{% static 'home/plugins/fontawesome/js/all.js' %}" ></script>
+
+    </head>
+    <body>
+            
+            <div class="container">
+    {% block content %}
+    {% include 'landing/landing_scholarform.html' %}
+            <a href="{% url 'landing:landingBase' %}" class="text-light shadow border-0 btn btn-outline-secondary mb-5 mr-3" style="background-image: linear-gradient(to right, #EE5A24 , #EA2027);">Back to Home</a>
+    {% endblock %}
+  </div>
+        </body>
+        {% block js %}
+        <script src="{% static 'landing/landing.js' %}"></script>
+        <!-- jQuery CDN - Slim version (=without AJAX) -->
+        <script src="{% static 'plugins/jqueryjs/jquery.js' %}"></script>
+       
+        <!-- Popper.JS -->
+        <script src="{% static 'plugins/popperjs/popper.js' %}"></script>
+    
+        <!-- Bootstrap JS -->
+        <script src="{% static 'plugins/bootstrap/bootstrapJS/bootstrap.js' %}"></script>
+    
+        <script src="{% static 'plugins/mdb/js/mdb.js' %}"></script>
+        <!-- Fontawesome JS-->
+        <script src="{% static 'plugins/fontawesome/js/all.js' %}" ></script>
+    
+        <!-- Custom JS -->
+        <script src="{% static 'landing/js/websitecustom.js' %}"></script>
+        {% endblock js %}
+</html>        

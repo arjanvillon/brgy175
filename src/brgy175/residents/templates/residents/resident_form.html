@@ -19,7 +19,6 @@
             margin-bottom: 36px;
             overflow: hidden;
         }
-
         .switch-field input {
             position: absolute !important;
             clip: rect(0, 0, 0, 0);
@@ -28,7 +27,6 @@
             border: 0;
             overflow: hidden;
         }
-
         .switch-field label {
             background-color: #e4e4e4;
             color: rgba(0, 0, 0, 0.6);
@@ -41,20 +39,16 @@
             box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
             transition: all 0.1s ease-in-out;
         }
-
         .switch-field label:hover {
             cursor: pointer;
         }
-
         .switch-field input:checked + label {
             background-color: #F09819;
             box-shadow: none;
         }
-
         .switch-field label:first-of-type {
             border-radius: 20px 0 0 20px;
         }
-
         .switch-field label:last-of-type {
             border-radius: 0 20px 20px 0;
         }
@@ -325,11 +319,9 @@
             var d = new Date();
             var month = d.getMonth()+1;
             var day = d.getDate();
-
             var date_today = (month<10 ? '0' : '') + month + '/' +
                         (day<10 ? '0' : '') + day + '/' +
                         d.getFullYear()
-
             $("#id_date_of_birth").blur(function() {
                 // alert($year.val(this.value));
                 birthDate = this.value + "";

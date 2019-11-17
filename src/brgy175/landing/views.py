@@ -3,9 +3,16 @@ from django import forms
 from django.db.models import Q
 from residents.models import Resident
 from .forms import FormId, FormIdigent, FormScholar, FormBurial, FormBusiness, FormClearance
-from .models import IDForm, IndigencyForm
+from .models import IDForm, IndigencyForm, ClearanceForm, ScholarshipForm,BusinessPermit,BurialForm
 from announcement.models import Announcement
-from django.views.generic import (TemplateView, ListView, DetailView)
+from residents.forms import ResidentForm
+import datetime
+from django.views.generic import (
+    View, TemplateView,
+    ListView, DetailView,
+    CreateView, UpdateView,
+    DeleteView
+)
 
 def landing_forms(request):
     id_form = FormId(prefix='a')
@@ -185,8 +192,195 @@ class AnnouncementListView(ListView):
     def get_queryset(self):
         return Announcement.objects.all().order_by('-created_date')
 
+#==========Residents form ===================
 
 
+class ResidentDetailView(DetailView):
+    context_object_name = 'resident_detail'
+    model = Resident
+    template_name = 'residents/resident_detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["cases"] =  Katarungan.objects.filter(convict__pk=self.kwargs['pk'])
+        return context
+    
+class ResidentCreateView(CreateView):
+    form_class = ResidentForm
+    # fields = ('first_name', 'middle_name', 'last_name', 'suffix', 'address', 'date_of_birth', 'place_of_birth', 'age', 'weight', 'height', 'gender', 'civil_status', 'contact_number', 'nationality', 'email_address', 'religion')
+    model = Resident
+    template_name = "landing/landing_application.html"
+
+    def get_context_data(self, **kwargs):
+        query = Resident.objects.all().latest('created_date')
+        if not query:
+            senior_id = "S-2019-0000"
+        else:
+            pk = query.pk + 1
+            year = datetime.datetime.now().year
+
+            if pk < 10:
+                senior_id = "S-" + str(year) + "-000" + str(pk)
+            elif pk >= 10 and pk < 100:
+                senior_id = "S-" + str(year) + "-00" + str(pk)
+            elif pk >= 100 and pk < 1000:
+                senior_id = "S-" + str(year) + "-0" + str(pk)
+            else:
+                senior_id = "S-" + str(year) + "-" + str(pk)
+
+        pwd_query = Resident.objects.all().latest('created_date')
+        if not pwd_query:
+            pwd_id = "PWD-2019-0000"
+        else:
+            pk_pwd = pwd_query.pk + 1
+            year = datetime.datetime.now().year
+
+            if pk_pwd < 10:
+                pwd_id = "PWD-" + str(year) + "-000" + str(pk_pwd)
+            elif pk_pwd >= 10 and pk_pwd < 100:
+                pwd_id = "PWD-" + str(year) + "-00" + str(pk_pwd)
+            elif pk_pwd >= 100 and pk_pwd < 1000:
+                pwd_id = "PWD-" + str(year) + "-0" + str(pk_pwd)
+            else:
+                pwd_id = "PWD-" + str(year) + "-" + str(pk_pwd)
+
+        context = super().get_context_data(**kwargs)
+        context["senior_id"] = senior_id
+        context["pwd_id"] = pwd_id
+        return context
 
 
+class IdCreateView(CreateView):
+    form_class = FormId
+    model = IDForm
+    template_name = 'landing/id_form.html'
+    queryset = IDForm.objects.all() 
 
+
+class IdUpdateView(UpdateView):
+    form_class = FormId
+    model = IDForm
+    template_name = 'landing/id_form.html'
+    queryset = IDForm.objects.all()
+
+class IdDetailView(DetailView):
+    form_class = FormId
+    model = IDForm
+    template_name = 'landing/id_form.html'
+    queryset = IDForm.objects.all()  
+    
+
+
+class IndigencyCreateView(CreateView):
+    form_class = FormIdigent
+    model = IndigencyForm
+    template_name = 'landing/indigency_form.html'
+    queryset = IndigencyForm.objects.all() 
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['indigent'] = self.get_form()
+        return context
+
+class IndigencyUpdateView(UpdateView):
+    form_class = FormIdigent
+    model = IndigencyForm
+    template_name = 'landing/indigency_form.html'
+    queryset = IndigencyForm.objects.all() 
+
+class IndigencyDetailView(DetailView):
+    form_class = FormIdigent
+    model = IndigencyForm
+    template_name = 'landing/indigency_form.html'
+    queryset = IndigencyForm.objects.all() 
+
+class ClearanceCreateView(CreateView):
+    form_class = FormClearance
+    model = ClearanceForm
+    template_name = 'landing/clearance_form.html'
+    queryset = ClearanceForm.objects.all() 
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['clearance'] = self.get_form()
+        return context
+class ClearanceUpdateView(UpdateView):
+    form_class = FormClearance
+    model = ClearanceForm
+    template_name = 'landing/clearance_form.html'
+    queryset = ClearanceForm.objects.all() 
+
+class ClearanceDetailView(DetailView):
+    form_class = FormClearance
+    model = ClearanceForm
+    template_name = 'landing/clearance_form.html'
+    queryset = ClearanceForm.objects.all() 
+
+class ScholarshipCreateView(CreateView):
+    form_class = FormScholar
+    model = ScholarshipForm
+    template_name = 'landing/scholar_form.html'
+    queryset = IndigencyForm.objects.all() 
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['scholar'] = self.get_form()
+        return context
+
+class ScholarshipUpdateView(UpdateView):
+    form_class = FormScholar
+    model = ScholarshipForm
+    template_name = 'landing/scholar_form.html'
+    queryset = IndigencyForm.objects.all() 
+
+class ScholarshipDetailView(DetailView):
+    form_class = FormScholar
+    model = ScholarshipForm
+    template_name = 'landing/scholar_form.html'
+    queryset = IndigencyForm.objects.all() 
+
+class BusinessCreateView(CreateView):
+    form_class = FormBusiness
+    model = BusinessPermit
+    template_name = 'landing/business_form.html'
+    queryset = IndigencyForm.objects.all() 
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['business'] = self.get_form()
+        return context
+
+class BusinessUpdateView(UpdateView):
+    form_class = FormBusiness
+    model = BusinessPermit
+    template_name = 'landing/business_form.html'
+    queryset = IndigencyForm.objects.all() 
+
+class BusinessDetailView(DetailView):
+    form_class = FormBusiness
+    model = BusinessPermit
+    template_name = 'landing/business_form.html'
+    queryset = IndigencyForm.objects.all() 
+
+class BurialCreateView(CreateView):
+    form_class = FormBurial
+    model = BurialForm
+    template_name = 'landing/burial_form.html'
+    queryset = IndigencyForm.objects.all() 
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['burial'] = self.get_form()
+        return context
+
+class BurialUpdateView(UpdateView):
+    form_class = FormBurial
+    model = BurialForm
+    template_name = 'landing/burial_form.html'
+    queryset = IndigencyForm.objects.all() 
+
+class BurialDetailView(DetailView):
+    form_class = FormBurial
+    model = BurialForm
+    template_name = 'landing/burial_form.html'
+    queryset = IndigencyForm.objects.all() 

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+{% load static %}
+{% load widget_tweaks %}
+{% load crispy_forms_tags %}
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Super Admin Dashboard</title>
+	<link rel="stylesheet" href="{% static 'plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.css' %}">
+    
+    <!-- Select2 CSS -->
+    <link rel="stylesheet" href="{% static 'plugins/select2/select2.css' %}">
+    
+    <!-- Toggle CSS -->
+    <link rel="stylesheet" href="{% static 'plugins/toggle/toggle.min.css' %}">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'landing/css/website-formcss.css' %}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap/bootstrapCSS/bootstrap.min.css' %}" >
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'landing/css/finalwebsiteformcss.css' %}">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{% static 'plugins/fontawesome/css/all.css' %}">
+	<!-- <link rel="stylesheet" href="{% static 'landing/css/websitecss.css' %}"> -->
+	
+    <script src="{% static 'plugins/fontawesome/js/all.js' %}" ></script>
+
+</head>
+     <body>
+{% block mainNav %}
+{% include "landing/landing_navbar.html" %}
+{% endblock mainNav %}
+{% block forms %}
+<div class="mt-5">-</div>
+  		<div class="mt-5">-</div>
+	  	 <div class="container d-flex justify-content-start ml-6 align-top">
+					<div class="row  col-12	">
+					 <div class="col-md-12 col-sm-12">
+					   <div class="vertical-tabs nav-fill">
+						  <ul class="nav nav-tabs" role="tablist">
+							 <li class="nav-item">
+								<a class="nav-link  active" data-toggle="tab" href="#idcard" role="tab" aria-controls="home">Create Resident Record</a>
+							 </li>
+							 <li class="nav-item">
+								<a class="nav-link" data-toggle="tab" href="#indigency" role="tab" aria-controls="profile">Registered Resident</a>
+							 </li>
+							</ul>
+					  		<form id="regForm" action="/action_page.php" class="card">
+						  <div class="tab-content">
+						  	
+							 <div class="tab-pane active" id="idcard" role="tabpanel">
+							 <!-- FOR ID CARD -->
+							 	
+								<div class="sv-tab-panel">
+									<h4 class="text-warning pb-0">Register New Resident</h4><hr>
+                     				  <h6 class="text-secondary pl-3 pb-1">Please fill up the form if not yet registered...</h6>
+									
+									
+										
+									
+									<div class="row mt-2 d-flex justify-content-center">
+											<!-- <button type="submit" class="btn btn-secondary" data-toggle="modal" data-target="#IDModal" >Next Page </button> -->
+											<a class="nav-link" data-toggle="tab" href="#indigency" role="tab" aria-controls="profile">Next Page</a>
+										</div>
+
+									<!-- Modal -->
+
+									<!-- Modal -->
+									
+								</div>
+								 </form>
+							 </div>
+							 
+							 <!-- FOR INDIGENCY TAB -->
+							 <div class="tab-pane" id="indigency" role="tabpanel">
+							 <div class="form-group row">
+									<div class="col-12">
+										{{ form.is_senior|as_crispy_field }}
+										{{ form.senior_id|as_crispy_field }}
+										{{ form.is_pwd|as_crispy_field }}
+										{{ form.pwd_id|as_crispy_field }}
+										{{ form.is_fresh_grad|as_crispy_field }}
+										<span id="seniorId">{{senior_id}}</span>
+										<span id="pwdId">{{pwd_id}}</span>
+									   
+									</div>
+							
+						<!-- Basic info end -->
+								<!-- col-12 end -->
+								<div class="col-12 pt-5">
+									<div class="text-center ml-3 pl-5">
+										<button type="submit"  class="btn btn-warning btn-brown" style="color: #fff">Save</button>
+									</div>
+								</div>
+								<!-- col-12 end -->
+							</div><!--col9-->
+							<div class="col-3">
+									<div class="row">
+										<div class="col-6 col-md-12 p-0">
+											<div class=" imgResidentInv text-center pt-4">
+												
+												<!-- {% if resident_profile %} -->
+													<!-- <img class="card-img-top" src="{{ resident_profile.picture.url }}"/> -->
+												<!-- {% else %} -->
+													 <i class="fa fa-user fa-10x" style="color: #c4c4c4"></i>
+												<!-- {% endif %} -->
+													
+											</div>
+										</div>    
+									</div>
+									<div class="row">
+										<div class="col-6 col-md-12 text-center updateImgContainer pt-2 mb-3" >
+											<div id="upload_button" >
+												<label>
+													{{ form.resident_profile|as_crispy_field }}
+														<!-- TODO  -->
+													<span class="text-white font-weight-bold" style="cursor: pointer !important; font-size: 14px !important;">
+														UPLOAD PHOTO <i class="fa fa-edit"></i>
+													</span>
+												</label>
+											</div>
+										</div>    
+									</div>
+									<div class="row">
+										<div class="col-11">
+											<div class="inputLabel black-text"></div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-12 text-center pb-3">
+											<span class="font-weight-bold text-center">
+												PWD?
+											</span>
+										</div>
+										<div class="col-3"></div>
+										<div class="col-6">
+											<div class="switch-field isPwd">
+												<input type="radio" id="pwdYesId" name="switch-one" value="yes" />
+												<label for="pwdYesId">Yes</label>
+												<input type="radio" id="pwdNoId" name="switch-one" value="no" checked />
+												<label for="pwdNoId">No</label>
+											</div>
+										</div>
+										<div class="col-3"></div>
+									</div><!--row-->
+									<div class="row disabilityRow d-none">
+										<div class="col-12 text-center">
+											<label for="resReligion" class="text-center">Enter Disability</label>
+										</div>
+										<div class="col-2"></div>
+										<div class="col-8">
+											{{ form.disability|as_crispy_field }}
+										</div>
+									</div><!--disability row-->
+									<div class="row">
+									<div class="col-12 text-center pb-3">
+										<span class="font-weight-bold text-center">
+											Fresh Graduate?
+										</span>
+									</div>
+									<div class="col-3"></div>
+									<div class="col-6">
+										<div class="switch-field isFreshGrad">
+											<input type="radio" id="gradYesId" name="switch-two" value="yes" />
+											<label for="gradYesId">Yes</label>
+											<input type="radio" id="gradNoId" name="switch-two" value="no" checked />
+											<label for="gradNoId">No</label>
+										</div>
+									</div>
+									<div class="col-3"></div>
+								</div><!--row-->
+							</div><!-- col3-->
+						</div>
+					</div>
+							 
+							 
+							 </div>
+							 
+							 <!-- ENDS FORM CONTAINER -->
+						  </div>
+					   </div>
+					</div>
+				</div>
+			</div>
+
+		
+{% endblock forms %}
+{% block footer %}
+{% include "landing/landing_footer.html"%}
+{% endblock footer %}
+<!-- end of main wrapper -->
+<!-- Datepicker JS -->
+  <script src="{% static 'plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.js' %}"></script>
+  
+  <!-- Select2 JS -->
+  <script src="{% static 'plugins/select2/select2.js' %}"></script>
+
+  <!-- Toggle JS -->
+  <script src="{% static 'plugins/toggle/toggle.min.js' %}"></script>
+  
+  <!-- Custom JS -->
+  <script src="{% static 'residents/residents.js' %}"></script>
+<script>
+	  $('#id_nationality').val('Filipino');
+	  $('#id_date_of_birth').addClass('datepicker');
+	  $('#id_age').prop('readonly', true);
+	  $('#div_id_is_senior').addClass('d-none');
+	  $('#div_id_senior_id').addClass('d-none');
+	  $('#div_id_is_pwd').addClass('d-none');
+	  $('#div_id_is_fresh_grad').addClass('d-none');
+	  $('#div_id_pwd_id').addClass('d-none');
+	  $('#seniorId').addClass('d-none');
+	  $('#pwdId').addClass('d-none');
+	  $seniorId = $('span#seniorId').text();
+	  $pwdId = $('span#pwdId').text();
+	  $(document).ready(function(){
+		  var $year = $("#id_date_of_birth");
+		  var $age = $('#id_age');
+		  var d = new Date();
+		  var month = d.getMonth()+1;
+		  var day = d.getDate();
+
+		  var date_today = (month<10 ? '0' : '') + month + '/' +
+					  (day<10 ? '0' : '') + day + '/' +
+					  d.getFullYear()
+
+		  $("#id_date_of_birth").blur(function() {
+			  // alert($year.val(this.value));
+			  birthDate = this.value + "";
+			  birthDate = new Date(birthDate);
+			  var date_today = new Date();
+			  $ageD = Math.floor((date_today-birthDate) / (365.25 * 24 * 60 * 60 * 1000));
+			  $age.val($ageD);
+			  // is senior?
+			  if( $age.val().length > 1 ) {
+				  if( $age.val() >= 60) {
+					  $('#id_is_senior').val('Senior');
+					  $('#id_senior_id').val($seniorId);
+				  }
+				  else if( $age.val() <= 59) {
+					  $('#id_is_senior').val('Nonsenior');
+				  }
+			  }
+		  });
+		  // is pwd?
+		  $("div.isPwd input[type='radio']").click(function(){
+			  var radioValue = $("input[name='switch-one']:checked").val();
+			  if(radioValue){
+				  $('#id_is_pwd').val(radioValue);
+				  if($('#id_is_pwd').val() == 'yes'){
+					  $('div.disabilityRow').removeClass('d-none');
+					  $('#id_pwd_id').val($pwdId);
+				  }
+				  else if ($('#id_is_pwd').val() == 'no'){
+					  $('div.disabilityRow').addClass('d-none');
+				  }
+			  }
+		  });
+		  // is fresh grad?
+		  $("div.isFreshGrad input[type='radio']").click(function(){
+			  var radioValue2 = $("input[name='switch-two']:checked").val();
+			  if(radioValue2){
+				  $('#id_is_fresh_grad').val(radioValue2);
+			  }
+		  });
+		  // picture
+		  $("input:file").change(function (){
+			  var fileName = $(this).val();
+			  $(".inputLabel").html(fileName);
+		  });
+	  }); 
+	  
+  </script>
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="{% static 'plugins/jqueryjs/jquery.js' %}"></script>
+   
+    <!-- Popper.JS -->
+    <script src="{% static 'plugins/popperjs/popper.js' %}"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="{% static 'plugins/bootstrap/bootstrapJS/bootstrap.js' %}"></script>
+
+    <!-- Custom JS -->
+    <script src="{% static 'landing/js/appcustom.js' %}"></script>
+</body>
+
+</html>

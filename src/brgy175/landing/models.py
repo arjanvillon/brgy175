@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 class IDForm(models.Model):
     resident = models.OneToOneField('residents.Resident', on_delete=models.CASCADE, null=True)
@@ -6,6 +7,9 @@ class IDForm(models.Model):
     con_person_address = models.CharField(max_length=100)
     con_person_relationsip = models.CharField(max_length=20)
     con_person_mobile = models.CharField(max_length=11)
+
+    def get_absolute_url(self):
+        return reverse("landing:create_id")
 
 class IndigencyForm(models.Model):
     resident = models.OneToOneField('residents.Resident', on_delete=models.CASCADE, null=True)
@@ -19,6 +23,9 @@ class IndigencyForm(models.Model):
     financial_assistance = models.BooleanField(default=False)
     educational_assistance = models.BooleanField(default=False)
     dswd_financial = models.BooleanField(default=False)
+
+    def get_absolute_url(self):
+        return reverse("landing:create_indigent")
 
 class ClearanceForm(models.Model):
     resident = models.OneToOneField('residents.Resident', on_delete=models.CASCADE, null=True)
@@ -47,12 +54,18 @@ class ClearanceForm(models.Model):
     bir = models.BooleanField(default=False)
     nha = models.BooleanField(default=False)
 
+    def get_absolute_url(self):
+        return reverse("landing:create_clearance")
+
 class BusinessPermit(models.Model):
     resident = models.ForeignKey('residents.Resident', on_delete=models.CASCADE, null=True)
     barangay_permit = models.BooleanField(default=False)
     city_permit = models.BooleanField(default=False)
     business_address = models.CharField(max_length=100)
     business_name = models.CharField(max_length=50)
+
+    def get_absolute_url(self):
+        return reverse("landing:create_business")
 
 class ScholarshipForm(models.Model):
     resident = models.OneToOneField('residents.Resident', on_delete=models.CASCADE, null=True)
@@ -71,6 +84,9 @@ class ScholarshipForm(models.Model):
     mother_precint = models.CharField(max_length=30)
     mother_salary = models.IntegerField()
 
+    def get_absolute_url(self):
+        return reverse("landing:create_scholar")
+
 class BurialForm(models.Model):
     resident = models.ForeignKey('residents.Resident', on_delete=models.CASCADE, null=True)
     burial_name = models.CharField(max_length=50)
@@ -80,3 +96,6 @@ class BurialForm(models.Model):
     burial_death = models.DateField()
     burial_interment_place = models.CharField(max_length=50)
     burial_interment_date = models.DateField()
+
+    def get_absolute_url(self):
+        return reverse("landing:create_burial")

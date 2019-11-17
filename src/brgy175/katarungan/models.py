@@ -10,7 +10,7 @@ class Katarungan(models.Model):
     complainant = models.CharField(max_length=30)
     case_status = models.CharField(max_length=8, default='CFA')
     convict = models.ForeignKey(Resident,related_name='convicted', on_delete=models.CASCADE, null=True)
-
+    
     created_date = models.DateTimeField(default=timezone.now)
 
     def __str__(self):

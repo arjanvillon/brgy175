@@ -1,0 +1,18 @@
+{% load static %}
+ <nav class="navbar navbar-expand-lg mb-4 top-bar fixed-top" style="background:#F47735">
+    <div class="container">
+        <a class="navbar-brand  col-4" href="#"><img src="{% static 'landing/images/brgylogo_long.png' %}" style="width: 100%;"></a>
+        <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon" ></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+            <li class="nav-item"> <a class="nav-link"  href="{% url 'landing:landingBase' %}">Home <span class="sr-only">(current)</span></a> </li>
+            <li class="nav-item"> <a class="nav-link" href="{% url 'landing:aboutUs' %}">About</a> </li>
+            <!-- <li class="nav-item"> <a class="nav-link" href="{% url 'landing:apply' %}">Applications</a> </li> -->
+            <!-- <li class="nav-item"> <a class="nav-link" href="projects.html">Events</a> </li> -->
+            <li class="nav-item"> <a class="nav-link" href="{% url 'landing:contactUs' %}">Contact</a> </li>
+        </ul>
+    </div>
+</div>
+</nav>
